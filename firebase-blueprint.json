@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "LeaderboardEntry": {
+      "title": "Leaderboard Entry",
+      "description": "A record of a user's quiz score.",
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "description": "The name entered by the user."
+        },
+        "score": {
+          "type": "number",
+          "description": "The number of correct answers."
+        },
+        "totalQuestions": {
+          "type": "number",
+          "description": "The total number of questions in the quiz."
+        },
+        "levelTitle": {
+          "type": "string",
+          "description": "The title of the level/topic."
+        },
+        "difficulty": {
+          "type": "string",
+          "description": "The difficulty level (Easy, Medium, Hard)."
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the score was achieved."
+        }
+      },
+      "required": ["userName", "score", "totalQuestions", "levelTitle", "difficulty", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/leaderboard/{entryId}": {
+      "schema": "LeaderboardEntry",
+      "description": "Collection of all leaderboard entries."
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Fredoka:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fredoka", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-sky-50 text-slate-900 overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .btn-playful {
+    @apply px-6 py-3 rounded-2xl font-display font-semibold text-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg;
+  }
+  
+  .card-playful {
+    @apply bg-white rounded-3xl p-6 shadow-xl border-4 border-transparent hover:border-sky-200 hover:shadow-2xl transition-all duration-300;
+  }
+}
+
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}

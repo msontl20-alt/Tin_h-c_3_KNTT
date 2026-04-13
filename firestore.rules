@@ -1,0 +1,47 @@
+// ===============================================================
+// Assumed Data Model
+// ===============================================================
+//
+// Collection: leaderboard
+// Document ID: auto-generated
+// Fields:
+//   - userName: string (required, 1-50 chars)
+//   - score: number (required, >= 0)
+//   - totalQuestions: number (required, > 0)
+//   - levelTitle: string (required)
+//   - difficulty: string (required, enum: Easy, Medium, Hard)
+//   - timestamp: timestamp (required)
+//
+// ===============================================================
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper Functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isValidLeaderboardEntry(data) {
+      return data.userName is string && data.userName.size() >= 1 && data.userName.size() <= 50 &&
+             data.score is number && data.score >= 0 &&
+             data.totalQuestions is number && data.totalQuestions > 0 &&
+             data.levelTitle is string &&
+             data.difficulty in ['Easy', 'Medium', 'Hard'] &&
+             data.timestamp is timestamp;
+    }
+
+    match /leaderboard/{entryId} {
+      // Allow anyone to read the leaderboard (publicly visible)
+      allow read: if true;
+      
+      // Allow submissions with strict validation
+      // Note: Anonymous auth was restricted, so we allow unauthenticated creates for the leaderboard
+      allow create: if isValidLeaderboardEntry(request.resource.data);
+      
+      // No updates or deletes allowed for leaderboard entries to maintain integrity
+      allow update, delete: if false;
+    }
+  }
+}
