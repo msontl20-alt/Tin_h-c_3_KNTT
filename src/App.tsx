@@ -3,20 +3,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { Component, useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Trophy, 
   Play, 
+  Rewind,
   Info, 
   Monitor, 
   MousePointer2, 
   ShieldCheck,
   GitBranch,
   ChevronLeft, 
+  ChevronRight,
+  ArrowRightCircle,
   ChevronUp,
   ChevronDown,
   CheckCircle2, 
+  Check,
   XCircle,
   Star,
   Home,
@@ -26,61 +30,244 @@ import {
   Medal,
   Clock,
   LogOut,
+  EyeOff,
+  Search,
+  Filter,
   Loader2,
+  Folder,
   FolderOpen,
   FileText,
-  Presentation
+  Presentation,
+  Globe,
+  Keyboard,
+  ShieldAlert,
+  Code,
+  Zap,
+  Flame,
+  AppWindow,
+  Lightbulb,
+  Volume2,
+  VolumeX,
+  Settings,
+  Bell,
+  BellOff,
+  Eye,
+  Activity,
+  History,
+  AlertCircle,
+  Terminal,
+  ArrowRight
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { LEVELS, Level, Question, Difficulty } from './constants';
-import { db } from './firebase';
-import { 
-  collection, 
-  addDoc, 
-  query, 
-  orderBy, 
-  limit, 
-  getDocs, 
-  serverTimestamp,
-  Timestamp 
-} from 'firebase/firestore';
+import { GRADES } from './constants';
+import { Grade, Level, Question, Difficulty } from './types';
+
+function handleAppError(error: unknown, context: string) {
+  const errMessage = error instanceof Error ? error.message : String(error);
+  console.error(`App Error (${context}): `, errMessage);
+  throw new Error(errMessage);
+}
+
+interface ErrorBoundaryProps {
+  children: React.ReactNode;
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+  errorInfo: string | null;
+}
+
+class AppErrorBoundary extends React.Component<any, any> {
+  constructor(props: any) {
+    super(props);
+    this.state = { hasError: false, errorInfo: null };
+  }
+
+  static getDerivedStateFromError(error: any) {
+    return { hasError: true, errorInfo: error.message };
+  }
+
+  componentDidCatch(error: any, errorInfo: any) {
+    console.error("ErrorBoundary caught an error", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4 text-center">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="max-w-md w-full bg-white rounded-3xl shadow-2xl p-8 border-2 border-rose-100"
+          >
+            <div className="w-20 h-20 bg-rose-100 rounded-full flex items-center justify-center text-rose-500 mx-auto mb-6">
+              <ShieldAlert className="w-12 h-12" />
+            </div>
+            <h2 className="text-2xl font-display font-bold text-slate-800 mb-4">Ối! Có lỗi xảy ra rồi</h2>
+            <p className="text-slate-600 mb-8 leading-relaxed">
+              Hệ thống đang gặp một chút trục trặc kỹ thuật. Đừng lo nhé, em hãy thử tải lại trang hoặc quay lại sau ít phút.
+            </p>
+            <button 
+              onClick={() => window.location.reload()}
+              className="w-full btn-playful bg-sky-500 text-white"
+            >
+              Tải lại trang
+            </button>
+            {process.env.NODE_ENV !== 'production' && this.state.errorInfo && (
+              <details className="mt-6 text-left p-4 bg-slate-50 rounded-xl border border-slate-100">
+                <summary className="text-xs font-bold text-slate-400 cursor-pointer uppercase tracking-widest">Chi tiết kỹ thuật</summary>
+                <pre className="mt-2 text-[10px] text-rose-600 overflow-x-auto whitespace-pre-wrap font-mono">
+                  {this.state.errorInfo}
+                </pre>
+              </details>
+            )}
+          </motion.div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
 
 // ... (playSound and ICON_MAP remain the same)
-const playSound = (type: 'correct' | 'incorrect' | 'select') => {
-  const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+// Singleton AudioContext to avoid browser limits
+let audioCtx: AudioContext | null = null;
+let globalVolume = 0.5;
+
+const triggerHaptic = (type: 'success' | 'error' | 'light' | 'warning' | 'medium') => {
+  // Check for native vibration support
+  if (typeof navigator !== 'undefined' && navigator.vibrate) {
+    switch (type) {
+      case 'success':
+        navigator.vibrate(40);
+        break;
+      case 'error':
+        navigator.vibrate([60, 100, 60]);
+        break;
+      case 'warning':
+        navigator.vibrate([30, 50, 30]);
+        break;
+      case 'light':
+        navigator.vibrate(15);
+        break;
+      case 'medium':
+        navigator.vibrate(25);
+        break;
+    }
+  }
+};
+
+const playSound = (type: 'correct' | 'incorrect' | 'select' | 'timeout' | 'skip' | 'achievement') => {
+  // Trigger appropriate haptic feedback
+  if (type === 'correct') triggerHaptic('success');
+  else if (type === 'incorrect') triggerHaptic('error');
+  else if (type === 'achievement') triggerHaptic('warning');
+  else if (type === 'timeout') triggerHaptic('error');
+  else if (type === 'select') triggerHaptic('light');
+  else if (type === 'skip') triggerHaptic('light');
+
+  if (globalVolume === 0) return;
+  
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+  }
+
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+
   const oscillator = audioCtx.createOscillator();
   const gainNode = audioCtx.createGain();
 
   oscillator.connect(gainNode);
   gainNode.connect(audioCtx.destination);
 
+  const now = audioCtx.currentTime;
+
   if (type === 'correct') {
-    // Happy "ding" sound
-    oscillator.type = 'sine';
-    oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
-    oscillator.frequency.exponentialRampToValueAtTime(1046.50, audioCtx.currentTime + 0.1); // C6
-    gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
-    oscillator.start();
-    oscillator.stop(audioCtx.currentTime + 0.3);
+    // Magic harmonious chord (Major Triad)
+    const frequencies = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+    frequencies.forEach((freq, i) => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, now + i * 0.05);
+      osc.frequency.exponentialRampToValueAtTime(freq * 1.5, now + i * 0.05 + 0.2);
+      
+      gain.gain.setValueAtTime(0, now);
+      gain.gain.linearRampToValueAtTime(0.15 * globalVolume, now + i * 0.05 + 0.05);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + i * 0.05 + 0.5);
+      
+      osc.start(now + i * 0.05);
+      osc.stop(now + i * 0.05 + 0.5);
+    });
   } else if (type === 'incorrect') {
-    // Sad "buzz" sound
-    oscillator.type = 'sawtooth';
-    oscillator.frequency.setValueAtTime(150, audioCtx.currentTime);
-    oscillator.frequency.linearRampToValueAtTime(100, audioCtx.currentTime + 0.2);
-    gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-    gainNode.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
-    oscillator.start();
-    oscillator.stop(audioCtx.currentTime + 0.4);
+    // Dissonant downward slide
+    const frequencies = [220, 174.61]; // A3, F3 (Minor 6th dissonance)
+    frequencies.forEach((freq, i) => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.type = i === 0 ? 'sawtooth' : 'square';
+      osc.frequency.setValueAtTime(freq, now);
+      osc.frequency.linearRampToValueAtTime(freq * 0.6, now + 0.4);
+      
+      gain.gain.setValueAtTime(0.1 * globalVolume, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+      
+      osc.start(now);
+      osc.stop(now + 0.5);
+    });
   } else if (type === 'select') {
     // Subtle "pop" sound
     oscillator.type = 'sine';
-    oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
-    oscillator.frequency.exponentialRampToValueAtTime(220, audioCtx.currentTime + 0.1);
-    gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
-    oscillator.start();
-    oscillator.stop(audioCtx.currentTime + 0.1);
+    oscillator.frequency.setValueAtTime(440, now);
+    oscillator.frequency.exponentialRampToValueAtTime(220, now + 0.1);
+    gainNode.gain.setValueAtTime(0.1 * globalVolume, now);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+    oscillator.start(now);
+    oscillator.stop(now + 0.1);
+  } else if (type === 'skip') {
+    // "Whoosh" sound
+    oscillator.type = 'sine';
+    oscillator.frequency.setValueAtTime(880, now);
+    oscillator.frequency.exponentialRampToValueAtTime(440, now + 0.2);
+    gainNode.gain.setValueAtTime(0.1 * globalVolume, now);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+    oscillator.start(now);
+    oscillator.stop(now + 0.2);
+  } else if (type === 'achievement') {
+    // Fanfare sound
+    [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+      const osc = audioCtx!.createOscillator();
+      const gain = audioCtx!.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx!.destination);
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, now + i * 0.1);
+      gain.gain.setValueAtTime(0, now);
+      gain.gain.setValueAtTime(0.2 * globalVolume, now + i * 0.1);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + i * 0.1 + 0.4);
+      osc.start(now + i * 0.1);
+      osc.stop(now + i * 0.1 + 0.4);
+    });
+  } else if (type === 'timeout') {
+    // Alarm-like sound
+    oscillator.type = 'square';
+    oscillator.frequency.setValueAtTime(200, now);
+    oscillator.frequency.setValueAtTime(150, now + 0.1);
+    oscillator.frequency.setValueAtTime(200, now + 0.2);
+    oscillator.frequency.setValueAtTime(150, now + 0.3);
+    gainNode.gain.setValueAtTime(0.1, now);
+    gainNode.gain.linearRampToValueAtTime(0, now + 0.5);
+    oscillator.start(now);
+    oscillator.stop(now + 0.5);
   }
 };
 
@@ -90,12 +277,222 @@ const ICON_MAP: Record<string, any> = {
   MousePointer2,
   ShieldCheck,
   GitBranch,
+  Folder,
   FolderOpen,
   FileText,
-  Presentation
+  Presentation,
+  Globe,
+  Keyboard,
+  ShieldAlert,
+  Code,
+  Zap,
+  Flame,
+  AppWindow,
+  Lightbulb,
+  Trophy,
+  Medal,
+  Star
 };
 
-type GameState = 'HOME' | 'NAME_INPUT' | 'LEVEL_SELECT' | 'DIFFICULTY_SELECT' | 'PLAYING' | 'SUMMARY' | 'LEADERBOARD' | 'ACHIEVEMENTS';
+// Floating emoji particles for feedback
+const FloatingParticles = ({ type, count = 8 }: { type: 'correct' | 'incorrect', count?: number }) => {
+  const emojis = type === 'correct' ? ['✅', '🌟', '✨', '🎈', '🎉', '🏆'] : ['❌', '💨', '⚡', '🩹', '🧩', '⚠️'];
+  
+  return (
+    <div className="absolute inset-0 pointer-events-none z-50 overflow-hidden">
+      {Array.from({ length: count }).map((_, i) => (
+        <motion.div
+          key={i}
+          initial={{ 
+            opacity: 0, 
+            scale: 0,
+            x: '50%', 
+            y: '50%',
+            left: '50%',
+            top: '50%'
+          }}
+          animate={{ 
+            opacity: [0, 1, 1, 0],
+            scale: [0, 1.5, 1, 0.5],
+            x: `${(Math.random() - 0.5) * 600}%`,
+            y: `${(Math.random() - 0.5) * 600}%`,
+            rotate: Math.random() * 360
+          }}
+          transition={{ 
+            duration: 1 + Math.random(), 
+            ease: "easeOut",
+            delay: Math.random() * 0.2
+          }}
+          className="absolute text-2xl md:text-3xl select-none"
+        >
+          {emojis[Math.floor(Math.random() * emojis.length)]}
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+const TreeNavigation = ({ 
+  grades, 
+  onSelectGrade, 
+  onSelectLevel, 
+  onToggleWatch,
+  selectedGradeId, 
+  selectedLevelId,
+  completedLevels,
+  watchedLevels
+}: { 
+  grades: Grade[], 
+  onSelectGrade: (g: Grade) => void, 
+  onSelectLevel: (l: Level) => void,
+  onToggleWatch: (id: number) => void,
+  selectedGradeId?: number,
+  selectedLevelId?: number,
+  completedLevels: number[],
+  watchedLevels: number[]
+}) => {
+  const [expandedGrades, setExpandedGrades] = useState<number[]>(selectedGradeId ? [selectedGradeId] : []);
+
+  useEffect(() => {
+    if (selectedGradeId && !expandedGrades.includes(selectedGradeId)) {
+      setExpandedGrades(prev => [...prev, selectedGradeId]);
+    }
+  }, [selectedGradeId]);
+
+  const toggleGrade = (id: number) => {
+    setExpandedGrades(prev => 
+      prev.includes(id) ? prev.filter(g => g !== id) : [...prev, id]
+    );
+  };
+
+  return (
+    <div className="bg-white/80 backdrop-blur-sm rounded-3xl border-2 border-slate-100 p-6 shadow-xl h-fit sticky top-8">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-lg font-display font-bold text-slate-800 flex items-center gap-2">
+          <GitBranch className="w-5 h-5 text-sky-500" />
+          Cây thư mục học tập
+        </h3>
+        <Activity className="w-4 h-4 text-emerald-500 animate-pulse" />
+      </div>
+
+      <div className="space-y-2">
+        {grades.map(grade => {
+          const isExpanded = expandedGrades.includes(grade.id);
+          const isSelected = selectedGradeId === grade.id;
+          
+          return (
+            <div key={grade.id} className="space-y-1">
+              <button 
+                onClick={() => {
+                  toggleGrade(grade.id);
+                  onSelectGrade(grade);
+                }}
+                className={`w-full flex items-center gap-2 p-2 rounded-xl transition-all text-left group ${
+                  isSelected ? 'bg-sky-50 text-sky-700 font-bold' : 'hover:bg-slate-50 text-slate-600'
+                }`}
+              >
+                <div className="transition-transform duration-200" style={{ transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)' }}>
+                  <ChevronRight className="w-4 h-4" />
+                </div>
+                {isExpanded ? <FolderOpen className="w-5 h-5 text-sky-500" /> : <Folder className="w-5 h-5 text-sky-400" />}
+                <span className="truncate">{grade.title}</span>
+              </button>
+              
+              <AnimatePresence initial={false}>
+                {isExpanded && (
+                  <motion.div 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden ml-6 space-y-1 border-l-2 border-slate-100 pl-2"
+                  >
+                    {grade.levels.map(level => {
+                      const isLevelSelected = selectedLevelId === level.id;
+                      const isCompleted = completedLevels.includes(level.id);
+                      const isWatched = watchedLevels.includes(level.id);
+                      return (
+                        <div key={level.id} className="group flex items-center gap-1 pr-1">
+                          <button
+                            onClick={() => onSelectLevel(level)}
+                            className={`flex-1 flex items-center gap-2 p-2 rounded-lg transition-all text-left text-sm ${
+                              isLevelSelected ? 'bg-sky-100 text-sky-700 font-bold' : 'hover:bg-slate-50 text-slate-500'
+                            }`}
+                          >
+                            <FileText className={`w-4 h-4 ${isCompleted ? 'text-green-500' : isLevelSelected ? 'text-sky-500' : 'text-slate-400'}`} />
+                            <span className={`truncate flex-1 ${isCompleted ? 'text-slate-500 line-through' : ''}`}>{level.title}</span>
+                            {isCompleted && <Check className="w-3 h-3 text-green-500" />}
+                          </button>
+                          
+                          <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onToggleWatch(level.id);
+                            }}
+                            className={`p-1.5 rounded-md transition-colors ${
+                              isWatched ? 'bg-amber-100 text-amber-600' : 'text-slate-300 hover:bg-slate-100 opacity-0 group-hover:opacity-100'
+                            }`}
+                            title={isWatched ? "Ngừng theo dõi tệp này" : "Theo dõi thay đổi tại tệp này"}
+                          >
+                            {isWatched ? <Bell className="w-3.5 h-3.5 fill-current" /> : <BellOff className="w-3.5 h-3.5" />}
+                          </motion.button>
+                        </div>
+                      );
+                    })}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const SelectionLayout = ({ 
+  children, 
+  onSelectGrade, 
+  onSelectLevel, 
+  onToggleWatch,
+  selectedGradeId, 
+  selectedLevelId,
+  completedLevels,
+  watchedLevels
+}: { 
+  children: React.ReactNode,
+  onSelectGrade: (g: Grade) => void,
+  onSelectLevel: (l: Level) => void,
+  onToggleWatch: (id: number) => void,
+  selectedGradeId?: number,
+  selectedLevelId?: number,
+  completedLevels: number[],
+  watchedLevels: number[]
+}) => {
+  return (
+    <div className="flex flex-col lg:flex-row gap-8 w-full max-w-7xl px-4 items-start">
+      <div className="lg:w-1/4 shrink-0 hidden lg:block w-full">
+        <TreeNavigation 
+          grades={GRADES} 
+          onSelectGrade={onSelectGrade} 
+          onSelectLevel={onSelectLevel}
+          onToggleWatch={onToggleWatch}
+          selectedGradeId={selectedGradeId}
+          selectedLevelId={selectedLevelId}
+          completedLevels={completedLevels}
+          watchedLevels={watchedLevels}
+        />
+      </div>
+      <div className="lg:w-3/4 w-full flex justify-center">
+        {children}
+      </div>
+    </div>
+  );
+};
+
+type GameState = 'HOME' | 'NAME_INPUT' | 'GRADE_SELECT' | 'LEVEL_SELECT' | 'DIFFICULTY_SELECT' | 'PLAYING' | 'SUMMARY' | 'LEADERBOARD' | 'ACHIEVEMENTS' | 'ABOUT' | 'EXPLORER';
 
 interface Achievement {
   id: string;
@@ -105,11 +502,22 @@ interface Achievement {
   color: string;
 }
 
+interface SystemNotification {
+  id: number;
+  title: string;
+  message: string;
+  time: string;
+  levelId?: number;
+  type: 'update' | 'security' | 'system';
+}
+
 const ACHIEVEMENTS: Achievement[] = [
   { id: 'FIRST_QUIZ', title: 'Người Khởi Đầu', description: 'Hoàn thành bài trắc nghiệm đầu tiên.', icon: 'Star', color: 'bg-blue-500' },
   { id: 'PERFECT_SCORE', title: 'Thiên Tài Nhí', description: 'Đạt điểm tuyệt đối trong một bài học.', icon: 'Trophy', color: 'bg-yellow-500' },
   { id: 'HARD_MODE', title: 'Kẻ Thách Thức', description: 'Hoàn thành một bài học ở mức độ Khó.', icon: 'ShieldCheck', color: 'bg-red-500' },
-  { id: 'ALL_LEVELS', title: 'Nhà Thông Thái', description: 'Hoàn thành tất cả các chủ đề học tập.', icon: 'Medal', color: 'bg-purple-500' }
+  { id: 'ALL_LEVELS', title: 'Nhà Thông Thái', description: 'Hoàn thành tất cả các chủ đề học tập.', icon: 'Medal', color: 'bg-purple-500' },
+  { id: 'SPEED_DEMON', title: 'Thần Tốc', description: 'Hoàn thành bài học trong thời gian cực ngắn.', icon: 'Zap', color: 'bg-orange-500' },
+  { id: 'STREAK_MASTER', title: 'Chuỗi Bất Bại', description: 'Trả lời đúng 5 câu liên tiếp.', icon: 'Flame', color: 'bg-rose-500' }
 ];
 
 interface LeaderboardEntry {
@@ -119,8 +527,28 @@ interface LeaderboardEntry {
   totalQuestions: number;
   levelTitle: string;
   difficulty: string;
-  timestamp: Timestamp;
+  timestamp: number;
 }
+
+const getScratchColor = (text: string) => {
+  const lower = text.toLowerCase();
+  if (lower.includes('di chuyển') || lower.includes('xoay') || lower.includes('tọa độ')) return 'bg-blue-500 border-blue-600';
+  if (lower.includes('khi') || lower.includes('bắt đầu')) return 'bg-amber-400 border-amber-500';
+  if (lower.includes('lặp') || lower.includes('nếu') || lower.includes('đợi')) return 'bg-orange-500 border-orange-600';
+  if (lower.includes('nói') || lower.includes('ẩn') || lower.includes('hiện') || lower.includes('trang phục')) return 'bg-purple-500 border-purple-600';
+  if (lower.includes('âm thanh') || lower.includes('phát')) return 'bg-pink-500 border-pink-600';
+  return 'bg-blue-500 border-blue-600';
+};
+
+const TOPIC_CATEGORIES = [
+  { id: 'all', label: 'Tất cả', icon: Monitor },
+  { id: 'strand-a', label: 'Máy tính & Em', keywords: ['máy tính', 'bộ phận', 'thiết bị', 'em'] },
+  { id: 'strand-b', label: 'Mạng & Internet', keywords: ['mạng', 'internet', 'thông tin'] },
+  { id: 'strand-c', label: 'Thông tin & Tìm kiếm', keywords: ['thư mục', 'tệp', 'tìm kiếm', 'tổ chức'] },
+  { id: 'strand-d', label: 'Đạo đức số', keywords: ['đạo đức', 'văn hóa', 'an toàn', 'bản quyền'] },
+  { id: 'strand-e', label: 'Ứng dụng tin học', keywords: ['văn bản', 'trình chiếu', 'soạn thảo', 'vẽ'] },
+  { id: 'strand-f', label: 'Lập trình & Scratch', keywords: ['scratch', 'lập trình', 'thuật toán', 'robot'] },
+];
 
 export default function App() {
   const [gameState, setGameState] = useState<GameState>('HOME');
@@ -129,17 +557,37 @@ export default function App() {
   const [nameError, setNameError] = useState('');
   const [leaderboardData, setLeaderboardData] = useState<LeaderboardEntry[]>([]);
   const [isLoadingLeaderboard, setIsLoadingLeaderboard] = useState(false);
+  const [leaderboardFilter, setLeaderboardFilter] = useState<Difficulty | 'All'>(() => {
+    return (localStorage.getItem('quiz_leaderboard_filter') as Difficulty) || 'All';
+  });
   
+  const [selectedGrade, setSelectedGrade] = useState<Grade | null>(() => {
+    const saved = localStorage.getItem('quiz_last_grade_id');
+    if (saved) {
+      return GRADES.find(g => g.id === parseInt(saved)) || null;
+    }
+    return null;
+  });
   const [currentLevel, setCurrentLevel] = useState<Level | null>(null);
-  const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty | null>(null);
+  const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty | null>(() => {
+    return (localStorage.getItem('quiz_preferred_difficulty') as Difficulty) || null;
+  });
   const [filteredQuestions, setFilteredQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const [currentStreak, setCurrentStreak] = useState(0);
+  const [quizStartTime, setQuizStartTime] = useState<number | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
+  const [wasSkipped, setWasSkipped] = useState(false);
   const [showQuitConfirm, setShowQuitConfirm] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
   const [isChecking, setIsChecking] = useState(false);
+  const [skippedQuestions, setSkippedQuestions] = useState<Question[]>([]);
+  const [isReviewingSkipped, setIsReviewingSkipped] = useState(false);
+  const [incorrectQuestions, setIncorrectQuestions] = useState<Question[]>([]);
+  const [isReviewingIncorrect, setIsReviewingIncorrect] = useState(false);
+  const [totalQuestionsInQuiz, setTotalQuestionsInQuiz] = useState(0);
   const [unlockedAchievements, setUnlockedAchievements] = useState<string[]>([]);
   const [newAchievement, setNewAchievement] = useState<Achievement | null>(null);
   const [orderingItems, setOrderingItems] = useState<string[]>([]);
@@ -147,11 +595,159 @@ export default function App() {
   const [matchingSelections, setMatchingSelections] = useState<{left: string | null, right: string | null}>({left: null, right: null});
   const [dragDropMapping, setDragDropMapping] = useState<Record<string, string>>({});
   const [selectedDragItem, setSelectedDragItem] = useState<string | null>(null);
+  const [timeLeft, setTimeLeft] = useState(30);
+  const [timerActive, setTimerActive] = useState(false);
+  const [isStealthMode, setIsStealthMode] = useState(false);
+  const [volume, setVolume] = useState<number>(Number(localStorage.getItem('quiz_volume')) || 0.5);
+  const [isMuted, setIsMuted] = useState<boolean>(localStorage.getItem('quiz_muted') === 'true');
+  const [showSettings, setShowSettings] = useState(false);
+  
+  const [watchedLevels, setWatchedLevels] = useState<number[]>(() => {
+    const saved = localStorage.getItem('quiz_watched_levels');
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [systemNotifications, setSystemNotifications] = useState<SystemNotification[]>([]);
+  const [showSystemMonitor, setShowSystemMonitor] = useState(false);
+  const [showLevelDetails, setShowLevelDetails] = useState(false);
+  const [showNotificationCenter, setShowNotificationCenter] = useState(false);
+  const [explorerGrade, setExplorerGrade] = useState<Grade | null>(null);
+  const [explorerSearch, setExplorerSearch] = useState('');
+  const [explorerCategory, setExplorerCategory] = useState<string>('all');
+  const [explorerDifficulty, setExplorerDifficulty] = useState<Difficulty | 'All'>('All');
+  const [explorerViewMode, setExplorerViewMode] = useState<'topics' | 'questions'>('topics');
+  const [showReviewIncorrectModal, setShowReviewIncorrectModal] = useState(false);
+  const [topicDifficultyFilter, setTopicDifficultyFilter] = useState<Difficulty | 'All'>('All');
+  const [topicViewMode, setTopicViewMode] = useState<'topics' | 'questions'>('topics');
+
+  useEffect(() => {
+    localStorage.setItem('quiz_watched_levels', JSON.stringify(watchedLevels));
+  }, [watchedLevels]);
+
+  const toggleWatchLevel = (id: number) => {
+    setWatchedLevels(prev => {
+      const isWatched = prev.includes(id);
+      if (isWatched) {
+        return prev.filter(lid => lid !== id);
+      } else {
+        playSound('select');
+        return [...prev, id];
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (watchedLevels.length === 0) return;
+    
+    const interval = setInterval(() => {
+      if (Math.random() > 0.8) {
+        const randomLevelId = watchedLevels[Math.floor(Math.random() * watchedLevels.length)];
+        const level = GRADES.flatMap(g => g.levels).find(l => l.id === randomLevelId);
+        if (level) {
+          const changeTypes: {m: string, t: 'update' | 'security' | 'system'}[] = [
+            { m: 'Dữ liệu câu hỏi vừa được cập nhật.', t: 'update' },
+            { m: 'Đã tối ưu hóa thuật toán hiển thị.', t: 'system' },
+            { m: 'Phát hiện truy cập mới vào thư mục.', t: 'security' },
+            { m: 'Bổ sung giải thích chi tiết cho đáp án.', t: 'update' }
+          ];
+          const change = changeTypes[Math.floor(Math.random() * changeTypes.length)];
+          const newNotif: SystemNotification = {
+            id: Date.now(),
+            title: `Theo dõi: ${level.title}`,
+            message: change.m,
+            time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }),
+            levelId: level.id,
+            type: change.t
+          };
+          setSystemNotifications(prev => [newNotif, ...prev].slice(0, 10));
+          // Only vibrate and potentially show a small toast if monitor is NOT open
+          if (!showSystemMonitor) {
+            triggerHaptic('warning');
+          }
+        }
+      }
+    }, 12000);
+    
+    return () => clearInterval(interval);
+  }, [watchedLevels, showSystemMonitor]);
+  const [topicSearchQuery, setTopicSearchQuery] = useState('');
+  const [selectedTopicCategory, setSelectedTopicCategory] = useState<string>('all');
+  const [recentTopics, setRecentTopics] = useState<{level: Level, gradeId: number}[]>(() => {
+    const saved = localStorage.getItem('quiz_recent_topics');
+    try {
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+  const [completedLevels, setCompletedLevels] = useState<number[]>(() => {
+    const saved = localStorage.getItem('quiz_completed_levels');
+    try {
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem('quiz_completed_levels', JSON.stringify(completedLevels));
+  }, [completedLevels]);
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    localStorage.setItem('quiz_recent_topics', JSON.stringify(recentTopics));
+  }, [recentTopics]);
+
+  const addToRecentTopics = (level: Level, gradeId: number) => {
+    setRecentTopics(prev => {
+      const filtered = prev.filter(item => item.level.id !== level.id);
+      const updated = [{ level, gradeId }, ...filtered].slice(0, 3);
+      return updated;
+    });
+  };
+
+  useEffect(() => {
+    localStorage.setItem('quiz_volume', volume.toString());
+    localStorage.setItem('quiz_muted', isMuted.toString());
+    globalVolume = isMuted ? 0 : volume;
+  }, [volume, isMuted]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'h') {
+        e.preventDefault();
+        setIsStealthMode(prev => !prev);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   useEffect(() => {
     const saved = localStorage.getItem('quiz_achievements');
     if (saved) setUnlockedAchievements(JSON.parse(saved));
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('quiz_leaderboard_filter', leaderboardFilter);
+  }, [leaderboardFilter]);
+
+  useEffect(() => {
+    if (gameState === 'LEADERBOARD') {
+      setIsLoadingLeaderboard(true);
+      const saved = localStorage.getItem('local_leaderboard');
+      let data: LeaderboardEntry[] = saved ? JSON.parse(saved) : [];
+      
+      if (leaderboardFilter !== 'All') {
+        data = data.filter(e => e.difficulty === leaderboardFilter);
+      }
+      
+      data.sort((a, b) => b.score - a.score || b.timestamp - a.timestamp);
+      setLeaderboardData(data.slice(0, 50));
+      setIsLoadingLeaderboard(false);
+    }
+  }, [gameState, leaderboardFilter]);
 
   const [displayScore, setDisplayScore] = useState(0);
 
@@ -205,6 +801,38 @@ export default function App() {
     }
   }, [gameState]);
 
+  useEffect(() => {
+    let autoNextTimeout: NodeJS.Timeout;
+    if (showFeedback && gameState === 'PLAYING') {
+      // Auto-advance after feedback is shown
+      // If correct, move faster (2.5s)
+      // If incorrect, give more time to read the explanation (6s)
+      const delay = isCorrect ? 2500 : 7000; 
+      
+      autoNextTimeout = setTimeout(() => {
+        nextQuestion();
+      }, delay);
+    }
+    return () => {
+      if (autoNextTimeout) clearTimeout(autoNextTimeout);
+    };
+  }, [showFeedback, isCorrect, gameState]);
+
+  useEffect(() => {
+    let interval: any;
+    if (timerActive && timeLeft > 0 && !showFeedback && !isChecking) {
+      interval = setInterval(() => {
+        setTimeLeft((prev) => prev - 1);
+      }, 1000);
+    } else if (timeLeft === 0 && timerActive && !showFeedback) {
+      setTimerActive(false);
+      setIsCorrect(false);
+      setShowFeedback(true);
+      playSound('timeout');
+    }
+    return () => clearInterval(interval);
+  }, [timerActive, timeLeft, showFeedback, isChecking]);
+
   const unlockAchievement = (id: string) => {
     if (unlockedAchievements.includes(id)) return;
     
@@ -214,56 +842,46 @@ export default function App() {
       setUnlockedAchievements(updated);
       localStorage.setItem('quiz_achievements', JSON.stringify(updated));
       setNewAchievement(achievement);
+      playSound('achievement');
       
       // Auto-hide notification after 5 seconds
       setTimeout(() => setNewAchievement(null), 5000);
     }
   };
 
-  const fetchLeaderboard = async () => {
-    setIsLoadingLeaderboard(true);
-    try {
-      const q = query(
-        collection(db, 'leaderboard'),
-        orderBy('score', 'desc'),
-        orderBy('timestamp', 'desc'),
-        limit(10)
-      );
-      const querySnapshot = await getDocs(q);
-      const entries: LeaderboardEntry[] = [];
-      querySnapshot.forEach((doc) => {
-        entries.push({ id: doc.id, ...doc.data() } as LeaderboardEntry);
-      });
-      setLeaderboardData(entries);
-    } catch (error) {
-      console.error("Error fetching leaderboard:", error);
-    } finally {
-      setIsLoadingLeaderboard(false);
-    }
+  const fetchLeaderboard = (filter: Difficulty | 'All' = 'All') => {
+    setLeaderboardFilter(filter);
   };
 
-  const saveScore = async () => {
+  const saveScore = () => {
     if (!userName || !currentLevel || !selectedDifficulty) return;
-    
     try {
-      await addDoc(collection(db, 'leaderboard'), {
+      const saved = localStorage.getItem('local_leaderboard');
+      const data: LeaderboardEntry[] = saved ? JSON.parse(saved) : [];
+      
+      const newEntry: LeaderboardEntry = {
+        id: Date.now().toString(),
         userName,
         score,
-        totalQuestions: filteredQuestions.length,
+        totalQuestions: totalQuestionsInQuiz,
         levelTitle: currentLevel.title,
         difficulty: selectedDifficulty,
-        timestamp: serverTimestamp()
-      });
+        timestamp: Date.now()
+      };
+      
+      data.push(newEntry);
+      localStorage.setItem('local_leaderboard', JSON.stringify(data));
     } catch (error) {
-      console.error("Error saving score:", error);
+      handleAppError(error, 'saveScore');
     }
   };
 
   const handleStartClick = () => {
+    playSound('select');
     if (!userName) {
       setGameState('NAME_INPUT');
     } else {
-      setGameState('LEVEL_SELECT');
+      setGameState('GRADE_SELECT');
     }
   };
 
@@ -278,59 +896,264 @@ export default function App() {
     
     setUserName(trimmedName);
     localStorage.setItem('quiz_user_name', trimmedName);
-    setGameState('LEVEL_SELECT');
+    playSound('select');
+    setGameState('GRADE_SELECT');
     setNameError('');
+  };
+
+  const selectGrade = (grade: Grade) => {
+    playSound('select');
+    setSelectedGrade(grade);
+    localStorage.setItem('quiz_last_grade_id', grade.id.toString());
+    setTopicSearchQuery('');
+    setSelectedTopicCategory('all');
+    setGameState('LEVEL_SELECT');
   };
 
   const selectLevel = (level: Level) => {
     playSound('select');
     setCurrentLevel(level);
-    setSelectedDifficulty(null);
+    
+    if (!watchedLevels.includes(level.id)) {
+      setWatchedLevels(prev => [...prev, level.id]);
+    }
+
+    // Keep preference if exists, but validate it against questions in level
+    const pref = localStorage.getItem('quiz_preferred_difficulty') as Difficulty | null;
+    if (pref && pref !== 'Mixed') {
+      const hasQuestions = level.questions.some(q => q.difficulty === pref);
+      if (!hasQuestions) {
+        setSelectedDifficulty(null);
+      }
+    }
     setGameState('DIFFICULTY_SELECT');
   };
 
   const confirmQuit = () => {
+    playSound('select');
     setShowQuitConfirm(false);
+    setTimerActive(false);
     setGameState('HOME');
     setCurrentLevel(null);
     setSelectedDifficulty(null);
     setCurrentQuestionIndex(0);
     setScore(0);
     setShowFeedback(false);
-    setSelectedOption(null);
+    setSelectedOptions([]);
   };
 
   const startQuiz = () => {
-    if (!currentLevel || !selectedDifficulty) return;
-    const questions = currentLevel.questions.filter(q => q.difficulty === selectedDifficulty);
-    setFilteredQuestions(questions);
+    if (!currentLevel || !selectedDifficulty || !selectedGrade) return;
+    playSound('select');
+    addToRecentTopics(currentLevel, selectedGrade.id);
+    
+    // Prepare and randomize questions
+    const rawQuestions = selectedDifficulty === 'Mixed' 
+      ? currentLevel.questions 
+      : currentLevel.questions.filter(q => q.difficulty === selectedDifficulty);
+    
+    const randomizedQuestions = rawQuestions.map(q => {
+      const newQ = { ...q };
+      
+      // Randomize MCQ and MULTIPLE_CHOICE options
+      if ((newQ.type === 'MCQ' || newQ.type === 'MULTIPLE_CHOICE' || newQ.type === 'FIND_ERROR') && newQ.options) {
+        const optionsWithMetadata = newQ.options.map((opt, idx) => {
+          let isCorrect = false;
+          if (Array.isArray(newQ.correctAnswer)) {
+            isCorrect = newQ.correctAnswer.includes(idx);
+          } else if (typeof newQ.correctAnswer === 'string' && newQ.type === 'MULTIPLE_CHOICE') {
+             isCorrect = newQ.correctAnswer.split(',').map(s => s.trim().charCodeAt(0) - 65).includes(idx);
+          } else {
+            isCorrect = newQ.correctAnswer === idx;
+          }
+          return { text: opt, isCorrect };
+        });
+        
+        // Shuffle options
+        for (let i = optionsWithMetadata.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [optionsWithMetadata[i], optionsWithMetadata[j]] = [optionsWithMetadata[j], optionsWithMetadata[i]];
+        }
+        
+        newQ.options = optionsWithMetadata.map(o => o.text);
+        
+        // Update correctAnswer index/indices
+        if (Array.isArray(newQ.correctAnswer)) {
+          newQ.correctAnswer = optionsWithMetadata
+            .map((o, i) => o.isCorrect ? i : -1)
+            .filter(i => i !== -1);
+        } else if (typeof newQ.correctAnswer === 'string' && newQ.type === 'MULTIPLE_CHOICE') {
+          const correctIndices = optionsWithMetadata
+            .map((o, i) => o.isCorrect ? i : -1)
+            .filter(i => i !== -1);
+          newQ.correctAnswer = correctIndices.map(i => String.fromCharCode(65 + i)).join(', ');
+        } else {
+          newQ.correctAnswer = optionsWithMetadata.findIndex(o => o.isCorrect);
+        }
+      }
+
+      // Randomize MATCHING pairs and pre-shuffle right items
+      if ((newQ.type === 'MATCHING' || newQ.type === 'MATCHING_PAIRS') && newQ.pairs) {
+        newQ.pairs = [...newQ.pairs].sort(() => Math.random() - 0.5);
+        newQ.shuffledRightItems = newQ.pairs.map(p => p.right).sort(() => Math.random() - 0.5);
+      }
+
+      // Randomize DRAG_DROP items and targets
+      if (newQ.type === 'DRAG_DROP') {
+        if (newQ.items) newQ.items = [...newQ.items].sort(() => Math.random() - 0.5);
+        if (newQ.targets) newQ.targets = [...newQ.targets].sort(() => Math.random() - 0.5);
+      }
+
+      return newQ;
+    }).sort((a, b) => {
+      const difficultyMap: Record<string, number> = { 'Easy': 0, 'Medium': 1, 'Hard': 2 };
+      const weightA = difficultyMap[a.difficulty] ?? 0;
+      const weightB = difficultyMap[b.difficulty] ?? 0;
+      
+      if (weightA !== weightB) {
+        return weightA - weightB;
+      }
+      return Math.random() - 0.5; // Keep randomization within the same difficulty level
+    });
+
+    setFilteredQuestions(randomizedQuestions);
+    setTotalQuestionsInQuiz(randomizedQuestions.length);
     setCurrentQuestionIndex(0);
     setScore(0);
+    setCurrentStreak(0);
+    setSkippedQuestions([]);
+    setIsReviewingSkipped(false);
+    setIncorrectQuestions([]);
+    setIsReviewingIncorrect(false);
+    setQuizStartTime(Date.now());
     setGameState('PLAYING');
     setShowFeedback(false);
-    setSelectedOption(null);
+    setSelectedOptions([]);
+    setTimeLeft(30);
+    setTimerActive(true);
     
-    // Initialize first question
-    const firstQ = questions[0];
-    if (firstQ?.type === 'ORDERING' && firstQ.items) {
-      setOrderingItems([...firstQ.items].sort(() => Math.random() - 0.5));
+    // Initialize first question's specific states
+    const firstQ = randomizedQuestions[0];
+    if ((firstQ?.type === 'ORDERING' || firstQ?.type === 'SCRATCH') && (firstQ.items || firstQ.options)) {
+      const baseItems = firstQ.items || firstQ.options || [];
+      setOrderingItems([...baseItems].sort(() => Math.random() - 0.5));
+    }
+    if ((firstQ?.type === 'MATCHING' || firstQ?.type === 'MATCHING_PAIRS') && firstQ.pairs) {
+      setMatchingSelections({left: null, right: null});
+      setMatchingPairs([]);
+    }
+  };
+
+  const handleSkip = () => {
+    if (showFeedback || isChecking || isReviewingSkipped || isReviewingIncorrect) return;
+    
+    const currentQ = filteredQuestions[currentQuestionIndex];
+    setSkippedQuestions(prev => [...prev, currentQ]);
+    setCurrentStreak(0);
+    playSound('skip');
+    
+    // Show feedback instead of moving immediately
+    setWasSkipped(true);
+    setIsCorrect(false);
+    setShowFeedback(true);
+    setTimerActive(false);
+  };
+
+  const handleReviewSkipped = () => {
+    if (skippedQuestions.length === 0) return;
+    
+    setIsReviewingSkipped(true);
+    setFilteredQuestions(skippedQuestions);
+    setSkippedQuestions([]);
+    setCurrentQuestionIndex(0);
+    setShowFeedback(false);
+    setSelectedOptions([]);
+    setIsChecking(false);
+    setGameState('PLAYING');
+    setTimerActive(true);
+    setTimeLeft(30);
+    
+    const firstSkipped = skippedQuestions[0];
+    if ((firstSkipped.type === 'ORDERING' || firstSkipped.type === 'SCRATCH') && (firstSkipped.items || firstSkipped.options)) {
+      const baseItems = firstSkipped.items || firstSkipped.options || [];
+      setOrderingItems([...baseItems].sort(() => Math.random() - 0.5));
+    }
+    if ((firstSkipped.type === 'MATCHING' || firstSkipped.type === 'MATCHING_PAIRS') && firstSkipped.pairs) {
+      setMatchingSelections({left: null, right: null});
+      setMatchingPairs([]);
+    }
+    
+    // Reset score tracking for review session if needed, 
+    // but usually we just want to ADD to it.
+  };
+
+  const handleReviewIncorrect = () => {
+    if (incorrectQuestions.length === 0) return;
+    
+    setIsReviewingIncorrect(true);
+    setFilteredQuestions(incorrectQuestions);
+    setIncorrectQuestions([]);
+    setCurrentQuestionIndex(0);
+    setShowFeedback(false);
+    setSelectedOptions([]);
+    setIsChecking(false);
+    setGameState('PLAYING');
+    setTimerActive(true);
+    setTimeLeft(30);
+    
+    const firstIncorrect = incorrectQuestions[0];
+    if ((firstIncorrect.type === 'ORDERING' || firstIncorrect.type === 'SCRATCH') && (firstIncorrect.items || firstIncorrect.options)) {
+      const baseItems = firstIncorrect.items || firstIncorrect.options || [];
+      setOrderingItems([...baseItems].sort(() => Math.random() - 0.5));
+    }
+    if ((firstIncorrect.type === 'MATCHING' || firstIncorrect.type === 'MATCHING_PAIRS') && firstIncorrect.pairs) {
+      setMatchingSelections({left: null, right: null});
+      setMatchingPairs([]);
     }
   };
 
   const handleAnswer = (optionIndex: number) => {
     if (showFeedback || isChecking) return;
     
-    setSelectedOption(optionIndex);
-    setIsChecking(true);
+    const currentQ = filteredQuestions[currentQuestionIndex];
 
-    // Brief delay for "checking" animation
+    if (currentQ.type === 'MULTIPLE_CHOICE') {
+      if (selectedOptions.includes(optionIndex)) {
+        setSelectedOptions(prev => prev.filter(i => i !== optionIndex));
+      } else {
+        setSelectedOptions(prev => [...prev, optionIndex]);
+      }
+      playSound('select');
+      return;
+    }
+
+    setSelectedOptions([optionIndex]);
+    setIsChecking(true);
+    setTimerActive(false);
+
+    let correct = false;
+    
+    if (currentQ.type === 'TRUE_FALSE') {
+      const correctIndex = currentQ.correctAnswer === true ? 0 : 1;
+      correct = optionIndex === correctIndex;
+    } else {
+      correct = optionIndex === currentQ.correctAnswer;
+    }
+    
+    // Immediate feedback calculation
+    setIsCorrect(correct);
+    
+    // Brief delay for the "checking" feel but show results faster
     setTimeout(() => {
-      const correct = optionIndex === filteredQuestions[currentQuestionIndex].correctAnswer;
-      setIsCorrect(correct);
       setIsChecking(false);
       
       if (correct) {
         setScore(prev => prev + 1);
+        const newStreak = currentStreak + 1;
+        setCurrentStreak(newStreak);
+        if (newStreak >= 5) {
+          unlockAchievement('STREAK_MASTER');
+        }
         playSound('correct');
         confetti({
           particleCount: 100,
@@ -339,10 +1162,60 @@ export default function App() {
           colors: ['#38bdf8', '#818cf8', '#fbbf24']
         });
       } else {
+        setCurrentStreak(0);
         playSound('incorrect');
+        setIncorrectQuestions(prev => {
+          if (prev.some(q => q.id === currentQ.id)) return prev;
+          return [...prev, currentQ];
+        });
       }
       setShowFeedback(true);
-    }, 800); // 800ms delay for the checking effect
+    }, 400); // Reduced from 800ms to 400ms for snappier feel
+  };
+
+  const handleMultipleChoiceSubmit = () => {
+    if (showFeedback || isChecking || selectedOptions.length === 0) return;
+    
+    setIsChecking(true);
+    setTimerActive(false);
+
+    const currentQ = filteredQuestions[currentQuestionIndex];
+    let correct = false;
+
+    // Handle both array of indices and string format "A, B, C"
+    if (Array.isArray(currentQ.correctAnswer)) {
+      correct = selectedOptions.length === currentQ.correctAnswer.length &&
+                selectedOptions.every(idx => (currentQ.correctAnswer as number[]).includes(idx));
+    } else if (typeof currentQ.correctAnswer === 'string') {
+      const correctIndices = currentQ.correctAnswer.split(',').map(s => s.trim().charCodeAt(0) - 65);
+      correct = selectedOptions.length === correctIndices.length &&
+                selectedOptions.every(idx => correctIndices.includes(idx));
+    }
+
+    setIsCorrect(correct);
+
+    setTimeout(() => {
+      setIsChecking(false);
+      if (correct) {
+        setScore(prev => prev + 1);
+        const newStreak = currentStreak + 1;
+        setCurrentStreak(newStreak);
+        playSound('correct');
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      } else {
+        setCurrentStreak(0);
+        playSound('incorrect');
+        setIncorrectQuestions(prev => {
+          if (prev.some(q => q.id === currentQ.id)) return prev;
+          return [...prev, currentQ];
+        });
+      }
+      setShowFeedback(true);
+    }, 400);
   };
 
   const handleOrderingMove = (index: number, direction: 'up' | 'down') => {
@@ -358,15 +1231,22 @@ export default function App() {
   const handleOrderingSubmit = () => {
     if (showFeedback || isChecking) return;
     setIsChecking(true);
+    setTimerActive(false);
     
+    const currentQ = filteredQuestions[currentQuestionIndex];
+    const correct = JSON.stringify(orderingItems) === JSON.stringify(currentQ.correctAnswer);
+    setIsCorrect(correct);
+
     setTimeout(() => {
-      const currentQ = filteredQuestions[currentQuestionIndex];
-      const correct = JSON.stringify(orderingItems) === JSON.stringify(currentQ.correctAnswer);
-      setIsCorrect(correct);
       setIsChecking(false);
       
       if (correct) {
         setScore(prev => prev + 1);
+        const newStreak = currentStreak + 1;
+        setCurrentStreak(newStreak);
+        if (newStreak >= 5) {
+          unlockAchievement('STREAK_MASTER');
+        }
         playSound('correct');
         confetti({
           particleCount: 100,
@@ -375,10 +1255,15 @@ export default function App() {
           colors: ['#38bdf8', '#818cf8', '#fbbf24']
         });
       } else {
+        setCurrentStreak(0);
         playSound('incorrect');
+        setIncorrectQuestions(prev => {
+          if (prev.some(q => q.id === currentQ.id)) return prev;
+          return [...prev, currentQ];
+        });
       }
       setShowFeedback(true);
-    }, 800);
+    }, 400);
   };
 
   const handleMatchingSelect = (side: 'left' | 'right', value: string) => {
@@ -402,20 +1287,25 @@ export default function App() {
   const handleMatchingSubmit = () => {
     if (showFeedback || isChecking) return;
     setIsChecking(true);
+    setTimerActive(false);
     
-    setTimeout(() => {
-      const currentQ = filteredQuestions[currentQuestionIndex];
-      const correctPairs = currentQ.pairs || [];
+    const currentQ = filteredQuestions[currentQuestionIndex];
+    const correctPairs = currentQ.pairs || [];
+    const isCorrectResult = matchingPairs.length === correctPairs.length && 
+      matchingPairs.every(p => correctPairs.some(cp => cp.left === p.left && cp.right === p.right));
       
-      // Check if all pairs are correctly matched
-      const isCorrect = matchingPairs.length === correctPairs.length && 
-        matchingPairs.every(p => correctPairs.some(cp => cp.left === p.left && cp.right === p.right));
-        
-      setIsCorrect(isCorrect);
+    setIsCorrect(isCorrectResult);
+
+    setTimeout(() => {
       setIsChecking(false);
       
-      if (isCorrect) {
+      if (isCorrectResult) {
         setScore(prev => prev + 1);
+        const newStreak = currentStreak + 1;
+        setCurrentStreak(newStreak);
+        if (newStreak >= 5) {
+          unlockAchievement('STREAK_MASTER');
+        }
         playSound('correct');
         confetti({
           particleCount: 100,
@@ -424,10 +1314,15 @@ export default function App() {
           colors: ['#38bdf8', '#818cf8', '#fbbf24']
         });
       } else {
+        setCurrentStreak(0);
         playSound('incorrect');
+        setIncorrectQuestions(prev => {
+          if (prev.some(q => q.id === currentQ.id)) return prev;
+          return [...prev, currentQ];
+        });
       }
       setShowFeedback(true);
-    }, 800);
+    }, 400);
   };
 
   const handleDragDropSelect = (item: string) => {
@@ -446,19 +1341,25 @@ export default function App() {
   const handleDragDropSubmit = () => {
     if (showFeedback || isChecking) return;
     setIsChecking(true);
+    setTimerActive(false);
     
-    setTimeout(() => {
-      const currentQ = filteredQuestions[currentQuestionIndex];
-      const correctMapping = currentQ.correctAnswer as Record<string, string>;
+    const currentQ = filteredQuestions[currentQuestionIndex];
+    const correctMapping = currentQ.correctAnswer as Record<string, string>;
+    const isCorrectResult = Object.keys(correctMapping).every(key => dragDropMapping[key] === correctMapping[key]) &&
+                      Object.keys(dragDropMapping).length === Object.keys(correctMapping).length;
       
-      const isCorrect = Object.keys(correctMapping).every(key => dragDropMapping[key] === correctMapping[key]) &&
-                        Object.keys(dragDropMapping).length === Object.keys(correctMapping).length;
-        
-      setIsCorrect(isCorrect);
+    setIsCorrect(isCorrectResult);
+
+    setTimeout(() => {
       setIsChecking(false);
       
-      if (isCorrect) {
+      if (isCorrectResult) {
         setScore(prev => prev + 1);
+        const newStreak = currentStreak + 1;
+        setCurrentStreak(newStreak);
+        if (newStreak >= 5) {
+          unlockAchievement('STREAK_MASTER');
+        }
         playSound('correct');
         confetti({
           particleCount: 100,
@@ -467,38 +1368,53 @@ export default function App() {
           colors: ['#38bdf8', '#818cf8', '#fbbf24']
         });
       } else {
+        setCurrentStreak(0);
         playSound('incorrect');
+        setIncorrectQuestions(prev => {
+          if (prev.some(q => q.id === currentQ.id)) return prev;
+          return [...prev, currentQ];
+        });
       }
       setShowFeedback(true);
-    }, 800);
+    }, 400);
   };
 
   const nextQuestion = () => {
+    playSound('select');
     setOrderingItems([]);
     setMatchingPairs([]);
     setMatchingSelections({left: null, right: null});
     setDragDropMapping({});
     setSelectedDragItem(null);
+    setTimeLeft(30);
+    setTimerActive(true);
 
     if (currentQuestionIndex < filteredQuestions.length - 1) {
       const nextIdx = currentQuestionIndex + 1;
       setCurrentQuestionIndex(nextIdx);
       setShowFeedback(false);
-      setSelectedOption(null);
+      setWasSkipped(false);
+      setSelectedOptions([]);
       setIsChecking(false);
 
       const nextQ = filteredQuestions[nextIdx];
-      if (nextQ.type === 'ORDERING' && nextQ.items) {
-        setOrderingItems([...nextQ.items].sort(() => Math.random() - 0.5));
+      if ((nextQ.type === 'ORDERING' || nextQ.type === 'SCRATCH') && (nextQ.items || nextQ.options)) {
+        const baseItems = nextQ.items || nextQ.options || [];
+        setOrderingItems([...baseItems].sort(() => Math.random() - 0.5));
+      }
+      if ((nextQ.type === 'MATCHING' || nextQ.type === 'MATCHING_PAIRS') && nextQ.pairs) {
+        setMatchingSelections({left: null, right: null});
+        setMatchingPairs([]);
       }
     } else {
+      setTimerActive(false);
       setGameState('SUMMARY');
       saveScore();
       
       // Check for achievements
       unlockAchievement('FIRST_QUIZ');
       
-      if (score === filteredQuestions.length) {
+      if (score === totalQuestionsInQuiz) {
         unlockAchievement('PERFECT_SCORE');
       }
       
@@ -506,12 +1422,19 @@ export default function App() {
         unlockAchievement('HARD_MODE');
       }
 
-      // Check for ALL_LEVELS (this would ideally check Firestore, but we can use local tracking for now)
-      const completedLevels = JSON.parse(localStorage.getItem('quiz_completed_levels') || '[]');
+      if (quizStartTime) {
+        const timeTaken = (Date.now() - quizStartTime) / 1000;
+        if (timeTaken < 30 && totalQuestionsInQuiz >= 5) {
+          unlockAchievement('SPEED_DEMON');
+        }
+      }
+
+      // Check for ALL_LEVELS
       if (currentLevel && !completedLevels.includes(currentLevel.id)) {
         const updated = [...completedLevels, currentLevel.id];
-        localStorage.setItem('quiz_completed_levels', JSON.stringify(updated));
-        if (updated.length === LEVELS.length) {
+        setCompletedLevels(updated);
+        const totalLevels = GRADES.reduce((acc, g) => acc + g.levels.length, 0);
+        if (updated.length === totalLevels) {
           unlockAchievement('ALL_LEVELS');
         }
       }
@@ -519,6 +1442,7 @@ export default function App() {
   };
 
   const resetGame = () => {
+    setTimerActive(false);
     setGameState('HOME');
     setCurrentLevel(null);
     setSelectedDifficulty(null);
@@ -530,7 +1454,8 @@ export default function App() {
   const difficultyConfig: Record<Difficulty, { label: string; color: string; desc: string }> = {
     Easy: { label: 'Dễ', color: 'bg-green-500', desc: 'Câu hỏi cơ bản, dễ hiểu.' },
     Medium: { label: 'Vừa', color: 'bg-yellow-500', desc: 'Câu hỏi tiêu chuẩn.' },
-    Hard: { label: 'Khó', color: 'bg-red-500', desc: 'Thử thách nâng cao.' }
+    Hard: { label: 'Khó', color: 'bg-red-500', desc: 'Thử thách nâng cao.' },
+    Mixed: { label: 'Tổng hợp', color: 'bg-purple-500', desc: 'Bao gồm tất cả mức độ.' }
   };
 
   const getLevelImageSeed = (id: number) => {
@@ -539,73 +1464,364 @@ export default function App() {
       2: 'computer',
       3: 'keyboard',
       4: 'security',
-      5: 'logic'
+      5: 'logic',
+      6: 'storage',
+      7: 'document',
+      8: 'presentation'
     };
     return seeds[id] || 'education';
   };
 
   return (
-    <div className="min-h-screen font-sans flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-[-10%] left-[-10%] w-64 h-64 bg-sky-200 rounded-full blur-3xl opacity-50" />
+    <AppErrorBoundary>
+      <div className="min-h-screen font-sans flex flex-col items-center justify-center p-2 sm:p-4 relative overflow-hidden">
+        {/* Modal Xem lời giải các câu sai */}
+        <AnimatePresence>
+          {showReviewIncorrectModal && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
+            >
+              <motion.div
+                initial={{ scale: 0.9, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.9, y: 20 }}
+                className="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col shadow-2xl"
+              >
+                <div className="p-4 sm:p-6 border-b border-slate-100 flex items-center justify-between bg-red-50">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="bg-red-100 p-1.5 sm:p-2 rounded-xl text-red-600">
+                      <ShieldAlert className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-display font-bold text-slate-800">Ôn tập các câu sai</h3>
+                      <p className="text-[10px] sm:text-xs text-slate-500 font-medium">{incorrectQuestions.length} câu hỏi cần xem lại</p>
+                    </div>
+                  </div>
+                  <button 
+                    onClick={() => setShowReviewIncorrectModal(false)}
+                    className="p-1 sm:p-2 hover:bg-white rounded-full transition-colors"
+                  >
+                    <XCircle className="w-6 h-6 sm:w-8 sm:h-8 text-slate-300 hover:text-red-400 transition-colors" />
+                  </button>
+                </div>
+
+                <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 sm:space-y-8 custom-scrollbar">
+                  {incorrectQuestions.map((q, idx) => (
+                    <div key={q.id} className="border-b border-slate-50 pb-8 last:border-0 last:pb-0">
+                      <div className="flex items-start gap-4">
+                        <div className="bg-slate-100 w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-slate-500 font-bold text-sm">
+                          {idx + 1}
+                        </div>
+                        <div className="space-y-4 flex-1">
+                          <h4 className="text-lg font-bold text-slate-800 leading-tight">{q.text}</h4>
+                          
+                          {q.image && (
+                            <div className="rounded-xl overflow-hidden border-2 border-slate-50 shadow-sm w-full max-w-md mx-auto">
+                              <img src={q.image} alt="Minh họa" className="w-full h-32 object-cover" referrerPolicy="no-referrer" />
+                            </div>
+                          )}
+
+                          <div className="grid gap-2">
+                            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Đáp án đúng:</p>
+                            <div className="p-3 bg-green-50 border border-green-100 rounded-xl text-green-700 font-medium flex items-center gap-3 shadow-sm">
+                              <CheckCircle2 className="w-5 h-5 shrink-0" />
+                              <span>
+                                {q.type === 'TRUE_FALSE' 
+                                  ? (q.correctAnswer === true ? "Đúng" : "Sai")
+                                  : q.type === 'ORDERING' || q.type === 'SCRATCH'
+                                  ? (Array.isArray(q.correctAnswer) ? q.correctAnswer.join(' → ') : q.correctAnswer)
+                                  : q.type === 'MATCHING' || q.type === 'MATCHING_PAIRS'
+                                  ? (q.pairs?.map(p => `${p.left} - ${p.right}`).join(', '))
+                                  : q.type === 'MULTIPLE_CHOICE'
+                                  ? (Array.isArray(q.correctAnswer) 
+                                      ? q.correctAnswer.map(i => q.options?.[i]).join(', ')
+                                      : q.correctAnswer)
+                                  : (q.options?.[q.correctAnswer as number] || q.correctAnswer)}
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="p-4 bg-sky-50 rounded-2xl border border-sky-100">
+                            <div className="flex items-center gap-2 mb-2 text-sky-700">
+                              <Lightbulb className="w-4 h-4" />
+                              <p className="text-xs font-bold uppercase tracking-widest">Giải thích:</p>
+                            </div>
+                            <p className="text-sm text-slate-600 leading-relaxed italic">
+                              {q.explanation}
+                            </p>
+                            {q.type === 'FIND_ERROR' && (
+                              <div className="mt-3 pt-3 border-t border-sky-100">
+                                <p className="text-xs font-bold text-sky-700 mb-1">Sửa lại cho đúng:</p>
+                                <p className="text-sm font-medium text-sky-600">"{q.correction}"</p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="p-6 bg-slate-50 border-t border-slate-100">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => {
+                      setShowReviewIncorrectModal(false);
+                      handleReviewIncorrect();
+                    }}
+                    className="w-full btn-playful bg-red-500 text-white flex items-center justify-center gap-2"
+                  >
+                    <RotateCcw className="w-5 h-5" /> Ôn luyện lại ngay bây giờ
+                  </motion.button>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* PreviousReviewIncorrectModal content ends here */}
+
+      {isStealthMode ? (
+        <motion.button
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => setIsStealthMode(false)}
+          className="z-50 p-8 bg-sky-500 text-white rounded-full shadow-2xl hover:bg-sky-600 transition-colors"
+        >
+          <EyeOff className="w-12 h-12" />
+        </motion.button>
+      ) : (
+        <>
+          {/* Background Elements */}
+          <div className="absolute top-[-10%] left-[-10%] w-64 h-64 bg-sky-200 rounded-full blur-3xl opacity-50" />
       <div className="absolute bottom-[-10%] right-[-10%] w-80 h-80 bg-indigo-200 rounded-full blur-3xl opacity-50" />
+      
+      {/* Achievement Notification */}
+      <AnimatePresence>
+        {newAchievement && (
+          <motion.div
+            initial={{ opacity: 0, y: -100, x: '-50%' }}
+            animate={{ opacity: 1, y: 20, x: '-50%' }}
+            exit={{ opacity: 0, y: -100, x: '-50%' }}
+            className="fixed top-0 left-1/2 z-[100] w-full max-w-sm px-4"
+          >
+            <div className="bg-white rounded-2xl shadow-2xl border-2 border-yellow-400 p-4 flex items-center gap-4 relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-1 h-full bg-yellow-400" />
+              <div className={`p-3 rounded-xl ${newAchievement.color} text-white shadow-lg`}>
+                {(() => {
+                  const Icon = ICON_MAP[newAchievement.icon] || Trophy;
+                  return <Icon className="w-6 h-6" />;
+                })()}
+              </div>
+              <div className="flex-1">
+                <h4 className="text-xs font-bold text-yellow-600 uppercase tracking-wider mb-1">Thành tích mới!</h4>
+                <h3 className="text-lg font-display font-bold text-slate-800 leading-tight">{newAchievement.title}</h3>
+                <p className="text-sm text-slate-500">{newAchievement.description}</p>
+              </div>
+              <button 
+                onClick={() => setNewAchievement(null)}
+                className="p-1 hover:bg-slate-100 rounded-full text-slate-400 transition-colors"
+              >
+                <XCircle className="w-5 h-5" />
+              </button>
+              
+              {/* Decorative shine */}
+              <motion.div 
+                initial={{ x: '-100%' }}
+                animate={{ x: '200%' }}
+                transition={{ repeat: Infinity, duration: 2, ease: "linear", repeatDelay: 3 }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 pointer-events-none"
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       <AnimatePresence mode="wait">
         {gameState === 'HOME' && (
           <motion.div 
             key="home"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.1 }}
-            className="text-center z-10 max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
+            className="text-center z-10 max-w-2xl px-4"
           >
-            <div className="mb-8 floating">
-              <div className="bg-white p-6 rounded-full inline-block shadow-2xl border-8 border-sky-100">
-                <Trophy className="w-24 h-24 text-yellow-400" />
+            {userName && (
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="inline-flex items-center gap-3 px-6 py-2.5 bg-white/90 backdrop-blur-md rounded-full shadow-lg shadow-sky-100/50 border-2 border-sky-100 text-sky-600 font-bold mb-8 md:mb-10"
+              >
+                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-sky-400 to-sky-600 text-white flex items-center justify-center shadow-md">
+                  <User className="w-6 h-6" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold leading-none mb-1">Chào mừng em trở lại</p>
+                  <p className="text-lg leading-none">{userName}!</p>
+                </div>
+              </motion.div>
+            )}
+
+            <div className="mb-4 md:mb-8 floating scale-90 md:scale-100">
+              <div className="bg-white p-4 md:p-6 rounded-full inline-block shadow-2xl border-4 md:border-8 border-sky-100">
+                <Trophy className="w-12 h-12 md:w-24 md:h-24 text-yellow-400" />
               </div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-display font-bold text-sky-600 mb-4 drop-shadow-sm">
-              Tin Học 3
-            </h1>
-            <p className="text-2xl font-display text-slate-600 mb-12">
-              Nhà Thông Thái Nhỏ
-            </p>
+            <motion.h1 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="text-3xl sm:text-4xl md:text-6xl font-display font-bold text-sky-600 mb-2 md:mb-4 drop-shadow-sm px-2"
+            >
+              Tin Học Tiểu Học
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+              className="text-lg sm:text-xl md:text-2xl font-display text-slate-600 mb-6 md:mb-12 px-4"
+            >
+              Chinh Phục Công Nghệ
+            </motion.p>
             <div className="flex flex-col gap-4 mx-auto max-w-xs">
-              <button 
+              <motion.button 
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -5,
+                  transition: { type: "spring", stiffness: 400, damping: 10 }
+                }}
+                whileTap={{ scale: 0.95 }}
                 onClick={handleStartClick}
                 className="btn-playful bg-sky-500 text-white hover:bg-sky-600 flex items-center justify-center gap-2"
               >
                 <Play className="fill-current" /> Bắt đầu ngay
-              </button>
-              <button 
-                onClick={() => setGameState('ACHIEVEMENTS')}
-                className="btn-playful bg-white text-purple-600 border-2 border-purple-100 flex items-center justify-center gap-2"
-              >
-                <Medal className="w-5 h-5" /> Thành tích
-              </button>
-              <button 
-                onClick={() => {
-                  setGameState('LEADERBOARD');
-                  fetchLeaderboard();
-                }}
-                className="btn-playful bg-white text-sky-600 border-2 border-sky-100 flex items-center justify-center gap-2"
-              >
-                <ListOrdered className="w-5 h-5" /> Bảng xếp hạng
-              </button>
+              </motion.button>
+              
+              {recentTopics.length > 0 && (
+                <div className="mt-2 text-left">
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                    <Clock className="w-3 h-3" /> Vừa ôn tập gần đây
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    {recentTopics.map((item, idx) => {
+                      const Icon = ICON_MAP[item.level.icon] || Monitor;
+                      return (
+                        <motion.button
+                          key={`${item.level.id}-${idx}`}
+                          whileHover={{ x: 5, backgroundColor: 'rgba(241, 245, 249, 1)' }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => {
+                            playSound('select');
+                            const grade = GRADES.find(g => g.id === item.gradeId);
+                            if (grade) {
+                              setSelectedGrade(grade);
+                              setCurrentLevel(item.level);
+                              setGameState('DIFFICULTY_SELECT');
+                            }
+                          }}
+                          className="flex items-center gap-3 p-2 rounded-xl bg-slate-50 border border-slate-100 transition-all group"
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-sky-500 shadow-sm group-hover:bg-sky-500 group-hover:text-white transition-colors">
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <div className="flex-1 overflow-hidden">
+                            <p className="text-sm font-bold text-slate-700 truncate">{item.level.title}</p>
+                            <p className="text-[10px] text-slate-400">Lớp {item.gradeId}</p>
+                          </div>
+                          <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-sky-500" />
+                        </motion.button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              <div className="grid grid-cols-2 gap-3 mt-4">
+                <motion.button 
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setGameState('ACHIEVEMENTS')}
+                  className="btn-playful bg-white text-purple-600 border-2 border-purple-100 flex flex-col items-center justify-center gap-1 p-3"
+                >
+                  <Medal className="w-5 h-5" /> 
+                  <span className="text-xs font-bold">Thành tích</span>
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    setGameState('LEADERBOARD');
+                    fetchLeaderboard();
+                  }}
+                  className="btn-playful bg-white text-sky-600 border-2 border-sky-100 flex flex-col items-center justify-center gap-1 p-3"
+                >
+                  <ListOrdered className="w-5 h-5" /> 
+                  <span className="text-xs font-bold">Xếp hạng</span>
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setGameState('ABOUT')}
+                  className="btn-playful bg-white text-slate-500 border-2 border-slate-100 flex flex-col items-center justify-center gap-1 p-3"
+                >
+                  <Info className="w-5 h-5" /> 
+                  <span className="text-xs font-bold">Giới thiệu</span>
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setShowSettings(true)}
+                  className="btn-playful bg-white text-slate-500 border-2 border-slate-100 flex flex-col items-center justify-center gap-1 p-3"
+                >
+                  <Settings className="w-5 h-5" /> 
+                  <span className="text-xs font-bold">Cài đặt</span>
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    playSound('select');
+                    setGameState('EXPLORER');
+                  }}
+                  className="btn-playful bg-white text-orange-600 border-2 border-orange-100 flex flex-col items-center justify-center gap-1 p-3"
+                >
+                  <FolderOpen className="w-5 h-5" /> 
+                  <span className="text-xs font-bold">Khám phá</span>
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setShowNotificationCenter(true)}
+                  className="btn-playful bg-white text-emerald-600 border-2 border-emerald-100 flex flex-col items-center justify-center gap-1 p-3 relative"
+                >
+                  <Bell className="w-5 h-5" /> 
+                  <span className="text-xs font-bold">Thông báo</span>
+                  {systemNotifications.length > 0 && (
+                    <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-white animate-pulse" />
+                  )}
+                </motion.button>
+              </div>
               {userName && (
-                <p className="text-slate-400 text-sm mt-2">
-                  Chào mừng, <span className="font-bold text-sky-500">{userName}</span>!
-                  <button 
+                <div className="mt-6 flex justify-center">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => {
                       setUserName('');
                       localStorage.removeItem('quiz_user_name');
                       setGameState('NAME_INPUT');
                     }}
-                    className="ml-2 text-sky-400 underline hover:text-sky-600"
+                    className="flex items-center gap-1.5 text-xs font-bold text-slate-400 hover:text-sky-500 transition-colors bg-slate-50 px-3 py-1.5 rounded-full border border-slate-100"
                   >
-                    Đổi tên
-                  </button>
-                </p>
+                    <LogOut className="w-3.5 h-3.5" /> Đổi tên người dùng
+                  </motion.button>
+                </div>
               )}
             </div>
           </motion.div>
@@ -623,8 +1839,8 @@ export default function App() {
               <div className="bg-sky-100 p-4 rounded-full inline-block mb-6">
                 <User className="w-12 h-12 text-sky-500" />
               </div>
-              <h2 className="text-3xl font-display font-bold text-slate-800 mb-2">Tên của em là gì?</h2>
-              <p className="text-slate-500 mb-8">Hãy nhập tên để lưu điểm vào bảng xếp hạng nhé!</p>
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-slate-800 mb-2">Tên của em?</h2>
+              <p className="text-slate-500 mb-6 text-sm sm:text-base px-2">Nhập tên để lưu điểm nhé!</p>
               
               <form onSubmit={submitName} className="space-y-4">
                 <input 
@@ -654,118 +1870,445 @@ export default function App() {
                     </motion.p>
                   )}
                 </AnimatePresence>
-                <button 
+                <motion.button 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   type="submit"
                   className="btn-playful bg-sky-500 text-white w-full"
                 >
                   Tiếp tục
-                </button>
-                <button 
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   type="button"
                   onClick={() => setGameState('HOME')}
                   className="text-slate-400 hover:text-slate-600 font-medium"
                 >
                   Quay lại
-                </button>
+                </motion.button>
               </form>
             </div>
           </motion.div>
         )}
 
-        {gameState === 'LEVEL_SELECT' && (
-          <motion.div 
-            key="levels"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            className="z-10 w-full max-w-4xl"
+        {gameState === 'GRADE_SELECT' && (
+          <SelectionLayout 
+            onSelectGrade={selectGrade} 
+            onSelectLevel={selectLevel}
+            onToggleWatch={toggleWatchLevel}
+            completedLevels={completedLevels}
+            watchedLevels={watchedLevels}
           >
-            <div className="flex items-center gap-4 mb-8">
-              <button 
-                onClick={() => setGameState('HOME')}
-                className="p-2 hover:bg-white rounded-full transition-colors"
-              >
-                <ChevronLeft className="w-8 h-8 text-slate-400" />
-              </button>
-              <h2 className="text-3xl font-display font-bold text-slate-800">Chọn chủ đề học tập</h2>
-            </div>
             <motion.div 
-              variants={{
-                hidden: { opacity: 0 },
-                show: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.1
-                  }
-                }
-              }}
-              initial="hidden"
-              animate="show"
-              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              key="grades"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ type: "spring", damping: 25, stiffness: 120 }}
+              className="z-10 w-full"
             >
-              {LEVELS.map((level) => {
-                const Icon = ICON_MAP[level.icon];
-                return (
-                  <motion.button
-                    key={level.id}
-                    variants={{
-                      hidden: { opacity: 0, y: 20 },
-                      show: { opacity: 1, y: 0 }
-                    }}
-                    whileHover={{ scale: 1.03, translateY: -5 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => selectLevel(level)}
-                    className="card-playful text-left flex flex-col gap-4 group"
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 md:gap-4 mb-6 md:mb-8">
+                <div className="flex items-center gap-2">
+                  <motion.button 
+                    whileHover={{ scale: 1.2, rotate: -10 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setGameState('HOME')}
+                    className="p-1 md:p-2 hover:bg-white rounded-full transition-colors"
                   >
-                    <div className="w-full h-32 overflow-hidden rounded-xl bg-slate-100">
-                      <img 
-                        src={`https://picsum.photos/seed/${getLevelImageSeed(level.id)}/600/300`} 
-                        alt={level.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        referrerPolicy="no-referrer"
-                      />
+                    <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-slate-400" />
+                  </motion.button>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-slate-800">Chọn khối lớp</h2>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {GRADES.map((grade) => (
+                  <motion.button
+                    key={grade.id}
+                    whileHover={{ scale: 1.05, translateY: -10 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => selectGrade(grade)}
+                    className="card-playful text-center flex flex-col gap-6 group relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-sky-500/10 rounded-bl-full -mr-12 -mt-12 transition-all group-hover:w-32 group-hover:h-32" />
+                    <div className="bg-sky-100 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto group-hover:bg-sky-500 group-hover:text-white transition-colors">
+                      <span className="text-4xl font-display font-bold">{grade.id}</span>
                     </div>
-                    <div className="flex items-start gap-4">
-                      <div className="bg-sky-100 p-4 rounded-2xl group-hover:bg-sky-500 group-hover:text-white transition-colors shrink-0">
-                        <Icon className="w-8 h-8" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-display font-bold text-slate-800 mb-1">{level.title}</h3>
-                        <p className="text-slate-500 text-sm">{level.description}</p>
-                      </div>
+                    <div>
+                      <h3 className="text-2xl font-display font-bold text-slate-800 mb-2">{grade.title}</h3>
+                      <p className="text-slate-500 text-sm">{grade.description}</p>
+                    </div>
+                    <div className="mt-auto pt-4">
+                      <span className="text-sky-500 font-bold text-sm group-hover:underline">Khám phá ngay →</span>
                     </div>
                   </motion.button>
-                );
-              })}
+                ))}
+              </div>
             </motion.div>
-          </motion.div>
+          </SelectionLayout>
         )}
 
-        {gameState === 'DIFFICULTY_SELECT' && currentLevel && (
-          <motion.div 
-            key="difficulty"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            className="z-10 w-full max-w-2xl"
+        {gameState === 'LEVEL_SELECT' && selectedGrade && (
+          <SelectionLayout 
+            onSelectGrade={selectGrade} 
+            onSelectLevel={selectLevel}
+            onToggleWatch={toggleWatchLevel}
+            selectedGradeId={selectedGrade.id}
+            completedLevels={completedLevels}
+            watchedLevels={watchedLevels}
           >
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center gap-4">
-                <button 
-                  onClick={() => setGameState('LEVEL_SELECT')}
-                  className="p-2 hover:bg-white rounded-full transition-colors"
-                >
-                  <ChevronLeft className="w-8 h-8 text-slate-400" />
-                </button>
-                <h2 className="text-3xl font-display font-bold text-slate-800">Chọn mức độ</h2>
+            <motion.div 
+              key="levels"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ type: "spring", damping: 25, stiffness: 120 }}
+              className="z-10 w-full"
+            >
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 md:mb-8">
+                <div className="flex items-center gap-3 md:gap-4">
+                  <motion.button 
+                    whileHover={{ scale: 1.2, rotate: -10 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setGameState('GRADE_SELECT')}
+                    className="p-1.5 md:p-2 hover:bg-white rounded-full transition-colors"
+                  >
+                    <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-slate-400" />
+                  </motion.button>
+                  <h2 className="text-2xl md:text-3xl font-display font-bold text-slate-800">Chủ đề: {selectedGrade.title}</h2>
+                </div>
+                
+                <div className="relative w-full md:w-64 group">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-sky-500 transition-colors" />
+                  <input 
+                    type="text"
+                    value={topicSearchQuery}
+                    onChange={(e) => setTopicSearchQuery(e.target.value)}
+                    placeholder="Tìm chủ đề..."
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border-2 border-slate-100 bg-white/50 backdrop-blur-sm focus:border-sky-500 outline-none transition-all text-sm font-medium"
+                  />
+                </div>
               </div>
-              <button 
-                onClick={() => setShowQuitConfirm(true)}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl text-red-500 hover:bg-red-50 font-bold transition-colors"
+
+              {/* View Mode & Filter Pills */}
+              <div className="flex flex-col md:flex-row md:items-center gap-4 mb-8">
+                <div className="flex bg-slate-100/50 p-1 rounded-xl shrink-0 glass-morphism border border-slate-200/50">
+                  <button 
+                    onClick={() => {
+                      playSound('select');
+                      setTopicViewMode('topics');
+                    }}
+                    className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${topicViewMode === 'topics' ? 'bg-white text-sky-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                  >
+                    <div className="flex items-center justify-center gap-1.5">
+                      <Folder className="w-3.5 h-3.5" />
+                      Chủ đề
+                    </div>
+                  </button>
+                  <button 
+                    onClick={() => {
+                      playSound('select');
+                      setTopicViewMode('questions');
+                    }}
+                    className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${topicViewMode === 'questions' ? 'bg-white text-sky-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                  >
+                    <div className="flex items-center justify-center gap-1.5">
+                      <ListOrdered className="w-3.5 h-3.5" />
+                      Câu hỏi
+                    </div>
+                  </button>
+                </div>
+
+                <div className="h-6 w-px bg-slate-200 hidden md:block shrink-0" />
+
+                <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none flex-1 no-scrollbar">
+                  <div className="flex items-center gap-2 pr-4 border-r border-slate-200 mr-2 shrink-0">
+                    <Filter className="w-4 h-4 text-slate-400" />
+                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Lọc:</span>
+                  </div>
+                  {TOPIC_CATEGORIES.map(cat => (
+                    <button
+                      key={cat.id}
+                      onClick={() => {
+                        playSound('select');
+                        setSelectedTopicCategory(cat.id);
+                      }}
+                      className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-bold transition-all border-2 ${
+                        selectedTopicCategory === cat.id 
+                        ? 'bg-sky-500 border-sky-500 text-white shadow-lg shadow-sky-100' 
+                        : 'bg-white border-slate-100 text-slate-500 hover:border-sky-200'
+                      }`}
+                    >
+                      {cat.label}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0 bg-slate-100/50 p-1 rounded-xl glass-morphism border border-slate-200/50">
+                  {(['All', 'Easy', 'Medium', 'Hard'] as const).map(d => (
+                    <button
+                      key={d}
+                      onClick={() => {
+                        playSound('select');
+                        setTopicDifficultyFilter(d);
+                      }}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                        topicDifficultyFilter === d
+                        ? 'bg-white text-sky-600 shadow-sm'
+                        : 'text-slate-500 hover:text-slate-700'
+                      }`}
+                    >
+                      {d === 'All' ? 'Tất cả' : d === 'Easy' ? 'Dễ' : d === 'Medium' ? 'Vừa' : 'Khó'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <motion.button 
+                whileHover={{ scale: 1.05, x: 5 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setGameState('HOME')}
+                className="flex items-center gap-2 px-4 py-2 rounded-xl text-red-500 hover:bg-red-50 font-bold transition-colors mb-4"
               >
                 <LogOut className="w-5 h-5" />
                 <span>Thoát</span>
-              </button>
+              </motion.button>
+
+              <motion.div 
+                key={topicViewMode}
+                variants={{
+                  hidden: { opacity: 0 },
+                  show: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.1
+                    }
+                  }
+                }}
+                initial="hidden"
+                animate="show"
+                className={`grid gap-6 ${topicViewMode === 'topics' ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}
+              >
+                {topicViewMode === 'topics' ? (
+                  selectedGrade.levels
+                    .filter(level => {
+                      const matchesSearch = level.title.toLowerCase().includes(topicSearchQuery.toLowerCase()) || 
+                                          level.description.toLowerCase().includes(topicSearchQuery.toLowerCase());
+                      
+                      let matchesCategory = selectedTopicCategory === 'all';
+                      if (selectedTopicCategory !== 'all') {
+                        const category = TOPIC_CATEGORIES.find(c => c.id === selectedTopicCategory);
+                        matchesCategory = category?.keywords.some(keyword => 
+                          level.title.toLowerCase().includes(keyword) || 
+                          level.description.toLowerCase().includes(keyword) ||
+                          level.topic === category.label
+                        ) || false;
+                      }
+
+                      const matchesDifficulty = topicDifficultyFilter === 'All' || 
+                        level.questions.some(q => q.difficulty === topicDifficultyFilter);
+                      
+                      return matchesSearch && matchesCategory && matchesDifficulty;
+                    })
+                    .map((level) => {
+                      const Icon = ICON_MAP[level.icon] || Monitor;
+                      const isCompleted = completedLevels.includes(level.id);
+                      return (
+                        <motion.button
+                          key={level.id}
+                          variants={{
+                            hidden: { opacity: 0, y: 20 },
+                            show: { opacity: 1, y: 0 }
+                          }}
+                          whileHover={{ scale: 1.03, translateY: -5 }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => selectLevel(level)}
+                          className="card-playful text-left flex flex-col gap-4 group relative"
+                        >
+                          {isCompleted && (
+                            <div className="absolute top-2 right-2 z-20 flex items-center gap-1 bg-green-500 text-white px-2 py-1 rounded-full text-[10px] font-bold shadow-lg">
+                              <CheckCircle2 className="w-3 h-3" />
+                              Hoàn thành
+                            </div>
+                          )}
+                          <div className="w-full h-32 overflow-hidden rounded-xl bg-slate-100">
+                            <img 
+                              src={`https://picsum.photos/seed/${getLevelImageSeed(level.id)}/600/300`} 
+                              alt={level.title}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                              referrerPolicy="no-referrer"
+                            />
+                          </div>
+                          <div className="flex items-start gap-4">
+                            <div className="bg-sky-100 p-4 rounded-2xl group-hover:bg-sky-500 group-hover:text-white transition-colors shrink-0">
+                              <Icon className="w-8 h-8" />
+                            </div>
+                            <div>
+                              <h3 className="text-xl font-display font-bold text-slate-800 mb-1 bg-[#e0f2fe] px-2 py-0.5 rounded-lg inline-block">{level.title}</h3>
+                              <p className="text-slate-500 text-sm line-clamp-2">{level.description}</p>
+                            </div>
+                          </div>
+                        </motion.button>
+                      );
+                    })
+                ) : (
+                  selectedGrade.levels
+                    .flatMap(l => l.questions.map(q => ({ ...q, topicTitle: l.title, topicId: l.id, level: l })))
+                    .filter(q => {
+                      const matchesSearch = q.text.toLowerCase().includes(topicSearchQuery.toLowerCase()) || 
+                                          q.explanation.toLowerCase().includes(topicSearchQuery.toLowerCase());
+                      const matchesDifficulty = topicDifficultyFilter === 'All' || q.difficulty === topicDifficultyFilter;
+                      
+                      let matchesCategory = selectedTopicCategory === 'all';
+                      if (selectedTopicCategory !== 'all') {
+                        const cat = TOPIC_CATEGORIES.find(c => c.id === selectedTopicCategory);
+                        matchesCategory = cat?.keywords.some(k => q.topicTitle.toLowerCase().includes(k)) || 
+                                          q.topic === cat?.label || false;
+                      }
+                      
+                      return matchesSearch && matchesDifficulty && matchesCategory;
+                    })
+                    .map((q, idx) => (
+                      <motion.div
+                        key={`${q.topicId}-${q.id}`}
+                        variants={{
+                          hidden: { opacity: 0, scale: 0.9 },
+                          show: { opacity: 1, scale: 1 }
+                        }}
+                        className="p-5 bg-white border-2 border-slate-100 rounded-3xl hover:border-sky-300 transition-all group flex flex-col h-full shadow-sm hover:shadow-xl hover:shadow-sky-100/50"
+                      >
+                        <div className="flex-1">
+                           <div className="flex items-center justify-between mb-4">
+                              <div className="flex items-center gap-2">
+                                 <span className={`text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider text-white shadow-md ${
+                                   q.difficulty === 'Easy' ? 'bg-emerald-500' : q.difficulty === 'Medium' ? 'bg-amber-500' : 'bg-rose-500'
+                                 }`}>
+                                   {difficultyConfig[q.difficulty].label}
+                                 </span>
+                                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter truncate max-w-[120px]">{q.topicTitle}</span>
+                              </div>
+                              <button
+                                 onClick={() => {
+                                   playSound('select');
+                                   selectLevel(q.level);
+                                 }}
+                                 className="w-10 h-10 bg-sky-50 text-sky-500 rounded-xl hover:bg-sky-500 hover:text-white transition-all flex items-center justify-center shadow-sm"
+                               >
+                                 <Play className="w-5 h-5 fill-current" />
+                               </button>
+                           </div>
+                           <h4 className="text-base font-bold text-slate-700 leading-snug mb-4 line-clamp-4 min-h-[4.5rem]">{q.text}</h4>
+                        </div>
+                        <div className="mt-auto pt-4 border-t border-slate-50">
+                           <div className="flex items-center gap-2 mb-2 text-sky-600">
+                             <Lightbulb className="w-4 h-4" />
+                             <span className="text-[10px] font-bold uppercase tracking-widest">Gợi ý kiến thức</span>
+                           </div>
+                           <p className="text-xs text-slate-500 leading-relaxed italic line-clamp-3">{q.explanation}</p>
+                        </div>
+                      </motion.div>
+                    ))
+                )}
+                {(topicViewMode === 'topics' ? selectedGrade.levels : selectedGrade.levels.flatMap(l => l.questions)).filter(item => {
+                  const isLevel = 'title' in item;
+                  const textToSearch = isLevel ? item.title + item.description : (item as Question).text + (item as Question).explanation;
+                  const matchesSearch = textToSearch.toLowerCase().includes(topicSearchQuery.toLowerCase());
+                  
+                  let matchesCategory = selectedTopicCategory === 'all';
+                  if (selectedTopicCategory !== 'all') {
+                    const category = TOPIC_CATEGORIES.find(c => c.id === selectedTopicCategory);
+                    if (isLevel) {
+                      matchesCategory = category?.keywords.some(keyword => 
+                        (item as Level).title.toLowerCase().includes(keyword) || 
+                        (item as Level).description.toLowerCase().includes(keyword) ||
+                        (item as Level).topic === category.label
+                      ) || false;
+                    } else {
+                      const levelTitle = (selectedGrade.levels.find(l => l.questions.includes(item as Question))?.title || '');
+                      matchesCategory = category?.keywords.some(k => levelTitle.toLowerCase().includes(k)) || 
+                                        (item as Question).topic === category?.label || false;
+                    }
+                  }
+
+                  const matchesDifficulty = topicDifficultyFilter === 'All' || 
+                    (isLevel ? (item as Level).questions.some(q => q.difficulty === topicDifficultyFilter) : (item as Question).difficulty === topicDifficultyFilter);
+
+                  return matchesSearch && matchesCategory && matchesDifficulty;
+                }).length === 0 && (
+                  <div className="col-span-full py-20 text-center">
+                    <div className="bg-slate-50 p-6 rounded-3xl border-2 border-dashed border-slate-200 inline-block">
+                      <Search className="w-12 h-12 text-slate-300 mx-auto mb-4" />
+                      <p className="text-slate-500 font-bold">Không tìm thấy {topicViewMode === 'topics' ? 'chủ đề' : 'câu hỏi'} nào phù hợp</p>
+                      <button 
+                        onClick={() => {
+                          setTopicSearchQuery('');
+                          setSelectedTopicCategory('all');
+                        }}
+                        className="text-sky-500 underline mt-2 text-sm"
+                      >
+                        Xóa bộ lọc
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            </motion.div>
+          </SelectionLayout>
+        )}
+
+        {gameState === 'DIFFICULTY_SELECT' && currentLevel && selectedGrade && (
+          <SelectionLayout 
+            onSelectGrade={selectGrade} 
+            onSelectLevel={selectLevel}
+            onToggleWatch={toggleWatchLevel}
+            selectedGradeId={selectedGrade.id}
+            selectedLevelId={currentLevel.id}
+            completedLevels={completedLevels}
+            watchedLevels={watchedLevels}
+          >
+            <motion.div 
+              key="difficulty"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ type: "spring", damping: 25, stiffness: 120 }}
+              className="z-10 w-full max-w-2xl"
+            >
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <motion.button 
+                    whileHover={{ scale: 1.2, rotate: -10 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setGameState('LEVEL_SELECT')}
+                    className="p-2 hover:bg-white rounded-full transition-colors"
+                  >
+                    <ChevronLeft className="w-8 h-8 text-slate-400" />
+                  </motion.button>
+                  <h2 className="text-3xl font-display font-bold text-slate-800">Chọn mức độ</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      playSound('select');
+                      setShowLevelDetails(true);
+                    }}
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl text-sky-600 bg-sky-50 border-2 border-sky-100 font-bold transition-colors"
+                  >
+                    <Info className="w-5 h-5" />
+                    <span className="hidden sm:inline">Chi tiết chủ đề</span>
+                  </motion.button>
+                  <motion.button 
+                    whileHover={{ scale: 1.05, x: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setShowQuitConfirm(true)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl text-red-500 hover:bg-red-50 font-bold transition-colors"
+                  >
+                    <LogOut className="w-5 h-5" />
+                    <span>Thoát</span>
+                  </motion.button>
+                </div>
             </div>
 
             <motion.div 
@@ -782,10 +2325,16 @@ export default function App() {
               animate="show"
               className="grid gap-4"
             >
-              {(['Easy', 'Medium', 'Hard'] as Difficulty[]).map((diff) => {
+              {(['Easy', 'Medium', 'Hard', 'Mixed'] as Difficulty[]).map((diff) => {
                 const isSelected = selectedDifficulty === diff;
                 const isOtherSelected = selectedDifficulty !== null && !isSelected;
                 
+                const count = diff === 'Mixed' 
+                  ? currentLevel.questions.length 
+                  : currentLevel.questions.filter(q => q.difficulty === diff).length;
+                
+                const isDisabled = count === 0;
+
                 return (
                   <motion.button
                     key={diff}
@@ -793,26 +2342,35 @@ export default function App() {
                       hidden: { opacity: 0, x: -20 },
                       show: { opacity: 1, x: 0 }
                     }}
-                    whileHover={!isOtherSelected ? { scale: 1.02, x: 5 } : {}}
-                    whileTap={!isOtherSelected ? { scale: 0.98 } : {}}
-                    disabled={isOtherSelected}
+                    whileHover={!isDisabled && !isOtherSelected ? { scale: 1.02, x: 5 } : {}}
+                    whileTap={!isDisabled && !isOtherSelected ? { scale: 0.98 } : {}}
+                    disabled={isDisabled || isOtherSelected}
                     onClick={() => {
                       playSound('select');
                       setSelectedDifficulty(diff);
+                      localStorage.setItem('quiz_preferred_difficulty', diff);
                     }}
-                    className={`card-playful text-left flex items-center gap-6 group transition-all duration-300 ${
+                    className={`card-playful text-left flex items-center gap-6 group transition-all duration-300 relative ${
                       isSelected ? 'ring-4 ring-sky-500 border-sky-200 bg-sky-50/30' : 
+                      isDisabled ? 'opacity-25 grayscale cursor-not-allowed hidden md:flex' : 
                       isOtherSelected ? 'opacity-40 grayscale' : ''
                     }`}
                   >
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white font-bold text-xl transition-transform duration-300 ${
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 shrink-0 rounded-2xl flex items-center justify-center text-white font-bold text-lg sm:text-xl transition-all duration-300 ${
                       difficultyConfig[diff].color
-                    } ${isSelected ? 'scale-110 shadow-lg' : ''}`}>
+                    } ${isSelected ? 'scale-110 shadow-lg' : ''} ${isDisabled ? 'bg-slate-300' : ''}`}>
                       {difficultyConfig[diff].label[0]}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-display font-bold text-slate-800">{difficultyConfig[diff].label}</h3>
-                      <p className="text-slate-500">{difficultyConfig[diff].desc}</p>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-xl font-display font-bold text-slate-800">{difficultyConfig[diff].label}</h3>
+                        {count > 0 && (
+                          <span className="text-[10px] font-bold bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                            {count} câu
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-slate-500 text-sm">{isDisabled ? 'Không có câu hỏi ở mức độ này.' : difficultyConfig[diff].desc}</p>
                     </div>
                     {isSelected && (
                       <motion.div 
@@ -822,6 +2380,12 @@ export default function App() {
                       >
                         <CheckCircle2 className="w-6 h-6" />
                       </motion.div>
+                    )}
+                    
+                    {isDisabled && (
+                      <div className="absolute right-6 top-1/2 -translate-y-1/2">
+                        <EyeOff className="w-5 h-5 text-slate-300" />
+                      </div>
                     )}
                   </motion.button>
                 );
@@ -847,57 +2411,471 @@ export default function App() {
               )}
             </AnimatePresence>
           </motion.div>
+        </SelectionLayout>
+      )}
+
+        {gameState === 'EXPLORER' && (
+          <SelectionLayout 
+            onSelectGrade={(g) => {
+               setExplorerGrade(g);
+               setExplorerSearch('');
+            }} 
+            onSelectLevel={selectLevel}
+            onToggleWatch={toggleWatchLevel}
+            selectedGradeId={explorerGrade?.id}
+            completedLevels={completedLevels}
+            watchedLevels={watchedLevels}
+          >
+            <motion.div 
+              key="explorer"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="z-10 w-full min-h-[60vh] flex flex-col"
+            >
+               <div className="bg-white/80 backdrop-blur-md rounded-[2rem] border-2 border-slate-100 shadow-xl overflow-hidden flex flex-col h-full flex-1">
+                  {/* Explorer Header */}
+                  <div className="p-4 md:p-6 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-50/50 relative overflow-hidden">
+                    {/* Animated grid background for header */}
+                    <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+                    
+                    <div className="flex items-center justify-between md:justify-start gap-3 relative z-10">
+                      <div className="flex items-center gap-2">
+                        <motion.button 
+                          whileHover={{ scale: 1.1, x: -2 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => {
+                            if (explorerGrade) {
+                              setExplorerGrade(null);
+                              setExplorerViewMode('topics');
+                            }
+                            else setGameState('HOME');
+                          }}
+                          className="p-2 bg-white rounded-xl text-slate-400 hover:text-sky-500 shadow-sm border border-slate-200 hover:border-sky-300 transition-all"
+                        >
+                          <ChevronLeft className="w-5 h-5" />
+                        </motion.button>
+                        <div className="flex flex-col">
+                           <div className="flex items-center gap-1 text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-0.5">
+                              <span className="hover:text-sky-500 cursor-pointer" onClick={() => {
+                                setExplorerGrade(null);
+                                setExplorerViewMode('topics');
+                              }}>Cơ sở dữ liệu</span>
+                              {explorerGrade && (
+                                <>
+                                  <ChevronRight className="w-3 h-3 text-slate-300" />
+                                  <span className="text-sky-500">Lớp {explorerGrade.id}</span>
+                                </>
+                              )}
+                           </div>
+                           <h2 className="text-xl font-display font-black text-slate-800 tracking-tight leading-none">
+                              {explorerGrade ? `Tài liệu Lớp ${explorerGrade.id}` : 'Kho tàng tri thức tin học'}
+                           </h2>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="relative w-full md:w-96 group relative z-10">
+                      <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                        <Search className="w-4 h-4 text-slate-400 group-focus-within:text-sky-500 transition-colors" />
+                      </div>
+                      <input 
+                        type="text"
+                        value={explorerSearch}
+                        onChange={(e) => setExplorerSearch(e.target.value)}
+                        placeholder="Mã hóa tìm kiếm thông tin..."
+                        className="w-full pl-11 pr-4 py-3 rounded-2xl border-2 border-slate-200 bg-white focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 outline-none transition-all text-[11px] font-bold font-mono placeholder:font-sans placeholder:italic"
+                      />
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                         <span className="text-[10px] font-mono text-slate-300 border border-slate-200 px-1 rounded uppercase bg-slate-50">Shift+F</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Filter Bar */}
+                  {explorerGrade && (
+                   <div className="px-3 md:px-6 py-3 border-b border-slate-100 bg-white flex flex-col md:flex-row md:items-center justify-between gap-4 overflow-hidden">
+                     <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                        <div className="flex bg-slate-100 p-1 rounded-xl shrink-0">
+                        <button 
+                          onClick={() => {
+                            playSound('select');
+                            setExplorerViewMode('topics');
+                          }}
+                          className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold transition-all ${explorerViewMode === 'topics' ? 'bg-white text-sky-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                        >
+                          <div className="flex items-center justify-center gap-1.5">
+                            <Folder className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                            Chủ đề
+                          </div>
+                        </button>
+                        <button 
+                          onClick={() => {
+                            playSound('select');
+                            setExplorerViewMode('questions');
+                          }}
+                          className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold transition-all ${explorerViewMode === 'questions' ? 'bg-white text-sky-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                        >
+                          <div className="flex items-center justify-center gap-1.5">
+                            <ListOrdered className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                            Câu hỏi
+                          </div>
+                        </button>
+                        </div>
+
+                        <div className="h-6 w-px bg-slate-200 hidden md:block shrink-0" />
+
+                        <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none no-scrollbar touch-pan-x">
+                          <Filter className="w-3.5 h-3.5 text-slate-400 shrink-0 hidden sm:block" />
+                          {TOPIC_CATEGORIES.map(cat => (
+                            <button
+                              key={cat.id}
+                              onClick={() => {
+                                playSound('select');
+                                setExplorerCategory(cat.id);
+                              }}
+                              className={`shrink-0 px-2.5 py-1 rounded-full text-[9px] sm:text-[10px] font-bold transition-all border-2 ${
+                                explorerCategory === cat.id 
+                                ? 'bg-sky-500 border-sky-500 text-white shadow-md shadow-sky-100' 
+                                : 'bg-white border-slate-100 text-slate-500 hover:border-sky-200'
+                              }`}
+                            >
+                              {cat.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 sm:pb-0">
+                         <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-widest mr-1 shrink-0">Độ khó:</span>
+                         {(['All', 'Easy', 'Medium', 'Hard'] as const).map(d => (
+                           <button
+                             key={d}
+                             onClick={() => {
+                               playSound('select');
+                               setExplorerDifficulty(d);
+                             }}
+                             className={`shrink-0 px-2.5 py-1 rounded-lg text-[9px] sm:text-[10px] font-bold transition-all ${
+                               explorerDifficulty === d
+                               ? 'bg-slate-800 text-white shadow-md'
+                               : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                             }`}
+                           >
+                             {d === 'All' ? 'Tất cả' : d === 'Easy' ? 'Dễ' : d === 'Medium' ? 'Vừa' : 'Khó'}
+                           </button>
+                         ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Explorer Content */}
+                  <div className="flex-1 p-6 md:p-8 overflow-y-auto max-h-[1000px] scrollbar-none bg-[#fdfdfd]">
+                     {!explorerGrade ? (
+                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                         {GRADES.filter(g => g.title.toLowerCase().includes(explorerSearch.toLowerCase())).map(grade => (
+                           <motion.button
+                             key={grade.id}
+                             whileHover={{ y: -5 }}
+                             whileTap={{ scale: 0.95 }}
+                             onClick={() => {
+                               playSound('select');
+                               setExplorerGrade(grade);
+                               setExplorerSearch('');
+                             }}
+                             className="flex flex-col items-center gap-4 group"
+                           >
+                              <div className="relative transform transition-all duration-300 group-hover:scale-110">
+                                <div className="absolute inset-0 bg-sky-400/20 blur-xl rounded-full scale-0 group-hover:scale-100 transition-transform duration-500" />
+                                <Folder className="w-20 h-20 md:w-24 md:h-24 text-amber-400 group-hover:text-amber-300 transition-colors drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" />
+                                <div className="absolute inset-0 flex items-center justify-center pointer-events-none mt-2">
+                                   <span className="text-xl font-mono font-black text-amber-900/40 select-none pb-1">{grade.id}</span>
+                                </div>
+                              </div>
+                              <div className="text-center">
+                                <p className="text-sm font-black text-slate-700 group-hover:text-sky-600 transition-colors tracking-tight line-clamp-1 truncate w-24 uppercase">LỚP {grade.id}</p>
+                                <div className="flex items-center justify-center gap-1.5 mt-1 opacity-60 group-hover:opacity-100 transition-opacity">
+                                   <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
+                                   <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.1em]">{grade.levels.length} MODULES</p>
+                                </div>
+                              </div>
+                           </motion.button>
+                         ))}
+                         {GRADES.filter(g => g.title.toLowerCase().includes(explorerSearch.toLowerCase())).length === 0 && (
+                            <div className="col-span-full py-12 text-center opacity-40">
+                               <Folder className="w-16 h-16 mx-auto mb-2 text-slate-300" />
+                               <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Không tìm thấy thư mục</p>
+                            </div>
+                         )}
+                       </div>
+                     ) : explorerViewMode === 'topics' ? (
+                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                         {explorerGrade.levels
+                           .filter(l => {
+                             const matchesSearch = l.title.toLowerCase().includes(explorerSearch.toLowerCase()) || 
+                                                  l.description.toLowerCase().includes(explorerSearch.toLowerCase());
+                             
+                             let matchesCategory = explorerCategory === 'all';
+                             if (explorerCategory !== 'all') {
+                               const cat = TOPIC_CATEGORIES.find(c => c.id === explorerCategory);
+                               matchesCategory = cat?.keywords.some(k => 
+                                 l.title.toLowerCase().includes(k) || 
+                                 l.description.toLowerCase().includes(k)
+                               ) || false;
+                             }
+                             
+                             return matchesSearch && matchesCategory;
+                           })
+                           .map(level => {
+                             const isCompleted = completedLevels.includes(level.id);
+                             const isWatched = watchedLevels.includes(level.id);
+                             const Icon = ICON_MAP[level.icon] || FileText;
+                             return (
+                               <motion.button
+                                 key={level.id}
+                                 whileHover={{ y: -5 }}
+                                 whileTap={{ scale: 0.95 }}
+                                 onClick={() => selectLevel(level)}
+                                 className="flex flex-col items-center gap-3 group relative"
+                               >
+                                 <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-2xl border-2 border-slate-100 shadow-sm flex items-center justify-center group-hover:border-sky-200 group-hover:shadow-md transition-all relative overflow-hidden">
+                                    <Icon className={`w-10 h-10 md:w-12 md:h-12 ${isCompleted ? 'text-emerald-500' : isWatched ? 'text-amber-500' : 'text-sky-500 opacity-60'}`} />
+                                    <div className="absolute top-0 right-0 w-8 h-8 bg-sky-500/5 rounded-bl-full" />
+                                    {/* Status Indicators */}
+                                    <div className="absolute bottom-1 right-1 flex flex-col gap-1 items-end">
+                                      {isCompleted && (
+                                        <div className="bg-emerald-500 rounded-full p-0.5 shadow-md border border-white">
+                                          <Check className="w-3 h-3 text-white" />
+                                        </div>
+                                      )}
+                                      {isWatched && !isCompleted && (
+                                        <div className="bg-amber-500 rounded-full p-0.5 shadow-md border border-white">
+                                          <Eye className="w-2.5 h-2.5 text-white" />
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    {isWatched && (
+                                      <div className="absolute top-1 left-1">
+                                         <div className="w-1.5 h-1.5 bg-sky-400 rounded-full animate-pulse" />
+                                      </div>
+                                    )}
+                                 </div>
+                                 <div className="text-center">
+                                   <p className={`text-xs font-bold group-hover:text-sky-600 transition-colors line-clamp-2 w-24 h-8 overflow-hidden ${isCompleted ? 'text-emerald-600' : 'text-slate-700'}`}>{level.title}</p>
+                                   <p className="text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-1">Sổ tay IT</p>
+                                 </div>
+                               </motion.button>
+                             );
+                           })}
+                         {explorerGrade.levels.filter(l => {
+                           const matchesSearch = l.title.toLowerCase().includes(explorerSearch.toLowerCase());
+                           let matchesCategory = explorerCategory === 'all';
+                           if (explorerCategory !== 'all') {
+                             const cat = TOPIC_CATEGORIES.find(c => c.id === explorerCategory);
+                             matchesCategory = cat?.keywords.some(k => l.title.toLowerCase().includes(k)) || false;
+                           }
+                           return matchesSearch && matchesCategory;
+                         }).length === 0 && (
+                            <div className="col-span-full py-12 text-center opacity-40">
+                               <FileText className="w-16 h-16 mx-auto mb-2 text-slate-300" />
+                               <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Không tìm thấy bài học</p>
+                            </div>
+                         )}
+                       </div>
+                     ) : (
+                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                         {explorerGrade.levels
+                           .flatMap(l => l.questions.map(q => ({ ...q, topicTitle: l.title, topicId: l.id })))
+                           .filter(q => {
+                             const matchesSearch = q.text.toLowerCase().includes(explorerSearch.toLowerCase()) || 
+                                                  q.explanation.toLowerCase().includes(explorerSearch.toLowerCase());
+                             const matchesDifficulty = explorerDifficulty === 'All' || q.difficulty === explorerDifficulty;
+                             
+                             let matchesCategory = explorerCategory === 'all';
+                             if (explorerCategory !== 'all') {
+                               const cat = TOPIC_CATEGORIES.find(c => c.id === explorerCategory);
+                               matchesCategory = cat?.keywords.some(k => q.topicTitle.toLowerCase().includes(k)) || false;
+                             }
+                             
+                             return matchesSearch && matchesDifficulty && matchesCategory;
+                           })
+                           .map((q, idx) => (
+                              <motion.div
+                                key={`${q.topicId}-${q.id}`}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: idx * 0.03 }}
+                                className="p-4 bg-white border-2 border-slate-100 rounded-2xl hover:border-sky-300 transition-all group flex flex-col h-full"
+                              >
+                                <div className="flex-1">
+                                   <div className="flex items-center justify-between mb-3">
+                                      <div className="flex items-center gap-2">
+                                         <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider text-white shadow-sm ${
+                                           q.difficulty === 'Easy' ? 'bg-emerald-500' : q.difficulty === 'Medium' ? 'bg-amber-500' : 'bg-rose-500'
+                                         }`}>
+                                           {q.difficulty}
+                                         </span>
+                                         <div className="flex items-center gap-1.5 overflow-hidden">
+                                           <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tighter truncate max-w-[100px]">{q.topicTitle}</span>
+                                           {completedLevels.includes(q.topicId) ? (
+                                             <CheckCircle2 className="w-3 h-3 text-emerald-500 shrink-0" />
+                                           ) : watchedLevels.includes(q.topicId) ? (
+                                             <Eye className="w-3 h-3 text-amber-500 shrink-0" />
+                                           ) : null}
+                                         </div>
+                                      </div>
+                                      <button
+                                         onClick={() => {
+                                           playSound('select');
+                                           const level = explorerGrade.levels.find(l => l.id === q.topicId);
+                                           if (level) selectLevel(level);
+                                         }}
+                                         className="p-1.5 bg-sky-50 text-sky-500 rounded-lg hover:bg-sky-500 hover:text-white transition-all shadow-sm"
+                                         title="Học chủ đề này"
+                                       >
+                                         <Play className="w-3.5 h-3.5 fill-current" />
+                                       </button>
+                                   </div>
+                                   <p className="text-sm font-bold text-slate-700 leading-relaxed mb-4 line-clamp-3">{q.text}</p>
+                                </div>
+                                <div className="p-3 bg-slate-50/50 rounded-xl border border-slate-100 group-hover:bg-sky-50/50 group-hover:border-sky-100 transition-colors">
+                                   <div className="flex items-center gap-2 mb-1.5 text-sky-700 opacity-70">
+                                     <Lightbulb className="w-3 h-3" />
+                                     <span className="text-[9px] font-bold uppercase tracking-[0.2em]">Kiến thức gợi ý</span>
+                                   </div>
+                                   <p className="text-[11px] text-slate-500 leading-relaxed italic line-clamp-2">{q.explanation}</p>
+                                </div>
+                              </motion.div>
+                           ))}
+                         {explorerGrade.levels
+                           .flatMap(l => l.questions.map(q => ({ ...q, topicTitle: l.title, topicId: l.id })))
+                           .filter(q => {
+                             const matchesSearch = q.text.toLowerCase().includes(explorerSearch.toLowerCase());
+                             const matchesDifficulty = explorerDifficulty === 'All' || q.difficulty === explorerDifficulty;
+                             let matchesCategory = explorerCategory === 'all';
+                             if (explorerCategory !== 'all') {
+                               const cat = TOPIC_CATEGORIES.find(c => c.id === explorerCategory);
+                               matchesCategory = cat?.keywords.some(k => q.topicTitle.toLowerCase().includes(k)) || false;
+                             }
+                             return matchesSearch && matchesDifficulty && matchesCategory;
+                           }).length === 0 && (
+                              <div className="col-span-full py-12 text-center opacity-40">
+                                 <ListOrdered className="w-16 h-16 mx-auto mb-2 text-slate-300" />
+                                 <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Không tìm thấy câu hỏi</p>
+                              </div>
+                           )}
+                       </div>
+                     )}
+                  </div>
+
+                  {/* Explorer Footer */}
+                  <div className="px-6 py-4 border-t border-slate-100 bg-slate-50 flex items-center justify-between text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                     <div className="flex gap-4">
+                        <span>{explorerGrade ? explorerGrade.levels.length : GRADES.length} mục</span>
+                        <span className="hidden md:inline">Kích thước: 156 MB</span>
+                     </div>
+                     <div className="flex items-center gap-2 text-emerald-600">
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                        <span>Hệ thống bảo mật</span>
+                     </div>
+                  </div>
+               </div>
+            </motion.div>
+          </SelectionLayout>
         )}
 
         {gameState === 'PLAYING' && currentLevel && (
           <motion.div 
             key="playing"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
             className="z-10 w-full max-w-3xl"
           >
             <div className="mb-8 bg-white/50 rounded-2xl glass-morphism overflow-hidden">
-              <div className="flex justify-between items-center p-4">
-                <div className="flex items-center gap-4">
-                  <button 
-                    onClick={() => setShowQuitConfirm(true)}
-                    className="p-2 hover:bg-white rounded-full transition-colors text-red-500"
-                    title="Thoát trò chơi"
-                  >
-                    <LogOut className="w-6 h-6" />
-                  </button>
+              <div className="flex flex-col sm:flex-row justify-between items-center p-3 sm:p-4 gap-4 sm:gap-0">
+                <div className="flex items-center justify-between sm:justify-start w-full sm:w-auto gap-4">
+                  <div className="flex items-center gap-1">
+                    <button 
+                      onClick={() => {
+                        playSound('select');
+                        setGameState('LEVEL_SELECT');
+                        setTimerActive(false);
+                      }}
+                      className="flex items-center gap-1 p-2 hover:bg-white rounded-full transition-colors text-sky-600 font-bold text-xs sm:text-sm"
+                      title="Về danh sách chủ đề"
+                    >
+                      <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                      <span className="hidden sm:inline">Về chủ đề</span>
+                    </button>
+                    <button 
+                      onClick={() => setShowQuitConfirm(true)}
+                      className="flex items-center gap-1 p-2 hover:bg-white rounded-full transition-colors text-red-500 font-bold text-xs sm:text-sm"
+                      title="Thoát trò chơi"
+                    >
+                      <LogOut className="w-5 h-5 sm:w-6 sm:h-6" />
+                      <span className="hidden sm:inline">Thoát</span>
+                    </button>
+                  </div>
                   <div className="flex items-center gap-2">
-                    <div className="bg-sky-500 text-white p-2 rounded-lg">
+                    <div className="bg-sky-500 text-white p-1.5 sm:p-2 rounded-lg">
                       {(() => {
-                        const Icon = ICON_MAP[currentLevel.icon];
-                        return <Icon className="w-5 h-5" />;
+                        const Icon = ICON_MAP[currentLevel.icon] || Monitor;
+                        return <Icon className="w-4 h-4 sm:w-5 sm:h-5" />;
                       })()}
                     </div>
-                    <span className="font-display font-bold text-slate-700 hidden md:inline">{currentLevel.title}</span>
+                    {selectedDifficulty && (
+                      <span className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-white text-[10px] sm:text-xs font-bold ${difficultyConfig[selectedDifficulty].color}`}>
+                        {difficultyConfig[selectedDifficulty].label}
+                      </span>
+                    )}
                   </div>
-                  {selectedDifficulty && (
-                    <span className={`px-3 py-1 rounded-full text-white text-xs font-bold ${difficultyConfig[selectedDifficulty].color}`}>
-                      {difficultyConfig[selectedDifficulty].label}
-                    </span>
-                  )}
                 </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-sm font-bold text-slate-500 font-display">
+                <div className="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-3 sm:gap-4 px-2 sm:px-0">
+                  <span className="text-xs sm:text-sm font-bold text-slate-500 font-display">
                     Câu {currentQuestionIndex + 1}/{filteredQuestions.length}
                   </span>
-                  <div className="flex items-center gap-2 bg-sky-50 px-3 py-1 rounded-full border border-sky-100">
-                    <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                    <AnimatePresence mode="popLayout">
-                      <motion.span
-                        key={score}
-                        initial={{ scale: 1.5, y: -5, opacity: 0 }}
-                        animate={{ scale: 1, y: 0, opacity: 1 }}
-                        className="text-sm font-bold text-sky-600 font-display"
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 bg-sky-50 px-2 sm:px-3 py-1 rounded-full border border-sky-100">
+                      <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-500 fill-current" />
+                      <AnimatePresence mode="popLayout">
+                        <motion.span
+                          key={score}
+                          initial={{ scale: 1.5, y: -5, opacity: 0 }}
+                          animate={{ scale: 1, y: 0, opacity: 1 }}
+                          className="text-xs sm:text-sm font-bold text-sky-600 font-display"
+                        >
+                          {score}
+                        </motion.span>
+                      </AnimatePresence>
+                    </div>
+                    {currentStreak > 1 && (
+                      <motion.div 
+                        initial={{ scale: 0, x: -20 }}
+                        animate={{ scale: 1, x: 0 }}
+                        className="flex items-center gap-1 bg-orange-50 px-2 sm:px-3 py-1 rounded-full border border-orange-100 text-orange-600"
                       >
-                        {score}
-                      </motion.span>
-                    </AnimatePresence>
+                        <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
+                        <AnimatePresence mode="popLayout">
+                          <motion.span
+                            key={currentStreak}
+                            initial={{ scale: 1.5, y: -5 }}
+                            animate={{ scale: 1, y: 0 }}
+                            className="text-xs sm:text-sm font-bold font-display"
+                          >
+                            {currentStreak}
+                          </motion.span>
+                        </AnimatePresence>
+                      </motion.div>
+                    )}
+                    <div className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 rounded-full border transition-all ${
+                      timeLeft <= 5 ? 'bg-red-50 border-red-200 text-red-600 animate-pulse' : 'bg-slate-50 border-slate-100 text-slate-500'
+                    }`}>
+                      <Clock className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${timeLeft <= 5 ? 'text-red-500' : 'text-slate-400'}`} />
+                      <span className="text-xs sm:text-sm font-bold font-display w-4 sm:w-6 text-center">
+                        {timeLeft}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -911,116 +2889,405 @@ export default function App() {
               </div>
             </div>
 
-            <div className="card-playful mb-6 min-h-[400px] flex flex-col overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.h3 
-                  key={currentQuestionIndex}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-2xl font-display font-bold text-slate-800 mb-8"
-                >
-                  {filteredQuestions[currentQuestionIndex].text}
-                </motion.h3>
+            <motion.div 
+              animate={showFeedback ? (isCorrect ? { scale: [1, 1.05, 1], y: [0, -10, 0] } : { x: [-10, 10, -10, 10, 0] }) : { scale: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.5, type: "tween", ease: "easeInOut" }}
+              className={`card-playful mb-6 min-h-[300px] md:min-h-[400px] flex flex-col overflow-hidden relative transition-all duration-300 ${
+              showFeedback ? (isCorrect ? 'border-green-400 shadow-[0_0_30px_rgba(34,197,94,0.3)]' : 'border-red-400 shadow-[0_0_30px_rgba(239,68,68,0.3)]') : ''
+            }`}>
+              {/* Feedback particles */}
+              <AnimatePresence>
+                {showFeedback && (
+                  <FloatingParticles type={isCorrect ? 'correct' : 'incorrect'} count={10} />
+                )}
               </AnimatePresence>
+
+              {/* Feedback flash overlay - slightly more intense */}
+              <AnimatePresence>
+                {showFeedback && (
+                  <motion.div
+                    key={`flash-${currentQuestionIndex}-${isCorrect}`}
+                    initial={{ opacity: 0.4 }}
+                    animate={{ opacity: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className={`absolute inset-0 z-40 pointer-events-none ${isCorrect ? 'bg-green-500/30' : 'bg-red-500/30'}`}
+                  />
+                )}
+              </AnimatePresence>
+
+              {/* Feedback outcome badge */}
+              <AnimatePresence>
+                {showFeedback && (
+                  <motion.div
+                    key={`badge-${currentQuestionIndex}-${isCorrect}`}
+                    initial={{ scale: 0.5, opacity: 0, y: 20 }}
+                    animate={{ scale: 1, opacity: 1, y: 0 }}
+                    exit={{ scale: 0.5, opacity: 0, y: -20 }}
+                    transition={{ type: "spring", damping: 12, stiffness: 200 }}
+                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none px-6 py-4 md:px-10 md:py-6 rounded-3xl shadow-2xl flex flex-col items-center gap-2 border-4 ${
+                      isCorrect ? 'bg-green-500 border-white text-white' : 'bg-red-500 border-white text-white'
+                    }`}
+                  >
+                    {isCorrect ? (
+                      <>
+                        <motion.div
+                          animate={{ rotate: [0, -10, 10, -10, 0], scale: [1, 1.2, 1] }}
+                          transition={{ duration: 0.5, repeat: 1, type: "tween" }}
+                        >
+                          <CheckCircle2 className="w-12 h-12 md:w-16 md:h-16" />
+                        </motion.div>
+                        <span className="text-xl md:text-3xl font-display font-bold uppercase tracking-wider">Chính xác!</span>
+                      </>
+                    ) : (
+                      <>
+                        <motion.div
+                          animate={{ x: [-5, 5, -5, 5, 0] }}
+                          transition={{ duration: 0.4, type: "tween" }}
+                        >
+                          <XCircle className="w-12 h-12 md:w-16 md:h-16" />
+                        </motion.div>
+                        <span className="text-xl md:text-3xl font-display font-bold uppercase tracking-wider">{timeLeft === 0 ? 'Hết giờ!' : 'Chưa đúng!'}</span>
+                      </>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Time's up overlay - simplified since we have the badge now */}
+              <AnimatePresence>
+                {timeLeft === 0 && showFeedback && !isCorrect && (
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="absolute inset-0 bg-red-600/10 z-30 pointer-events-none"
+                  />
+                )}
+              </AnimatePresence>
+
+              <AnimatePresence mode="wait">
+                <motion.div 
+                  key={`question-container-${currentQuestionIndex}`}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                >
+                  {filteredQuestions[currentQuestionIndex].image && (
+                    <div className="mb-4 md:mb-6 rounded-2xl overflow-hidden border-4 border-white shadow-md">
+                      <img 
+                        src={filteredQuestions[currentQuestionIndex].image} 
+                        alt="Minh họa câu hỏi" 
+                        className="w-full h-40 md:h-48 object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  )}
+                  {filteredQuestions[currentQuestionIndex].video && (
+                    <div className="mb-4 md:mb-6 rounded-2xl overflow-hidden border-4 border-white shadow-md relative group">
+                      <video 
+                        ref={videoRef}
+                        src={filteredQuestions[currentQuestionIndex].video} 
+                        className="w-full h-40 md:h-48 object-cover"
+                        controls={false}
+                        autoPlay
+                        muted
+                        loop
+                      />
+                      <div className="absolute bottom-4 right-4 flex gap-2 transition-opacity">
+                        <motion.button
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => {
+                            if (videoRef.current) {
+                              videoRef.current.currentTime = 0;
+                              videoRef.current.play();
+                            }
+                          }}
+                          className="flex items-center gap-2 px-3 py-2 bg-white/90 backdrop-blur-sm text-sky-600 rounded-full shadow-lg hover:bg-white transition-colors"
+                        >
+                          <RotateCcw className="w-4 h-4" />
+                          <span className="text-xs font-bold">Phát lại</span>
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          onClick={() => {
+                            if (videoRef.current) {
+                              videoRef.current.currentTime = Math.max(0, videoRef.current.currentTime - 5);
+                            }
+                          }}
+                          className="flex items-center gap-2 px-3 py-2 bg-white/90 backdrop-blur-sm text-sky-600 rounded-full shadow-lg hover:bg-white transition-colors"
+                        >
+                          <Rewind className="w-4 h-4" />
+                          <span className="text-xs font-bold">Tua lại 5s</span>
+                        </motion.button>
+                      </div>
+                    </div>
+                  )}
+                  <div className="flex flex-col items-center text-center mb-8">
+                    <div className="w-full h-2 mb-2"></div>
+                    
+                    <div className="flex flex-col gap-3 items-center">
+                      <div className="flex items-center gap-3 mb-4">
+                        {filteredQuestions[currentQuestionIndex].type === 'FIND_ERROR' && (
+                          <div className="bg-amber-500/10 text-amber-500 px-3 py-1 rounded-sm text-[10px] font-mono font-bold flex items-center gap-1.5 border border-amber-500/20 uppercase tracking-[0.2em] shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+                            <ShieldAlert className="w-3.5 h-3.5" /> TASK: DEBUG
+                          </div>
+                        )}
+                        <div className="flex items-center">
+                           <div className={`w-2 h-2 rounded-full mr-2 shadow-[0_0_8px] ${difficultyConfig[filteredQuestions[currentQuestionIndex].difficulty as Difficulty].color === 'bg-emerald-500' ? 'bg-emerald-500 shadow-emerald-500/50 animate-pulse' : difficultyConfig[filteredQuestions[currentQuestionIndex].difficulty as Difficulty].color === 'bg-sky-500' ? 'bg-sky-500 shadow-sky-500/50' : 'bg-rose-500 shadow-rose-500/50'}`} />
+                           <span className="text-[10px] font-mono font-black text-slate-400 uppercase tracking-[0.3em]">
+                             LEVEL_{difficultyConfig[filteredQuestions[currentQuestionIndex].difficulty as Difficulty].label.toUpperCase()}
+                           </span>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group/question">
+                        <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-sky-400 via-sky-400/20 to-transparent rounded-full opacity-0 group-hover/question:opacity-100 transition-opacity" />
+                        <motion.h3 
+                          key={currentQuestionIndex}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.4, ease: "easeOut" }}
+                          className="text-2xl md:text-4xl font-black text-slate-800 tracking-tight leading-tight max-w-2xl text-left"
+                        >
+                          {filteredQuestions[currentQuestionIndex].text}
+                        </motion.h3>
+                      </div>
+                      
+                      <div className="flex items-center gap-2">
+                        {isReviewingSkipped && (
+                          <span className="text-xs font-bold text-sky-600 flex items-center gap-1 bg-sky-50 px-3 py-1 rounded-full">
+                            <RotateCcw className="w-3 h-3" /> ĐANG TRẢ LỜI LẠI CÂU ĐÃ BỎ QUA
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
               
-              <div className="grid gap-4 mt-auto">
-                {(!filteredQuestions[currentQuestionIndex].type || filteredQuestions[currentQuestionIndex].type === 'MCQ' || filteredQuestions[currentQuestionIndex].type === 'FIND_ERROR') && (
-                  filteredQuestions[currentQuestionIndex].options?.map((option, idx) => {
+              <motion.div 
+                animate={showFeedback && !isCorrect ? { 
+                  x: [-10, 10, -10, 10, -5, 5, 0],
+                  rotate: [-1, 1, -1, 1, 0]
+                } : {}}
+                transition={{ duration: 0.5, ease: "easeInOut", type: "tween" }}
+                className="grid gap-4 mt-auto max-w-xl mx-auto w-full"
+              >
+                {(!filteredQuestions[currentQuestionIndex].type || 
+                  filteredQuestions[currentQuestionIndex].type === 'MCQ' || 
+                  filteredQuestions[currentQuestionIndex].type === 'FIND_ERROR' || 
+                  filteredQuestions[currentQuestionIndex].type === 'MULTIPLE_CHOICE' ||
+                  filteredQuestions[currentQuestionIndex].type === 'TRUE_FALSE') && (
+                  (filteredQuestions[currentQuestionIndex].type === 'TRUE_FALSE' 
+                    ? ["Đúng", "Sai"] 
+                    : filteredQuestions[currentQuestionIndex].options)?.map((option, idx) => {
                     let statusClass = "border-slate-100 hover:bg-sky-50 hover:border-sky-200";
-                    if (isChecking && idx === selectedOption) {
-                      statusClass = "bg-sky-50 border-sky-500 text-sky-700 ring-2 ring-sky-200";
+                    let animateProps = {};
+                    
+                    const currentQ = filteredQuestions[currentQuestionIndex];
+                    const isSelected = selectedOptions.includes(idx);
+                    
+                    let isCorrectOption = false;
+                    if (currentQ.type === 'TRUE_FALSE') {
+                      isCorrectOption = (currentQ.correctAnswer === true ? 0 : 1) === idx;
+                    } else if (Array.isArray(currentQ.correctAnswer)) {
+                      isCorrectOption = currentQ.correctAnswer.includes(idx);
+                    } else if (typeof currentQ.correctAnswer === 'string' && currentQ.type === 'MULTIPLE_CHOICE') {
+                      isCorrectOption = currentQ.correctAnswer.split(',').map(s => s.trim().charCodeAt(0) - 65).includes(idx);
+                    } else {
+                      isCorrectOption = currentQ.correctAnswer === idx;
+                    }
+
+                    if (isChecking && isSelected) {
+                      statusClass = isCorrect 
+                        ? "bg-green-100 border-green-500 text-green-800 ring-4 ring-green-200 shadow-md"
+                        : "bg-red-100 border-red-500 text-red-800 ring-4 ring-red-200 shadow-md";
+                      animateProps = isCorrect 
+                        ? { scale: [1, 1.05, 1], transition: { repeat: Infinity, duration: 0.4, ease: "easeInOut" } }
+                        : { x: [-3, 3, -3, 3, 0], transition: { duration: 0.2, ease: "linear" } };
                     } else if (showFeedback) {
-                      if (idx === filteredQuestions[currentQuestionIndex].correctAnswer) {
-                        statusClass = "bg-green-50 border-green-500 text-green-700";
-                      } else if (idx === selectedOption) {
-                        statusClass = "bg-red-50 border-red-500 text-red-700";
+                      if (isCorrectOption) {
+                        statusClass = "bg-green-50 border-green-500 text-green-700 shadow-[0_0_20px_rgba(34,197,94,0.4)]";
+                        if (isSelected) {
+                          animateProps = { 
+                            scale: [1, 1.1, 0.95, 1.05, 1], 
+                            rotate: [0, -2, 2, -1, 0],
+                            transition: { duration: 0.5, ease: "easeOut" } 
+                          };
+                        }
+                      } else if (isSelected) {
+                        statusClass = "bg-red-50 border-red-500 text-red-700 shadow-[0_0_15px_rgba(239,68,68,0.3)]";
+                        animateProps = { 
+                          x: [-6, 6, -6, 6, 0],
+                          backgroundColor: ["#ffffff", "#fecaca", "#fee2e2"],
+                          transition: { duration: 0.4, ease: "linear" } 
+                        };
                       } else {
-                        statusClass = "opacity-50 border-slate-100";
+                        statusClass = "opacity-20 border-slate-100 scale-95 blur-[1px]";
+                        animateProps = {
+                          opacity: [0.5, 0.2],
+                          scale: [1, 0.95],
+                          transition: { duration: 0.5, ease: "easeOut" }
+                        };
                       }
+                    } else if (isSelected) {
+                      statusClass = "border-sky-500 bg-sky-50 text-sky-700 ring-4 ring-sky-100";
                     }
 
                     return (
                       <motion.button
                         key={`${currentQuestionIndex}-${idx}`}
                         initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        animate={{ opacity: 1, y: 0, ...animateProps }}
+                        whileHover={!(showFeedback || isChecking) ? { scale: 1.02, x: 5 } : {}}
+                        whileTap={!(showFeedback || isChecking) ? { scale: 0.98 } : {}}
                         transition={{ delay: idx * 0.1 }}
                         disabled={showFeedback || isChecking}
                         onClick={() => handleAnswer(idx)}
-                        className={`w-full text-left p-4 rounded-2xl border-2 font-semibold transition-all flex items-center justify-between ${statusClass}`}
+                        className={`w-full text-left p-3 md:p-4 rounded-2xl border-2 font-semibold transition-all flex items-center justify-start gap-2 md:gap-3 text-sm md:text-base ${statusClass}`}
                       >
+                        {currentQ.type === 'MULTIPLE_CHOICE' && (
+                          <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${
+                            isSelected ? 'bg-sky-500 border-sky-500' : 'border-slate-300'
+                          }`}>
+                            {isSelected && <Check className="w-3 h-3 text-white" />}
+                          </div>
+                        )}
                         <span>{option}</span>
-                        {isChecking && idx === selectedOption && (
-                          <Loader2 className="w-5 h-5 animate-spin text-sky-500" />
+                        {isChecking && isSelected && (
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          >
+                            <Loader2 className={`w-5 h-5 ${isCorrect ? 'text-green-600' : 'text-red-600'}`} />
+                          </motion.div>
                         )}
-                        {showFeedback && idx === filteredQuestions[currentQuestionIndex].correctAnswer && (
-                          <CheckCircle2 className="text-green-500" />
+                        {showFeedback && isCorrectOption && (
+                          <motion.div
+                            initial={{ scale: 0, rotate: -45 }}
+                            animate={{ scale: 1, rotate: 0 }}
+                            transition={{ type: "spring", stiffness: 500, damping: 15 }}
+                          >
+                            <CheckCircle2 className="text-green-500 w-6 h-6" />
+                          </motion.div>
                         )}
-                        {showFeedback && idx === selectedOption && idx !== filteredQuestions[currentQuestionIndex].correctAnswer && (
-                          <XCircle className="text-red-500" />
+                        {showFeedback && isSelected && !isCorrectOption && (
+                          <motion.div
+                            initial={{ scale: 0, x: -10 }}
+                            animate={{ scale: 1, x: 0 }}
+                            transition={{ type: "spring", stiffness: 500, damping: 15 }}
+                          >
+                            <XCircle className="text-red-500 w-6 h-6" />
+                          </motion.div>
                         )}
                       </motion.button>
                     );
                   })
                 )}
 
-                {filteredQuestions[currentQuestionIndex].type === 'ORDERING' && (
-                  <div className="grid gap-3">
+                {filteredQuestions[currentQuestionIndex].type === 'MULTIPLE_CHOICE' && !showFeedback && (
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={handleMultipleChoiceSubmit}
+                    disabled={isChecking || selectedOptions.length === 0}
+                    className="mt-4 btn-playful bg-sky-500 text-white flex items-center justify-center gap-2 disabled:opacity-50"
+                  >
+                    {isChecking ? (
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      >
+                        <Loader2 className="w-5 h-5" />
+                      </motion.div>
+                    ) : <CheckCircle2 className="w-5 h-5" />}
+                    Xác nhận câu trả lời
+                  </motion.button>
+                )}
+
+                {(filteredQuestions[currentQuestionIndex].type === 'ORDERING' || filteredQuestions[currentQuestionIndex].type === 'SCRATCH') && (
+                  <div className="grid gap-2">
                     {orderingItems.map((item, idx) => (
                       <motion.div
                         key={`${currentQuestionIndex}-${item}`}
                         layout
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className={`p-4 rounded-2xl border-2 flex items-center justify-between bg-white ${
-                          showFeedback 
-                            ? (JSON.stringify(orderingItems) === JSON.stringify(filteredQuestions[currentQuestionIndex].correctAnswer) 
-                                ? 'border-green-500 bg-green-50' 
-                                : 'border-red-500 bg-red-50')
-                            : 'border-slate-100'
-                        }`}
+                        className={filteredQuestions[currentQuestionIndex].type === 'SCRATCH' 
+                          ? `p-2.5 sm:p-3 pl-6 sm:pl-8 pr-3 sm:pr-4 rounded-r-xl border-l-8 flex items-center justify-between text-white font-mono text-xs sm:text-base relative shadow-sm ${getScratchColor(item)} ${
+                              showFeedback 
+                                ? (JSON.stringify(orderingItems) === JSON.stringify(filteredQuestions[currentQuestionIndex].correctAnswer) 
+                                    ? 'ring-2 ring-green-400 ring-offset-2' 
+                                    : 'opacity-60 grayscale-[0.3]')
+                                : 'hover:brightness-110'
+                            }`
+                          : `p-3 sm:p-4 rounded-2xl border-2 flex items-center justify-between bg-white ${
+                              showFeedback 
+                                ? (JSON.stringify(orderingItems) === JSON.stringify(filteredQuestions[currentQuestionIndex].correctAnswer) 
+                                    ? 'border-green-500 bg-green-50' 
+                                    : 'border-red-500 bg-red-50')
+                                : 'border-slate-100'
+                            }`
+                        }
+                        style={filteredQuestions[currentQuestionIndex].type === 'SCRATCH' ? {
+                          clipPath: 'polygon(0% 0%, 15% 0%, 18% 15%, 32% 15%, 35% 0%, 100% 0%, 100% 100%, 35% 100%, 32% 115%, 18% 115%, 15% 100%, 0% 100%)',
+                          marginBottom: '-2px'
+                        } : {}}
                       >
-                        <span className="font-semibold text-slate-700">{item}</span>
+                        <span className={filteredQuestions[currentQuestionIndex].type === 'SCRATCH' ? "font-bold drop-shadow-sm" : "font-semibold text-slate-700"}>{item}</span>
                         {!showFeedback && (
-                          <div className="flex gap-2">
-                            <button 
+                          <div className="flex gap-2 sm:gap-2">
+                            <motion.button 
+                              whileHover={{ scale: 1.2 }}
+                              whileTap={{ scale: 0.8 }}
                               onClick={() => handleOrderingMove(idx, 'up')}
                               disabled={idx === 0}
-                              className="p-1 hover:bg-slate-100 rounded-lg disabled:opacity-30"
+                              className={`p-1.5 sm:p-1 rounded-lg disabled:opacity-30 ${filteredQuestions[currentQuestionIndex].type === 'SCRATCH' ? 'hover:bg-white/20' : 'hover:bg-slate-100'}`}
                             >
-                              <ChevronUp className="w-5 h-5" />
-                            </button>
-                            <button 
+                              <ChevronUp className={`w-5 h-5 sm:w-5 sm:h-5 ${filteredQuestions[currentQuestionIndex].type === 'SCRATCH' ? 'text-white' : 'text-slate-400'}`} />
+                            </motion.button>
+                            <motion.button 
+                              whileHover={{ scale: 1.2 }}
+                              whileTap={{ scale: 0.8 }}
                               onClick={() => handleOrderingMove(idx, 'down')}
                               disabled={idx === orderingItems.length - 1}
-                              className="p-1 hover:bg-slate-100 rounded-lg disabled:opacity-30"
+                              className={`p-1.5 sm:p-1 rounded-lg disabled:opacity-30 ${filteredQuestions[currentQuestionIndex].type === 'SCRATCH' ? 'hover:bg-white/20' : 'hover:bg-slate-100'}`}
                             >
-                              <ChevronDown className="w-5 h-5" />
-                            </button>
+                              <ChevronDown className={`w-5 h-5 sm:w-5 sm:h-5 ${filteredQuestions[currentQuestionIndex].type === 'SCRATCH' ? 'text-white' : 'text-slate-400'}`} />
+                            </motion.button>
                           </div>
                         )}
                       </motion.div>
                     ))}
                     {!showFeedback && (
-                      <button
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                         onClick={handleOrderingSubmit}
                         disabled={isChecking}
                         className="mt-4 btn-playful bg-sky-500 text-white flex items-center justify-center gap-2"
                       >
-                        {isChecking ? <Loader2 className="w-5 h-5 animate-spin" /> : <CheckCircle2 className="w-5 h-5" />}
+                        {isChecking ? (
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          >
+                            <Loader2 className="w-5 h-5" />
+                          </motion.div>
+                        ) : <CheckCircle2 className="w-5 h-5" />}
                         Xác nhận thứ tự
-                      </button>
+                      </motion.button>
                     )}
                   </div>
                 )}
 
-                {filteredQuestions[currentQuestionIndex].type === 'MATCHING' && (
+                {(filteredQuestions[currentQuestionIndex].type === 'MATCHING' || filteredQuestions[currentQuestionIndex].type === 'MATCHING_PAIRS') && (
                   <div className="grid gap-6">
-                    <div className="grid grid-cols-2 gap-8">
-                      <div className="space-y-3">
-                        <p className="text-sm font-bold text-slate-400 uppercase tracking-wider">Cột A</p>
+                    <div className="grid grid-cols-2 gap-4 sm:gap-8">
+                      <div className="space-y-2 sm:space-y-3">
+                        <p className="text-[10px] sm:text-sm font-bold text-slate-400 uppercase tracking-wider">Cột A</p>
                         {filteredQuestions[currentQuestionIndex].pairs?.map((pair, idx) => {
                           const isMatched = matchingPairs.some(p => p.left === pair.left);
                           const isSelected = matchingSelections.left === pair.left;
@@ -1029,9 +3296,9 @@ export default function App() {
                               key={`left-${idx}`}
                               disabled={showFeedback || isMatched}
                               onClick={() => handleMatchingSelect('left', pair.left)}
-                              className={`w-full p-3 rounded-xl border-2 text-left transition-all ${
+                              className={`w-full p-2 sm:p-3 rounded-xl border-2 text-left transition-all text-xs sm:text-base ${
                                 isMatched ? 'bg-slate-100 border-slate-200 text-slate-400' :
-                                isSelected ? 'border-sky-500 bg-sky-50 text-sky-700 ring-2 ring-sky-100' :
+                                isSelected ? 'border-sky-500 bg-sky-100 text-sky-800 ring-4 ring-sky-200 shadow-md scale-105 z-10' :
                                 'border-slate-100 hover:border-sky-200 hover:bg-sky-50'
                               }`}
                             >
@@ -1040,27 +3307,29 @@ export default function App() {
                           );
                         })}
                       </div>
-                      <div className="space-y-3">
-                        <p className="text-sm font-bold text-slate-400 uppercase tracking-wider">Cột B</p>
+                      <div className="space-y-2 sm:space-y-3">
+                        <p className="text-[10px] sm:text-sm font-bold text-slate-400 uppercase tracking-wider">Cột B</p>
                         {(() => {
-                          // Shuffle right side once per question
-                          const rightItems = filteredQuestions[currentQuestionIndex].pairs?.map(p => p.right) || [];
+                          const rightItems = filteredQuestions[currentQuestionIndex].shuffledRightItems || 
+                                           filteredQuestions[currentQuestionIndex].pairs?.map(p => p.right) || [];
                           return rightItems.map((item, idx) => {
                             const isMatched = matchingPairs.some(p => p.right === item);
                             const isSelected = matchingSelections.right === item;
                             return (
-                              <button
+                              <motion.button
                                 key={`right-${idx}`}
+                                whileHover={!isMatched && !showFeedback ? { scale: 1.02, x: -5 } : {}}
+                                whileTap={!isMatched && !showFeedback ? { scale: 0.98 } : {}}
                                 disabled={showFeedback || isMatched}
                                 onClick={() => handleMatchingSelect('right', item)}
-                                className={`w-full p-3 rounded-xl border-2 text-left transition-all ${
+                                className={`w-full p-2 sm:p-3 rounded-xl border-2 text-left transition-all text-xs sm:text-base ${
                                   isMatched ? 'bg-slate-100 border-slate-200 text-slate-400' :
-                                  isSelected ? 'border-sky-500 bg-sky-50 text-sky-700 ring-2 ring-sky-100' :
+                                  isSelected ? 'border-sky-500 bg-sky-100 text-sky-800 ring-4 ring-sky-200 shadow-md scale-105 z-10' :
                                   'border-slate-100 hover:border-sky-200 hover:bg-sky-50'
                                 }`}
                               >
                                 {item}
-                              </button>
+                              </motion.button>
                             );
                           });
                         })()}
@@ -1090,14 +3359,23 @@ export default function App() {
                     </div>
 
                     {!showFeedback && (
-                      <button
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                         onClick={handleMatchingSubmit}
                         disabled={isChecking || matchingPairs.length < (filteredQuestions[currentQuestionIndex].pairs?.length || 0)}
                         className="btn-playful bg-sky-500 text-white flex items-center justify-center gap-2 disabled:opacity-50"
                       >
-                        {isChecking ? <Loader2 className="w-5 h-5 animate-spin" /> : <CheckCircle2 className="w-5 h-5" />}
+                        {isChecking ? (
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          >
+                            <Loader2 className="w-5 h-5" />
+                          </motion.div>
+                        ) : <CheckCircle2 className="w-5 h-5" />}
                         Xác nhận kết quả
-                      </button>
+                      </motion.button>
                     )}
                   </div>
                 )}
@@ -1109,18 +3387,20 @@ export default function App() {
                         const isPlaced = !!dragDropMapping[item];
                         const isSelected = selectedDragItem === item;
                         return (
-                          <button
+                          <motion.button
                             key={`item-${idx}`}
+                            whileHover={!isPlaced && !showFeedback ? { scale: 1.1, rotate: 2 } : {}}
+                            whileTap={!isPlaced && !showFeedback ? { scale: 0.9, rotate: -2 } : {}}
                             disabled={showFeedback || isPlaced}
                             onClick={() => handleDragDropSelect(item)}
                             className={`px-4 py-2 rounded-xl border-2 font-semibold transition-all ${
                               isPlaced ? 'opacity-30 bg-slate-200 border-slate-300' :
-                              isSelected ? 'border-sky-500 bg-sky-50 text-sky-700 ring-2 ring-sky-100' :
+                              isSelected ? 'border-sky-500 bg-sky-100 text-sky-800 ring-4 ring-sky-200 shadow-md scale-110 z-10' :
                               'bg-white border-slate-100 hover:border-sky-200 shadow-sm'
                             }`}
                           >
                             {item}
-                          </button>
+                          </motion.button>
                         );
                       })}
                     </div>
@@ -1164,39 +3444,155 @@ export default function App() {
                     </div>
 
                     {!showFeedback && (
-                      <button
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                         onClick={handleDragDropSubmit}
                         disabled={isChecking || Object.keys(dragDropMapping).length < (filteredQuestions[currentQuestionIndex].items?.length || 0)}
                         className="btn-playful bg-sky-500 text-white flex items-center justify-center gap-2 disabled:opacity-50"
                       >
-                        {isChecking ? <Loader2 className="w-5 h-5 animate-spin" /> : <CheckCircle2 className="w-5 h-5" />}
+                        {isChecking ? (
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          >
+                            <Loader2 className="w-5 h-5" />
+                          </motion.div>
+                        ) : <CheckCircle2 className="w-5 h-5" />}
                         Xác nhận kết quả
-                      </button>
+                      </motion.button>
                     )}
                   </div>
                 )}
-              </div>
-            </div>
+
+                {/* Global Skip Button - Visible for all types when not showing feedback */}
+                {!showFeedback && !isReviewingSkipped && !isReviewingIncorrect && !isChecking && (
+                  <div className="mt-8 flex justify-end border-t border-slate-100 pt-6">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={handleSkip}
+                      className="btn-secondary flex items-center gap-2"
+                    >
+                      <ArrowRightCircle className="w-4 h-4" />
+                      Bỏ qua câu này
+                    </motion.button>
+                  </div>
+                )}
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
 
             <AnimatePresence>
               {showFeedback && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
-                  className="bg-white rounded-2xl p-6 shadow-lg border-2 border-sky-100 mb-6"
+                  className="bg-white/80 backdrop-blur-xl rounded-2xl p-6 shadow-[0_0_40px_rgba(0,0,0,0.05)] border-2 border-white mb-6 relative overflow-hidden"
                 >
-                  <p className={`font-bold text-lg mb-2 ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
-                    {isCorrect ? 'Chính xác! 🎉' : 'Chưa đúng rồi! 💡'}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/5 -rotate-45 translate-x-16 -translate-y-16" />
+                  <p className={`font-black text-2xl md:text-3xl mb-4 flex items-center justify-center gap-3 py-4 rounded-xl shadow-inner ${wasSkipped ? 'bg-slate-100/50 text-slate-500' : isCorrect ? 'bg-emerald-500/10 text-emerald-600' : 'bg-rose-500/10 text-rose-600'}`}>
+                    {wasSkipped ? (
+                      <motion.span 
+                        initial={{ scale: 0.5, opacity: 0 }} 
+                        animate={{ scale: 1, opacity: 1 }} 
+                        className="flex items-center gap-2 drop-shadow-sm"
+                      >
+                        <ArrowRightCircle className="w-8 h-8" /> SKIP_LOGIC 💨
+                      </motion.span>
+                    ) : isCorrect ? (
+                      <motion.span 
+                        initial={{ scale: 0.5, rotate: -10, opacity: 0 }} 
+                        animate={{ scale: 1.1, rotate: 0, opacity: 1 }} 
+                        className="flex items-center gap-2 drop-shadow-sm"
+                      >
+                        <CheckCircle2 className="w-8 h-8" /> AUTH_SUCCESS 🎉
+                      </motion.span>
+                    ) : (
+                      <motion.span 
+                        initial={{ scale: 0.5, x: -20, opacity: 0 }} 
+                        animate={{ scale: 1, x: 0, opacity: 1 }} 
+                        className="flex items-center gap-2 drop-shadow-sm"
+                      >
+                        <XCircle className="w-8 h-8" /> ERROR_403 💡
+                      </motion.span>
+                    )}
                   </p>
-                  <p className="text-slate-600 leading-relaxed mb-4">
-                    {filteredQuestions[currentQuestionIndex].explanation}
-                  </p>
-                  <button 
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="w-1 bg-slate-200 self-stretch rounded-full" />
+                    <p className="text-sm md:text-base text-slate-600 leading-relaxed font-medium italic">
+                      " {filteredQuestions[currentQuestionIndex].explanation} "
+                    </p>
+                  </div>
+                  
+                  {!isCorrect && !wasSkipped && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mb-4 p-5 bg-slate-50 border border-slate-200 rounded-xl relative group"
+                    >
+                      <div className="absolute top-0 left-0 w-1 h-full bg-emerald-500 rounded-full" />
+                      <div className="flex items-center gap-2 mb-3">
+                        <Terminal className="w-4 h-4 text-emerald-600" />
+                        <p className="text-[10px] font-mono font-black text-emerald-700 uppercase tracking-widest">DECRYPTED_SOLUTION:</p>
+                      </div>
+                      <div className="font-bold text-slate-800 md:text-lg">
+                        {(() => {
+                          const q = filteredQuestions[currentQuestionIndex];
+                          if (q.type === 'MCQ' || q.type === 'FIND_ERROR' || q.type === 'TRUE_FALSE') {
+                            if (q.type === 'TRUE_FALSE') return q.correctAnswer ? "Đúng" : "Sai";
+                            if (typeof q.correctAnswer === 'number') return q.options[q.correctAnswer];
+                            return q.correctAnswer;
+                          }
+                          if (q.type === 'MULTIPLE_CHOICE') {
+                             const indices = Array.isArray(q.correctAnswer) ? q.correctAnswer : String(q.correctAnswer).split(',').map(s => s.trim().charCodeAt(0) - 65);
+                             return indices.map(i => q.options[i]).join(', ');
+                          }
+                          if (q.type === 'ORDERING' || q.type === 'SCRATCH') {
+                             return (q.correctAnswer as string[]).join(' → ');
+                          }
+                          if (q.type === 'MATCHING') {
+                             return <div className="grid grid-cols-1 gap-1.5 mt-2">
+                               {q.pairs?.map((p, i) => (
+                                 <div key={i} className="flex items-center gap-3 text-sm p-2 bg-white rounded-lg border border-slate-100">
+                                   <span className="text-slate-500 font-medium whitespace-nowrap">{p.left}</span>
+                                   <ArrowRight className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                                   <span className="text-slate-800 font-bold">{p.right}</span>
+                                 </div>
+                               ))}
+                             </div>;
+                          }
+                          if (q.type === 'DRAG_DROP') {
+                             return <div className="grid grid-cols-1 gap-1.5 mt-2">
+                               {Object.entries(q.correctAnswer as Record<string, string>).map(([item, target], i) => (
+                                 <div key={i} className="flex items-center gap-3 text-sm p-2 bg-white rounded-lg border border-slate-100">
+                                   <span className="text-slate-500 font-medium whitespace-nowrap">{item}</span>
+                                   <ArrowRight className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                                   <div className="bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded text-[10px] font-black uppercase tracking-wider">{target}</div>
+                                 </div>
+                               ))}
+                             </div>;
+                          }
+                          return "Xem chi tiết hướng dẫn";
+                        })()}
+                      </div>
+                    </motion.div>
+                  )}
+                  {filteredQuestions[currentQuestionIndex].type === 'FIND_ERROR' && (
+                    <div className="mb-4 p-3 bg-sky-50 rounded-xl border border-sky-100">
+                      <p className="text-sm font-bold text-sky-700">Sửa lại cho đúng:</p>
+                      <p className="text-sky-600 italic">"{filteredQuestions[currentQuestionIndex].correction}"</p>
+                    </div>
+                  )}
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={nextQuestion}
                     className="btn-playful bg-sky-500 text-white w-full"
                   >
                     {currentQuestionIndex < filteredQuestions.length - 1 ? 'Câu tiếp theo' : 'Xem kết quả'}
-                  </button>
+                  </motion.button>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -1208,6 +3604,7 @@ export default function App() {
             key="summary"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1 }}
             className="z-10 text-center max-w-md w-full"
           >
             <div className="card-playful">
@@ -1259,7 +3656,7 @@ export default function App() {
                         damping: 10,
                         delay: 0.4
                       }}
-                      className="text-6xl font-display font-bold text-sky-600 drop-shadow-sm"
+                      className="text-4xl md:text-6xl font-display font-bold text-sky-600 drop-shadow-sm"
                     >
                       {score}
                     </motion.p>
@@ -1268,7 +3665,7 @@ export default function App() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6 }}
-                    className="text-5xl font-display font-bold text-slate-300"
+                    className="text-3xl md:text-5xl font-display font-bold text-slate-300"
                   >
                     /
                   </motion.p>
@@ -1276,9 +3673,9 @@ export default function App() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.7 }}
-                    className="text-5xl font-display font-bold text-slate-400"
+                    className="text-3xl md:text-5xl font-display font-bold text-slate-400"
                   >
-                    {filteredQuestions.length}
+                    {totalQuestionsInQuiz}
                   </motion.p>
                 </div>
                 
@@ -1289,19 +3686,80 @@ export default function App() {
                   transition={{ delay: 1 }}
                   className="mt-4 text-sm font-bold text-sky-500 uppercase tracking-widest"
                 >
-                  {score === filteredQuestions.length ? "Tuyệt vời! Điểm tuyệt đối!" : 
-                   score >= filteredQuestions.length / 2 ? "Làm tốt lắm!" : "Cố gắng lên nhé!"}
+                  {score === totalQuestionsInQuiz ? "Tuyệt vời! Điểm tuyệt đối!" : 
+                   score >= totalQuestionsInQuiz / 2 ? "Làm tốt lắm!" : "Cố gắng lên nhé!"}
                 </motion.p>
+
+                {skippedQuestions.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.2 }}
+                    className="mt-6 p-4 bg-yellow-50 rounded-2xl border border-yellow-100 flex items-center justify-between"
+                  >
+                    <div className="text-left">
+                      <p className="text-sm font-bold text-yellow-700">Em đã bỏ qua {skippedQuestions.length} câu</p>
+                      <p className="text-xs text-yellow-600">Em muốn trả lời lại chúng để đạt điểm cao hơn không?</p>
+                    </div>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={handleReviewSkipped}
+                      className="px-4 py-2 bg-yellow-500 text-white rounded-xl text-sm font-bold shadow-sm shadow-yellow-200"
+                    >
+                      Làm lại
+                    </motion.button>
+                  </motion.div>
+                )}
+
+                {incorrectQuestions.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.3 }}
+                    className="mt-4 p-4 bg-red-50 rounded-2xl border border-red-100 space-y-3"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="text-left">
+                        <p className="text-sm font-bold text-red-700">Em đã làm sai {incorrectQuestions.length} câu</p>
+                        <p className="text-xs text-red-600">Em có muốn xem lời giải hoặc ôn luyện lại không?</p>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-3">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setShowReviewIncorrectModal(true)}
+                        className="px-4 py-2 bg-white text-red-600 border border-red-200 rounded-xl text-xs font-bold shadow-sm flex items-center justify-center gap-1"
+                      >
+                        <Eye className="w-4 h-4" /> Xem đáp án
+                      </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={handleReviewIncorrect}
+                        className="px-4 py-2 bg-red-500 text-white rounded-xl text-xs font-bold shadow-sm shadow-red-200 flex items-center justify-center gap-1"
+                      >
+                        <RotateCcw className="w-4 h-4" /> Ôn luyện lại
+                      </motion.button>
+                    </div>
+                  </motion.div>
+                )}
               </motion.div>
 
               <div className="grid gap-3">
-                <button 
+                <motion.button 
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => startQuiz()}
                   className="btn-playful bg-sky-500 text-white flex items-center justify-center gap-2"
                 >
                   <RotateCcw className="w-5 h-5" /> Thử lại
-                </button>
-                <button 
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => {
                     setGameState('LEADERBOARD');
                     fetchLeaderboard();
@@ -1309,13 +3767,23 @@ export default function App() {
                   className="btn-playful bg-white text-sky-600 border-2 border-sky-100 flex items-center justify-center gap-2"
                 >
                   <ListOrdered className="w-5 h-5" /> Bảng xếp hạng
-                </button>
-                <button 
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setGameState('LEVEL_SELECT')}
                   className="btn-playful bg-white text-sky-600 border-2 border-sky-100 flex items-center justify-center gap-2"
                 >
-                  <Home className="w-5 h-5" /> Về danh sách
-                </button>
+                  <ListOrdered className="w-5 h-5" /> Về danh sách chủ đề
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setGameState('HOME')}
+                  className="btn-playful bg-white text-slate-500 border-2 border-slate-100 flex items-center justify-center gap-2"
+                >
+                  <Home className="w-5 h-5" /> Về trang chủ
+                </motion.button>
               </div>
             </div>
           </motion.div>
@@ -1324,19 +3792,36 @@ export default function App() {
         {gameState === 'ACHIEVEMENTS' && (
           <motion.div 
             key="achievements"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ type: "spring", damping: 25, stiffness: 120 }}
             className="z-10 w-full max-w-2xl"
           >
             <div className="flex items-center gap-4 mb-8">
-              <button 
+              <motion.button 
+                whileHover={{ scale: 1.2, rotate: -10 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={() => setGameState('HOME')}
                 className="p-2 hover:bg-white rounded-full transition-colors"
               >
                 <ChevronLeft className="w-8 h-8 text-slate-400" />
-              </button>
+              </motion.button>
               <h2 className="text-3xl font-display font-bold text-slate-800">Thành tích của em</h2>
+            </div>
+
+            <div className="bg-white rounded-3xl p-6 shadow-sm border-2 border-slate-100 mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-slate-500 font-semibold">Tiến độ hoàn thành</span>
+                <span className="text-sky-600 font-bold">{unlockedAchievements.length} / {ACHIEVEMENTS.length}</span>
+              </div>
+              <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  animate={{ width: `${(unlockedAchievements.length / ACHIEVEMENTS.length) * 100}%` }}
+                  className="h-full bg-sky-500"
+                />
+              </div>
             </div>
 
             <div className="grid gap-4">
@@ -1347,19 +3832,29 @@ export default function App() {
                 return (
                   <div 
                     key={achievement.id}
-                    className={`card-playful flex items-center gap-6 transition-all ${
+                    className={`card-playful flex items-center gap-4 md:gap-6 transition-all ${
                       isUnlocked ? 'opacity-100' : 'opacity-50 grayscale bg-slate-50'
                     }`}
                   >
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white ${
+                    <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center text-white shrink-0 ${
                       isUnlocked ? achievement.color : 'bg-slate-300'
                     }`}>
-                      <Icon className="w-8 h-8" />
+                      <Icon className="w-6 h-6 md:w-8 md:h-8" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-display font-bold text-slate-800">
-                        {achievement.title}
-                        {!isUnlocked && <span className="ml-2 text-sm font-normal text-slate-400">(Chưa khóa)</span>}
+                      <h3 className="text-lg md:text-xl font-display font-bold text-slate-800 flex items-center gap-2">
+                        {isUnlocked ? achievement.title : '???' }
+                        {isUnlocked && (
+                          <motion.span
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ type: "spring", stiffness: 500, damping: 15, delay: 0.2 }}
+                            className="inline-flex items-center justify-center bg-green-100 text-green-600 rounded-full p-1"
+                          >
+                            <CheckCircle2 className="w-4 h-4" />
+                          </motion.span>
+                        )}
+                        {!isUnlocked && <span className="text-sm font-normal text-slate-400">(Chưa khóa)</span>}
                       </h3>
                       <p className="text-slate-500">{achievement.description}</p>
                     </div>
@@ -1373,33 +3868,73 @@ export default function App() {
         {gameState === 'LEADERBOARD' && (
           <motion.div 
             key="leaderboard"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.1 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ type: "spring", damping: 25, stiffness: 120 }}
             className="z-10 w-full max-w-2xl"
           >
             <div className="flex items-center gap-4 mb-8">
-              <button 
+              <motion.button 
+                whileHover={{ scale: 1.2, rotate: -10 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={() => setGameState('HOME')}
                 className="p-2 hover:bg-white rounded-full transition-colors"
               >
                 <ChevronLeft className="w-8 h-8 text-slate-400" />
-              </button>
+              </motion.button>
               <h2 className="text-3xl font-display font-bold text-slate-800">Bảng xếp hạng</h2>
             </div>
 
             <div className="card-playful overflow-hidden p-0">
-              <div className="bg-sky-500 p-6 text-white text-center">
-                <Medal className="w-12 h-12 mx-auto mb-2" />
-                <h3 className="text-xl font-bold">Top 10 Nhà Thông Thái</h3>
+              <div className="bg-sky-500 p-4 md:p-6 text-white text-center">
+                <Medal className="w-8 h-8 md:w-12 md:h-12 mx-auto mb-2" />
+                <h3 className="text-lg md:text-xl font-bold">Top 10 Nhà Thông Thái</h3>
+              </div>
+
+              {/* Difficulty Filter */}
+              <div className="flex items-center justify-center gap-2 p-4 bg-slate-50 border-b border-slate-100 overflow-x-auto">
+                {(['All', 'Easy', 'Medium', 'Hard', 'Mixed'] as (Difficulty | 'All')[]).map((filter) => (
+                  <button
+                    key={filter}
+                    onClick={() => fetchLeaderboard(filter)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap ${
+                      leaderboardFilter === filter
+                        ? 'bg-sky-500 text-white shadow-md scale-105'
+                        : 'bg-white text-slate-500 hover:bg-sky-50 border border-slate-200'
+                    }`}
+                  >
+                    {filter === 'All' ? 'Tất cả' : difficultyConfig[filter as Difficulty].label}
+                  </button>
+                ))}
               </div>
 
               <div className="p-4">
                 {isLoadingLeaderboard ? (
-                  <div className="py-12 text-center text-slate-400">
-                    <div className="animate-spin w-8 h-8 border-4 border-sky-500 border-t-transparent rounded-full mx-auto mb-4" />
-                    Đang tải dữ liệu...
-                  </div>
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="py-12 text-center text-slate-400"
+                  >
+                    <motion.div 
+                      animate={{ 
+                        rotate: 360,
+                        scale: [1, 1.1, 1],
+                      }}
+                      transition={{ 
+                        rotate: { duration: 2, repeat: Infinity, ease: "linear" },
+                        scale: { duration: 1, repeat: Infinity, ease: "easeInOut" }
+                      }}
+                      className="w-12 h-12 border-4 border-sky-500 border-t-transparent rounded-full mx-auto mb-4 shadow-lg shadow-sky-100" 
+                    />
+                    <motion.p
+                      animate={{ opacity: [0.5, 1, 0.5] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                      className="font-medium"
+                    >
+                      Đang tải dữ liệu...
+                    </motion.p>
+                  </motion.div>
                 ) : leaderboardData.length === 0 ? (
                   <div className="py-12 text-center text-slate-400">
                     Chưa có kỷ lục nào. Hãy là người đầu tiên!
@@ -1433,10 +3968,10 @@ export default function App() {
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="text-2xl font-bold text-sky-600">{entry.score}/{entry.totalQuestions}</p>
+                          <p className="text-xl md:text-2xl font-bold text-sky-600">{entry.score}/{entry.totalQuestions}</p>
                           <div className="flex items-center justify-end gap-1 text-[10px] text-slate-400">
                             <Clock className="w-3 h-3" />
-                            {entry.timestamp?.toDate().toLocaleDateString()}
+                            {new Date(entry.timestamp).toLocaleDateString()}
                           </div>
                         </div>
                       </div>
@@ -1446,12 +3981,84 @@ export default function App() {
               </div>
 
               <div className="p-6 bg-slate-50 border-t border-slate-100">
-                <button 
+                <motion.button 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={() => setGameState('HOME')}
                   className="btn-playful bg-sky-500 text-white w-full"
                 >
                   Quay lại trang chủ
-                </button>
+                </motion.button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {gameState === 'ABOUT' && (
+          <motion.div 
+            key="about"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ type: "spring", damping: 25, stiffness: 120 }}
+            className="z-10 w-full max-w-2xl"
+          >
+            <div className="flex items-center gap-4 mb-8">
+              <motion.button 
+                whileHover={{ scale: 1.2, rotate: -10 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setGameState('HOME')}
+                className="p-2 hover:bg-white rounded-full transition-colors"
+              >
+                <ChevronLeft className="w-8 h-8 text-slate-400" />
+              </motion.button>
+              <h2 className="text-3xl font-display font-bold text-slate-800">Giới thiệu</h2>
+            </div>
+
+            <div className="card-playful text-center p-8">
+              <div className="bg-sky-100 p-6 rounded-3xl inline-block mb-6">
+                <Monitor className="w-16 h-16 text-sky-500" />
+              </div>
+              <h3 className="text-4xl font-display font-bold text-slate-800 mb-4">Quiz Tin Học</h3>
+              <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                Ứng dụng học tập tương tác giúp học sinh lớp 3, lớp 4 và lớp 5 ôn tập kiến thức Tin học một cách vui nhộn và hiệu quả.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-left">
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <p className="text-xs font-bold text-slate-400 uppercase mb-1">Phiên bản</p>
+                  <p className="font-bold text-slate-700">1.2.0 (Hỗ trợ đa dạng câu hỏi)</p>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <p className="text-xs font-bold text-slate-400 uppercase mb-1">Phát triển bởi</p>
+                  <p className="font-bold text-slate-700">Lục Minh Sơn</p>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <p className="text-xs font-bold text-slate-400 uppercase mb-1">Liên hệ</p>
+                  <p className="font-bold text-slate-700">0915088487</p>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <p className="text-xs font-bold text-slate-400 uppercase mb-1">Công nghệ</p>
+                  <p className="font-bold text-slate-700">React, Tailwind, Firebase</p>
+                </div>
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <p className="text-xs font-bold text-slate-400 uppercase mb-1">Cập nhật lần cuối</p>
+                  <p className="font-bold text-slate-700">Tháng 4, 2026</p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-slate-400 text-sm italic">
+                  "Học mà chơi, chơi mà học - Khám phá thế giới số cùng Quiz Tin Học!"
+                </p>
+                <motion.button 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setGameState('HOME')}
+                  className="btn-playful bg-sky-500 text-white w-full"
+                >
+                  Bắt đầu học ngay
+                </motion.button>
               </div>
             </div>
           </motion.div>
@@ -1484,9 +4091,102 @@ export default function App() {
       </AnimatePresence>
 
       {/* Footer Info */}
-      <div className="fixed bottom-4 text-slate-400 text-sm font-medium flex items-center gap-2">
-        <span>Tin học 3 • Kết nối tri thức</span>
+      <div className="fixed bottom-4 text-slate-400 text-xs sm:text-sm font-medium flex items-center gap-2">
+        <span>Tin học Tiểu học • {selectedGrade ? `Lớp ${selectedGrade.id}` : 'Học vui mỗi ngày'}</span>
       </div>
+
+      {/* Settings Modal */}
+      <AnimatePresence>
+        {showSettings && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-display font-bold text-slate-800">Cài đặt</h3>
+                <motion.button 
+                  whileHover={{ rotate: 90 }}
+                  onClick={() => setShowSettings(false)}
+                  className="p-2 hover:bg-slate-100 rounded-full transition-colors"
+                >
+                  <XCircle className="w-6 h-6 text-slate-400" />
+                </motion.button>
+              </div>
+
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      {isMuted || volume === 0 ? <VolumeX className="w-5 h-5 text-slate-400" /> : <Volume2 className="w-5 h-5 text-sky-500" />}
+                      <span className="font-bold text-slate-700">Âm thanh</span>
+                    </div>
+                    <button 
+                      onClick={() => setIsMuted(!isMuted)}
+                      className={`w-12 h-6 rounded-full transition-colors relative ${isMuted ? 'bg-slate-200' : 'bg-sky-500'}`}
+                    >
+                      <motion.div 
+                        animate={{ x: isMuted ? 2 : 26 }}
+                        className="absolute top-1 w-4 h-4 bg-white rounded-full shadow-sm"
+                      />
+                    </button>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    <VolumeX className="w-4 h-4 text-slate-400" />
+                    <input 
+                      type="range" 
+                      min="0" 
+                      max="1" 
+                      step="0.1" 
+                      value={volume}
+                      onChange={(e) => {
+                        setVolume(parseFloat(e.target.value));
+                        if (isMuted) setIsMuted(false);
+                      }}
+                      className="flex-1 h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-sky-500"
+                    />
+                    <Volume2 className="w-4 h-4 text-sky-500" />
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-slate-100 space-y-3">
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => {
+                      if (window.confirm('Em có chắc chắn muốn xóa toàn bộ tiến trình học tập không? Thao tác này không thể hoàn tác.')) {
+                        localStorage.removeItem('quiz_completed_levels');
+                        localStorage.removeItem('quiz_achievements');
+                        localStorage.removeItem('quiz_recent_topics');
+                        setCompletedLevels([]);
+                        setUnlockedAchievements([]);
+                        setRecentTopics([]);
+                        setShowSettings(false);
+                        playSound('select');
+                      }
+                    }}
+                    className="flex items-center justify-center gap-2 p-3 w-full rounded-2xl bg-red-50 text-red-500 hover:bg-red-100 transition-colors font-bold text-sm"
+                  >
+                    <RotateCcw className="w-4 h-4" />
+                    Xóa tất cả tiến trình
+                  </motion.button>
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setShowSettings(false)}
+                    className="btn-playful bg-sky-500 text-white w-full"
+                  >
+                    Xong
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Quit Confirmation Modal */}
       <AnimatePresence>
@@ -1504,23 +4204,374 @@ export default function App() {
               <h3 className="text-2xl font-display font-bold text-slate-800 mb-2">Thoát trò chơi?</h3>
               <p className="text-slate-500 mb-8">Em có chắc chắn muốn thoát không? Kết quả hiện tại sẽ không được lưu lại đâu nhé!</p>
               <div className="grid grid-cols-2 gap-4">
-                <button 
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setShowQuitConfirm(false)}
                   className="px-6 py-3 rounded-2xl font-display font-semibold text-slate-500 bg-slate-100 hover:bg-slate-200 transition-colors"
                 >
                   Ở lại
-                </button>
-                <button 
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={confirmQuit}
                   className="px-6 py-3 rounded-2xl font-display font-semibold text-white bg-red-500 hover:bg-red-600 shadow-lg shadow-red-200 transition-colors"
                 >
                   Thoát
+                </motion.button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Topic Details Modal */}
+      <AnimatePresence>
+        {showLevelDetails && currentLevel && (
+          <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white rounded-[2.5rem] max-w-2xl w-full shadow-2xl overflow-hidden flex flex-col md:flex-row h-fit max-h-[90vh]"
+            >
+              <div className="md:w-2/5 relative h-48 md:h-auto overflow-hidden">
+                <img 
+                  src={`https://picsum.photos/seed/${getLevelImageSeed(currentLevel.id)}/600/800`} 
+                  alt={currentLevel.title}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex items-bottom p-6 md:p-8">
+                   <div className="mt-auto">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] uppercase font-bold tracking-widest border border-white/30 mb-2">
+                        {ICON_MAP[currentLevel.icon] && React.createElement(ICON_MAP[currentLevel.icon], { className: "w-3 h-3" })}
+                        Thông tin chủ đề
+                      </div>
+                      <p className="text-white/70 text-[10px] font-bold uppercase tracking-tighter">Grade {selectedGrade?.id}</p>
+                   </div>
+                </div>
+              </div>
+              
+              <div className="md:w-3/5 p-6 md:p-10 flex flex-col justify-between overflow-y-auto">
+                <div>
+                    <div className="flex justify-between items-start mb-4">
+                      <h2 className="text-3xl font-display font-bold text-slate-800 leading-tight">{currentLevel.title}</h2>
+                      <motion.button 
+                        whileHover={{ rotate: 90 }}
+                        onClick={() => setShowLevelDetails(false)}
+                        className="p-1.5 hover:bg-slate-100 rounded-full transition-colors shrink-0"
+                      >
+                        <XCircle className="w-6 h-6 text-slate-300" />
+                      </motion.button>
+                    </div>
+                    
+                    <p className="text-slate-500 mb-6 leading-relaxed text-sm md:text-base">
+                      {currentLevel.description}
+                    </p>
+
+                    {currentLevel.longDescription && (
+                      <div className="mb-6 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Kiến thức trọng tâm</p>
+                        <p className="text-sm text-slate-600 leading-relaxed italic">{currentLevel.longDescription}</p>
+                      </div>
+                    )}
+
+                    {currentLevel.keyConcepts && currentLevel.keyConcepts.length > 0 && (
+                      <div className="mb-6">
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Nội dung cốt lõi</p>
+                        <div className="flex flex-wrap gap-2">
+                          {currentLevel.keyConcepts.map((concept, i) => (
+                            <span key={i} className="px-3 py-1 bg-sky-50 text-sky-600 rounded-lg text-xs font-bold border border-sky-100 flex items-center gap-1.5">
+                              <Zap className="w-3 h-3" />
+                              {concept}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {currentLevel.externalLinks && currentLevel.externalLinks.length > 0 && (
+                      <div className="mb-6">
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Tài liệu tham khảo</p>
+                        <div className="grid gap-2">
+                          {currentLevel.externalLinks.map((link, i) => (
+                            <a 
+                              key={i} 
+                              href={link.url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-between p-3 rounded-xl bg-white border border-slate-200 hover:border-sky-300 hover:bg-sky-50 transition-all group"
+                            >
+                              <div className="flex items-center gap-3">
+                                <div className="p-1.5 bg-slate-100 rounded-lg group-hover:bg-sky-100 group-hover:text-sky-600 transition-colors">
+                                  <Globe className="w-4 h-4" />
+                                </div>
+                                <span className="text-sm font-semibold text-slate-700 group-hover:text-sky-700">{link.title}</span>
+                              </div>
+                              <ArrowRightCircle className="w-4 h-4 text-slate-300 group-hover:text-sky-500 group-hover:translate-x-1 transition-all" />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Tổng số câu</p>
+                         <p className="text-2xl font-bold text-slate-700">{currentLevel.questions.length}</p>
+                      </div>
+                      <div className="p-4 rounded-2xl bg-sky-50 border border-sky-100">
+                         <p className="text-[10px] font-bold text-sky-400 uppercase tracking-widest mb-1">Cấu trúc đề</p>
+                         <p className="text-sm font-bold text-sky-700">Đầy đủ 3 mức độ</p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3 mb-10">
+                       <div className="flex items-center justify-between text-xs font-bold text-slate-400 px-1 uppercase tracking-widest">
+                          <span>Phân bổ câu hỏi</span>
+                          <Activity className="w-3.5 h-3.5" />
+                       </div>
+                       <div className="h-4 w-full bg-slate-100 rounded-full flex overflow-hidden p-0.5 border border-slate-200">
+                          {['Easy', 'Medium', 'Hard'].map((d, i) => {
+                            const count = currentLevel.questions.filter(q => q.difficulty === d).length;
+                            const pct = (count / currentLevel.questions.length) * 100;
+                            const colors = ['bg-emerald-400', 'bg-amber-400', 'bg-rose-400'];
+                            return <div key={d} className={`h-full ${colors[i]}`} style={{ width: `${pct}%` }} />;
+                          })}
+                       </div>
+                       <div className="flex justify-between text-[10px] font-bold mt-1 px-1">
+                          <span className="text-emerald-600">Dễ ({currentLevel.questions.filter(q => q.difficulty === 'Easy').length})</span>
+                          <span className="text-amber-600">TB ({currentLevel.questions.filter(q => q.difficulty === 'Medium').length})</span>
+                          <span className="text-rose-600">Khó ({currentLevel.questions.filter(q => q.difficulty === 'Hard').length})</span>
+                       </div>
+                    </div>
+                </div>
+
+                <button
+                  onClick={() => setShowLevelDetails(false)}
+                  className="btn-playful bg-sky-500 text-white w-full py-4 text-base shadow-lg shadow-sky-100"
+                >
+                  Bắt đầu học ngay
                 </button>
               </div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
-    </div>
+
+      {/* Notification Center Modal */}
+      <AnimatePresence>
+        {showNotificationCenter && (
+          <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white rounded-[2.5rem] max-w-lg w-full shadow-2xl overflow-hidden flex flex-col h-[70vh]"
+            >
+              <div className="p-8 border-b border-slate-100 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-2xl bg-emerald-100 text-emerald-600">
+                    <Bell className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-display font-bold text-slate-800">Thông báo hệ thống</h2>
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Tin tức & Cập nhật</p>
+                  </div>
+                </div>
+                <motion.button 
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setShowNotificationCenter(false)}
+                  className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-300 hover:text-slate-600"
+                >
+                  <XCircle className="w-8 h-8" />
+                </motion.button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto p-8 scrollbar-none">
+                {systemNotifications.length === 0 ? (
+                  <div className="h-full flex flex-col items-center justify-center text-center space-y-4 opacity-50">
+                    <div className="p-6 rounded-full bg-slate-50 border-2 border-dashed border-slate-200 text-slate-300">
+                      <BellOff className="w-12 h-12" />
+                    </div>
+                    <p className="text-slate-500 font-medium">Hiện tại không có thông báo mới nào dành cho bạn.</p>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {systemNotifications.map((notif, idx) => (
+                      <motion.div 
+                        key={notif.id}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0, transition: { delay: idx * 0.1 } }}
+                        className="p-5 rounded-3xl border-2 border-emerald-50 bg-emerald-50/20 hover:bg-emerald-50 transition-colors relative group"
+                      >
+                        <div className="flex items-start justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <span className={`w-2 h-2 rounded-full ${
+                              notif.type === 'update' ? 'bg-sky-500' : 
+                              notif.type === 'security' ? 'bg-rose-500' : 'bg-emerald-500'
+                            }`} />
+                            <h4 className="text-base font-bold text-slate-700">{notif.title}</h4>
+                          </div>
+                          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider bg-white px-2 py-0.5 rounded-full border border-slate-100">{notif.time}</span>
+                        </div>
+                        <p className="text-sm text-slate-600 leading-relaxed pr-4">{notif.message}</p>
+                        {idx === 0 && (
+                          <div className="absolute top-2 right-2 flex gap-1">
+                            <span className="flex h-2 w-2 rounded-full bg-rose-500 animate-ping opacity-75"></span>
+                          </div>
+                        )}
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <div className="p-8 border-t border-slate-100 bg-slate-50/50 flex gap-4">
+                <button 
+                  onClick={() => setSystemNotifications([])}
+                  className="flex-1 py-4 px-6 rounded-2xl bg-white border-2 border-slate-200 text-slate-500 font-bold hover:bg-slate-100 transition-all flex items-center justify-center gap-2"
+                >
+                  <RotateCcw className="w-5 h-5" /> <span>Xóa tất cả</span>
+                </button>
+                <button 
+                  onClick={() => setShowNotificationCenter(false)}
+                  className="flex-[2] py-4 px-6 rounded-2xl bg-emerald-500 text-white font-bold shadow-lg shadow-emerald-200 hover:bg-emerald-600 transition-all"
+                >
+                  Đã rõ
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {systemNotifications.length > 0 && gameState === 'HOME' && (
+          <motion.button
+            initial={{ scale: 0, rotate: -45 }}
+            animate={{ scale: 1, rotate: 0 }}
+            whileHover={{ scale: 1.1, rotate: 10 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setShowSystemMonitor(true)}
+            className="fixed bottom-8 right-8 z-[100] bg-emerald-500 text-white p-4 rounded-full shadow-2xl shadow-emerald-200 border-4 border-white flex items-center justify-center"
+          >
+            <div className="absolute -top-1 -right-1 w-6 h-6 bg-rose-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white">
+              {systemNotifications.length}
+            </div>
+            <Activity className="w-6 h-6 animate-pulse" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showSystemMonitor && (
+          <>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowSystemMonitor(false)}
+              className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[1002]"
+            />
+            <motion.div 
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl z-[1003] overflow-hidden flex flex-col"
+            >
+              <div className="p-6 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="bg-emerald-100 p-2 rounded-lg">
+                    <Activity className="w-5 h-5 text-emerald-600" />
+                  </div>
+                  <div>
+                            <p className="text-xl font-display font-bold text-slate-800">Trình theo dõi hệ thống</p>
+                            <div className="flex items-center gap-2">
+                              <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                              <p className="text-[10px] text-slate-400 font-mono font-bold uppercase tracking-widest">Status: Ready [v.2.4.0]</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="hidden md:flex items-center gap-4 text-[10px] font-mono text-slate-400">
+                          <span className="bg-slate-200 px-2 py-0.5 rounded">CPU: 12%</span>
+                          <span className="bg-slate-200 px-2 py-0.5 rounded">RAM: 4.2GB</span>
+                        </div>
+                        <button 
+                          onClick={() => setShowSystemMonitor(false)}
+                          className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-400 hover:text-slate-600 ml-4"
+                        >
+                          <ChevronRight className="w-6 h-6" />
+                        </button>
+                      </div>
+                      
+                      <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scrollbar-none bg-slate-50 shadow-inner">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <History className="w-4 h-4 text-sky-500" />
+                            <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Nhật ký truy xuất ({systemNotifications.length})</span>
+                          </div>
+                          <div className="text-[10px] font-mono text-slate-300">SESSION_ID: {Math.random().toString(36).substring(7).toUpperCase()}</div>
+                        </div>
+                
+                {systemNotifications.length === 0 ? (
+                  <div className="py-20 text-center space-y-4">
+                    <div className="bg-slate-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto border-2 border-dashed border-slate-200">
+                      <Activity className="w-8 h-8 text-slate-300" />
+                    </div>
+                    <p className="text-slate-500 text-sm">Chưa có thay đổi nào được ghi nhận tại các tệp quan trọng.</p>
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {systemNotifications.map(notif => (
+                      <motion.div 
+                        key={notif.id}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="p-4 rounded-2xl border-2 border-slate-50 bg-white shadow-sm hover:border-sky-100 transition-colors relative overflow-hidden group"
+                      >
+                        <div className="absolute top-0 right-0 w-16 h-16 bg-slate-50/50 -rotate-45 translate-x-8 -translate-y-8 group-hover:bg-sky-50 transition-colors" />
+                        <div className="flex items-start justify-between mb-2 relative z-10">
+                          <div className="flex items-center gap-2">
+                            <div className={`w-2 h-2 rounded-full ${
+                              notif.type === 'update' ? 'bg-sky-500 shadow-[0_0_8px_rgba(56,189,248,0.5)]' :
+                              notif.type === 'security' ? 'bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.5)]' : 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]'
+                            }`} />
+                            <h4 className="text-sm font-black text-slate-700 font-mono tracking-tight">{notif.title}</h4>
+                          </div>
+                          <span className="text-[9px] font-mono text-slate-300 font-bold uppercase">{notif.time}</span>
+                        </div>
+                        <p className="text-[11px] text-slate-500 pl-4 border-l-2 border-slate-100 leading-relaxed font-medium relative z-10">{notif.message}</p>
+                        <div className="mt-3 flex items-center justify-between relative z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                           <span className="text-[8px] font-mono text-slate-300">REF_ID: {notif.id}</span>
+                           <span className="text-[8px] font-mono text-sky-400 uppercase tracking-widest font-bold">Verified Trace</span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
+              <div className="p-6 bg-slate-50 border-t border-slate-100">
+                <p className="text-xs text-slate-400 text-center mb-4 italic">Hệ thống đang theo dõi {watchedLevels.length} tệp/thư mục quan trọng.</p>
+                <button 
+                  onClick={() => setSystemNotifications([])}
+                  className="w-full py-3 rounded-xl border-2 border-slate-200 text-slate-500 font-bold hover:bg-slate-100 transition-colors flex items-center justify-center gap-2"
+                >
+                  <RotateCcw className="w-4 h-4" /> Xóa nhật ký
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
+  )}
+</div>
+</AppErrorBoundary>
   );
 }

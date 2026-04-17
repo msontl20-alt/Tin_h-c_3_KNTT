@@ -1,0 +1,4847 @@
+[
+  {
+    "id": 1,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Thiết bị nào sau đây được coi là 'bộ não' của máy tính?",
+    "options": [
+      "A. Màn hình",
+      "B. Bàn phím",
+      "C. Bộ vi xử lý (CPU)",
+      "D. Chuột"
+    ],
+    "answer": "C",
+    "explanation": "CPU (Central Processing Unit) là nơi xử lý mọi dữ liệu và điều khiển hoạt động của máy tính.",
+    "level": "Nhận biết",
+    "image": "Hình ảnh một con chip CPU",
+    "audio": "Thiết bị nào sau đây được coi là bộ não của máy tính?"
+  },
+  {
+    "id": 2,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "true_false",
+    "question": "Máy tính bảng là một thiết bị số nhỏ gọn, có màn hình cảm ứng.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Máy tính bảng (tablet) tích hợp màn hình cảm ứng và rất linh hoạt.",
+    "level": "Nhận biết",
+    "image": "",
+    "audio": "Máy tính bảng là một thiết bị số nhỏ gọn, có màn hình cảm ứng. Đúng hay sai?"
+  },
+  {
+    "id": 3,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "multiple_choice",
+    "question": "Những thiết bị nào sau đây là thiết bị vào?",
+    "options": [
+      "A. Bàn phím",
+      "B. Chuột",
+      "C. Máy in",
+      "D. Máy quét (Scanner)"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Bàn phím, chuột và máy quét dùng để đưa thông tin vào máy tính. Máy in là thiết bị ra.",
+    "level": "Thông hiểu",
+    "image": "Hình ảnh các thiết bị ngoại vi",
+    "audio": "Những thiết bị nào sau đây là thiết bị vào?"
+  },
+  {
+    "id": 4,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "fill_blank",
+    "question": "Thiết bị dùng để lưu trữ dữ liệu lâu dài ngay cả khi tắt máy được gọi là bộ nhớ .......",
+    "options": [
+      "ngoài"
+    ],
+    "answer": "ngoài",
+    "explanation": "Bộ nhớ ngoài (như ổ cứng, USB) lưu trữ dữ liệu bền vững.",
+    "level": "Thông hiểu",
+    "image": "",
+    "audio": "Thiết bị dùng để lưu trữ dữ liệu lâu dài ngay cả khi tắt máy được gọi là bộ nhớ gì?"
+  },
+  {
+    "id": 5,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "matching",
+    "question": "Nối thiết bị với chức năng tương ứng:",
+    "options": [
+      "1-Loa : a-Phát âm thanh",
+      "2-Micro : b-Thu âm thanh",
+      "3-Màn hình : c-Hiển thị hình ảnh"
+    ],
+    "answer": "1-a, 2-b, 3-c",
+    "explanation": "Mỗi thiết bị có chức năng vào hoặc ra dữ liệu đặc thù.",
+    "level": "Vận dụng",
+    "image": "",
+    "audio": "Hãy nối thiết bị với chức năng tương ứng của chúng."
+  },
+  {
+    "id": 6,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "scenario",
+    "question": "Bạn Lan muốn gửi một bức ảnh từ điện thoại sang máy tính. Lan có thể sử dụng cách nào?",
+    "options": [
+      "A. Sử dụng cáp kết nối USB",
+      "B. Gửi qua Bluetooth hoặc Email",
+      "C. Cả A và B đều đúng",
+      "D. In ảnh ra giấy rồi dán lên màn hình"
+    ],
+    "answer": "C",
+    "explanation": "Có nhiều cách để trao đổi dữ liệu giữa các thiết bị số như dùng dây cáp hoặc kết nối không dây.",
+    "level": "Vận dụng",
+    "image": "Lan đang cầm điện thoại cạnh máy tính",
+    "audio": "Bạn Lan muốn gửi một bức ảnh từ điện thoại sang máy tính. Lan có thể sử dụng cách nào?"
+  },
+  {
+    "id": 7,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "ordering",
+    "question": "Sắp xếp các bước để tắt máy tính đúng cách:",
+    "options": [
+      "1. Nháy chuột vào nút Start",
+      "2. Chọn Power",
+      "3. Chọn Shut down",
+      "4. Đóng các chương trình đang mở"
+    ],
+    "answer": "4-1-2-3",
+    "explanation": "Cần đóng các ứng dụng trước khi thực hiện lệnh tắt hệ thống.",
+    "level": "Vận dụng",
+    "image": "",
+    "audio": "Hãy sắp xếp các bước để tắt máy tính đúng cách."
+  },
+  {
+    "id": 8,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Thiết bị nào sau đây vừa là thiết bị vào vừa là thiết bị ra?",
+    "options": [
+      "A. Màn hình cảm ứng",
+      "B. Bàn phím cơ",
+      "C. Loa thùng",
+      "D. Chuột không dây"
+    ],
+    "answer": "A",
+    "explanation": "Màn hình cảm ứng nhận thông tin từ tay người dùng (vào) và hiển thị hình ảnh (ra).",
+    "level": "Thông hiểu",
+    "image": "Hình ảnh máy tính bảng",
+    "audio": "Thiết bị nào sau đây vừa là thiết bị vào vừa là thiết bị ra?"
+  },
+  {
+    "id": 9,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "true_false",
+    "question": "Phần mềm máy tính có thể cầm nắm được như phần cứng.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Phần mềm là các chương trình chạy bên trong máy tính, không có hình dạng vật lý để cầm nắm.",
+    "level": "Nhận biết",
+    "image": "",
+    "audio": "Phần mềm máy tính có thể cầm nắm được như phần cứng. Đúng hay sai?"
+  },
+  {
+    "id": 10,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Để lưu trữ một bộ phim nặng 4GB, thiết bị nào sau đây là phù hợp nhất?",
+    "options": [
+      "A. Đĩa mềm",
+      "B. Thẻ nhớ hoặc USB",
+      "C. RAM",
+      "D. Bàn phím"
+    ],
+    "answer": "B",
+    "explanation": "USB và thẻ nhớ có dung lượng lớn, phù hợp lưu trữ tệp tin video.",
+    "level": "Vận dụng",
+    "image": "Hình ảnh USB và thẻ nhớ",
+    "audio": "Để lưu trữ một bộ phim nặng 4 GB, thiết bị nào sau đây là phù hợp nhất?"
+  },
+  {
+    "id": 11,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Hệ điều hành là gì?",
+    "options": [
+      "A. Một thiết bị phần cứng",
+      "B. Một phần mềm ứng dụng để vẽ",
+      "C. Phần mềm hệ thống điều khiển mọi hoạt động của máy tính",
+      "D. Một loại virus"
+    ],
+    "answer": "C",
+    "explanation": "Hệ điều hành (như Windows, Android) quản lý phần cứng và các phần mềm khác.",
+    "level": "Nhận biết",
+    "audio": "Hệ điều hành là gì?"
+  },
+  {
+    "id": 12,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "multiple_choice",
+    "question": "Những thiết bị nào sau đây có thể kết nối Internet?",
+    "options": [
+      "A. Máy tính xách tay",
+      "B. Điện thoại thông minh",
+      "C. Đồng hồ thông minh",
+      "D. Máy tính bỏ túi Casio"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Máy tính xách tay, điện thoại và đồng hồ thông minh đều có khả năng kết nối mạng.",
+    "level": "Thông hiểu",
+    "audio": "Những thiết bị nào sau đây có thể kết nối Internet?"
+  },
+  {
+    "id": 13,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "fill_blank",
+    "question": "Thiết bị giúp máy tính xách tay có thể di chuyển con trỏ mà không cần chuột rời được gọi là .......",
+    "options": [
+      "bàn di chuột",
+      "touchpad"
+    ],
+    "answer": "bàn di chuột",
+    "explanation": "Touchpad hay bàn di chuột tích hợp trên laptop thay thế chuột.",
+    "level": "Thông hiểu",
+    "audio": "Thiết bị giúp máy tính xách tay có thể di chuyển con trỏ mà không cần chuột rời được gọi là gì?"
+  },
+  {
+    "id": 14,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Khi máy tính đang hoạt động, nếu em rút phích cắm điện đột ngột thì điều gì có thể xảy ra?",
+    "options": [
+      "A. Máy tính sẽ sạch hơn",
+      "B. Dữ liệu chưa lưu có thể bị mất và hỏng phần cứng",
+      "C. Máy tính sẽ chạy nhanh hơn vào lần sau",
+      "D. Không có vấn đề gì"
+    ],
+    "answer": "B",
+    "explanation": "Tắt máy đột ngột gây hại cho ổ cứng và làm mất dữ liệu trong RAM.",
+    "level": "Thông hiểu",
+    "audio": "Khi máy tính đang hoạt động, nếu em rút phích cắm điện đột ngột thì điều gì có thể xảy ra?"
+  },
+  {
+    "id": 15,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "true_false",
+    "question": "Loa là thiết bị vào của máy tính.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Loa là thiết bị ra vì nó đưa âm thanh từ máy tính ra ngoài.",
+    "level": "Nhận biết",
+    "audio": "Loa là thiết bị vào của máy tính. Đúng hay sai?"
+  },
+  {
+    "id": 16,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Đơn vị nào dùng để đo dung lượng lưu trữ của ổ cứng?",
+    "options": [
+      "A. Kilogam (kg)",
+      "B. Mét (m)",
+      "C. Gigabyte (GB)",
+      "D. Độ C"
+    ],
+    "answer": "C",
+    "explanation": "Dung lượng dữ liệu được đo bằng Byte, KB, MB, GB, TB.",
+    "level": "Nhận biết",
+    "audio": "Đơn vị nào dùng để đo dung lượng lưu trữ của ổ cứng?"
+  },
+  {
+    "id": 17,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "scenario",
+    "question": "Máy tính của bạn An bị hỏng bàn phím. An có thể dùng thiết bị nào để tạm thời nhập văn bản?",
+    "options": [
+      "A. Sử dụng chuột và bàn phím ảo trên màn hình",
+      "B. Sử dụng máy in",
+      "C. Sử dụng loa",
+      "D. Không có cách nào"
+    ],
+    "answer": "A",
+    "explanation": "Hệ điều hành cung cấp bàn phím ảo (On-Screen Keyboard) để dùng bằng chuột.",
+    "level": "Vận dụng",
+    "audio": "Máy tính của bạn An bị hỏng bàn phím. An có thể dùng thiết bị nào để tạm thời nhập văn bản?"
+  },
+  {
+    "id": 18,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Cổng USB trên máy tính dùng để làm gì?",
+    "options": [
+      "A. Để cắm dây nguồn",
+      "B. Để kết nối các thiết bị ngoại vi như chuột, USB, bàn phím",
+      "C. Để thoát nhiệt",
+      "D. Để trang trí"
+    ],
+    "answer": "B",
+    "explanation": "USB là cổng kết nối tiêu chuẩn cho nhiều loại thiết bị.",
+    "level": "Nhận biết",
+    "audio": "Cổng USB trên máy tính dùng để làm gì?"
+  },
+  {
+    "id": 19,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "multiple_choice",
+    "question": "Những hành động nào sau đây giúp bảo vệ máy tính?",
+    "options": [
+      "A. Để nước uống gần máy tính",
+      "B. Vệ sinh máy tính bằng khăn mềm, khô",
+      "C. Tắt máy đúng quy trình",
+      "D. Để máy tính ở nơi khô ráo, thoáng mát"
+    ],
+    "answer": "B, C, D",
+    "explanation": "Nước có thể gây chập mạch điện, cần tránh xa máy tính.",
+    "level": "Thông hiểu",
+    "audio": "Những hành động nào sau đây giúp bảo vệ máy tính?"
+  },
+  {
+    "id": 20,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "fill_blank",
+    "question": "Thiết bị giúp máy tính để bàn có thể nghe được âm thanh phát ra là .......",
+    "options": [
+      "loa",
+      "tai nghe"
+    ],
+    "answer": "loa",
+    "explanation": "Loa hoặc tai nghe là thiết bị ra âm thanh.",
+    "level": "Nhận biết",
+    "audio": "Thiết bị giúp máy tính để bàn có thể nghe được âm thanh phát ra là gì?"
+  },
+  {
+    "id": 21,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Điện thoại thông minh (Smartphone) khác điện thoại thường ở điểm nào?",
+    "options": [
+      "A. Có màn hình cảm ứng và chạy hệ điều hành",
+      "B. Có thể cài đặt thêm nhiều ứng dụng",
+      "C. Có khả năng kết nối Internet mạnh mẽ",
+      "D. Tất cả các phương án trên"
+    ],
+    "answer": "D",
+    "explanation": "Smartphone tích hợp nhiều tính năng thông minh và khả năng mở rộng ứng dụng.",
+    "level": "Thông hiểu",
+    "audio": "Điện thoại thông minh khác điện thoại thường ở điểm nào?"
+  },
+  {
+    "id": 22,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "true_false",
+    "question": "Máy quét (Scanner) dùng để in tài liệu từ máy tính ra giấy.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Máy quét dùng để đưa hình ảnh từ giấy vào máy tính. Máy in mới đưa từ máy tính ra giấy.",
+    "level": "Thông hiểu",
+    "audio": "Máy quét dùng để in tài liệu từ máy tính ra giấy. Đúng hay sai?"
+  },
+  {
+    "id": 23,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "matching",
+    "question": "Ghép cặp loại máy tính với đặc điểm của nó:",
+    "options": [
+      "1-Máy tính để bàn : a-Có pin, màn hình gập được",
+      "2-Máy tính xách tay : b-Thường đặt cố định, có thân máy rời",
+      "3-Máy tính bảng : c-Màn hình cảm ứng, không có bàn phím rời"
+    ],
+    "answer": "1-b, 2-a, 3-c",
+    "explanation": "Mỗi loại máy tính có thiết kế phù hợp với nhu cầu sử dụng khác nhau.",
+    "level": "Vận dụng",
+    "audio": "Hãy ghép cặp loại máy tính với đặc điểm tương ứng của nó."
+  },
+  {
+    "id": 24,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Tại sao máy tính xách tay lại có pin?",
+    "options": [
+      "A. Để máy nặng hơn",
+      "B. Để có thể sử dụng khi không cắm điện trực tiếp",
+      "C. Để trang trí",
+      "D. Pin giúp màn hình sáng hơn"
+    ],
+    "answer": "B",
+    "explanation": "Pin giúp laptop hoạt động di động.",
+    "level": "Thông hiểu",
+    "audio": "Tại sao máy tính xách tay lại có pin?"
+  },
+  {
+    "id": 25,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "ordering",
+    "question": "Thứ tự các bước để xem một bức ảnh lưu trong USB:",
+    "options": [
+      "1. Cắm USB vào cổng USB của máy tính",
+      "2. Mở File Explorer (This PC)",
+      "3. Nháy đúp chuột vào biểu tượng ổ đĩa USB",
+      "4. Nháy đúp chuột vào tệp ảnh cần xem"
+    ],
+    "answer": "1-2-3-4",
+    "explanation": "Quy trình truy cập dữ liệu từ thiết bị lưu trữ ngoài.",
+    "level": "Vận dụng",
+    "audio": "Hãy sắp xếp thứ tự các bước để xem một bức ảnh lưu trong USB."
+  },
+  {
+    "id": 26,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Thiết bị nào sau đây thường được dùng để chụp ảnh và quay phim kĩ thuật số?",
+    "options": [
+      "A. Máy in",
+      "B. Máy ảnh số",
+      "C. Loa",
+      "D. Chuột"
+    ],
+    "answer": "B",
+    "explanation": "Máy ảnh số là thiết bị chuyên dụng để ghi lại hình ảnh và video dưới dạng dữ liệu số.",
+    "level": "Nhận biết",
+    "image": "Hình ảnh máy ảnh kĩ thuật số",
+    "audio": "Thiết bị nào sau đây thường được dùng để chụp ảnh và quay phim kĩ thuật số?"
+  },
+  {
+    "id": 27,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "true_false",
+    "question": "Thẻ nhớ có thể được sử dụng cho cả điện thoại và máy ảnh số.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Thẻ nhớ là thiết bị lưu trữ nhỏ gọn, tương thích với nhiều thiết bị số khác nhau.",
+    "level": "Thông hiểu",
+    "image": "",
+    "audio": "Thẻ nhớ có thể được sử dụng cho cả điện thoại và máy ảnh số. Đúng hay sai?"
+  },
+  {
+    "id": 28,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "multiple_choice",
+    "question": "Những thiết bị nào sau đây có màn hình cảm ứng?",
+    "options": [
+      "A. Máy tính bảng",
+      "B. Điện thoại thông minh",
+      "C. Máy tính để bàn thông thường",
+      "D. Một số loại máy tính xách tay hiện đại"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Máy tính bảng và smartphone luôn có màn hình cảm ứng, một số laptop cao cấp cũng tích hợp tính năng này.",
+    "level": "Thông hiểu",
+    "image": "",
+    "audio": "Những thiết bị nào sau đây có màn hình cảm ứng?"
+  },
+  {
+    "id": 29,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "fill_blank",
+    "question": "Để nghe nhạc mà không làm phiền người xung quanh, em nên sử dụng .......",
+    "options": [
+      "tai nghe",
+      "headphone"
+    ],
+    "answer": "tai nghe",
+    "explanation": "Tai nghe truyền âm thanh trực tiếp vào tai người dùng.",
+    "level": "Vận dụng",
+    "image": "Hình ảnh tai nghe",
+    "audio": "Để nghe nhạc mà không làm phiền người xung quanh, em nên sử dụng thiết bị gì?"
+  },
+  {
+    "id": 30,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "scenario",
+    "question": "Em đang thuyết trình trước lớp, em cần thiết bị nào để phóng to hình ảnh từ máy tính lên màn chiếu lớn?",
+    "options": [
+      "A. Máy quét",
+      "B. Máy chiếu (Projector)",
+      "C. Máy in",
+      "D. Máy ảnh"
+    ],
+    "answer": "B",
+    "explanation": "Máy chiếu nhận tín hiệu từ máy tính và phát lên màn hình lớn.",
+    "level": "Vận dụng",
+    "image": "Hình ảnh lớp học có máy chiếu",
+    "audio": "Em đang thuyết trình trước lớp, em cần thiết bị nào để phóng to hình ảnh từ máy tính lên màn chiếu lớn?"
+  },
+  {
+    "id": 31,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "RAM là viết tắt của bộ nhớ gì?",
+    "options": [
+      "A. Bộ nhớ chỉ đọc",
+      "B. Bộ nhớ truy cập ngẫu nhiên",
+      "C. Bộ nhớ ngoài",
+      "D. Bộ nhớ vĩnh viễn"
+    ],
+    "answer": "B",
+    "explanation": "RAM (Random Access Memory) là bộ nhớ tạm thời, dữ liệu sẽ mất khi tắt máy.",
+    "level": "Nhận biết",
+    "audio": "RAM là viết tắt của bộ nhớ gì?"
+  },
+  {
+    "id": 32,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "true_false",
+    "question": "Dung lượng 1TB lớn hơn 1GB.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "1TB (Terabyte) bằng khoảng 1024GB (Gigabyte).",
+    "level": "Thông hiểu",
+    "audio": "Dung lượng một Tê ra bai lớn hơn một Ghi ga bai. Đúng hay sai?"
+  },
+  {
+    "id": 33,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "multiple_choice",
+    "question": "Những thiết bị nào sau đây dùng để lưu trữ dữ liệu?",
+    "options": [
+      "A. Ổ cứng",
+      "B. USB",
+      "C. Thẻ nhớ",
+      "D. Màn hình"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Ổ cứng, USB và thẻ nhớ là các thiết bị lưu trữ. Màn hình là thiết bị ra.",
+    "level": "Nhận biết",
+    "audio": "Những thiết bị nào sau đây dùng để lưu trữ dữ liệu?"
+  },
+  {
+    "id": 34,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "fill_blank",
+    "question": "Phần mềm giúp em truy cập các trang web trên Internet được gọi là trình ....... web.",
+    "options": [
+      "duyệt"
+    ],
+    "answer": "duyệt",
+    "explanation": "Trình duyệt web (như Chrome, Edge) là công cụ để xem nội dung trên Internet.",
+    "level": "Nhận biết",
+    "audio": "Phần mềm giúp em truy cập các trang web trên Internet được gọi là trình gì web?"
+  },
+  {
+    "id": 35,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Khi sử dụng máy tính xách tay, em nên đặt máy ở đâu là tốt nhất?",
+    "options": [
+      "A. Trên đệm hoặc gối",
+      "B. Trên mặt bàn phẳng và cứng",
+      "C. Trên đùi trong thời gian dài",
+      "D. Trong môi trường ẩm ướt"
+    ],
+    "answer": "B",
+    "explanation": "Đặt trên mặt phẳng cứng giúp máy thoát nhiệt tốt hơn qua các khe gió.",
+    "level": "Vận dụng",
+    "audio": "Khi sử dụng máy tính xách tay, em nên đặt máy ở đâu là tốt nhất?"
+  },
+  {
+    "id": 36,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "matching",
+    "question": "Nối các loại tệp với phần mở rộng tương ứng:",
+    "options": [
+      "1-Tệp văn bản : a-.jpg",
+      "2-Tệp hình ảnh : b-.mp3",
+      "3-Tệp âm thanh : c-.docx"
+    ],
+    "answer": "1-c, 2-a, 3-b",
+    "explanation": "Mỗi loại dữ liệu có phần mở rộng đặc trưng để hệ điều hành nhận diện.",
+    "level": "Thông hiểu",
+    "audio": "Hãy nối các loại tệp với phần mở rộng tương ứng của chúng."
+  },
+  {
+    "id": 37,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Thiết bị nào sau đây không cần dây kết nối vẫn có thể hoạt động với máy tính?",
+    "options": [
+      "A. Chuột Bluetooth",
+      "B. Bàn phím có dây",
+      "C. Máy in cũ",
+      "D. Màn hình CRT"
+    ],
+    "answer": "A",
+    "explanation": "Các thiết bị Bluetooth sử dụng kết nối không dây tầm ngắn.",
+    "level": "Thông hiểu",
+    "audio": "Thiết bị nào sau đây không cần dây kết nối vẫn có thể hoạt động với máy tính?"
+  },
+  {
+    "id": 38,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "true_false",
+    "question": "Máy tính có thể hoạt động mà không cần hệ điều hành.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Hệ điều hành là nền tảng để quản lý phần cứng và chạy các ứng dụng.",
+    "level": "Thông hiểu",
+    "audio": "Máy tính có thể hoạt động mà không cần hệ điều hành. Đúng hay sai?"
+  },
+  {
+    "id": 39,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "ordering",
+    "question": "Sắp xếp các đơn vị đo dung lượng từ nhỏ đến lớn:",
+    "options": [
+      "1. MB (Megabyte)",
+      "2. KB (Kilobyte)",
+      "3. GB (Gigabyte)",
+      "4. Byte"
+    ],
+    "answer": "4-2-1-3",
+    "explanation": "Thứ tự đúng là Byte < KB < MB < GB.",
+    "level": "Thông hiểu",
+    "audio": "Hãy sắp xếp các đơn vị đo dung lượng từ nhỏ đến lớn."
+  },
+  {
+    "id": 40,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Để bảo vệ mắt khi dùng máy tính, khoảng cách từ mắt đến màn hình nên là bao nhiêu?",
+    "options": [
+      "A. 10 - 20 cm",
+      "B. 50 - 80 cm",
+      "C. Trên 2 mét",
+      "D. Càng gần càng tốt"
+    ],
+    "answer": "B",
+    "explanation": "Khoảng cách từ 50-80cm (tầm một cánh tay) giúp giảm mỏi mắt.",
+    "level": "Vận dụng",
+    "audio": "Để bảo vệ mắt khi dùng máy tính, khoảng cách từ mắt đến màn hình nên là bao nhiêu?"
+  },
+  {
+    "id": 41,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "multiple_choice",
+    "question": "Những thiết bị nào sau đây là thiết bị ra?",
+    "options": [
+      "A. Màn hình",
+      "B. Máy in",
+      "C. Loa",
+      "D. Micro"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Màn hình, máy in và loa đưa thông tin ra ngoài. Micro là thiết bị vào.",
+    "level": "Nhận biết",
+    "audio": "Những thiết bị nào sau đây là thiết bị ra?"
+  },
+  {
+    "id": 42,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "fill_blank",
+    "question": "Phần mềm chuyên dùng để soạn thảo văn bản phổ biến nhất là Microsoft .......",
+    "options": [
+      "Word"
+    ],
+    "answer": "Word",
+    "explanation": "Microsoft Word là phần mềm soạn thảo văn bản tiêu chuẩn.",
+    "level": "Nhận biết",
+    "audio": "Phần mềm chuyên dùng để soạn thảo văn bản phổ biến nhất là Microsoft gì?"
+  },
+  {
+    "id": 43,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "scenario",
+    "question": "Bạn Minh thấy máy tính để bàn của mình không lên nguồn dù đã nhấn nút Power. Minh nên kiểm tra điều gì đầu tiên?",
+    "options": [
+      "A. Kiểm tra xem phích cắm điện đã chặt chưa",
+      "B. Mua máy tính mới",
+      "C. Lau màn hình",
+      "D. Thay chuột mới"
+    ],
+    "answer": "A",
+    "explanation": "Lỗi nguồn thường do kết nối điện không ổn định.",
+    "level": "Vận dụng",
+    "audio": "Bạn Minh thấy máy tính để bàn của mình không lên nguồn dù đã nhấn nút Power. Minh nên kiểm tra điều gì đầu tiên?"
+  },
+  {
+    "id": 44,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Biểu tượng thùng rác (Recycle Bin) trên màn hình dùng để làm gì?",
+    "options": [
+      "A. Để lưu trữ tệp quan trọng",
+      "B. Để chứa các tệp đã bị xóa tạm thời",
+      "C. Để quét virus",
+      "D. Để kết nối mạng"
+    ],
+    "answer": "B",
+    "explanation": "Tệp bị xóa sẽ nằm trong Recycle Bin và có thể khôi phục lại nếu cần.",
+    "level": "Nhận biết",
+    "audio": "Biểu tượng thùng rác trên màn hình dùng để làm gì?"
+  },
+  {
+    "id": 45,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "true_false",
+    "question": "Máy tính xách tay có thể hoạt động bằng pin mà không cần cắm điện.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Laptop tích hợp pin để sử dụng di động.",
+    "level": "Nhận biết",
+    "audio": "Máy tính xách tay có thể hoạt động bằng pin mà không cần cắm điện. Đúng hay sai?"
+  },
+  {
+    "id": 46,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "multiple_choice",
+    "question": "Những thiết bị nào sau đây là thiết bị lưu trữ ngoài?",
+    "options": [
+      "A. USB",
+      "B. Ổ cứng di động",
+      "C. Thẻ nhớ",
+      "D. RAM"
+    ],
+    "answer": "A, B, C",
+    "explanation": "RAM là bộ nhớ trong. USB, ổ cứng di động và thẻ nhớ là bộ nhớ ngoài.",
+    "level": "Thông hiểu",
+    "audio": "Những thiết bị nào sau đây là thiết bị lưu trữ ngoài?"
+  },
+  {
+    "id": 47,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "fill_blank",
+    "question": "Để di chuyển con trỏ chuột trên màn hình, em sử dụng thiết bị .......",
+    "options": [
+      "chuột"
+    ],
+    "answer": "chuột",
+    "explanation": "Chuột là thiết bị điều khiển con trỏ phổ biến.",
+    "level": "Nhận biết",
+    "audio": "Để di chuyển con trỏ chuột trên màn hình, em sử dụng thiết bị gì?"
+  },
+  {
+    "id": 48,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "single_choice",
+    "question": "Phần mềm nào sau đây là hệ điều hành?",
+    "options": [
+      "A. Windows 10",
+      "B. Microsoft Paint",
+      "C. Google Chrome",
+      "D. Scratch"
+    ],
+    "answer": "A",
+    "explanation": "Windows 10 là một hệ điều hành phổ biến cho máy tính.",
+    "level": "Nhận biết",
+    "audio": "Phần mềm nào sau đây là hệ điều hành?"
+  },
+  {
+    "id": 49,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "true_false",
+    "question": "Em có thể thay đổi hình nền của máy tính.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Hệ điều hành cho phép người dùng tùy biến giao diện, bao gồm hình nền.",
+    "level": "Nhận biết",
+    "audio": "Em có thể thay đổi hình nền của máy tính. Đúng hay sai?"
+  },
+  {
+    "id": 50,
+    "topic": "Chủ đề 1: Máy tính và em",
+    "lesson": "Bài 1: Khám phá thế giới thiết bị số",
+    "type": "scenario",
+    "question": "Máy tính của bạn Hoa bị treo, không thể nháy chuột hay gõ phím. Hoa nên làm gì?",
+    "options": [
+      "A. Nhấn giữ nút nguồn để tắt máy và khởi động lại",
+      "B. Lắc mạnh màn hình",
+      "C. Rút dây chuột ra cắm lại liên tục",
+      "D. Đợi máy tự hết treo sau 1 tuần"
+    ],
+    "answer": "A",
+    "explanation": "Khi máy bị treo cứng, khởi động lại bằng nút nguồn là cách xử lý cuối cùng.",
+    "level": "Vận dụng",
+    "audio": "Máy tính của bạn Hoa bị treo, không thể nháy chuột hay gõ phím. Hoa nên làm gì?"
+  },
+  {
+    "id": 51,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "single_choice",
+    "question": "Mạng máy tính là gì?",
+    "options": [
+      "A. Là một nhóm các máy tính hoạt động độc lập",
+      "B. Là hai hay nhiều máy tính và các thiết bị được kết nối để chia sẻ dữ liệu và thiết bị",
+      "C. Là một trò chơi trên máy tính",
+      "D. Là một loại dây cáp điện"
+    ],
+    "answer": "B",
+    "explanation": "Mạng máy tính cho phép các thiết bị giao tiếp và dùng chung tài nguyên.",
+    "level": "Nhận biết",
+    "image": "Hình ảnh sơ đồ mạng máy tính",
+    "audio": "Mạng máy tính là gì?"
+  },
+  {
+    "id": 52,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "true_false",
+    "question": "Internet là mạng máy tính lớn nhất thế giới.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Internet kết nối hàng tỷ thiết bị trên toàn cầu.",
+    "level": "Nhận biết",
+    "audio": "Internet là mạng máy tính lớn nhất thế giới. Đúng hay sai?"
+  },
+  {
+    "id": 53,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "multiple_choice",
+    "question": "Lợi ích của việc sử dụng mạng máy tính là gì?",
+    "options": [
+      "A. Chia sẻ tệp tin nhanh chóng",
+      "B. Dùng chung máy in, máy quét",
+      "C. Liên lạc với mọi người dễ dàng",
+      "D. Làm máy tính không bao giờ bị hỏng"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Mạng giúp chia sẻ tài nguyên và liên lạc, nhưng không ngăn được hỏng hóc phần cứng.",
+    "level": "Thông hiểu",
+    "audio": "Lợi ích của việc sử dụng mạng máy tính là gì?"
+  },
+  {
+    "id": 54,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "fill_blank",
+    "question": "Mạng không dây sử dụng sóng ....... để truyền dữ liệu thay vì dây cáp.",
+    "options": [
+      "vô tuyến",
+      "wifi"
+    ],
+    "answer": "vô tuyến",
+    "explanation": "Mạng không dây (Wi-Fi) dùng sóng vô tuyến để kết nối.",
+    "level": "Thông hiểu",
+    "audio": "Mạng không dây sử dụng sóng gì để truyền dữ liệu thay vì dây cáp?"
+  },
+  {
+    "id": 55,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "matching",
+    "question": "Nối thiết bị mạng với chức năng của nó:",
+    "options": [
+      "1-Cáp mạng : a-Thiết bị trung tâm kết nối các máy tính",
+      "2-Bộ định tuyến (Router) : b-Dùng để truyền tín hiệu bằng dây",
+      "3-Bộ chuyển mạch (Switch) : c-Kết nối mạng cục bộ với Internet"
+    ],
+    "answer": "1-b, 2-c, 3-a",
+    "explanation": "Mỗi thiết bị mạng đóng một vai trò cụ thể trong việc truyền dẫn dữ liệu.",
+    "level": "Vận dụng",
+    "audio": "Hãy nối thiết bị mạng với chức năng tương ứng của nó."
+  },
+  {
+    "id": 56,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "single_choice",
+    "question": "WWW là viết tắt của cụm từ nào?",
+    "options": [
+      "A. World Wide Web",
+      "B. World Web Wide",
+      "C. Wide World Web",
+      "D. Web World Wide"
+    ],
+    "answer": "A",
+    "explanation": "World Wide Web là mạng lưới các trang web trên toàn thế giới.",
+    "level": "Nhận biết",
+    "audio": "WWW là viết tắt của cụm từ nào?"
+  },
+  {
+    "id": 57,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "true_false",
+    "question": "Mỗi trang web đều có một địa chỉ duy nhất.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Địa chỉ trang web (URL) giúp trình duyệt tìm đúng nội dung cần xem.",
+    "level": "Nhận biết",
+    "audio": "Mỗi trang web đều có một địa chỉ duy nhất. Đúng hay sai?"
+  },
+  {
+    "id": 58,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "multiple_choice",
+    "question": "Những thành phần nào thường có trên một trang web?",
+    "options": [
+      "A. Văn bản",
+      "B. Hình ảnh, video",
+      "C. Liên kết (Hyperlink)",
+      "D. Bàn phím vật lý"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Trang web chứa dữ liệu số. Bàn phím là thiết bị phần cứng.",
+    "level": "Thông hiểu",
+    "audio": "Những thành phần nào thường có trên một trang web?"
+  },
+  {
+    "id": 59,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "fill_blank",
+    "question": "Khi di chuyển con trỏ chuột vào một liên kết, con trỏ thường chuyển thành hình bàn tay có ngón trỏ ....... lên.",
+    "options": [
+      "chỉ"
+    ],
+    "answer": "chỉ",
+    "explanation": "Biểu tượng bàn tay chỉ là dấu hiệu nhận biết một liên kết có thể nhấp vào.",
+    "level": "Nhận biết",
+    "audio": "Khi di chuyển con trỏ chuột vào một liên kết, con trỏ thường chuyển thành hình bàn tay có ngón trỏ như thế nào?"
+  },
+  {
+    "id": 60,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "scenario",
+    "question": "Bạn Bình muốn xem tin tức về đội bóng yêu thích. Bình nên nhập địa chỉ trang web vào đâu trong trình duyệt?",
+    "options": [
+      "A. Ô tìm kiếm của Google",
+      "B. Thanh địa chỉ (Address bar)",
+      "C. Nút Back",
+      "D. Nút Refresh"
+    ],
+    "answer": "B",
+    "explanation": "Thanh địa chỉ là nơi nhập trực tiếp URL của trang web cần truy cập.",
+    "level": "Vận dụng",
+    "image": "Hình ảnh trình duyệt web với thanh địa chỉ",
+    "audio": "Bạn Bình muốn xem tin tức về đội bóng yêu thích. Bình nên nhập địa chỉ trang web vào đâu trong trình duyệt?"
+  },
+  {
+    "id": 61,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "single_choice",
+    "question": "Google, Bing, Yahoo được gọi là gì?",
+    "options": [
+      "A. Trình duyệt web",
+      "B. Máy tìm kiếm (Search Engine)",
+      "C. Mạng xã hội",
+      "D. Hệ điều hành"
+    ],
+    "answer": "B",
+    "explanation": "Đây là các công cụ giúp tìm kiếm thông tin trên Internet dựa trên từ khóa.",
+    "level": "Nhận biết",
+    "audio": "Google, Bing, Yahoo được gọi là gì?"
+  },
+  {
+    "id": 62,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "true_false",
+    "question": "Mọi thông tin trên Internet đều hoàn toàn chính xác.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Bất kỳ ai cũng có thể đăng tin lên mạng, nên cần kiểm chứng thông tin từ các nguồn uy tín.",
+    "level": "Thông hiểu",
+    "audio": "Mọi thông tin trên Internet đều hoàn toàn chính xác. Đúng hay sai?"
+  },
+  {
+    "id": 63,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "multiple_choice",
+    "question": "Để tìm kiếm thông tin hiệu quả, em nên làm gì?",
+    "options": [
+      "A. Sử dụng từ khóa ngắn gọn, chính xác",
+      "B. Đặt từ khóa trong dấu ngoặc kép để tìm chính xác cụm từ",
+      "C. Nhập cả một đoạn văn dài vào ô tìm kiếm",
+      "D. Thử các từ khóa liên quan khác nhau"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Từ khóa ngắn gọn và các kỹ thuật tìm kiếm giúp thu hẹp kết quả đúng mục tiêu.",
+    "level": "Thông hiểu",
+    "audio": "Để tìm kiếm thông tin hiệu quả, em nên làm gì?"
+  },
+  {
+    "id": 64,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "fill_blank",
+    "question": "Khi tìm kiếm hình ảnh trên Google, em nháy chuột vào mục ....... để chỉ xem kết quả là ảnh.",
+    "options": [
+      "Hình ảnh",
+      "Images"
+    ],
+    "answer": "Hình ảnh",
+    "explanation": "Bộ lọc tìm kiếm giúp phân loại kết quả theo định dạng tệp.",
+    "level": "Nhận biết",
+    "audio": "Khi tìm kiếm hình ảnh trên Google, em nháy chuột vào mục nào để chỉ xem kết quả là ảnh?"
+  },
+  {
+    "id": 65,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "ordering",
+    "question": "Sắp xếp các bước để tìm kiếm thông tin về 'Loài voi' trên Google:",
+    "options": [
+      "1. Truy cập google.com",
+      "2. Gõ từ khóa 'Loài voi' vào ô tìm kiếm",
+      "3. Nhấn phím Enter",
+      "4. Nháy chuột vào một kết quả phù hợp để xem"
+    ],
+    "answer": "1-2-3-4",
+    "explanation": "Đây là quy trình tìm kiếm thông tin cơ bản.",
+    "level": "Vận dụng",
+    "audio": "Hãy sắp xếp các bước để tìm kiếm thông tin về Loài voi trên Google."
+  },
+  {
+    "id": 66,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "single_choice",
+    "question": "Mạng Wi-Fi trong gia đình thường được kết nối thông qua thiết bị nào?",
+    "options": [
+      "A. Máy in",
+      "B. Bộ định tuyến không dây (Wireless Router)",
+      "C. Chuột máy tính",
+      "D. Loa Bluetooth"
+    ],
+    "answer": "B",
+    "explanation": "Router phát sóng Wi-Fi để các thiết bị trong nhà kết nối Internet.",
+    "level": "Nhận biết",
+    "audio": "Mạng Wi-Fi trong gia đình thường được kết nối thông qua thiết bị nào?"
+  },
+  {
+    "id": 67,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "true_false",
+    "question": "Hai máy tính để bàn có thể kết nối mạng với nhau bằng dây cáp mạng.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Cáp mạng (Ethernet) là phương thức kết nối mạng có dây phổ biến.",
+    "level": "Nhận biết",
+    "audio": "Hai máy tính để bàn có thể kết nối mạng với nhau bằng dây cáp mạng. Đúng hay sai?"
+  },
+  {
+    "id": 68,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "multiple_choice",
+    "question": "Hành động nào sau đây là an toàn khi duyệt web?",
+    "options": [
+      "A. Chỉ truy cập các trang web dành cho lứa tuổi học sinh",
+      "B. Nhấp vào các quảng cáo trúng thưởng lạ",
+      "C. Không cung cấp mật khẩu cho người lạ trên mạng",
+      "D. Thoát trình duyệt sau khi sử dụng xong"
+    ],
+    "answer": "A, C, D",
+    "explanation": "Tránh các quảng cáo lạ giúp ngăn ngừa mã độc và lừa đảo.",
+    "level": "Thông hiểu",
+    "audio": "Hành động nào sau đây là an toàn khi duyệt web?"
+  },
+  {
+    "id": 69,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "fill_blank",
+    "question": "Trang web đầu tiên hiện ra khi em truy cập vào một địa chỉ website được gọi là trang .......",
+    "options": [
+      "chủ",
+      "home"
+    ],
+    "answer": "chủ",
+    "explanation": "Trang chủ (Homepage) là trang giới thiệu chính của một website.",
+    "level": "Nhận biết",
+    "audio": "Trang web đầu tiên hiện ra khi em truy cập vào một địa chỉ website được gọi là trang gì?"
+  },
+  {
+    "id": 70,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "scenario",
+    "question": "Bạn Lan muốn tìm ảnh về 'Vịnh Hạ Long' để làm bài trình chiếu. Lan nên dùng từ khóa nào là tốt nhất?",
+    "options": [
+      "A. Vịnh",
+      "B. Ảnh đẹp",
+      "C. Vịnh Hạ Long",
+      "D. Việt Nam"
+    ],
+    "answer": "C",
+    "explanation": "Từ khóa cụ thể giúp máy tìm kiếm đưa ra kết quả chính xác nhất.",
+    "level": "Vận dụng",
+    "audio": "Bạn Lan muốn tìm ảnh về Vịnh Hạ Long để làm bài trình chiếu. Lan nên dùng từ khóa nào là tốt nhất?"
+  },
+  {
+    "id": 71,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "single_choice",
+    "question": "Mạng LAN là viết tắt của cụm từ nào?",
+    "options": [
+      "A. Local Area Network",
+      "B. Large Area Network",
+      "C. Long Area Network",
+      "D. Low Area Network"
+    ],
+    "answer": "A",
+    "explanation": "LAN là mạng máy tính cục bộ trong phạm vi hẹp như văn phòng, trường học.",
+    "level": "Nhận biết",
+    "audio": "Mạng LAN là viết tắt của cụm từ nào?"
+  },
+  {
+    "id": 72,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "true_false",
+    "question": "Máy tính không kết nối Internet thì không thể bị nhiễm virus.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Máy tính vẫn có thể nhiễm virus qua USB, đĩa cứng di động hoặc các thiết bị lưu trữ khác.",
+    "level": "Thông hiểu",
+    "audio": "Máy tính không kết nối Internet thì không thể bị nhiễm virus. Đúng hay sai?"
+  },
+  {
+    "id": 73,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "multiple_choice",
+    "question": "Những trình duyệt web phổ biến hiện nay là gì?",
+    "options": [
+      "A. Google Chrome",
+      "B. Microsoft Edge",
+      "C. Mozilla Firefox",
+      "D. Microsoft Word"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Word là phần mềm soạn thảo văn bản, không phải trình duyệt web.",
+    "level": "Nhận biết",
+    "audio": "Những trình duyệt web phổ biến hiện nay là gì?"
+  },
+  {
+    "id": 74,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "fill_blank",
+    "question": "Để quay lại trang web vừa xem trước đó, em nháy chuột vào nút ....... (Back) trên trình duyệt.",
+    "options": [
+      "Quay lại",
+      "Lùi"
+    ],
+    "answer": "Quay lại",
+    "explanation": "Nút Back giúp điều hướng lại lịch sử duyệt web.",
+    "level": "Nhận biết",
+    "audio": "Để quay lại trang web vừa xem trước đó, em nháy chuột vào nút gì trên trình duyệt?"
+  },
+  {
+    "id": 75,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "single_choice",
+    "question": "Khi tìm kiếm thông tin, nếu có quá nhiều kết quả không liên quan, em nên làm gì?",
+    "options": [
+      "A. Đọc hết tất cả các trang",
+      "B. Thay đổi từ khóa cụ thể và chi tiết hơn",
+      "C. Tắt máy tính",
+      "D. Khóc"
+    ],
+    "answer": "B",
+    "explanation": "Tinh chỉnh từ khóa là kỹ năng quan trọng để tìm kiếm hiệu quả.",
+    "level": "Vận dụng",
+    "audio": "Khi tìm kiếm thông tin, nếu có quá nhiều kết quả không liên quan, em nên làm gì?"
+  },
+  {
+    "id": 76,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "single_choice",
+    "question": "Thiết bị nào sau đây cho phép nhiều máy tính kết nối với nhau trong một mạng cục bộ bằng dây cáp?",
+    "options": [
+      "A. Bộ chuyển mạch (Switch)",
+      "B. Chuột",
+      "C. Loa",
+      "D. Máy in"
+    ],
+    "answer": "A",
+    "explanation": "Switch là thiết bị trung tâm dùng để kết nối các máy tính trong mạng LAN.",
+    "level": "Nhận biết",
+    "audio": "Thiết bị nào sau đây cho phép nhiều máy tính kết nối với nhau trong một mạng cục bộ bằng dây cáp?"
+  },
+  {
+    "id": 77,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "true_false",
+    "question": "Mạng máy tính chỉ có thể kết nối các máy tính để bàn với nhau.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Mạng máy tính kết nối được nhiều loại thiết bị như laptop, smartphone, máy in, máy tính bảng...",
+    "level": "Thông hiểu",
+    "audio": "Mạng máy tính chỉ có thể kết nối các máy tính để bàn với nhau. Đúng hay sai?"
+  },
+  {
+    "id": 78,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "multiple_choice",
+    "question": "Những thông tin nào sau đây em có thể tìm thấy trên một trang web học tập?",
+    "options": [
+      "A. Bài giảng video",
+      "B. Bài tập trắc nghiệm",
+      "C. Sách giáo khoa điện tử",
+      "D. Bánh kẹo thật"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Trang web cung cấp thông tin số. Các vật thể vật lý như bánh kẹo không thể có trên web.",
+    "level": "Thông hiểu",
+    "audio": "Những thông tin nào sau đây em có thể tìm thấy trên một trang web học tập?"
+  },
+  {
+    "id": 79,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "fill_blank",
+    "question": "Địa chỉ trang web thường bắt đầu bằng cụm từ .......",
+    "options": [
+      "http",
+      "https"
+    ],
+    "answer": "http",
+    "explanation": "HTTP hoặc HTTPS là giao thức truyền tải siêu văn bản trên web.",
+    "level": "Nhận biết",
+    "audio": "Địa chỉ trang web thường bắt đầu bằng cụm từ gì?"
+  },
+  {
+    "id": 80,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "scenario",
+    "question": "Em muốn tìm video hướng dẫn gấp máy bay giấy. Em nên chọn mục nào trên trang kết quả tìm kiếm của Google?",
+    "options": [
+      "A. Tất cả",
+      "B. Hình ảnh",
+      "C. Video",
+      "D. Tin tức"
+    ],
+    "answer": "C",
+    "explanation": "Mục Video giúp lọc các kết quả chỉ là tệp tin video.",
+    "level": "Vận dụng",
+    "audio": "Em muốn tìm video hướng dẫn gấp máy bay giấy. Em nên chọn mục nào trên trang kết quả tìm kiếm của Google?"
+  },
+  {
+    "id": 81,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "single_choice",
+    "question": "Kí hiệu Wi-Fi thường có hình dạng như thế nào?",
+    "options": [
+      "A. Hình cái kéo",
+      "B. Hình các vạch sóng hình quạt",
+      "C. Hình ngôi sao",
+      "D. Hình tam giác"
+    ],
+    "answer": "B",
+    "explanation": "Biểu tượng sóng hình quạt là kí hiệu tiêu chuẩn cho kết nối không dây Wi-Fi.",
+    "level": "Nhận biết",
+    "image": "Biểu tượng Wi-Fi",
+    "audio": "Kí hiệu Wi-Fi thường có hình dạng như thế nào?"
+  },
+  {
+    "id": 82,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "true_false",
+    "question": "Sử dụng mạng máy tính giúp tiết kiệm chi phí mua thiết bị (ví dụ dùng chung 1 máy in cho cả phòng).",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Chia sẻ thiết bị là một trong những lợi ích kinh tế lớn của mạng máy tính.",
+    "level": "Thông hiểu",
+    "audio": "Sử dụng mạng máy tính giúp tiết kiệm chi phí mua thiết bị. Đúng hay sai?"
+  },
+  {
+    "id": 83,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "multiple_choice",
+    "question": "Những hành động nào sau đây giúp em bảo mật thông tin khi dùng mạng?",
+    "options": [
+      "A. Đặt mật khẩu khó đoán",
+      "B. Không chia sẻ thông tin cá nhân cho người lạ",
+      "C. Đăng ảnh địa chỉ nhà lên mạng",
+      "D. Đăng xuất tài khoản sau khi dùng máy tính công cộng"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Bảo vệ mật khẩu và thông tin cá nhân là quy tắc an toàn mạng cơ bản.",
+    "level": "Vận dụng",
+    "audio": "Những hành động nào sau đây giúp em bảo mật thông tin khi dùng mạng?"
+  },
+  {
+    "id": 84,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "fill_blank",
+    "question": "Để làm mới lại nội dung một trang web đang xem, em nhấn vào nút ....... (Refresh) trên trình duyệt.",
+    "options": [
+      "Tải lại",
+      "Làm mới"
+    ],
+    "answer": "Tải lại",
+    "explanation": "Nút Refresh (biểu tượng mũi tên vòng tròn) dùng để tải lại trang.",
+    "level": "Nhận biết",
+    "audio": "Để làm mới lại nội dung một trang web đang xem, em nhấn vào nút gì trên trình duyệt?"
+  },
+  {
+    "id": 85,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "ordering",
+    "question": "Sắp xếp các bước để lưu một hình ảnh từ trang web về máy tính:",
+    "options": [
+      "1. Nháy chuột phải vào hình ảnh cần lưu",
+      "2. Chọn lệnh 'Lưu hình ảnh thành...' (Save image as...)",
+      "3. Chọn thư mục lưu trữ trên máy tính",
+      "4. Nhấn nút Save"
+    ],
+    "answer": "1-2-3-4",
+    "explanation": "Đây là quy trình lưu ảnh từ web về máy.",
+    "level": "Vận dụng",
+    "audio": "Hãy sắp xếp các bước để lưu một hình ảnh từ trang web về máy tính."
+  },
+  {
+    "id": 86,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "single_choice",
+    "question": "Khi kết nối Internet qua Wi-Fi, nếu em đi quá xa bộ phát sóng thì điều gì xảy ra?",
+    "options": [
+      "A. Tốc độ mạng nhanh hơn",
+      "B. Tín hiệu yếu đi hoặc mất kết nối",
+      "C. Máy tính sẽ tự động tắt",
+      "D. Pin máy tính sẽ đầy"
+    ],
+    "answer": "B",
+    "explanation": "Sóng Wi-Fi có phạm vi hoạt động giới hạn, càng xa nguồn phát tín hiệu càng yếu.",
+    "level": "Thông hiểu",
+    "audio": "Khi kết nối Internet qua Wi-Fi, nếu em đi quá xa bộ phát sóng thì điều gì xảy ra?"
+  },
+  {
+    "id": 87,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "true_false",
+    "question": "Cáp quang là loại dây dẫn dùng ánh sáng để truyền dữ liệu với tốc độ rất cao.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Cáp quang là công nghệ truyền dẫn Internet hiện đại nhất hiện nay.",
+    "level": "Nhận biết",
+    "audio": "Cáp quang là loại dây dẫn dùng ánh sáng để truyền dữ liệu với tốc độ rất cao. Đúng hay sai?"
+  },
+  {
+    "id": 88,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "multiple_choice",
+    "question": "Những điều gì em KHÔNG nên làm khi ở trên Internet?",
+    "options": [
+      "A. Nói xấu bạn bè",
+      "B. Xem các nội dung bạo lực",
+      "C. Tìm kiếm tài liệu làm bài tập",
+      "D. Cung cấp số điện thoại của bố mẹ cho người lạ"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Cần cư xử văn minh và bảo vệ thông tin cá nhân trên mạng.",
+    "level": "Thông hiểu",
+    "audio": "Những điều gì em không nên làm khi ở trên Internet?"
+  },
+  {
+    "id": 89,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "fill_blank",
+    "question": "Phần mềm giúp máy tính hiển thị các trang web được gọi là trình ....... web.",
+    "options": [
+      "duyệt"
+    ],
+    "answer": "duyệt",
+    "explanation": "Trình duyệt web là công cụ trung gian để xem nội dung Internet.",
+    "level": "Nhận biết",
+    "audio": "Phần mềm giúp máy tính hiển thị các trang web được gọi là trình gì web?"
+  },
+  {
+    "id": 90,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "scenario",
+    "question": "Bạn An muốn tìm hiểu về 'Lịch sử Việt Nam'. An nên tìm kiếm ở trang web nào sau đây để có thông tin đáng tin cậy nhất?",
+    "options": [
+      "A. Một trang cá nhân lạ trên Facebook",
+      "B. Trang web của Bảo tàng Lịch sử Quốc gia hoặc các trang giáo dục chính thống",
+      "C. Một trang web quảng cáo game",
+      "D. Một diễn đàn không rõ nguồn gốc"
+    ],
+    "answer": "B",
+    "explanation": "Nguồn tin từ các tổ chức chính thống luôn có độ tin cậy cao hơn.",
+    "level": "Vận dụng",
+    "audio": "Bạn An muốn tìm hiểu về Lịch sử Việt Nam. An nên tìm kiếm ở trang web nào sau đây để có thông tin đáng tin cậy nhất?"
+  },
+  {
+    "id": 91,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "single_choice",
+    "question": "Để kết nối Internet cho máy tính để bàn không có Wi-Fi, em cần dùng thiết bị gì?",
+    "options": [
+      "A. Dây cáp mạng",
+      "B. Loa",
+      "C. Máy quét",
+      "D. Micro"
+    ],
+    "answer": "A",
+    "explanation": "Cáp mạng giúp kết nối máy tính trực tiếp với Router hoặc Switch.",
+    "level": "Vận dụng",
+    "audio": "Để kết nối Internet cho máy tính để bàn không có Wi-Fi, em cần dùng thiết bị gì?"
+  },
+  {
+    "id": 92,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "true_false",
+    "question": "Mạng không dây (Wi-Fi) tiện lợi hơn mạng có dây vì không cần kéo dây vướng víu.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Tính di động và sự gọn gàng là ưu điểm lớn của Wi-Fi.",
+    "level": "Thông hiểu",
+    "audio": "Mạng không dây tiện lợi hơn mạng có dây vì không cần kéo dây vướng víu. Đúng hay sai?"
+  },
+  {
+    "id": 93,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "multiple_choice",
+    "question": "Những dấu hiệu nào cho thấy một trang web có thể không an toàn?",
+    "options": [
+      "A. Có quá nhiều quảng cáo rác hiện lên liên tục",
+      "B. Yêu cầu nhập thông tin cá nhân, mật khẩu ngay lập tức",
+      "C. Có nội dung không phù hợp với lứa tuổi",
+      "D. Có biểu tượng ổ khóa an toàn cạnh địa chỉ web"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Biểu tượng ổ khóa là dấu hiệu của trang web an toàn (HTTPS). Các dấu hiệu khác cảnh báo nguy hiểm.",
+    "level": "Thông hiểu",
+    "audio": "Những dấu hiệu nào cho thấy một trang web có thể không an toàn?"
+  },
+  {
+    "id": 94,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "fill_blank",
+    "question": "Để mở một trang web mới trong cùng một cửa sổ trình duyệt, em nháy chuột vào dấu ....... (New Tab).",
+    "options": [
+      "cộng",
+      "+"
+    ],
+    "answer": "cộng",
+    "explanation": "Nút New Tab (dấu cộng) cho phép mở nhiều trang web song song.",
+    "level": "Nhận biết",
+    "audio": "Để mở một trang web mới trong cùng một cửa sổ trình duyệt, em nháy chuột vào dấu gì?"
+  },
+  {
+    "id": 95,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "matching",
+    "question": "Nối từ khóa tìm kiếm với kết quả mong muốn:",
+    "options": [
+      "1-'Thời tiết Hà Nội' : a-Tìm kiếm hình ảnh các loài hoa",
+      "2-'Ảnh hoa hồng' : b-Tìm thông tin nhiệt độ, mưa nắng",
+      "3-'Cách nấu cơm' : c-Tìm hướng dẫn các bước nấu ăn"
+    ],
+    "answer": "1-b, 2-a, 3-c",
+    "explanation": "Từ khóa phản ánh mục đích tìm kiếm của người dùng.",
+    "level": "Vận dụng",
+    "audio": "Hãy nối từ khóa tìm kiếm với kết quả mong muốn tương ứng."
+  },
+  {
+    "id": 96,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "single_choice",
+    "question": "Mạng máy tính giúp em chia sẻ tệp tin với bạn ở xa như thế nào?",
+    "options": [
+      "A. Gửi qua Email hoặc các ứng dụng nhắn tin",
+      "B. Chép vào USB rồi chạy bộ đến nhà bạn",
+      "C. In ra giấy rồi gửi bưu điện",
+      "D. Hét thật to tên tệp tin"
+    ],
+    "answer": "A",
+    "explanation": "Internet cho phép truyền dữ liệu tức thời bất kể khoảng cách địa lý.",
+    "level": "Thông hiểu",
+    "audio": "Mạng máy tính giúp em chia sẻ tệp tin với bạn ở xa như thế nào?"
+  },
+  {
+    "id": 97,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 2: Mạng máy tính",
+    "type": "true_false",
+    "question": "Tất cả các thiết bị thông minh trong nhà (như tivi, tủ lạnh thông minh) đều có thể kết nối vào mạng Wi-Fi.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Đây là xu hướng Internet vạn vật (IoT), kết nối mọi thiết bị vào mạng.",
+    "level": "Nhận biết",
+    "audio": "Tất cả các thiết bị thông minh trong nhà đều có thể kết nối vào mạng Wi-Fi. Đúng hay sai?"
+  },
+  {
+    "id": 98,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 3: Thông tin trên trang web",
+    "type": "multiple_choice",
+    "question": "Những thành phần nào sau đây là địa chỉ trang web hợp lệ?",
+    "options": [
+      "A. www.google.com",
+      "B. thieunien.vn",
+      "C. C:\\Documents\\BaiTap.docx",
+      "D. https://moet.gov.vn"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Phương án C là đường dẫn tệp trên máy tính cục bộ, không phải địa chỉ web.",
+    "level": "Thông hiểu",
+    "audio": "Những thành phần nào sau đây là địa chỉ trang web hợp lệ?"
+  },
+  {
+    "id": 99,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "fill_blank",
+    "question": "Ô để nhập từ khóa tìm kiếm trên Google thường nằm ở giữa trang .......",
+    "options": [
+      "chủ"
+    ],
+    "answer": "chủ",
+    "explanation": "Trang chủ Google có thiết kế tối giản với ô tìm kiếm ở trung tâm.",
+    "level": "Nhận biết",
+    "audio": "Ô để nhập từ khóa tìm kiếm trên Google thường nằm ở giữa trang gì?"
+  },
+  {
+    "id": 100,
+    "topic": "Chủ đề 2: Mạng máy tính và Internet",
+    "lesson": "Bài 4: Tìm kiếm thông tin trên Internet",
+    "type": "scenario",
+    "question": "Em tìm thấy một thông tin rất hay trên mạng nhưng không biết tác giả là ai. Em có nên khẳng định đó là kiến thức của mình không?",
+    "options": [
+      "A. Có, vì mình tìm thấy nó",
+      "B. Không, vì đó là vi phạm bản quyền và thiếu trung thực",
+      "C. Có, nếu không ai biết",
+      "D. Có, để được điểm cao"
+    ],
+    "answer": "B",
+    "explanation": "Tôn trọng quyền tác giả là quy tắc đạo đức quan trọng khi dùng Internet.",
+    "level": "Vận dụng",
+    "audio": "Em tìm thấy một thông tin rất hay trên mạng nhưng không biết tác giả là ai. Em có nên khẳng định đó là kiến thức của mình không?"
+  },
+  {
+    "id": 101,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "single_choice",
+    "question": "Thư mục trong máy tính dùng để làm gì?",
+    "options": [
+      "A. Để chứa các tệp tin và các thư mục con khác",
+      "B. Để trang trí màn hình",
+      "C. Để tăng tốc độ máy tính",
+      "D. Để kết nối Internet"
+    ],
+    "answer": "A",
+    "explanation": "Thư mục giúp tổ chức và quản lý dữ liệu một cách khoa học.",
+    "level": "Nhận biết",
+    "image": "Hình ảnh biểu tượng thư mục",
+    "audio": "Thư mục trong máy tính dùng để làm gì?"
+  },
+  {
+    "id": 102,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "true_false",
+    "question": "Một thư mục có thể chứa nhiều tệp tin khác nhau.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Thư mục là vật chứa cho các tệp tin.",
+    "level": "Nhận biết",
+    "audio": "Một thư mục có thể chứa nhiều tệp tin khác nhau. Đúng hay sai?"
+  },
+  {
+    "id": 103,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "multiple_choice",
+    "question": "Cấu trúc cây thư mục bao gồm những gì?",
+    "options": [
+      "A. Thư mục gốc",
+      "B. Thư mục con",
+      "C. Tệp tin",
+      "D. Cành cây thật"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Cây thư mục là cách biểu diễn phân cấp của dữ liệu trong máy tính.",
+    "level": "Thông hiểu",
+    "audio": "Cấu trúc cây thư mục bao gồm những gì?"
+  },
+  {
+    "id": 104,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "fill_blank",
+    "question": "Thư mục nằm bên trong một thư mục khác được gọi là thư mục .......",
+    "options": [
+      "con"
+    ],
+    "answer": "con",
+    "explanation": "Quan hệ phân cấp giữa các thư mục được gọi là cha - con.",
+    "level": "Nhận biết",
+    "audio": "Thư mục nằm bên trong một thư mục khác được gọi là thư mục gì?"
+  },
+  {
+    "id": 105,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "matching",
+    "question": "Nối biểu tượng với tên gọi tương ứng:",
+    "options": [
+      "1-Hình kẹp giấy vàng : a-Tệp tin văn bản",
+      "2-Hình tờ giấy có chữ W : b-Thư mục",
+      "3-Hình tờ giấy có ảnh : c-Tệp tin hình ảnh"
+    ],
+    "answer": "1-b, 2-a, 3-c",
+    "explanation": "Biểu tượng giúp người dùng nhận biết nhanh loại dữ liệu.",
+    "level": "Thông hiểu",
+    "audio": "Hãy nối biểu tượng với tên gọi tương ứng của nó."
+  },
+  {
+    "id": 106,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "single_choice",
+    "question": "Để tạo một thư mục mới, em nháy chuột phải vào vùng trống và chọn lệnh nào?",
+    "options": [
+      "A. New -> Folder",
+      "B. Open",
+      "C. Delete",
+      "D. Rename"
+    ],
+    "answer": "A",
+    "explanation": "Lệnh New -> Folder là cách tiêu chuẩn để tạo thư mục mới trong Windows.",
+    "level": "Nhận biết",
+    "audio": "Để tạo một thư mục mới, em nháy chuột phải vào vùng trống và chọn lệnh nào?"
+  },
+  {
+    "id": 107,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "true_false",
+    "question": "Em có thể đặt tên thư mục có chứa các kí tự đặc biệt như / \\ : * ? \" < > |.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Hệ điều hành Windows cấm sử dụng một số kí tự đặc biệt trong tên tệp và thư mục.",
+    "level": "Thông hiểu",
+    "audio": "Em có thể đặt tên thư mục có chứa các kí tự đặc biệt. Đúng hay sai?"
+  },
+  {
+    "id": 108,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "multiple_choice",
+    "question": "Những thao tác nào em có thể thực hiện với tệp tin?",
+    "options": [
+      "A. Sao chép (Copy)",
+      "B. Di chuyển (Cut)",
+      "C. Đổi tên (Rename)",
+      "D. Xóa (Delete)"
+    ],
+    "answer": "A, B, C, D",
+    "explanation": "Đây là các thao tác quản lý tệp tin cơ bản.",
+    "level": "Nhận biết",
+    "audio": "Những thao tác nào em có thể thực hiện với tệp tin?"
+  },
+  {
+    "id": 109,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "fill_blank",
+    "question": "Để đổi tên một thư mục, em nháy chuột phải vào thư mục đó và chọn lệnh .......",
+    "options": [
+      "Rename",
+      "Đổi tên"
+    ],
+    "answer": "Rename",
+    "explanation": "Lệnh Rename cho phép thay đổi tên hiển thị của đối tượng.",
+    "level": "Nhận biết",
+    "audio": "Để đổi tên một thư mục, em nháy chuột phải vào thư mục đó và chọn lệnh gì?"
+  },
+  {
+    "id": 110,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "scenario",
+    "question": "Bạn Hoa muốn chuyển tệp 'BaiTap.docx' từ thư mục 'Lớp 5A' sang thư mục 'Lớp 5B'. Hoa nên dùng cặp lệnh nào?",
+    "options": [
+      "A. Copy và Paste",
+      "B. Cut và Paste",
+      "C. Delete và Undo",
+      "D. Rename và Open"
+    ],
+    "answer": "B",
+    "explanation": "Lệnh Cut (Cắt) và Paste (Dán) dùng để di chuyển tệp từ vị trí này sang vị trí khác.",
+    "level": "Vận dụng",
+    "audio": "Bạn Hoa muốn chuyển tệp BaiTap từ thư mục Lớp 5A sang thư mục Lớp 5B. Hoa nên dùng cặp lệnh nào?"
+  },
+  {
+    "id": 111,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "single_choice",
+    "question": "Trong cây thư mục, thư mục ngoài cùng chứa tất cả các thư mục khác được gọi là gì?",
+    "options": [
+      "A. Thư mục lá",
+      "B. Thư mục gốc",
+      "C. Thư mục rỗng",
+      "D. Thư mục ẩn"
+    ],
+    "answer": "B",
+    "explanation": "Thư mục gốc (Root folder) là điểm bắt đầu của một ổ đĩa hoặc hệ thống tệp.",
+    "level": "Nhận biết",
+    "audio": "Trong cây thư mục, thư mục ngoài cùng chứa tất cả các thư mục khác được gọi là gì?"
+  },
+  {
+    "id": 112,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "true_false",
+    "question": "Tệp tin có thể chứa thư mục con bên trong nó.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Tệp tin là đơn vị lưu trữ dữ liệu cuối cùng, nó không thể chứa thư mục. Chỉ thư mục mới chứa được thư mục.",
+    "level": "Thông hiểu",
+    "audio": "Tệp tin có thể chứa thư mục con bên trong nó. Đúng hay sai?"
+  },
+  {
+    "id": 113,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "multiple_choice",
+    "question": "Tại sao chúng ta cần tổ chức thông tin theo cấu trúc cây thư mục?",
+    "options": [
+      "A. Để tìm kiếm thông tin nhanh hơn",
+      "B. Để quản lý dữ liệu ngăn nắp, dễ dàng",
+      "C. Để máy tính trông đẹp hơn",
+      "D. Để tiết kiệm dung lượng ổ cứng"
+    ],
+    "answer": "A, B",
+    "explanation": "Tổ chức khoa học giúp tiết kiệm thời gian tìm kiếm và quản lý hiệu quả.",
+    "level": "Thông hiểu",
+    "audio": "Tại sao chúng ta cần tổ chức thông tin theo cấu trúc cây thư mục?"
+  },
+  {
+    "id": 114,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "fill_blank",
+    "question": "Đường dẫn (Path) cho biết ....... dẫn đến một tệp hoặc thư mục cụ thể.",
+    "options": [
+      "vị trí",
+      "đường"
+    ],
+    "answer": "vị trí",
+    "explanation": "Đường dẫn mô tả trình tự các thư mục để đi đến đối tượng cần tìm.",
+    "level": "Thông hiểu",
+    "audio": "Đường dẫn cho biết điều gì dẫn đến một tệp hoặc thư mục cụ thể?"
+  },
+  {
+    "id": 115,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "ordering",
+    "question": "Sắp xếp các bước để xóa một thư mục không còn dùng đến:",
+    "options": [
+      "1. Chọn thư mục cần xóa",
+      "2. Nháy chuột phải vào thư mục đó",
+      "3. Chọn lệnh Delete",
+      "4. Chọn Yes để xác nhận (nếu có)"
+    ],
+    "answer": "1-2-3-4",
+    "explanation": "Quy trình xóa đối tượng trong hệ điều hành.",
+    "level": "Vận dụng",
+    "audio": "Hãy sắp xếp các bước để xóa một thư mục không còn dùng đến."
+  },
+  {
+    "id": 116,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "single_choice",
+    "question": "Phím tắt nào dùng để sao chép (Copy) một tệp tin?",
+    "options": [
+      "A. Ctrl + V",
+      "B. Ctrl + C",
+      "C. Ctrl + X",
+      "D. Ctrl + Z"
+    ],
+    "answer": "B",
+    "explanation": "Ctrl + C là phím tắt phổ biến để sao chép dữ liệu.",
+    "level": "Nhận biết",
+    "audio": "Phím tắt nào dùng để sao chép một tệp tin?"
+  },
+  {
+    "id": 117,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "true_false",
+    "question": "Khi em xóa một tệp tin, nó sẽ biến mất vĩnh viễn ngay lập tức và không thể lấy lại.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Tệp bị xóa thường được đưa vào Recycle Bin (Thùng rác) và có thể khôi phục lại.",
+    "level": "Thông hiểu",
+    "audio": "Khi em xóa một tệp tin, nó sẽ biến mất vĩnh viễn ngay lập tức và không thể lấy lại. Đúng hay sai?"
+  },
+  {
+    "id": 118,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "multiple_choice",
+    "question": "Để chọn nhiều tệp tin nằm liền kề nhau, em có thể làm gì?",
+    "options": [
+      "A. Nhấn giữ phím Shift và nháy chuột chọn tệp đầu và tệp cuối",
+      "B. Nhấn giữ phím Ctrl và nháy chuột chọn từng tệp",
+      "C. Kéo thả chuột bao quanh các tệp cần chọn",
+      "D. Nhấn phím Alt"
+    ],
+    "answer": "A, C",
+    "explanation": "Shift dùng để chọn vùng liền kề, Ctrl dùng để chọn các tệp rời rạc.",
+    "level": "Vận dụng",
+    "audio": "Để chọn nhiều tệp tin nằm liền kề nhau, em có thể làm gì?"
+  },
+  {
+    "id": 119,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "fill_blank",
+    "question": "Phím tắt dùng để dán (Paste) tệp tin đã sao chép là Ctrl + .......",
+    "options": [
+      "V"
+    ],
+    "answer": "V",
+    "explanation": "Ctrl + V là lệnh dán dữ liệu từ bộ nhớ đệm.",
+    "level": "Nhận biết",
+    "audio": "Phím tắt dùng để dán tệp tin đã sao chép là Ctrl cộng với phím gì?"
+  },
+  {
+    "id": 120,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "scenario",
+    "question": "Bạn Nam muốn tìm lại tệp bài vẽ 'NgoiNha.png' nhưng không nhớ lưu ở đâu. Nam nên dùng công cụ nào?",
+    "options": [
+      "A. Ô tìm kiếm (Search) trong File Explorer",
+      "B. Thùng rác",
+      "C. Trình duyệt web",
+      "D. Máy tính bỏ túi"
+    ],
+    "answer": "A",
+    "explanation": "Công cụ Search giúp tìm tệp dựa trên tên hoặc phần mở rộng trên máy tính.",
+    "level": "Vận dụng",
+    "audio": "Bạn Nam muốn tìm lại tệp bài vẽ NgoiNha nhưng không nhớ lưu ở đâu. Nam nên dùng công cụ nào?"
+  },
+  {
+    "id": 121,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "single_choice",
+    "question": "Trong đường dẫn 'D:\\HocTap\\Toan\\Bai1.docx', thư mục mẹ của thư mục 'Toan' là gì?",
+    "options": [
+      "A. D:\\",
+      "B. HocTap",
+      "C. Bai1.docx",
+      "D. Windows"
+    ],
+    "answer": "B",
+    "explanation": "Thư mục 'Toan' nằm trực tiếp bên trong thư mục 'HocTap'.",
+    "level": "Thông hiểu",
+    "audio": "Trong đường dẫn đã cho, thư mục mẹ của thư mục Toan là gì?"
+  },
+  {
+    "id": 122,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "true_false",
+    "question": "Hai tệp tin có cùng tên và cùng phần mở rộng có thể nằm trong cùng một thư mục.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Trong cùng một thư mục, tên tệp phải là duy nhất để hệ thống phân biệt.",
+    "level": "Thông hiểu",
+    "audio": "Hai tệp tin có cùng tên và cùng phần mở rộng có thể nằm trong cùng một thư mục. Đúng hay sai?"
+  },
+  {
+    "id": 123,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "multiple_choice",
+    "question": "Khi đổi tên tệp tin, em nên lưu ý điều gì?",
+    "options": [
+      "A. Tên tệp nên gợi nhớ nội dung bên trong",
+      "B. Không nên thay đổi phần mở rộng của tệp (ví dụ .docx, .png)",
+      "C. Tên tệp càng dài càng tốt",
+      "D. Có thể dùng bất kỳ kí tự nào"
+    ],
+    "answer": "A, B",
+    "explanation": "Đổi phần mở rộng có thể khiến tệp không mở được bằng phần mềm tương ứng.",
+    "level": "Vận dụng",
+    "audio": "Khi đổi tên tệp tin, em nên lưu ý điều gì?"
+  },
+  {
+    "id": 124,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "fill_blank",
+    "question": "Để khôi phục một tệp tin đã xóa nhầm, em vào ....... nháy chuột phải vào tệp đó và chọn Restore.",
+    "options": [
+      "Recycle Bin",
+      "Thùng rác"
+    ],
+    "answer": "Thùng rác",
+    "explanation": "Recycle Bin lưu trữ tạm thời các đối tượng đã xóa.",
+    "level": "Vận dụng",
+    "audio": "Để khôi phục một tệp tin đã xóa nhầm, em vào đâu?"
+  },
+  {
+    "id": 125,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "single_choice",
+    "question": "Thao tác 'Cut' (Cắt) khác thao tác 'Copy' (Sao chép) ở điểm nào?",
+    "options": [
+      "A. Cut làm mất tệp ở vị trí cũ, Copy thì không",
+      "B. Copy làm mất tệp ở vị trí cũ, Cut thì không",
+      "C. Cả hai đều giống hệt nhau",
+      "D. Cut chỉ dùng cho thư mục"
+    ],
+    "answer": "A",
+    "explanation": "Cut là di chuyển (move), còn Copy là tạo bản sao mới.",
+    "level": "Thông hiểu",
+    "audio": "Thao tác Cắt khác thao tác Sao chép ở điểm nào?"
+  },
+  {
+    "id": 126,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "single_choice",
+    "question": "Trong cửa sổ File Explorer, biểu tượng mũi tên nhỏ cạnh thư mục có ý nghĩa gì?",
+    "options": [
+      "A. Thư mục đó đang bị khóa",
+      "B. Thư mục đó có chứa thư mục con bên trong",
+      "C. Thư mục đó sắp bị xóa",
+      "D. Thư mục đó trống rỗng"
+    ],
+    "answer": "B",
+    "explanation": "Mũi tên cho phép mở rộng hoặc thu gọn để xem các thư mục con.",
+    "level": "Nhận biết",
+    "audio": "Trong cửa sổ File Explorer, biểu tượng mũi tên nhỏ cạnh thư mục có ý nghĩa gì?"
+  },
+  {
+    "id": 127,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "true_false",
+    "question": "Em có thể tạo một thư mục con trùng tên với thư mục mẹ của nó.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Thư mục con có thể trùng tên với thư mục mẹ vì chúng nằm ở các cấp độ khác nhau trong cây thư mục.",
+    "level": "Thông hiểu",
+    "audio": "Em có thể tạo một thư mục con trùng tên với thư mục mẹ của nó. Đúng hay sai?"
+  },
+  {
+    "id": 128,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "multiple_choice",
+    "question": "Những cách nào sau đây giúp em mở một thư mục?",
+    "options": [
+      "A. Nháy đúp chuột vào thư mục",
+      "B. Nháy chuột phải vào thư mục rồi chọn Open",
+      "C. Chọn thư mục rồi nhấn phím Enter",
+      "D. Nhìn chằm chằm vào thư mục"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Có nhiều cách tương tác để truy cập nội dung thư mục.",
+    "level": "Nhận biết",
+    "audio": "Những cách nào sau đây giúp em mở một thư mục?"
+  },
+  {
+    "id": 129,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "fill_blank",
+    "question": "Để chọn tất cả các tệp trong một thư mục, em sử dụng tổ hợp phím Ctrl + .......",
+    "options": [
+      "A"
+    ],
+    "answer": "A",
+    "explanation": "Ctrl + A (All) dùng để chọn toàn bộ đối tượng trong cửa sổ hiện hành.",
+    "level": "Nhận biết",
+    "audio": "Để chọn tất cả các tệp trong một thư mục, em sử dụng tổ hợp phím Ctrl cộng với phím gì?"
+  },
+  {
+    "id": 130,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "scenario",
+    "question": "Máy tính báo lỗi 'A destination folder already contains a file named...' khi em đang dán tệp. Điều này nghĩa là gì?",
+    "options": [
+      "A. Máy tính bị hỏng",
+      "B. Thư mục đích đã có một tệp trùng tên với tệp em đang dán",
+      "C. Tệp tin quá nặng",
+      "D. Ổ đĩa bị đầy"
+    ],
+    "answer": "B",
+    "explanation": "Hệ thống cảnh báo để tránh việc ghi đè dữ liệu ngoài ý muốn.",
+    "level": "Vận dụng",
+    "audio": "Máy tính báo lỗi khi em đang dán tệp. Điều này nghĩa là gì?"
+  },
+  {
+    "id": 131,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "single_choice",
+    "question": "Trong Windows, ổ đĩa cài đặt hệ điều hành thường có kí hiệu là gì?",
+    "options": [
+      "A. Ổ đĩa A:",
+      "B. Ổ đĩa C:",
+      "C. Ổ đĩa D:",
+      "D. Ổ đĩa Z:"
+    ],
+    "answer": "B",
+    "explanation": "Theo truyền thống, ổ C: là phân vùng chính chứa hệ điều hành.",
+    "level": "Nhận biết",
+    "audio": "Trong Windows, ổ đĩa cài đặt hệ điều hành thường có kí hiệu là gì?"
+  },
+  {
+    "id": 132,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "true_false",
+    "question": "Thư mục gốc không nằm trong bất kỳ thư mục nào khác.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Thư mục gốc là cấp cao nhất trong cấu trúc phân cấp của ổ đĩa.",
+    "level": "Thông hiểu",
+    "audio": "Thư mục gốc không nằm trong bất kỳ thư mục nào khác. Đúng hay sai?"
+  },
+  {
+    "id": 133,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "multiple_choice",
+    "question": "Khi em xóa một thư mục mẹ, điều gì sẽ xảy ra với các thư mục con bên trong?",
+    "options": [
+      "A. Các thư mục con vẫn còn nguyên ở vị trí cũ",
+      "B. Các thư mục con cũng bị xóa theo",
+      "C. Máy tính sẽ hỏi em có muốn xóa các thư mục con không",
+      "D. Thư mục con sẽ tự động chuyển ra màn hình chính"
+    ],
+    "answer": "B",
+    "explanation": "Xóa thư mục mẹ sẽ xóa toàn bộ nội dung bên trong nó, bao gồm tệp và thư mục con.",
+    "level": "Thông hiểu",
+    "audio": "Khi em xóa một thư mục mẹ, điều gì sẽ xảy ra với các thư mục con bên trong?"
+  },
+  {
+    "id": 134,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "fill_blank",
+    "question": "Để tìm kiếm nhanh một tệp tin, em nhập tên tệp vào ô ....... ở góc trên bên phải cửa sổ File Explorer.",
+    "options": [
+      "Search",
+      "Tìm kiếm"
+    ],
+    "answer": "Search",
+    "explanation": "Ô Search giúp lọc nhanh các đối tượng trong thư mục hiện hành.",
+    "level": "Nhận biết",
+    "audio": "Để tìm kiếm nhanh một tệp tin, em nhập tên tệp vào ô nào?"
+  },
+  {
+    "id": 135,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "ordering",
+    "question": "Sắp xếp các bước để sao chép một tệp từ ổ C: sang USB (ổ E:):",
+    "options": [
+      "1. Chọn tệp ở ổ C: và nhấn Ctrl + C",
+      "2. Mở ổ đĩa USB (E:)",
+      "3. Nhấn Ctrl + V để dán tệp",
+      "4. Kiểm tra xem tệp đã xuất hiện ở USB chưa"
+    ],
+    "answer": "1-2-3-4",
+    "explanation": "Quy trình sao chép dữ liệu giữa các thiết bị lưu trữ.",
+    "level": "Vận dụng",
+    "audio": "Hãy sắp xếp các bước để sao chép một tệp từ ổ C sang USB."
+  },
+  {
+    "id": 136,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "single_choice",
+    "question": "Đường dẫn nào sau đây là đúng cấu trúc?",
+    "options": [
+      "A. C:/Users/Admin/Documents",
+      "B. C:\\Users\\Admin\\Documents",
+      "C. C>Users>Admin>Documents",
+      "D. C-Users-Admin-Documents"
+    ],
+    "answer": "B",
+    "explanation": "Trong Windows, các thư mục được ngăn cách bởi dấu gạch chéo ngược (\\).",
+    "level": "Thông hiểu",
+    "audio": "Đường dẫn nào sau đây là đúng cấu trúc trong hệ điều hành Windows?"
+  },
+  {
+    "id": 137,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "true_false",
+    "question": "Em có thể tạo vô số thư mục con lồng nhau trong máy tính.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Về lý thuyết, em có thể tạo nhiều cấp thư mục tùy ý cho đến khi đạt giới hạn độ dài đường dẫn của hệ thống.",
+    "level": "Thông hiểu",
+    "audio": "Em có thể tạo vô số thư mục con lồng nhau trong máy tính. Đúng hay sai?"
+  },
+  {
+    "id": 138,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "multiple_choice",
+    "question": "Những thông tin nào thường hiển thị kèm theo tệp tin trong chế độ xem chi tiết (Details)?",
+    "options": [
+      "A. Tên tệp (Name)",
+      "B. Ngày sửa đổi (Date modified)",
+      "C. Loại tệp (Type)",
+      "D. Kích thước tệp (Size)"
+    ],
+    "answer": "A, B, C, D",
+    "explanation": "Chế độ Details cung cấp đầy đủ thông tin quản lý tệp.",
+    "level": "Thông hiểu",
+    "audio": "Những thông tin nào thường hiển thị kèm theo tệp tin trong chế độ xem chi tiết?"
+  },
+  {
+    "id": 139,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "fill_blank",
+    "question": "Để chọn các tệp tin không nằm liền kề nhau, em nhấn giữ phím ....... và nháy chuột chọn từng tệp.",
+    "options": [
+      "Ctrl"
+    ],
+    "answer": "Ctrl",
+    "explanation": "Phím Ctrl cho phép chọn đa đối tượng rời rạc.",
+    "level": "Vận dụng",
+    "audio": "Để chọn các tệp tin không nằm liền kề nhau, em nhấn giữ phím gì?"
+  },
+  {
+    "id": 140,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "scenario",
+    "question": "Em lỡ tay xóa mất một tệp quan trọng và đã dọn sạch Thùng rác (Empty Recycle Bin). Em có thể lấy lại tệp đó bằng cách thông thường không?",
+    "options": [
+      "A. Có, chỉ cần mở lại Thùng rác",
+      "B. Không, tệp đã bị xóa vĩnh viễn khỏi hệ thống",
+      "C. Có, dùng phím Ctrl + Z",
+      "D. Có, tắt máy bật lại sẽ thấy"
+    ],
+    "answer": "B",
+    "explanation": "Khi đã Empty Recycle Bin, dữ liệu không thể khôi phục bằng các công cụ cơ bản của Windows.",
+    "level": "Vận dụng",
+    "audio": "Em lỡ tay xóa mất một tệp quan trọng và đã dọn sạch Thùng rác. Em có thể lấy lại tệp đó bằng cách thông thường không?"
+  },
+  {
+    "id": 141,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "single_choice",
+    "question": "Thư mục nào sau đây thường chứa các tệp tin tạm thời của người dùng vừa tải về từ Internet?",
+    "options": [
+      "A. Documents",
+      "B. Downloads",
+      "C. Pictures",
+      "D. Music"
+    ],
+    "answer": "B",
+    "explanation": "Thư mục Downloads là nơi mặc định lưu trữ các tệp tải về từ trình duyệt.",
+    "level": "Nhận biết",
+    "audio": "Thư mục nào sau đây thường chứa các tệp tin tạm thời của người dùng vừa tải về từ Internet?"
+  },
+  {
+    "id": 142,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "true_false",
+    "question": "Mỗi ổ đĩa cứng có thể được chia thành nhiều phân vùng (như C:, D:) để quản lý dữ liệu tốt hơn.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Chia ổ đĩa giúp tách biệt hệ điều hành và dữ liệu cá nhân.",
+    "level": "Thông hiểu",
+    "audio": "Mỗi ổ đĩa cứng có thể được chia thành nhiều phân vùng để quản lý dữ liệu tốt hơn. Đúng hay sai?"
+  },
+  {
+    "id": 143,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "multiple_choice",
+    "question": "Những cách nào sau đây giúp em đổi tên một thư mục nhanh nhất?",
+    "options": [
+      "A. Nháy chuột phải chọn Rename",
+      "B. Chọn thư mục rồi nhấn phím F2",
+      "C. Nháy chuột chậm hai lần vào tên thư mục",
+      "D. Xóa đi tạo lại thư mục mới với tên mới"
+    ],
+    "answer": "A, B, C",
+    "explanation": "F2 là phím tắt đổi tên nhanh trong Windows.",
+    "level": "Vận dụng",
+    "audio": "Những cách nào sau đây giúp em đổi tên một thư mục nhanh nhất?"
+  },
+  {
+    "id": 144,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "fill_blank",
+    "question": "Để di chuyển tệp tin, em dùng lệnh Cut (Ctrl + .......) sau đó dùng lệnh Paste.",
+    "options": [
+      "X"
+    ],
+    "answer": "X",
+    "explanation": "Ctrl + X là phím tắt cho lệnh Cut.",
+    "level": "Nhận biết",
+    "audio": "Để di chuyển tệp tin, em dùng lệnh Cut, tổ hợp phím Ctrl cộng với phím gì?"
+  },
+  {
+    "id": 145,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "matching",
+    "question": "Ghép cặp thao tác với phím tắt tương ứng:",
+    "options": [
+      "1-Sao chép : a-Ctrl + V",
+      "2-Dán : b-Ctrl + C",
+      "3-Cắt : c-Ctrl + X"
+    ],
+    "answer": "1-b, 2-a, 3-c",
+    "explanation": "Các phím tắt cơ bản giúp thao tác nhanh hơn.",
+    "level": "Nhận biết",
+    "audio": "Hãy ghép cặp thao tác với phím tắt tương ứng của nó."
+  },
+  {
+    "id": 146,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "single_choice",
+    "question": "Biểu tượng nào sau đây đại diện cho một tệp tin nén?",
+    "options": [
+      "A. Hình kẹp giấy",
+      "B. Hình các quyển sách bị thắt dây (hoặc khóa kéo)",
+      "C. Hình nốt nhạc",
+      "D. Hình quả cầu xanh"
+    ],
+    "answer": "B",
+    "explanation": "Tệp nén (như .zip, .rar) thường có biểu tượng đặc thù để phân biệt.",
+    "level": "Nhận biết",
+    "audio": "Biểu tượng nào sau đây đại diện cho một tệp tin nén?"
+  },
+  {
+    "id": 147,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 5: Cấu trúc cây thư mục",
+    "type": "true_false",
+    "question": "Thư mục 'HinhAnh' và tệp tin 'HinhAnh.jpg' có thể nằm cùng nhau trong một thư mục mẹ.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Vì một cái là thư mục, một cái là tệp tin nên chúng không bị coi là trùng tên hoàn toàn.",
+    "level": "Thông hiểu",
+    "audio": "Thư mục HinhAnh và tệp tin HinhAnh chấm jpg có thể nằm cùng nhau trong một thư mục mẹ. Đúng hay sai?"
+  },
+  {
+    "id": 148,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "multiple_choice",
+    "question": "Em có thể tìm kiếm tệp tin theo những tiêu chí nào?",
+    "options": [
+      "A. Theo tên tệp",
+      "B. Theo phần mở rộng (loại tệp)",
+      "C. Theo ngày tạo hoặc ngày sửa đổi",
+      "D. Theo màu sắc của biểu tượng"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Hệ thống hỗ trợ tìm kiếm theo nhiều thuộc tính dữ liệu.",
+    "level": "Thông hiểu",
+    "audio": "Em có thể tìm kiếm tệp tin theo những tiêu chí nào?"
+  },
+  {
+    "id": 149,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "fill_blank",
+    "question": "Để mở nhanh File Explorer, em nhấn tổ hợp phím Windows + .......",
+    "options": [
+      "E"
+    ],
+    "answer": "E",
+    "explanation": "Windows + E (Explorer) là phím tắt mở trình quản lý tệp.",
+    "level": "Vận dụng",
+    "audio": "Để mở nhanh File Explorer, em nhấn tổ hợp phím Windows cộng với phím gì?"
+  },
+  {
+    "id": 150,
+    "topic": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "lesson": "Bài 6: Thực hành với tệp và thư mục",
+    "type": "scenario",
+    "question": "Bạn Lan muốn gửi 100 bức ảnh cho bạn qua mạng. Lan nên làm gì để việc gửi tệp nhanh và gọn hơn?",
+    "options": [
+      "A. Gửi từng ảnh một",
+      "B. Nén tất cả ảnh vào một tệp nén duy nhất rồi gửi",
+      "C. Đổi tên từng ảnh rồi mới gửi",
+      "D. In ảnh ra rồi chụp lại"
+    ],
+    "answer": "B",
+    "explanation": "Nén tệp giúp giảm dung lượng và gộp nhiều đối tượng thành một tệp duy nhất, tiện lợi cho việc trao đổi.",
+    "level": "Vận dụng",
+    "audio": "Bạn Lan muốn gửi một trăm bức ảnh cho bạn qua mạng. Lan nên làm gì để việc gửi tệp nhanh và gọn hơn?"
+  },
+  {
+    "id": 151,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "single_choice",
+    "question": "Bản quyền (Copyright) là gì?",
+    "options": [
+      "A. Quyền của tác giả đối với tác phẩm do mình sáng tạo ra",
+      "B. Quyền được sao chép mọi thứ trên mạng",
+      "C. Quyền được dùng phần mềm miễn phí mãi mãi",
+      "D. Quyền được thay đổi tên tác giả"
+    ],
+    "answer": "A",
+    "explanation": "Bản quyền bảo vệ quyền lợi hợp pháp của người sáng tạo đối với sản phẩm trí tuệ của họ.",
+    "level": "Nhận biết",
+    "image": "Biểu tượng bản quyền (C)",
+    "audio": "Bản quyền là gì?"
+  },
+  {
+    "id": 152,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "true_false",
+    "question": "Mọi thông tin trên Internet đều có thể tự do sử dụng mà không cần xin phép.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Nhiều nội dung trên mạng được bảo vệ bản quyền, cần xin phép hoặc ghi rõ nguồn khi sử dụng.",
+    "level": "Thông hiểu",
+    "audio": "Mọi thông tin trên Internet đều có thể tự do sử dụng mà không cần xin phép. Đúng hay sai?"
+  },
+  {
+    "id": 153,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "multiple_choice",
+    "question": "Những tác phẩm nào sau đây được bảo hộ bản quyền?",
+    "options": [
+      "A. Bài hát, bản nhạc",
+      "B. Tranh vẽ, ảnh chụp",
+      "C. Phần mềm máy tính, trò chơi",
+      "D. Các ý tưởng chưa được thực hiện"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Bản quyền bảo hộ các tác phẩm đã được thể hiện dưới một hình thức vật chất nhất định.",
+    "level": "Thông hiểu",
+    "audio": "Những tác phẩm nào sau đây được bảo hộ bản quyền?"
+  },
+  {
+    "id": 154,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "fill_blank",
+    "question": "Khi sử dụng thông tin của người khác, em cần phải ghi rõ ....... để tôn trọng tác giả.",
+    "options": [
+      "nguồn",
+      "tên tác giả"
+    ],
+    "answer": "nguồn",
+    "explanation": "Trích dẫn nguồn là hành động văn minh và đúng luật.",
+    "level": "Nhận biết",
+    "audio": "Khi sử dụng thông tin của người khác, em cần phải ghi rõ điều gì để tôn trọng tác giả?"
+  },
+  {
+    "id": 155,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "scenario",
+    "question": "Bạn Minh sao chép một bài văn trên mạng và nộp cho cô giáo mà không ghi tên tác giả. Hành động này gọi là gì?",
+    "options": [
+      "A. Học tập thông minh",
+      "B. Đạo văn (Vi phạm bản quyền)",
+      "C. Chia sẻ thông tin",
+      "D. Giúp đỡ tác giả"
+    ],
+    "answer": "B",
+    "explanation": "Sử dụng tác phẩm của người khác và nhận là của mình là hành vi đạo văn.",
+    "level": "Vận dụng",
+    "audio": "Bạn Minh sao chép một bài văn trên mạng và nộp cho cô giáo mà không ghi tên tác giả. Hành động này gọi là gì?"
+  },
+  {
+    "id": 156,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "single_choice",
+    "question": "Phần mềm miễn phí (Freeware) là gì?",
+    "options": [
+      "A. Phần mềm phải trả tiền mới được dùng",
+      "B. Phần mềm cho phép người dùng sử dụng mà không mất phí",
+      "C. Phần mềm chỉ dùng được 1 lần",
+      "D. Phần mềm bị hỏng"
+    ],
+    "answer": "B",
+    "explanation": "Phần mềm miễn phí giúp người dùng tiếp cận công nghệ mà không tốn kém.",
+    "level": "Nhận biết",
+    "audio": "Phần mềm miễn phí là gì?"
+  },
+  {
+    "id": 157,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "true_false",
+    "question": "Sử dụng phần mềm 'bẻ khóa' (crack) là hành vi vi phạm pháp luật.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Crack phần mềm là xâm phạm quyền sở hữu trí tuệ của nhà phát triển.",
+    "level": "Thông hiểu",
+    "audio": "Sử dụng phần mềm bẻ khóa là hành vi vi phạm pháp luật. Đúng hay sai?"
+  },
+  {
+    "id": 158,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "multiple_choice",
+    "question": "Tại sao chúng ta nên sử dụng phần mềm có bản quyền?",
+    "options": [
+      "A. Được hỗ trợ kỹ thuật và cập nhật thường xuyên",
+      "B. Tránh nguy cơ bị nhiễm virus từ các bản crack",
+      "C. Tôn trọng công sức của người tạo ra phần mềm",
+      "D. Vì phần mềm có bản quyền luôn miễn phí"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Sử dụng phần mềm chính thống đảm bảo an toàn và tính nhân văn.",
+    "level": "Thông hiểu",
+    "audio": "Tại sao chúng ta nên sử dụng phần mềm có bản quyền?"
+  },
+  {
+    "id": 159,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "fill_blank",
+    "question": "Phần mềm cho phép dùng thử trong một thời gian ngắn trước khi mua được gọi là phần mềm .......",
+    "options": [
+      "dùng thử",
+      "trial"
+    ],
+    "answer": "dùng thử",
+    "explanation": "Trial version giúp người dùng trải nghiệm tính năng trước khi quyết định mua.",
+    "level": "Nhận biết",
+    "audio": "Phần mềm cho phép dùng thử trong một thời gian ngắn trước khi mua được gọi là phần mềm gì?"
+  },
+  {
+    "id": 160,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "scenario",
+    "question": "Em thấy một trang web cho tải trò chơi trả phí hoàn toàn miễn phí nhưng yêu cầu tắt phần mềm diệt virus. Em nên làm gì?",
+    "options": [
+      "A. Tắt diệt virus và tải ngay",
+      "B. Không tải vì có nguy cơ cao bị nhiễm mã độc",
+      "C. Rủ bạn cùng tải",
+      "D. Xóa phần mềm diệt virus đi"
+    ],
+    "answer": "B",
+    "explanation": "Các bản phần mềm không rõ nguồn gốc thường chứa virus gây hại máy tính.",
+    "level": "Vận dụng",
+    "audio": "Em thấy một trang web cho tải trò chơi trả phí hoàn toàn miễn phí nhưng yêu cầu tắt phần mềm diệt virus. Em nên làm gì?"
+  },
+  {
+    "id": 161,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "single_choice",
+    "question": "Kí hiệu nào sau đây đại diện cho bản quyền?",
+    "options": [
+      "A. @",
+      "B. ©",
+      "C. #",
+      "D. &"
+    ],
+    "answer": "B",
+    "explanation": "Chữ C trong vòng tròn (Copyright) là kí hiệu quốc tế về bản quyền.",
+    "level": "Nhận biết",
+    "audio": "Kí hiệu nào sau đây đại diện cho bản quyền?"
+  },
+  {
+    "id": 162,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "true_false",
+    "question": "Nếu em tự chụp một bức ảnh đẹp, em chính là chủ sở hữu bản quyền của bức ảnh đó.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Người trực tiếp sáng tạo ra tác phẩm là tác giả và chủ sở hữu bản quyền.",
+    "level": "Nhận biết",
+    "audio": "Nếu em tự chụp một bức ảnh đẹp, em chính là chủ sở hữu bản quyền của bức ảnh đó. Đúng hay sai?"
+  },
+  {
+    "id": 163,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "multiple_choice",
+    "question": "Hành động nào sau đây là tôn trọng bản quyền?",
+    "options": [
+      "A. Xin phép tác giả trước khi sử dụng hình ảnh của họ",
+      "B. Ghi rõ tên tác giả và nguồn khi trích dẫn bài viết",
+      "C. Tự ý thay đổi nội dung tác phẩm của người khác",
+      "D. Mua sách có bản quyền thay vì dùng sách lậu"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Tôn trọng bản quyền bao gồm việc xin phép, trích dẫn và sử dụng sản phẩm hợp pháp.",
+    "level": "Thông hiểu",
+    "audio": "Hành động nào sau đây là tôn trọng bản quyền?"
+  },
+  {
+    "id": 164,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "fill_blank",
+    "question": "Sử dụng tác phẩm của người khác mà không xin phép và nhận là của mình được gọi là hành vi .......",
+    "options": [
+      "đạo văn",
+      "vi phạm bản quyền"
+    ],
+    "answer": "đạo văn",
+    "explanation": "Đạo văn là hành vi thiếu trung thực trong học thuật và cuộc sống.",
+    "level": "Nhận biết",
+    "audio": "Sử dụng tác phẩm của người khác mà không xin phép và nhận là của mình được gọi là hành vi gì?"
+  },
+  {
+    "id": 165,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "ordering",
+    "question": "Thứ tự các bước để cài đặt một phần mềm miễn phí an toàn:",
+    "options": [
+      "1. Truy cập trang web chính thức của nhà phát triển",
+      "2. Nhấn nút Tải về (Download)",
+      "3. Quét virus tệp vừa tải về",
+      "4. Chạy tệp cài đặt và làm theo hướng dẫn"
+    ],
+    "answer": "1-2-3-4",
+    "explanation": "Quy trình cài đặt phần mềm đảm bảo an toàn cho máy tính.",
+    "level": "Vận dụng",
+    "audio": "Hãy sắp xếp thứ tự các bước để cài đặt một phần mềm miễn phí an toàn."
+  },
+  {
+    "id": 166,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "single_choice",
+    "question": "Khi mua một phần mềm có bản quyền, em thường nhận được gì để kích hoạt?",
+    "options": [
+      "A. Một cái kẹo",
+      "B. Mã khóa sản phẩm (Product Key)",
+      "C. Một tờ giấy trắng",
+      "D. Một con chuột mới"
+    ],
+    "answer": "B",
+    "explanation": "Mã khóa dùng để xác thực người dùng đã mua bản quyền hợp pháp.",
+    "level": "Nhận biết",
+    "audio": "Khi mua một phần mềm có bản quyền, em thường nhận được gì để kích hoạt?"
+  },
+  {
+    "id": 167,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "true_false",
+    "question": "Phần mềm mã nguồn mở (Open Source) cho phép người dùng tự do sử dụng và sửa đổi.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Phần mềm mã nguồn mở khuyến khích sự chia sẻ và cộng tác.",
+    "level": "Thông hiểu",
+    "audio": "Phần mềm mã nguồn mở cho phép người dùng tự do sử dụng và sửa đổi. Đúng hay sai?"
+  },
+  {
+    "id": 168,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "multiple_choice",
+    "question": "Tại sao vi phạm bản quyền lại gây hại?",
+    "options": [
+      "A. Làm tác giả mất thu nhập và động lực sáng tạo",
+      "B. Có thể bị phạt tiền hoặc xử lý pháp luật",
+      "C. Giúp mọi người có nhiều đồ miễn phí hơn",
+      "D. Ảnh hưởng đến uy tín của người vi phạm"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Vi phạm bản quyền gây thiệt hại kinh tế và đạo đức nghiêm trọng.",
+    "level": "Thông hiểu",
+    "audio": "Tại sao vi phạm bản quyền lại gây hại?"
+  },
+  {
+    "id": 169,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "fill_blank",
+    "question": "Thời hạn bảo hộ bản quyền tác giả thường kéo dài suốt cuộc đời tác giả và thêm ....... năm sau khi tác giả qua đời (tùy theo luật pháp).",
+    "options": [
+      "50",
+      "70"
+    ],
+    "answer": "50",
+    "explanation": "Luật bản quyền bảo hộ tác phẩm trong thời gian dài để đảm bảo quyền lợi cho người thừa kế.",
+    "level": "Thông hiểu",
+    "audio": "Thời hạn bảo hộ bản quyền tác giả thường kéo dài suốt cuộc đời tác giả và thêm bao nhiêu năm sau khi tác giả qua đời?"
+  },
+  {
+    "id": 170,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "scenario",
+    "question": "Trường học của em mua bản quyền phần mềm học tiếng Anh cho 50 máy tính. Nếu cài sang máy thứ 51 mà không mua thêm thì có vi phạm không?",
+    "options": [
+      "A. Không, vì trường đã mua rồi",
+      "B. Có, vì vượt quá số lượng giấy phép (license) cho phép",
+      "C. Không, vì máy tính ở trong trường",
+      "D. Có, nhưng không ai biết nên không sao"
+    ],
+    "answer": "B",
+    "explanation": "Mỗi bản quyền thường giới hạn số lượng thiết bị được cài đặt.",
+    "level": "Vận dụng",
+    "audio": "Trường học của em mua bản quyền phần mềm học tiếng Anh cho 50 máy tính. Nếu cài sang máy thứ 51 mà không mua thêm thì có vi phạm không?"
+  },
+  {
+    "id": 171,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "single_choice",
+    "question": "Khi em trích dẫn một câu nói hay từ một cuốn sách vào bài văn của mình, em nên làm gì?",
+    "options": [
+      "A. Để trong dấu ngoặc kép và ghi tên tác giả, tên sách",
+      "B. Coi như mình tự nghĩ ra",
+      "C. Không cần làm gì cả",
+      "D. Thay đổi vài chữ để không ai nhận ra"
+    ],
+    "answer": "A",
+    "explanation": "Trích dẫn đúng quy cách thể hiện sự tôn trọng và trung thực.",
+    "level": "Vận dụng",
+    "audio": "Khi em trích dẫn một câu nói hay từ một cuốn sách vào bài văn của mình, em nên làm gì?"
+  },
+  {
+    "id": 172,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "true_false",
+    "question": "Bản quyền chỉ áp dụng cho các tác phẩm nghệ thuật, không áp dụng cho các bài báo khoa học.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Bản quyền áp dụng cho mọi loại hình tác phẩm sáng tạo, bao gồm cả văn học, khoa học và nghệ thuật.",
+    "level": "Thông hiểu",
+    "audio": "Bản quyền chỉ áp dụng cho các tác phẩm nghệ thuật, không áp dụng cho các bài báo khoa học. Đúng hay sai?"
+  },
+  {
+    "id": 173,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "multiple_choice",
+    "question": "Những phần mềm nào sau đây thường là miễn phí?",
+    "options": [
+      "A. Scratch",
+      "B. Google Chrome",
+      "C. Microsoft Office (bản đầy đủ)",
+      "D. Paint (có sẵn trong Windows)"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Microsoft Office thường là phần mềm thương mại cần mua bản quyền.",
+    "level": "Nhận biết",
+    "audio": "Những phần mềm nào sau đây thường là miễn phí?"
+  },
+  {
+    "id": 174,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "fill_blank",
+    "question": "Thỏa thuận giữa người dùng và nhà sản xuất về việc sử dụng phần mềm được gọi là giấy phép .......",
+    "options": [
+      "sử dụng",
+      "license"
+    ],
+    "answer": "sử dụng",
+    "explanation": "Giấy phép sử dụng quy định các quyền và nghĩa vụ của người dùng.",
+    "level": "Thông hiểu",
+    "audio": "Thỏa thuận giữa người dùng và nhà sản xuất về việc sử dụng phần mềm được gọi là giấy phép gì?"
+  },
+  {
+    "id": 175,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "single_choice",
+    "question": "Nếu em sử dụng phần mềm lậu, máy tính của em có nguy cơ gì cao nhất?",
+    "options": [
+      "A. Máy tính sẽ đẹp hơn",
+      "B. Bị nhiễm virus, mã độc và mất dữ liệu",
+      "C. Máy tính sẽ chạy nhanh gấp đôi",
+      "D. Không có nguy cơ gì"
+    ],
+    "answer": "B",
+    "explanation": "Phần mềm lậu thường bị chèn mã độc để đánh cắp thông tin người dùng.",
+    "level": "Thông hiểu",
+    "audio": "Nếu em sử dụng phần mềm lậu, máy tính của em có nguy cơ gì cao nhất?"
+  },
+  {
+    "id": 176,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "single_choice",
+    "question": "Khi em muốn sử dụng một bài thơ của tác giả khác để in vào báo tường của lớp, em nên làm gì?",
+    "options": [
+      "A. Tự ý in và không ghi tên tác giả",
+      "B. Ghi rõ tên tác giả và nếu có thể hãy xin phép họ",
+      "C. Thay đổi tên bài thơ thành tên mình",
+      "D. Cắt bỏ các khổ thơ mình không thích"
+    ],
+    "answer": "B",
+    "explanation": "Tôn trọng quyền tác giả là quy tắc đạo đức và pháp luật.",
+    "level": "Vận dụng",
+    "audio": "Khi em muốn sử dụng một bài thơ của tác giả khác để in vào báo tường của lớp, em nên làm gì?"
+  },
+  {
+    "id": 177,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "true_false",
+    "question": "Phần mềm máy tính là một loại tài sản trí tuệ được pháp luật bảo vệ.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Phần mềm là kết quả của quá trình lao động trí tuệ sáng tạo.",
+    "level": "Nhận biết",
+    "audio": "Phần mềm máy tính là một loại tài sản trí tuệ được pháp luật bảo vệ. Đúng hay sai?"
+  },
+  {
+    "id": 178,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "multiple_choice",
+    "question": "Những hành động nào sau đây là vi phạm bản quyền phần mềm?",
+    "options": [
+      "A. Sao chép phần mềm trả phí để tặng cho bạn bè",
+      "B. Tải phần mềm crack từ các trang web không chính thống",
+      "C. Sử dụng phần mềm miễn phí theo đúng hướng dẫn",
+      "D. Tự ý thay đổi mã nguồn của phần mềm có bản quyền"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Chỉ sử dụng phần mềm miễn phí hoặc có bản quyền hợp pháp mới là đúng luật.",
+    "level": "Thông hiểu",
+    "audio": "Những hành động nào sau đây là vi phạm bản quyền phần mềm?"
+  },
+  {
+    "id": 179,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "fill_blank",
+    "question": "Để ủng hộ các nhà phát triển phần mềm, chúng ta nên mua bản quyền ....... của họ.",
+    "options": [
+      "chính thức",
+      "hợp pháp"
+    ],
+    "answer": "chính thức",
+    "explanation": "Mua bản quyền giúp nhà phát triển có kinh phí để duy trì và nâng cấp phần mềm.",
+    "level": "Nhận biết",
+    "audio": "Để ủng hộ các nhà phát triển phần mềm, chúng ta nên mua bản quyền gì của họ?"
+  },
+  {
+    "id": 180,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "scenario",
+    "question": "Bạn An thấy một phần mềm vẽ rất hay nhưng phải trả phí. An nên làm gì?",
+    "options": [
+      "A. Tìm bản crack để dùng",
+      "B. Hỏi ý kiến bố mẹ để mua bản quyền hoặc tìm phần mềm miễn phí tương tự như Paint, Scratch",
+      "C. Nhờ bạn bẻ khóa hộ",
+      "D. Không vẽ nữa"
+    ],
+    "answer": "B",
+    "explanation": "Luôn có các lựa chọn thay thế miễn phí an toàn hoặc mua bản quyền chính thống.",
+    "level": "Vận dụng",
+    "audio": "Bạn An thấy một phần mềm vẽ rất hay nhưng phải trả phí. An nên làm gì?"
+  },
+  {
+    "id": 181,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "single_choice",
+    "question": "Khi sử dụng hình ảnh từ Internet vào bài trình chiếu, cách làm nào sau đây là đúng nhất?",
+    "options": [
+      "A. Cứ dùng thoải mái vì Internet là của chung",
+      "B. Chọn các hình ảnh có giấy phép sử dụng miễn phí và ghi nguồn",
+      "C. Xóa mờ tên tác giả trên ảnh",
+      "D. Chỉnh sửa ảnh thật nhiều để không ai nhận ra ảnh gốc"
+    ],
+    "answer": "B",
+    "explanation": "Sử dụng tài nguyên miễn phí (như Creative Commons) và trích dẫn nguồn là cách làm đúng.",
+    "level": "Vận dụng",
+    "audio": "Khi sử dụng hình ảnh từ Internet vào bài trình chiếu, cách làm nào sau đây là đúng nhất?"
+  },
+  {
+    "id": 182,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "true_false",
+    "question": "Vi phạm bản quyền có thể bị xử phạt hành chính hoặc truy cứu trách nhiệm hình sự tùy mức độ.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Pháp luật Việt Nam có các quy định nghiêm khắc để bảo vệ quyền sở hữu trí tuệ.",
+    "level": "Thông hiểu",
+    "audio": "Vi phạm bản quyền có thể bị xử phạt hành chính hoặc truy cứu trách nhiệm hình sự tùy mức độ. Đúng hay sai?"
+  },
+  {
+    "id": 183,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "multiple_choice",
+    "question": "Lợi ích của việc sử dụng phần mềm mã nguồn mở là gì?",
+    "options": [
+      "A. Thường là miễn phí",
+      "B. Cộng đồng có thể cùng nhau sửa lỗi và cải tiến",
+      "C. Không ai có quyền sở hữu",
+      "D. An toàn và minh bạch hơn"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Phần mềm mã nguồn mở vẫn có tác giả sở hữu nhưng họ cho phép cộng đồng cùng phát triển.",
+    "level": "Thông hiểu",
+    "audio": "Lợi ích của việc sử dụng phần mềm mã nguồn mở là gì?"
+  },
+  {
+    "id": 184,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "fill_blank",
+    "question": "Khi cài đặt phần mềm, em nên đọc kỹ các ....... sử dụng để biết mình được làm gì và không được làm gì.",
+    "options": [
+      "điều khoản",
+      "quy định"
+    ],
+    "answer": "điều khoản",
+    "explanation": "Điều khoản sử dụng (Terms of Service) là hợp đồng giữa người dùng và nhà sản xuất.",
+    "level": "Thông hiểu",
+    "audio": "Khi cài đặt phần mềm, em nên đọc kỹ các gì sử dụng để biết mình được làm gì và không được làm gì?"
+  },
+  {
+    "id": 185,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "matching",
+    "question": "Nối hành vi với tính chất tương ứng:",
+    "options": [
+      "1-Tự sáng tác bài hát : a-Vi phạm bản quyền",
+      "2-Sao chép lậu phần mềm : b-Tôn trọng bản quyền",
+      "3-Ghi rõ nguồn khi trích dẫn : c-Sáng tạo tác phẩm mới"
+    ],
+    "answer": "1-c, 2-a, 3-b",
+    "explanation": "Phân biệt hành vi đúng và sai trong môi trường số.",
+    "level": "Thông hiểu",
+    "audio": "Hãy nối hành vi với tính chất tương ứng của nó."
+  },
+  {
+    "id": 186,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "single_choice",
+    "question": "Tác phẩm nào sau đây KHÔNG thuộc đối tượng bảo hộ bản quyền?",
+    "options": [
+      "A. Một bài báo",
+      "B. Một công thức toán học cơ bản",
+      "C. Một bức tượng",
+      "D. Một bộ phim"
+    ],
+    "answer": "B",
+    "explanation": "Các sự thật hiển nhiên, công thức toán học cơ bản không thuộc đối tượng bảo hộ bản quyền.",
+    "level": "Thông hiểu",
+    "audio": "Tác phẩm nào sau đây không thuộc đối tượng bảo hộ bản quyền?"
+  },
+  {
+    "id": 187,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "true_false",
+    "question": "Nếu em mua một đĩa nhạc gốc, em có quyền sao chép ra hàng nghìn bản để bán lại lấy tiền.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Mua đĩa gốc chỉ cho phép em quyền sử dụng cá nhân, không có quyền kinh doanh hay sao chép trái phép.",
+    "level": "Vận dụng",
+    "audio": "Nếu em mua một đĩa nhạc gốc, em có quyền sao chép ra hàng nghìn bản để bán lại lấy tiền. Đúng hay sai?"
+  },
+  {
+    "id": 188,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "multiple_choice",
+    "question": "Những dấu hiệu nào cho thấy một phần mềm là hợp pháp?",
+    "options": [
+      "A. Có giấy chứng nhận bản quyền",
+      "B. Được tải từ kho ứng dụng chính thức (như App Store, Google Play)",
+      "C. Được mua từ đại lý ủy quyền",
+      "D. Được tải từ một trang web lạ có nhiều virus"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Nguồn gốc rõ ràng là yếu tố then chốt của phần mềm hợp pháp.",
+    "level": "Nhận biết",
+    "audio": "Những dấu hiệu nào cho thấy một phần mềm là hợp pháp?"
+  },
+  {
+    "id": 189,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "fill_blank",
+    "question": "Phần mềm được cài sẵn trên máy tính khi mới mua về thường là phần mềm đi ....... máy.",
+    "options": [
+      "kèm"
+    ],
+    "answer": "kèm",
+    "explanation": "Các phần mềm này đã được nhà sản xuất trả phí bản quyền cho người dùng.",
+    "level": "Nhận biết",
+    "audio": "Phần mềm được cài sẵn trên máy tính khi mới mua về thường là phần mềm đi gì máy?"
+  },
+  {
+    "id": 190,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "scenario",
+    "question": "Em thấy bạn mình đang dùng một phần mềm lậu. Em nên khuyên bạn điều gì?",
+    "options": [
+      "A. Khen bạn giỏi vì không mất tiền",
+      "B. Khuyên bạn nên dùng phần mềm chính thống hoặc miễn phí để an toàn và tôn trọng tác giả",
+      "C. Nhờ bạn cài hộ mình luôn",
+      "D. Không quan tâm"
+    ],
+    "answer": "B",
+    "explanation": "Giúp bạn hiểu về an toàn thông tin và đạo đức trong môi trường số.",
+    "level": "Vận dụng",
+    "audio": "Em thấy bạn mình đang dùng một phần mềm lậu. Em nên khuyên bạn điều gì?"
+  },
+  {
+    "id": 191,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "single_choice",
+    "question": "Khi một tác phẩm hết thời hạn bảo hộ bản quyền, nó sẽ thuộc về đâu?",
+    "options": [
+      "A. Biến mất",
+      "B. Thuộc về công chúng (Public Domain)",
+      "C. Thuộc về nhà nước",
+      "D. Thuộc về người tìm thấy đầu tiên"
+    ],
+    "answer": "B",
+    "explanation": "Tác phẩm thuộc về công chúng có thể được sử dụng tự do bởi bất kỳ ai.",
+    "level": "Thông hiểu",
+    "audio": "Khi một tác phẩm hết thời hạn bảo hộ bản quyền, nó sẽ thuộc về đâu?"
+  },
+  {
+    "id": 192,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "true_false",
+    "question": "Việc chia sẻ mật khẩu tài khoản học tập trực tuyến cho nhiều người dùng chung là hành động đúng.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Chia sẻ tài khoản vi phạm điều khoản sử dụng và gây mất an toàn thông tin cá nhân.",
+    "level": "Vận dụng",
+    "audio": "Việc chia sẻ mật khẩu tài khoản học tập trực tuyến cho nhiều người dùng chung là hành động đúng. Đúng hay sai?"
+  },
+  {
+    "id": 193,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "multiple_choice",
+    "question": "Những hành động nào sau đây thể hiện văn hóa khi sử dụng máy tính?",
+    "options": [
+      "A. Không tự ý vào máy tính của người khác khi chưa được phép",
+      "B. Giữ gìn vệ sinh chung tại phòng máy",
+      "C. Tắt máy đúng quy trình sau khi sử dụng",
+      "D. Cài đặt các trò chơi bạo lực vào máy tính của trường"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Văn hóa số bao gồm sự tôn trọng quyền riêng tư và tài sản chung.",
+    "level": "Thông hiểu",
+    "audio": "Những hành động nào sau đây thể hiện văn hóa khi sử dụng máy tính?"
+  },
+  {
+    "id": 194,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "fill_blank",
+    "question": "Để bảo vệ máy tính khỏi các phần mềm độc hại, em nên cài đặt phần mềm diệt .......",
+    "options": [
+      "virus"
+    ],
+    "answer": "virus",
+    "explanation": "Phần mềm diệt virus là lá chắn bảo vệ dữ liệu và hệ thống.",
+    "level": "Nhận biết",
+    "audio": "Để bảo vệ máy tính khỏi các phần mềm độc hại, em nên cài đặt phần mềm diệt gì?"
+  },
+  {
+    "id": 195,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "ordering",
+    "question": "Sắp xếp các bước để xin phép sử dụng một bức ảnh của tác giả trên mạng:",
+    "options": [
+      "1. Tìm thông tin liên lạc của tác giả (Email, Facebook...)",
+      "2. Viết thư xin phép lịch sự, nêu rõ mục đích sử dụng",
+      "3. Chờ phản hồi đồng ý từ tác giả",
+      "4. Sử dụng ảnh và ghi rõ nguồn theo yêu cầu của tác giả"
+    ],
+    "answer": "1-2-3-4",
+    "explanation": "Quy trình xin phép sử dụng tác phẩm có bản quyền.",
+    "level": "Vận dụng",
+    "audio": "Hãy sắp xếp các bước để xin phép sử dụng một bức ảnh của tác giả trên mạng."
+  },
+  {
+    "id": 196,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "single_choice",
+    "question": "Tại sao không nên tin tưởng hoàn toàn vào các phần mềm crack?",
+    "options": [
+      "A. Vì chúng thường chứa mã độc đánh cắp mật khẩu",
+      "B. Vì chúng làm máy tính tiêu thụ nhiều điện hơn",
+      "C. Vì chúng làm màn hình bị mờ",
+      "D. Vì chúng quá đắt"
+    ],
+    "answer": "A",
+    "explanation": "Mã độc trong bản crack có thể gây hậu quả nghiêm trọng về bảo mật.",
+    "level": "Thông hiểu",
+    "audio": "Tại sao không nên tin tưởng hoàn toàn vào các phần mềm crack?"
+  },
+  {
+    "id": 197,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "true_false",
+    "question": "Em có thể tự do sao chép phần mềm từ máy tính ở trường về máy tính ở nhà.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Việc sao chép phần mềm thương mại mà không có giấy phép là vi phạm bản quyền.",
+    "level": "Thông hiểu",
+    "audio": "Em có thể tự do sao chép phần mềm từ máy tính ở trường về máy tính ở nhà. Đúng hay sai?"
+  },
+  {
+    "id": 198,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "multiple_choice",
+    "question": "Những việc làm nào sau đây là vi phạm đạo đức trong môi trường số?",
+    "options": [
+      "A. Gửi tin nhắn rác làm phiền người khác",
+      "B. Bình luận xúc phạm, chế giễu bạn bè trên mạng xã hội",
+      "C. Chia sẻ các thông tin sai sự thật",
+      "D. Giúp bạn giải bài tập qua tin nhắn"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Cần duy trì thái độ tích cực và trung thực khi tham gia môi trường số.",
+    "level": "Thông hiểu",
+    "audio": "Những việc làm nào sau đây là vi phạm đạo đức trong môi trường số?"
+  },
+  {
+    "id": 199,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 8: Sử dụng phần mềm khi được phép",
+    "type": "fill_blank",
+    "question": "Phần mềm mà bất kỳ ai cũng có thể xem và sửa đổi mã nguồn được gọi là phần mềm mã nguồn .......",
+    "options": [
+      "mở"
+    ],
+    "answer": "mở",
+    "explanation": "Mã nguồn mở (Open Source) là xu hướng phát triển phần mềm cộng đồng.",
+    "level": "Nhận biết",
+    "audio": "Phần mềm mà bất kỳ ai cũng có thể xem và sửa đổi mã nguồn được gọi là phần mềm mã nguồn gì?"
+  },
+  {
+    "id": 200,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: Bản quyền nội dung thông tin",
+    "type": "scenario",
+    "question": "Em muốn dùng một đoạn nhạc nổi tiếng làm nhạc nền cho video bài tập về nhà của mình để đăng lên YouTube. YouTube báo vi phạm bản quyền. Em nên làm gì?",
+    "options": [
+      "A. Xóa video đó đi",
+      "B. Thay thế bằng nhạc miễn phí bản quyền (No Copyright Music)",
+      "C. Cố gắng đăng lại nhiều lần",
+      "D. Kiện YouTube"
+    ],
+    "answer": "B",
+    "explanation": "Sử dụng nhạc miễn phí bản quyền là giải pháp an toàn và đúng luật cho các nhà sáng tạo nội dung.",
+    "level": "Vận dụng",
+    "audio": "Em muốn dùng một đoạn nhạc nổi tiếng làm nhạc nền cho video bài tập về nhà của mình để đăng lên YouTube. YouTube báo vi phạm bản quyền. Em nên làm gì?"
+  },
+  {
+    "id": 201,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "single_choice",
+    "question": "Phần mềm nào sau đây được sử dụng để vẽ hình và chỉnh sửa ảnh cơ bản?",
+    "options": [
+      "A. MS Paint",
+      "B. MS Word",
+      "C. MS Excel",
+      "D. MS PowerPoint"
+    ],
+    "answer": "A",
+    "explanation": "MS Paint là phần mềm đồ họa đơn giản đi kèm với Windows.",
+    "level": "Nhận biết",
+    "audio": "Phần mềm nào sau đây được sử dụng để vẽ hình và chỉnh sửa ảnh cơ bản?"
+  },
+  {
+    "id": 202,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "true_false",
+    "question": "Trong phần mềm Paint, em không thể viết chữ lên hình vẽ.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Công cụ Text (biểu tượng chữ A) cho phép chèn văn bản vào hình vẽ.",
+    "level": "Nhận biết",
+    "audio": "Trong phần mềm Paint, em không thể viết chữ lên hình vẽ. Đúng hay sai?"
+  },
+  {
+    "id": 203,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "multiple_choice",
+    "question": "Những công cụ nào sau đây có trong phần mềm Paint?",
+    "options": [
+      "A. Pencil (Bút chì)",
+      "B. Eraser (Tẩy)",
+      "C. Fill with color (Thùng sơn)",
+      "D. Table (Bảng biểu)"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Paint tập trung vào các công cụ vẽ tay và tô màu cơ bản.",
+    "level": "Nhận biết",
+    "audio": "Những công cụ nào sau đây có trong phần mềm Paint?"
+  },
+  {
+    "id": 204,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "fill_blank",
+    "question": "Để căn lề giữa cho đoạn văn bản, em nhấn tổ hợp phím Ctrl + .......",
+    "options": [
+      "E"
+    ],
+    "answer": "E",
+    "explanation": "Ctrl + E dùng để căn giữa (Center) đoạn văn bản.",
+    "level": "Thông hiểu",
+    "audio": "Để căn lề giữa cho đoạn văn bản, em nhấn tổ hợp phím Ctrl cộng với phím gì?"
+  },
+  {
+    "id": 205,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "scenario",
+    "question": "Em đang gõ văn bản và muốn in đậm một từ. Em nên làm gì?",
+    "options": [
+      "A. Chọn từ đó rồi nhấn Ctrl + B",
+      "B. Chọn từ đó rồi nhấn Ctrl + I",
+      "C. Chọn từ đó rồi nhấn Ctrl + U",
+      "D. Gõ từ đó thật mạnh"
+    ],
+    "answer": "A",
+    "explanation": "Ctrl + B (Bold) là phím tắt để in đậm văn bản.",
+    "level": "Vận dụng",
+    "audio": "Em đang gõ văn bản và muốn in đậm một từ. Em nên làm gì?"
+  },
+  {
+    "id": 206,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "single_choice",
+    "question": "Mỗi trang trong phần mềm trình chiếu PowerPoint được gọi là gì?",
+    "options": [
+      "A. Page",
+      "B. Slide",
+      "C. Sheet",
+      "D. Document"
+    ],
+    "answer": "B",
+    "explanation": "Slide (Trang chiếu) là đơn vị cơ bản của một bài trình chiếu.",
+    "level": "Nhận biết",
+    "audio": "Mỗi trang trong phần mềm trình chiếu PowerPoint được gọi là gì?"
+  },
+  {
+    "id": 207,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "true_false",
+    "question": "Em có thể chèn video và âm thanh vào trang chiếu PowerPoint.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "PowerPoint hỗ trợ đa phương tiện để bài thuyết trình sinh động hơn.",
+    "level": "Thông hiểu",
+    "audio": "Em có thể chèn video và âm thanh vào trang chiếu PowerPoint. Đúng hay sai?"
+  },
+  {
+    "id": 208,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "multiple_choice",
+    "question": "Để vẽ được một hình vuông hoàn hảo trong Paint, em nên làm gì?",
+    "options": [
+      "A. Chọn công cụ Rectangle (Hình chữ nhật)",
+      "B. Nhấn giữ phím Shift trong khi kéo chuột để vẽ",
+      "C. Cố gắng vẽ thật khéo tay",
+      "D. Dùng thước kẻ đặt lên màn hình"
+    ],
+    "answer": "A, B",
+    "explanation": "Phím Shift giúp cố định tỷ lệ các hình khối khi vẽ.",
+    "level": "Vận dụng",
+    "audio": "Để vẽ được một hình vuông hoàn hảo trong Paint, em nên làm gì?"
+  },
+  {
+    "id": 209,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "fill_blank",
+    "question": "Phần mềm soạn thảo văn bản phổ biến nhất hiện nay là Microsoft .......",
+    "options": [
+      "Word"
+    ],
+    "answer": "Word",
+    "explanation": "MS Word là công cụ soạn thảo văn bản tiêu chuẩn toàn cầu.",
+    "level": "Nhận biết",
+    "audio": "Phần mềm soạn thảo văn bản phổ biến nhất hiện nay là Microsoft gì?"
+  },
+  {
+    "id": 210,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "ordering",
+    "question": "Sắp xếp các bước để tạo một bài trình chiếu đơn giản:",
+    "options": [
+      "1. Khởi động phần mềm PowerPoint",
+      "2. Chọn một mẫu thiết kế (Design) phù hợp",
+      "3. Nhập nội dung vào các trang chiếu",
+      "4. Nhấn F5 để trình chiếu thử"
+    ],
+    "answer": "1-2-3-4",
+    "explanation": "Quy trình cơ bản để xây dựng một bài thuyết trình.",
+    "level": "Vận dụng",
+    "audio": "Hãy sắp xếp các bước để tạo một bài trình chiếu đơn giản."
+  },
+  {
+    "id": 211,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "single_choice",
+    "question": "Trong Paint, công cụ 'Color Picker' (hình cái ống hút) dùng để làm gì?",
+    "options": [
+      "A. Để xóa màu",
+      "B. Để lấy mẫu màu từ một vị trí trên hình vẽ",
+      "C. Để vẽ đường thẳng",
+      "D. Để phóng to hình"
+    ],
+    "answer": "B",
+    "explanation": "Công cụ này giúp sao chép chính xác màu sắc từ vùng này sang vùng khác.",
+    "level": "Thông hiểu",
+    "audio": "Trong Paint, công cụ Color Picker dùng để làm gì?"
+  },
+  {
+    "id": 212,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "true_false",
+    "question": "Trong MS Word, em có thể chèn một bảng biểu vào văn bản.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Thẻ Insert -> Table cho phép tạo bảng để tổ chức dữ liệu.",
+    "level": "Nhận biết",
+    "audio": "Trong MS Word, em có thể chèn một bảng biểu vào văn bản. Đúng hay sai?"
+  },
+  {
+    "id": 213,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "multiple_choice",
+    "question": "Những hiệu ứng nào có thể áp dụng trong PowerPoint?",
+    "options": [
+      "A. Hiệu ứng chuyển trang (Transitions)",
+      "B. Hiệu ứng cho đối tượng (Animations)",
+      "C. Hiệu ứng âm thanh khi chuyển trang",
+      "D. Hiệu ứng làm máy tính chạy nhanh hơn"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Hiệu ứng giúp bài trình chiếu lôi cuốn và chuyên nghiệp hơn.",
+    "level": "Thông hiểu",
+    "audio": "Những hiệu ứng nào có thể áp dụng trong PowerPoint?"
+  },
+  {
+    "id": 214,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "fill_blank",
+    "question": "Để lưu văn bản đang soạn thảo, em nhấn tổ hợp phím Ctrl + .......",
+    "options": [
+      "S"
+    ],
+    "answer": "S",
+    "explanation": "Ctrl + S (Save) là phím tắt lưu trữ dữ liệu.",
+    "level": "Nhận biết",
+    "audio": "Để lưu văn bản đang soạn thảo, em nhấn tổ hợp phím Ctrl cộng với phím gì?"
+  },
+  {
+    "id": 215,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "scenario",
+    "question": "Em muốn bài trình chiếu của mình tự động chuyển trang sau mỗi 5 giây. Em nên thiết lập ở đâu?",
+    "options": [
+      "A. Trong thẻ Transitions, phần Advance Slide",
+      "B. Trong thẻ Home",
+      "C. Trong thẻ Insert",
+      "D. Nhấn phím F5 liên tục"
+    ],
+    "answer": "A",
+    "explanation": "Phần Advance Slide cho phép cài đặt thời gian tự động chuyển trang.",
+    "level": "Vận dụng",
+    "audio": "Em muốn bài trình chiếu của mình tự động chuyển trang sau mỗi 5 giây. Em nên thiết lập ở đâu?"
+  },
+  {
+    "id": 216,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "single_choice",
+    "question": "Để phóng to một vùng hình vẽ trong Paint, em dùng công cụ nào?",
+    "options": [
+      "A. Hình cái bút",
+      "B. Hình cái kính lúp (Magnifier)",
+      "C. Hình cái tẩy",
+      "D. Hình ngôi sao"
+    ],
+    "answer": "B",
+    "explanation": "Kính lúp giúp quan sát và chỉnh sửa các chi tiết nhỏ.",
+    "level": "Nhận biết",
+    "audio": "Để phóng to một vùng hình vẽ trong Paint, em dùng công cụ nào?"
+  },
+  {
+    "id": 217,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "true_false",
+    "question": "Em có thể thay đổi màu sắc và kích thước của chữ trong MS Word.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Định dạng văn bản giúp làm nổi bật các nội dung quan trọng.",
+    "level": "Nhận biết",
+    "audio": "Em có thể thay đổi màu sắc và kích thước của chữ trong MS Word. Đúng hay sai?"
+  },
+  {
+    "id": 218,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "multiple_choice",
+    "question": "Những thành phần nào sau đây có thể xuất hiện trên một Slide?",
+    "options": [
+      "A. Văn bản (Text)",
+      "B. Hình ảnh (Images)",
+      "C. Biểu đồ (Charts)",
+      "D. Chuột máy tính thật"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Slide có thể chứa nhiều loại đối tượng kỹ thuật số khác nhau.",
+    "level": "Thông hiểu",
+    "audio": "Những thành phần nào sau đây có thể xuất hiện trên một Slide?"
+  },
+  {
+    "id": 219,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "fill_blank",
+    "question": "Để xuống dòng và bắt đầu một đoạn văn mới, em nhấn phím .......",
+    "options": [
+      "Enter"
+    ],
+    "answer": "Enter",
+    "explanation": "Phím Enter dùng để kết thúc đoạn văn hiện tại.",
+    "level": "Nhận biết",
+    "audio": "Để xuống dòng và bắt đầu một đoạn văn mới, em nhấn phím gì?"
+  },
+  {
+    "id": 220,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "matching",
+    "question": "Ghép cặp công cụ Paint với chức năng tương ứng:",
+    "options": [
+      "1-Brushes : a-Vẽ các hình khối có sẵn",
+      "2-Shapes : b-Tô màu vùng kín",
+      "3-Fill with color : c-Các loại bút vẽ khác nhau"
+    ],
+    "answer": "1-c, 2-a, 3-b",
+    "explanation": "Hiểu rõ công cụ giúp vẽ hình hiệu quả hơn.",
+    "level": "Thông hiểu",
+    "audio": "Hãy ghép cặp công cụ Paint với chức năng tương ứng của nó."
+  },
+  {
+    "id": 221,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "single_choice",
+    "question": "Trong MS Word, để chọn toàn bộ văn bản, em dùng tổ hợp phím nào?",
+    "options": [
+      "A. Ctrl + A",
+      "B. Ctrl + C",
+      "C. Ctrl + V",
+      "D. Ctrl + Z"
+    ],
+    "answer": "A",
+    "explanation": "Ctrl + A (All) chọn toàn bộ nội dung trong tài liệu.",
+    "level": "Nhận biết",
+    "audio": "Trong MS Word, để chọn toàn bộ văn bản, em dùng tổ hợp phím nào?"
+  },
+  {
+    "id": 222,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "true_false",
+    "question": "Em nên viết thật nhiều chữ, kín cả trang chiếu để người xem đọc được nhiều thông tin.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Trang chiếu nên ngắn gọn, súc tích, sử dụng từ khóa và hình ảnh minh họa.",
+    "level": "Vận dụng",
+    "audio": "Em nên viết thật nhiều chữ, kín cả trang chiếu để người xem đọc được nhiều thông tin. Đúng hay sai?"
+  },
+  {
+    "id": 223,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "multiple_choice",
+    "question": "Khi vẽ sai trong Paint, em có thể làm gì?",
+    "options": [
+      "A. Dùng công cụ Eraser để tẩy",
+      "B. Nhấn Ctrl + Z để quay lại bước trước",
+      "C. Đổ màu trắng đè lên",
+      "D. Đập máy tính"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Có nhiều cách để sửa lỗi khi vẽ trên máy tính.",
+    "level": "Thông hiểu",
+    "audio": "Khi vẽ sai trong Paint, em có thể làm gì?"
+  },
+  {
+    "id": 224,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "fill_blank",
+    "question": "Để gõ chữ tiếng Việt có dấu theo kiểu Telex, chữ 'aa' sẽ tạo thành chữ .......",
+    "options": [
+      "â"
+    ],
+    "answer": "â",
+    "explanation": "Quy tắc gõ Telex phổ biến giúp soạn thảo tiếng Việt nhanh chóng.",
+    "level": "Nhận biết",
+    "audio": "Để gõ chữ tiếng Việt có dấu theo kiểu Telex, chữ aa sẽ tạo thành chữ gì?"
+  },
+  {
+    "id": 225,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "single_choice",
+    "question": "Để bắt đầu trình chiếu từ trang đầu tiên, em nhấn phím nào trên bàn phím?",
+    "options": [
+      "A. F1",
+      "B. F5",
+      "C. F10",
+      "D. Esc"
+    ],
+    "answer": "B",
+    "explanation": "F5 là phím tắt tiêu chuẩn để bắt đầu bài thuyết trình.",
+    "level": "Nhận biết",
+    "audio": "Để bắt đầu trình chiếu từ trang đầu tiên, em nhấn phím nào trên bàn phím?"
+  },
+  {
+    "id": 226,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "single_choice",
+    "question": "Trong Paint, để xoay hình vẽ một góc 90 độ, em dùng lệnh nào?",
+    "options": [
+      "A. Resize",
+      "B. Rotate",
+      "C. Crop",
+      "D. Skew"
+    ],
+    "answer": "B",
+    "explanation": "Lệnh Rotate cho phép xoay hình theo các hướng khác nhau.",
+    "level": "Thông hiểu",
+    "audio": "Trong Paint, để xoay hình vẽ một góc 90 độ, em dùng lệnh nào?"
+  },
+  {
+    "id": 227,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "true_false",
+    "question": "Em có thể chèn hình ảnh từ máy tính vào văn bản MS Word.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Thẻ Insert -> Pictures cho phép chèn ảnh minh họa cho văn bản.",
+    "level": "Nhận biết",
+    "audio": "Em có thể chèn hình ảnh từ máy tính vào văn bản MS Word. Đúng hay sai?"
+  },
+  {
+    "id": 228,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "multiple_choice",
+    "question": "Những phím nào giúp em di chuyển giữa các trang chiếu khi đang trình chiếu?",
+    "options": [
+      "A. Phím mũi tên sang phải",
+      "B. Phím mũi tên sang trái",
+      "C. Phím Space (Dấu cách)",
+      "D. Phím Caps Lock"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Các phím điều hướng giúp kiểm soát tốc độ thuyết trình.",
+    "level": "Nhận biết",
+    "audio": "Những phím nào giúp em di chuyển giữa các trang chiếu khi đang trình chiếu?"
+  },
+  {
+    "id": 229,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "fill_blank",
+    "question": "Để in nghiêng văn bản, em nhấn tổ hợp phím Ctrl + .......",
+    "options": [
+      "I"
+    ],
+    "answer": "I",
+    "explanation": "Ctrl + I (Italic) dùng để định dạng chữ nghiêng.",
+    "level": "Nhận biết",
+    "audio": "Để in nghiêng văn bản, em nhấn tổ hợp phím Ctrl cộng với phím gì?"
+  },
+  {
+    "id": 230,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "scenario",
+    "question": "Em muốn vẽ một ngôi nhà có mái màu đỏ nhưng khi đổ màu thì cả màn hình đều biến thành màu đỏ. Tại sao?",
+    "options": [
+      "A. Do máy tính bị lỗi",
+      "B. Do hình vẽ mái nhà chưa được khép kín (có kẽ hở)",
+      "C. Do em chọn sai màu",
+      "D. Do thùng sơn bị hỏng"
+    ],
+    "answer": "B",
+    "explanation": "Công cụ Fill with color chỉ hoạt động chính xác trong các vùng khép kín.",
+    "level": "Vận dụng",
+    "audio": "Em muốn vẽ một ngôi nhà có mái màu đỏ nhưng khi đổ màu thì cả màn hình đều biến thành màu đỏ. Tại sao?"
+  },
+  {
+    "id": 231,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "single_choice",
+    "question": "Để thoát khỏi chế độ trình chiếu và quay về màn hình soạn thảo, em nhấn phím nào?",
+    "options": [
+      "A. Enter",
+      "B. Esc",
+      "C. Tab",
+      "D. Shift"
+    ],
+    "answer": "B",
+    "explanation": "Phím Esc (Escape) dùng để thoát khỏi chế độ toàn màn hình.",
+    "level": "Nhận biết",
+    "audio": "Để thoát khỏi chế độ trình chiếu và quay về màn hình soạn thảo, em nhấn phím nào?"
+  },
+  {
+    "id": 232,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "true_false",
+    "question": "Trong MS Word, em có thể kiểm tra lỗi chính tả tiếng Việt một cách tự động hoàn hảo.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "B",
+    "explanation": "Công cụ kiểm tra chính tả của Word hoạt động tốt nhất với tiếng Anh, với tiếng Việt cần sự hỗ trợ của phần mềm bên thứ ba hoặc kiểm tra thủ công.",
+    "level": "Thông hiểu",
+    "audio": "Trong MS Word, em có thể kiểm tra lỗi chính tả tiếng Việt một cách tự động hoàn hảo. Đúng hay sai?"
+  },
+  {
+    "id": 233,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "multiple_choice",
+    "question": "Những định dạng tệp ảnh nào sau đây Paint có thể mở và lưu?",
+    "options": [
+      "A. .png",
+      "B. .jpg",
+      "C. .bmp",
+      "D. .mp3"
+    ],
+    "answer": "A, B, C",
+    "explanation": ".mp3 là định dạng âm thanh, không phải ảnh.",
+    "level": "Nhận biết",
+    "audio": "Những định dạng tệp ảnh nào sau đây Paint có thể mở và lưu?"
+  },
+  {
+    "id": 234,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "fill_blank",
+    "question": "Để gạch chân văn bản, em nhấn tổ hợp phím Ctrl + .......",
+    "options": [
+      "U"
+    ],
+    "answer": "U",
+    "explanation": "Ctrl + U (Underline) dùng để gạch chân văn bản.",
+    "level": "Nhận biết",
+    "audio": "Để gạch chân văn bản, em nhấn tổ hợp phím Ctrl cộng với phím gì?"
+  },
+  {
+    "id": 235,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "ordering",
+    "question": "Sắp xếp các bước để chèn một hình ảnh vào Slide:",
+    "options": [
+      "1. Chọn trang chiếu muốn chèn ảnh",
+      "2. Vào thẻ Insert, chọn Pictures",
+      "3. Chọn tệp ảnh từ máy tính",
+      "4. Nhấn Insert để đưa ảnh vào Slide"
+    ],
+    "answer": "1-2-3-4",
+    "explanation": "Quy trình chèn đối tượng đồ họa vào bài trình chiếu.",
+    "level": "Vận dụng",
+    "audio": "Hãy sắp xếp các bước để chèn một hình ảnh vào Slide."
+  },
+  {
+    "id": 236,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "single_choice",
+    "question": "Trong Paint, để cắt bỏ những phần thừa của bức ảnh, em dùng lệnh nào?",
+    "options": [
+      "A. Copy",
+      "B. Crop",
+      "C. Paste",
+      "D. Cut"
+    ],
+    "answer": "B",
+    "explanation": "Lệnh Crop giúp thu gọn khung hình vào vùng được chọn.",
+    "level": "Thông hiểu",
+    "audio": "Trong Paint, để cắt bỏ những phần thừa của bức ảnh, em dùng lệnh nào?"
+  },
+  {
+    "id": 237,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "true_false",
+    "question": "Em có thể thay đổi hướng giấy (ngang hoặc dọc) trong MS Word.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Thẻ Layout -> Orientation cho phép thay đổi hướng trang giấy.",
+    "level": "Thông hiểu",
+    "audio": "Em có thể thay đổi hướng giấy ngang hoặc dọc trong MS Word. Đúng hay sai?"
+  },
+  {
+    "id": 238,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "multiple_choice",
+    "question": "Những lưu ý nào giúp bài trình chiếu đẹp và dễ nhìn hơn?",
+    "options": [
+      "A. Sử dụng màu chữ tương phản với màu nền (ví dụ chữ đen trên nền trắng)",
+      "B. Chọn phông chữ to, rõ ràng",
+      "C. Dùng quá nhiều màu sắc sặc sỡ trên một trang",
+      "D. Sử dụng hình ảnh minh họa chất lượng cao"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Thiết kế bài trình chiếu cần ưu tiên sự rõ ràng và thẩm mỹ.",
+    "level": "Vận dụng",
+    "audio": "Những lưu ý nào giúp bài trình chiếu đẹp và dễ nhìn hơn?"
+  },
+  {
+    "id": 239,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "fill_blank",
+    "question": "Để xóa ký tự đứng trước con trỏ soạn thảo, em nhấn phím .......",
+    "options": [
+      "Backspace"
+    ],
+    "answer": "Backspace",
+    "explanation": "Phím Backspace xóa lùi về phía bên trái.",
+    "level": "Nhận biết",
+    "audio": "Để xóa ký tự đứng trước con trỏ soạn thảo, em nhấn phím gì?"
+  },
+  {
+    "id": 240,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "matching",
+    "question": "Nối phím tắt với chức năng tương ứng trong Paint:",
+    "options": [
+      "1-Ctrl + N : a-Lưu hình vẽ",
+      "2-Ctrl + S : b-Tạo trang vẽ mới",
+      "3-Ctrl + O : c-Mở hình vẽ có sẵn"
+    ],
+    "answer": "1-b, 2-a, 3-c",
+    "explanation": "Các phím tắt cơ bản dùng chung cho nhiều phần mềm Windows.",
+    "level": "Nhận biết",
+    "audio": "Hãy nối phím tắt với chức năng tương ứng của nó trong phần mềm Paint."
+  },
+  {
+    "id": 241,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "single_choice",
+    "question": "Trong MS Word, phông chữ mặc định thường dùng cho các văn bản hành chính ở Việt Nam là gì?",
+    "options": [
+      "A. Comic Sans MS",
+      "B. Times New Roman",
+      "C. Arial",
+      "D. Impact"
+    ],
+    "answer": "B",
+    "explanation": "Times New Roman là phông chữ tiêu chuẩn cho văn bản tiếng Việt.",
+    "level": "Nhận biết",
+    "audio": "Trong MS Word, phông chữ mặc định thường dùng cho các văn bản hành chính ở Việt Nam là gì?"
+  },
+  {
+    "id": 242,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "true_false",
+    "question": "Em có thể in bài trình chiếu PowerPoint ra giấy.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "PowerPoint hỗ trợ in các Slide hoặc bản in tóm tắt (Handouts).",
+    "level": "Thông hiểu",
+    "audio": "Em có thể in bài trình chiếu PowerPoint ra giấy. Đúng hay sai?"
+  },
+  {
+    "id": 243,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "multiple_choice",
+    "question": "Những cách nào giúp em thay đổi kích thước một hình vẽ trong Paint?",
+    "options": [
+      "A. Dùng lệnh Resize",
+      "B. Kéo các nút vuông nhỏ ở góc hình khi đang được chọn",
+      "C. Dùng cục tẩy xóa đi vẽ lại",
+      "D. Phóng to màn hình bằng kính lúp"
+    ],
+    "answer": "A, B",
+    "explanation": "Resize và kéo thả là hai cách phổ biến để thay đổi kích thước đối tượng.",
+    "level": "Thông hiểu",
+    "audio": "Những cách nào giúp em thay đổi kích thước một hình vẽ trong Paint?"
+  },
+  {
+    "id": 244,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "fill_blank",
+    "question": "Để gõ chữ 'đ' theo kiểu Telex, em gõ phím ....... hai lần.",
+    "options": [
+      "d"
+    ],
+    "answer": "d",
+    "explanation": "Quy tắc gõ Telex cho chữ đ.",
+    "level": "Nhận biết",
+    "audio": "Để gõ chữ đ theo kiểu Telex, em gõ phím d mấy lần?"
+  },
+  {
+    "id": 245,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "scenario",
+    "question": "Em đang trình chiếu và muốn chỉ vào một chi tiết trên màn hình cho cả lớp xem. Em nên dùng công cụ nào có sẵn trong PowerPoint?",
+    "options": [
+      "A. Laser Pointer (Con trỏ laser ảo)",
+      "B. Pen (Bút vẽ)",
+      "C. Highlighter (Bút dạ quang)",
+      "D. Dùng ngón tay chỉ vào màn hình"
+    ],
+    "answer": "A",
+    "explanation": "PowerPoint cung cấp các công cụ hỗ trợ thuyết trình trực quan.",
+    "level": "Vận dụng",
+    "audio": "Em đang trình chiếu và muốn chỉ vào một chi tiết trên màn hình cho cả lớp xem. Em nên dùng công cụ nào có sẵn trong PowerPoint?"
+  },
+  {
+    "id": 246,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 9: Sử dụng phần mềm đồ họa",
+    "type": "single_choice",
+    "question": "Trong Paint, để vẽ một đường thẳng thật thẳng, em nhấn giữ phím nào?",
+    "options": [
+      "A. Ctrl",
+      "B. Shift",
+      "C. Alt",
+      "D. Tab"
+    ],
+    "answer": "B",
+    "explanation": "Phím Shift giúp cố định hướng của đường thẳng (ngang, dọc hoặc 45 độ).",
+    "level": "Vận dụng",
+    "audio": "Trong Paint, để vẽ một đường thẳng thật thẳng, em nhấn giữ phím nào?"
+  },
+  {
+    "id": 247,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "true_false",
+    "question": "Em có thể chèn các hình khối (Shapes) như hình sao, hình trái tim vào MS Word.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Thẻ Insert -> Shapes chứa rất nhiều hình khối trang trí.",
+    "level": "Nhận biết",
+    "audio": "Em có thể chèn các hình khối như hình sao, hình trái tim vào MS Word. Đúng hay sai?"
+  },
+  {
+    "id": 248,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "multiple_choice",
+    "question": "Tại sao nên sử dụng hiệu ứng chuyển trang (Transitions) trong PowerPoint?",
+    "options": [
+      "A. Để bài trình chiếu mượt mà hơn",
+      "B. Để thu hút sự chú ý của người xem",
+      "C. Để làm bài trình chiếu chạy chậm lại",
+      "D. Để trang trí cho bài thuyết trình"
+    ],
+    "answer": "A, B, D",
+    "explanation": "Hiệu ứng chuyển trang tạo sự chuyên nghiệp và nhịp điệu cho bài thuyết trình.",
+    "level": "Thông hiểu",
+    "audio": "Tại sao nên sử dụng hiệu ứng chuyển trang trong PowerPoint?"
+  },
+  {
+    "id": 249,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 10: Sử dụng phần mềm soạn thảo văn bản",
+    "type": "fill_blank",
+    "question": "Để xóa ký tự đứng sau con trỏ soạn thảo, em nhấn phím .......",
+    "options": [
+      "Delete"
+    ],
+    "answer": "Delete",
+    "explanation": "Phím Delete xóa ký tự phía bên phải con trỏ.",
+    "level": "Nhận biết",
+    "audio": "Để xóa ký tự đứng sau con trỏ soạn thảo, em nhấn phím gì?"
+  },
+  {
+    "id": 250,
+    "topic": "Chủ đề 5: Ứng dụng tin học",
+    "lesson": "Bài 11: Sử dụng phần mềm trình chiếu",
+    "type": "single_choice",
+    "question": "Khi muốn tạo một trang chiếu mới hoàn toàn, em nhấn tổ hợp phím nào?",
+    "options": [
+      "A. Ctrl + N",
+      "B. Ctrl + M",
+      "C. Ctrl + S",
+      "D. Ctrl + P"
+    ],
+    "answer": "B",
+    "explanation": "Ctrl + M (New Slide) dùng để thêm trang chiếu mới vào bài hiện tại.",
+    "level": "Nhận biết",
+    "audio": "Khi muốn tạo một trang chiếu mới hoàn toàn, em nhấn tổ hợp phím nào?"
+  },
+  {
+    "id": 251,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 12: Thuật toán và chương trình máy tính",
+    "type": "single_choice",
+    "question": "Thuật toán là gì?",
+    "options": [
+      "A. Một dãy các chỉ dẫn từng bước để giải quyết một vấn đề",
+      "B. Một loại máy tính mới",
+      "C. Một trò chơi điện tử",
+      "D. Một bộ phim hoạt hình"
+    ],
+    "answer": "A",
+    "explanation": "Thuật toán là nền tảng của lập trình, giúp máy tính biết cần làm gì.",
+    "level": "Nhận biết",
+    "audio": "Thuật toán là gì?"
+  },
+  {
+    "id": 252,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 12: Thuật toán và chương trình máy tính",
+    "type": "true_false",
+    "question": "Con người có thể thực hiện thuật toán bằng giấy và bút mà không cần máy tính.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Thuật toán tồn tại độc lập với máy tính, máy tính chỉ giúp thực hiện chúng nhanh hơn.",
+    "level": "Thông hiểu",
+    "audio": "Con người có thể thực hiện thuật toán bằng giấy và bút mà không cần máy tính. Đúng hay sai?"
+  },
+  {
+    "id": 253,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 12: Thuật toán và chương trình máy tính",
+    "type": "multiple_choice",
+    "question": "Những ví dụ nào sau đây có thể coi là một thuật toán trong đời sống?",
+    "options": [
+      "A. Các bước nấu một món ăn theo sách hướng dẫn",
+      "B. Các bước lắp ráp một bộ đồ chơi Lego",
+      "C. Các bước giải một bài toán đố",
+      "D. Việc nằm ngủ mơ"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Mọi quy trình có các bước rõ ràng để đạt mục tiêu đều là thuật toán.",
+    "level": "Thông hiểu",
+    "audio": "Những ví dụ nào sau đây có thể coi là một thuật toán trong đời sống?"
+  },
+  {
+    "id": 254,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "fill_blank",
+    "question": "Trong Scratch, nhân vật mặc định khi mới mở chương trình là một chú .......",
+    "options": [
+      "mèo"
+    ],
+    "answer": "mèo",
+    "explanation": "Chú mèo Scratch là biểu tượng đặc trưng của ngôn ngữ lập trình này.",
+    "level": "Nhận biết",
+    "audio": "Trong Scratch, nhân vật mặc định khi mới mở chương trình là một chú gì?"
+  },
+  {
+    "id": 255,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "scenario",
+    "question": "Em muốn chú mèo di chuyển 10 bước. Em nên dùng khối lệnh nào?",
+    "options": [
+      "A. Move 10 steps",
+      "B. Turn 15 degrees",
+      "C. Say Hello",
+      "D. Play sound"
+    ],
+    "answer": "A",
+    "explanation": "Khối lệnh Move dùng để điều khiển chuyển động của nhân vật.",
+    "level": "Vận dụng",
+    "audio": "Em muốn chú mèo di chuyển 10 bước. Em nên dùng khối lệnh nào?"
+  },
+  {
+    "id": 256,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "single_choice",
+    "question": "Cấu trúc lặp (Loop) dùng để làm gì?",
+    "options": [
+      "A. Để dừng chương trình",
+      "B. Để thực hiện lặp đi lặp lại một hoặc nhiều khối lệnh",
+      "C. Để xóa nhân vật",
+      "D. Để đổi màu nền"
+    ],
+    "answer": "B",
+    "explanation": "Vòng lặp giúp rút ngắn chương trình khi có các thao tác lặp lại.",
+    "level": "Nhận biết",
+    "audio": "Cấu trúc lặp dùng để làm gì?"
+  },
+  {
+    "id": 257,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "true_false",
+    "question": "Khối lệnh 'Forever' trong Scratch sẽ lặp lại các lệnh bên trong nó mãi mãi cho đến khi nhấn nút Stop.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Forever là vòng lặp vô tận trong Scratch.",
+    "level": "Thông hiểu",
+    "audio": "Khối lệnh Forever trong Scratch sẽ lặp lại các lệnh bên trong nó mãi mãi cho đến khi nhấn nút Stop. Đúng hay sai?"
+  },
+  {
+    "id": 258,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 12: Thuật toán và chương trình máy tính",
+    "type": "multiple_choice",
+    "question": "Tại sao máy tính cần chương trình?",
+    "options": [
+      "A. Vì máy tính không tự biết phải làm gì",
+      "B. Để máy tính thực hiện các thuật toán một cách tự động",
+      "C. Để máy tính có thể giao tiếp với con người",
+      "D. Để máy tính không bị nóng"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Chương trình là tập hợp các chỉ dẫn để máy tính hoạt động theo ý muốn con người.",
+    "level": "Thông hiểu",
+    "audio": "Tại sao máy tính cần chương trình?"
+  },
+  {
+    "id": 259,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "fill_blank",
+    "question": "Khu vực chứa các khối lệnh để em kéo vào lập trình được gọi là ....... lệnh.",
+    "options": [
+      "ngăn",
+      "bảng"
+    ],
+    "answer": "ngăn",
+    "explanation": "Ngăn lệnh chứa các nhóm lệnh phân loại theo màu sắc.",
+    "level": "Nhận biết",
+    "audio": "Khu vực chứa các khối lệnh để em kéo vào lập trình được gọi là gì lệnh?"
+  },
+  {
+    "id": 260,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "ordering",
+    "question": "Sắp xếp các bước để chú mèo vẽ một hình vuông (mỗi cạnh 100 bước):",
+    "options": [
+      "1. Di chuyển 100 bước",
+      "2. Xoay 90 độ",
+      "3. Lặp lại 4 lần các bước trên",
+      "4. Nhấn lá cờ xanh để bắt đầu"
+    ],
+    "answer": "1-2-3-4",
+    "explanation": "Thuật toán vẽ hình vuông sử dụng cấu trúc lặp.",
+    "level": "Vận dụng",
+    "audio": "Hãy sắp xếp các bước để chú mèo vẽ một hình vuông."
+  },
+  {
+    "id": 261,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 12: Thuật toán và chương trình máy tính",
+    "type": "single_choice",
+    "question": "Ngôn ngữ lập trình là gì?",
+    "options": [
+      "A. Ngôn ngữ dùng để nói chuyện với người nước ngoài",
+      "B. Ngôn ngữ dùng để viết các chỉ dẫn cho máy tính hiểu và thực hiện",
+      "C. Ngôn ngữ của các loài động vật",
+      "D. Một loại mật mã bí mật"
+    ],
+    "answer": "B",
+    "explanation": "Ngôn ngữ lập trình là cầu nối giữa con người và máy tính.",
+    "level": "Nhận biết",
+    "audio": "Ngôn ngữ lập trình là gì?"
+  },
+  {
+    "id": 262,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "true_false",
+    "question": "Trong Scratch, em có thể tự vẽ thêm nhân vật mới hoặc tải ảnh từ máy tính lên làm nhân vật.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Scratch cho phép tùy biến nhân vật rất linh hoạt.",
+    "level": "Thông hiểu",
+    "audio": "Trong Scratch, em có thể tự vẽ thêm nhân vật mới hoặc tải ảnh từ máy tính lên làm nhân vật. Đúng hay sai?"
+  },
+  {
+    "id": 263,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "multiple_choice",
+    "question": "Những khối lệnh nào sau đây thuộc nhóm cấu trúc điều khiển (Control)?",
+    "options": [
+      "A. Wait 1 seconds",
+      "B. Repeat 10",
+      "C. If... then...",
+      "D. Move 10 steps"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Nhóm Control quản lý luồng thực thi của chương trình.",
+    "level": "Nhận biết",
+    "audio": "Những khối lệnh nào sau đây thuộc nhóm cấu trúc điều khiển?"
+  },
+  {
+    "id": 264,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "fill_blank",
+    "question": "Để bắt đầu chạy chương trình trong Scratch, em thường nháy chuột vào biểu tượng hình ....... màu xanh.",
+    "options": [
+      "lá cờ"
+    ],
+    "answer": "lá cờ",
+    "explanation": "Lá cờ xanh là tín hiệu bắt đầu (Go) trong Scratch.",
+    "level": "Nhận biết",
+    "audio": "Để bắt đầu chạy chương trình trong Scratch, em thường nháy chuột vào biểu tượng hình gì màu xanh?"
+  },
+  {
+    "id": 265,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "scenario",
+    "question": "Em muốn chú mèo kêu 'Meo' khi em nháy chuột vào chú mèo. Em nên dùng khối lệnh sự kiện nào?",
+    "options": [
+      "A. When green flag clicked",
+      "B. When this sprite clicked",
+      "C. When space key pressed",
+      "D. When I receive message"
+    ],
+    "answer": "B",
+    "explanation": "Sự kiện nháy chuột vào nhân vật kích hoạt các lệnh tương ứng.",
+    "level": "Vận dụng",
+    "audio": "Em muốn chú mèo kêu Meo khi em nháy chuột vào chú mèo. Em nên dùng khối lệnh sự kiện nào?"
+  },
+  {
+    "id": 266,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 12: Thuật toán và chương trình máy tính",
+    "type": "single_choice",
+    "question": "Lỗi trong chương trình máy tính thường được gọi là gì?",
+    "options": [
+      "A. Virus",
+      "B. Bug",
+      "C. Worm",
+      "D. Ant"
+    ],
+    "answer": "B",
+    "explanation": "Bug (con bọ) là thuật ngữ chỉ lỗi phần mềm.",
+    "level": "Nhận biết",
+    "audio": "Lỗi trong chương trình máy tính thường được gọi là gì?"
+  },
+  {
+    "id": 267,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "true_false",
+    "question": "Sân khấu (Stage) trong Scratch là nơi nhân vật biểu diễn các lệnh đã được lập trình.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Sân khấu là khu vực hiển thị kết quả của chương trình.",
+    "level": "Nhận biết",
+    "audio": "Sân khấu trong Scratch là nơi nhân vật biểu diễn các lệnh đã được lập trình. Đúng hay sai?"
+  },
+  {
+    "id": 268,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "multiple_choice",
+    "question": "Cấu trúc rẽ nhánh (If... then...) giúp chương trình làm gì?",
+    "options": [
+      "A. Kiểm tra một điều kiện",
+      "B. Thực hiện lệnh nếu điều kiện đúng",
+      "C. Bỏ qua lệnh nếu điều kiện sai",
+      "D. Lặp lại lệnh mãi mãi"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Cấu trúc rẽ nhánh giúp chương trình có khả năng 'tư duy' và ra quyết định.",
+    "level": "Thông hiểu",
+    "audio": "Cấu trúc rẽ nhánh giúp chương trình làm gì?"
+  },
+  {
+    "id": 269,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "fill_blank",
+    "question": "Các khối lệnh trong Scratch được kết nối với nhau giống như các miếng ghép .......",
+    "options": [
+      "hình",
+      "lego"
+    ],
+    "answer": "hình",
+    "explanation": "Lập trình kéo thả giúp trẻ em dễ dàng tiếp cận tư duy lập trình.",
+    "level": "Nhận biết",
+    "audio": "Các khối lệnh trong Scratch được kết nối với nhau giống như các miếng ghép gì?"
+  },
+  {
+    "id": 270,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "matching",
+    "question": "Ghép cặp khối lệnh với chức năng tương ứng:",
+    "options": [
+      "1-Repeat 10 : a-Dừng lại một khoảng thời gian",
+      "2-Wait 1 seconds : b-Lặp lại số lần nhất định",
+      "3-If touching mouse-pointer : c-Kiểm tra xem có chạm vào con trỏ chuột không"
+    ],
+    "answer": "1-b, 2-a, 3-c",
+    "explanation": "Hiểu chức năng các khối lệnh để xây dựng kịch bản.",
+    "level": "Thông hiểu",
+    "audio": "Hãy ghép cặp khối lệnh với chức năng tương ứng của nó."
+  },
+  {
+    "id": 271,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 12: Thuật toán và chương trình máy tính",
+    "type": "single_choice",
+    "question": "Tại sao chúng ta nên chia một vấn đề lớn thành các vấn đề nhỏ hơn khi lập trình?",
+    "options": [
+      "A. Để mất nhiều thời gian hơn",
+      "B. Để dễ dàng giải quyết và quản lý thuật toán",
+      "C. Để làm chương trình phức tạp hơn",
+      "D. Để máy tính không hiểu được"
+    ],
+    "answer": "B",
+    "explanation": "Chia để trị là kỹ thuật quan trọng trong giải quyết vấn đề.",
+    "level": "Vận dụng",
+    "audio": "Tại sao chúng ta nên chia một vấn đề lớn thành các vấn đề nhỏ hơn khi lập trình?"
+  },
+  {
+    "id": 272,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "true_false",
+    "question": "Trong Scratch, mỗi nhân vật có thể có nhiều trang phục (Costumes) khác nhau.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Thay đổi trang phục giúp tạo hiệu ứng hoạt hình cho nhân vật.",
+    "level": "Nhận biết",
+    "audio": "Trong Scratch, mỗi nhân vật có thể có nhiều trang phục khác nhau. Đúng hay sai?"
+  },
+  {
+    "id": 273,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "multiple_choice",
+    "question": "Những sự kiện nào có thể dùng để bắt đầu một đoạn mã trong Scratch?",
+    "options": [
+      "A. Nhấn phím Space",
+      "B. Nháy chuột vào nhân vật",
+      "C. Khi âm lượng tiếng ồn lớn hơn 10",
+      "D. Khi máy tính bị tắt nguồn"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Scratch hỗ trợ nhiều loại tương tác đầu vào.",
+    "level": "Thông hiểu",
+    "audio": "Những sự kiện nào có thể dùng để bắt đầu một đoạn mã trong Scratch?"
+  },
+  {
+    "id": 274,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "fill_blank",
+    "question": "Để nhân vật nói một câu gì đó hiện lên màn hình, em dùng khối lệnh .......",
+    "options": [
+      "Say",
+      "Nói"
+    ],
+    "answer": "Say",
+    "explanation": "Khối lệnh Say tạo bóng bóng thoại cho nhân vật.",
+    "level": "Nhận biết",
+    "audio": "Để nhân vật nói một câu gì đó hiện lên màn hình, em dùng khối lệnh gì?"
+  },
+  {
+    "id": 275,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "single_choice",
+    "question": "Lệnh 'Go to x: 0 y: 0' sẽ đưa nhân vật đến vị trí nào trên sân khấu?",
+    "options": [
+      "A. Góc trên bên trái",
+      "B. Góc dưới bên phải",
+      "C. Chính giữa sân khấu",
+      "D. Biến mất khỏi sân khấu"
+    ],
+    "answer": "C",
+    "explanation": "Tọa độ (0,0) là tâm của sân khấu Scratch.",
+    "level": "Thông hiểu",
+    "audio": "Lệnh Go to x 0 y 0 sẽ đưa nhân vật đến vị trí nào trên sân khấu?"
+  },
+  {
+    "id": 276,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 12: Thuật toán và chương trình máy tính",
+    "type": "single_choice",
+    "question": "Trong lập trình, việc kiểm tra và sửa lỗi được gọi là gì?",
+    "options": [
+      "A. Coding",
+      "B. Debugging",
+      "C. Designing",
+      "D. Playing"
+    ],
+    "answer": "B",
+    "explanation": "Debugging là quá trình tìm và loại bỏ các lỗi (bug) trong chương trình.",
+    "level": "Thông hiểu",
+    "audio": "Trong lập trình, việc kiểm tra và sửa lỗi được gọi là gì?"
+  },
+  {
+    "id": 277,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "true_false",
+    "question": "Em có thể thay đổi kích thước của nhân vật trong Scratch bằng lệnh 'Set size to...'.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Lệnh này giúp điều chỉnh nhân vật to hay nhỏ tùy ý.",
+    "level": "Nhận biết",
+    "audio": "Em có thể thay đổi kích thước của nhân vật trong Scratch bằng lệnh Set size to. Đúng hay sai?"
+  },
+  {
+    "id": 278,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "multiple_choice",
+    "question": "Những khối lệnh nào giúp nhân vật thay đổi ngoại hình?",
+    "options": [
+      "A. Next costume",
+      "B. Switch costume to...",
+      "C. Change color effect by...",
+      "D. Move 10 steps"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Nhóm lệnh Looks quản lý các hiệu ứng hình ảnh của nhân vật.",
+    "level": "Thông hiểu",
+    "audio": "Những khối lệnh nào giúp nhân vật thay đổi ngoại hình?"
+  },
+  {
+    "id": 279,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "fill_blank",
+    "question": "Để nhân vật di chuyển liên tục cho đến khi chạm cạnh sân khấu thì bật lại, em dùng lệnh 'If on ......., bounce'.",
+    "options": [
+      "edge"
+    ],
+    "answer": "edge",
+    "explanation": "Lệnh này giúp nhân vật không bị trôi ra ngoài sân khấu.",
+    "level": "Vận dụng",
+    "audio": "Để nhân vật di chuyển liên tục cho đến khi chạm cạnh sân khấu thì bật lại, em dùng lệnh If on gì bounce?"
+  },
+  {
+    "id": 280,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "scenario",
+    "question": "Em muốn tạo một trò chơi mà nhân vật sẽ biến mất khi chạm vào màu đỏ. Em nên dùng khối lệnh cảm biến nào?",
+    "options": [
+      "A. Touching color ?",
+      "B. Touching mouse-pointer ?",
+      "C. Distance to ?",
+      "D. Key pressed ?"
+    ],
+    "answer": "A",
+    "explanation": "Cảm biến màu sắc giúp nhân vật tương tác với môi trường xung quanh.",
+    "level": "Vận dụng",
+    "audio": "Em muốn tạo một trò chơi mà nhân vật sẽ biến mất khi chạm vào màu đỏ. Em nên dùng khối lệnh cảm biến nào?"
+  },
+  {
+    "id": 281,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 12: Thuật toán và chương trình máy tính",
+    "type": "single_choice",
+    "question": "Kết quả cuối cùng của một thuật toán được gọi là gì?",
+    "options": [
+      "A. Đầu vào (Input)",
+      "B. Đầu ra (Output)",
+      "C. Quy trình",
+      "D. Dữ liệu"
+    ],
+    "answer": "B",
+    "explanation": "Output là mục tiêu mà thuật toán hướng tới sau khi xử lý Input.",
+    "level": "Nhận biết",
+    "audio": "Kết quả cuối cùng của một thuật toán được gọi là gì?"
+  },
+  {
+    "id": 282,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "true_false",
+    "question": "Trong Scratch, em có thể lập trình cho nhiều nhân vật cùng một lúc.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Mỗi nhân vật có khu vực lập trình riêng và có thể chạy song song.",
+    "level": "Thông hiểu",
+    "audio": "Trong Scratch, em có thể lập trình cho nhiều nhân vật cùng một lúc. Đúng hay sai?"
+  },
+  {
+    "id": 283,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "multiple_choice",
+    "question": "Những khối lệnh nào sau đây dùng để tạo âm thanh trong Scratch?",
+    "options": [
+      "A. Play sound ... until done",
+      "B. Start sound ...",
+      "C. Stop all sounds",
+      "D. Say Hello"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Nhóm lệnh Sound giúp chương trình có âm thanh sống động.",
+    "level": "Nhận biết",
+    "audio": "Những khối lệnh nào sau đây dùng để tạo âm thanh trong Scratch?"
+  },
+  {
+    "id": 284,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "fill_blank",
+    "question": "Để nhân vật xoay một vòng tròn hoàn chỉnh, em cần cho nhân vật xoay tổng cộng ....... độ.",
+    "options": [
+      "360"
+    ],
+    "answer": "360",
+    "explanation": "360 độ tương ứng với một vòng quay khép kín.",
+    "level": "Vận dụng",
+    "audio": "Để nhân vật xoay một vòng tròn hoàn chỉnh, em cần cho nhân vật xoay tổng cộng bao nhiêu độ?"
+  },
+  {
+    "id": 285,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "ordering",
+    "question": "Sắp xếp các bước để nhân vật đổi màu liên tục:",
+    "options": [
+      "1. Chọn khối lệnh Forever",
+      "2. Kéo lệnh Change color effect by 25 vào bên trong Forever",
+      "3. Kéo lệnh Wait 0.5 seconds vào sau lệnh đổi màu",
+      "4. Gắn khối sự kiện When green flag clicked lên trên cùng"
+    ],
+    "answer": "1-2-3-4",
+    "explanation": "Quy trình tạo hiệu ứng đổi màu lặp lại.",
+    "level": "Vận dụng",
+    "audio": "Hãy sắp xếp các bước để nhân vật đổi màu liên tục."
+  },
+  {
+    "id": 286,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 12: Thuật toán và chương trình máy tính",
+    "type": "single_choice",
+    "question": "Tại sao thuật toán cần phải chính xác và không gây nhầm lẫn?",
+    "options": [
+      "A. Để máy tính thực hiện đúng ý đồ của con người",
+      "B. Để chương trình chạy nhanh hơn",
+      "C. Để tiết kiệm bộ nhớ",
+      "D. Để máy tính không bị hỏng màn hình"
+    ],
+    "answer": "A",
+    "explanation": "Máy tính thực hiện lệnh một cách máy móc, nên thuật toán sai sẽ dẫn đến kết quả sai.",
+    "level": "Thông hiểu",
+    "audio": "Tại sao thuật toán cần phải chính xác và không gây nhầm lẫn?"
+  },
+  {
+    "id": 287,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "true_false",
+    "question": "Em có thể chia sẻ dự án Scratch của mình lên mạng để mọi người cùng xem.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Cộng đồng Scratch khuyến khích việc chia sẻ và học hỏi lẫn nhau.",
+    "level": "Nhận biết",
+    "audio": "Em có thể chia sẻ dự án Scratch của mình lên mạng để mọi người cùng xem. Đúng hay sai?"
+  },
+  {
+    "id": 288,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "multiple_choice",
+    "question": "Những toán tử (Operators) nào có sẵn trong Scratch?",
+    "options": [
+      "A. Cộng (+), Trừ (-), Nhân (*), Chia (/)",
+      "B. So sánh Lớn hơn (>), Nhỏ hơn (<), Bằng (=)",
+      "C. Chọn số ngẫu nhiên (Pick random)",
+      "D. Lệnh vẽ hình tròn"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Nhóm Operators cung cấp các công cụ tính toán và so sánh.",
+    "level": "Nhận biết",
+    "audio": "Những toán tử nào có sẵn trong Scratch?"
+  },
+  {
+    "id": 289,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "fill_blank",
+    "question": "Để nhân vật ẩn đi trên sân khấu, em dùng lệnh .......",
+    "options": [
+      "Hide",
+      "Ẩn"
+    ],
+    "answer": "Hide",
+    "explanation": "Lệnh Hide làm nhân vật không còn hiển thị trên sân khấu.",
+    "level": "Nhận biết",
+    "audio": "Để nhân vật ẩn đi trên sân khấu, em dùng lệnh gì?"
+  },
+  {
+    "id": 290,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "scenario",
+    "question": "Em muốn nhân vật hỏi tên người chơi và chờ câu trả lời. Em nên dùng khối lệnh nào?",
+    "options": [
+      "A. Ask ... and wait",
+      "B. Say ... for 2 seconds",
+      "C. Think ...",
+      "D. Broadcast ..."
+    ],
+    "answer": "A",
+    "explanation": "Lệnh Ask cho phép nhận dữ liệu đầu vào từ người dùng.",
+    "level": "Vận dụng",
+    "audio": "Em muốn nhân vật hỏi tên người chơi và chờ câu trả lời. Em nên dùng khối lệnh nào?"
+  },
+  {
+    "id": 291,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 12: Thuật toán và chương trình máy tính",
+    "type": "single_choice",
+    "question": "Một chương trình máy tính tốt là chương trình như thế nào?",
+    "options": [
+      "A. Chạy đúng thuật toán và giải quyết được vấn đề",
+      "B. Có nhiều lỗi thú vị",
+      "C. Chỉ chạy được trên một máy tính duy nhất",
+      "D. Không ai hiểu được cách hoạt động"
+    ],
+    "answer": "A",
+    "explanation": "Tính đúng đắn và hiệu quả là tiêu chí hàng đầu của phần mềm.",
+    "level": "Thông hiểu",
+    "audio": "Một chương trình máy tính tốt là chương trình như thế nào?"
+  },
+  {
+    "id": 292,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "true_false",
+    "question": "Trong Scratch, tọa độ x đại diện cho vị trí theo chiều ngang, tọa độ y đại diện cho vị trí theo chiều dọc.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Hệ tọa độ giúp xác định chính xác vị trí nhân vật trên sân khấu.",
+    "level": "Nhận biết",
+    "audio": "Trong Scratch, tọa độ x đại diện cho vị trí theo chiều ngang, tọa độ y đại diện cho vị trí theo chiều dọc. Đúng hay sai?"
+  },
+  {
+    "id": 293,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "multiple_choice",
+    "question": "Những khối lệnh nào giúp nhân vật di chuyển?",
+    "options": [
+      "A. Move 10 steps",
+      "B. Go to random position",
+      "C. Glide 1 secs to x: ... y: ...",
+      "D. Change size by 10"
+    ],
+    "answer": "A, B, C",
+    "explanation": "Nhóm lệnh Motion quản lý mọi chuyển động của nhân vật.",
+    "level": "Nhận biết",
+    "audio": "Những khối lệnh nào giúp nhân vật di chuyển?"
+  },
+  {
+    "id": 294,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "fill_blank",
+    "question": "Để nhân vật hiện lại sau khi đã ẩn, em dùng lệnh .......",
+    "options": [
+      "Show",
+      "Hiện"
+    ],
+    "answer": "Show",
+    "explanation": "Lệnh Show làm nhân vật xuất hiện trở lại.",
+    "level": "Nhận biết",
+    "audio": "Để nhân vật hiện lại sau khi đã ẩn, em dùng lệnh gì?"
+  },
+  {
+    "id": 295,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "matching",
+    "question": "Nối khối lệnh với nhóm lệnh tương ứng:",
+    "options": [
+      "1-Move 10 steps : a-Events (Sự kiện)",
+      "2-When green flag clicked : b-Motion (Chuyển động)",
+      "3-Repeat 10 : c-Control (Điều khiển)"
+    ],
+    "answer": "1-b, 2-a, 3-c",
+    "explanation": "Phân loại lệnh giúp tìm kiếm nhanh hơn khi lập trình.",
+    "level": "Nhận biết",
+    "audio": "Hãy nối khối lệnh với nhóm lệnh tương ứng của nó."
+  },
+  {
+    "id": 296,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 12: Thuật toán và chương trình máy tính",
+    "type": "single_choice",
+    "question": "Bước đầu tiên khi giải quyết một vấn đề bằng máy tính là gì?",
+    "options": [
+      "A. Viết code ngay lập tức",
+      "B. Tìm hiểu và xác định rõ vấn đề cần giải quyết",
+      "C. Đi ngủ",
+      "D. Mua máy tính mới"
+    ],
+    "answer": "B",
+    "explanation": "Hiểu rõ yêu cầu là bước quan trọng nhất để xây dựng thuật toán đúng.",
+    "level": "Thông hiểu",
+    "audio": "Bước đầu tiên khi giải quyết một vấn đề bằng máy tính là gì?"
+  },
+  {
+    "id": 297,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 13: Làm quen với môi trường lập trình Scratch",
+    "type": "true_false",
+    "question": "Em có thể thay đổi ngôn ngữ của giao diện Scratch sang tiếng Việt.",
+    "options": [
+      "A. Đúng",
+      "B. Sai"
+    ],
+    "answer": "A",
+    "explanation": "Scratch hỗ trợ đa ngôn ngữ, giúp học sinh toàn cầu dễ tiếp cận.",
+    "level": "Nhận biết",
+    "audio": "Em có thể thay đổi ngôn ngữ của giao diện Scratch sang tiếng Việt. Đúng hay sai?"
+  },
+  {
+    "id": 298,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "multiple_choice",
+    "question": "Những cách nào giúp em dừng chương trình đang chạy trong Scratch?",
+    "options": [
+      "A. Nhấn nút hình lục giác màu đỏ cạnh lá cờ xanh",
+      "B. Dùng khối lệnh 'Stop all' trong chương trình",
+      "C. Rút phích cắm điện máy tính",
+      "D. Nhấn phím Esc"
+    ],
+    "answer": "A, B",
+    "explanation": "Nút Stop và lệnh Stop all là các cách chính thống để dừng kịch bản.",
+    "level": "Thông hiểu",
+    "audio": "Những cách nào giúp em dừng chương trình đang chạy trong Scratch?"
+  },
+  {
+    "id": 299,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "fill_blank",
+    "question": "Để nhân vật luôn hướng về phía con trỏ chuột, em dùng lệnh 'Point towards .......'.",
+    "options": [
+      "mouse-pointer"
+    ],
+    "answer": "mouse-pointer",
+    "explanation": "Lệnh này giúp nhân vật tương tác theo vị trí chuột của người dùng.",
+    "level": "Vận dụng",
+    "audio": "Để nhân vật luôn hướng về phía con trỏ chuột, em dùng lệnh Point towards gì?"
+  },
+  {
+    "id": 300,
+    "topic": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "lesson": "Bài 14: Cấu trúc điều khiển trong chương trình",
+    "type": "scenario",
+    "question": "Em đã hoàn thành 300 câu hỏi Tin học lớp 5! Em cảm thấy thế nào về việc học Tin học?",
+    "options": [
+      "A. Rất thú vị và bổ ích",
+      "B. Bình thường",
+      "C. Hơi khó một chút",
+      "D. Em sẽ cố gắng hơn nữa"
+    ],
+    "answer": "A",
+    "explanation": "Chúc mừng em đã hoàn thành ngân hàng câu hỏi! Tin học là chìa khóa mở ra tương lai.",
+    "level": "Vận dụng",
+    "audio": "Chúc mừng em đã hoàn thành ba trăm câu hỏi Tin học lớp năm! Em cảm thấy thế nào về việc học Tin học?"
+  }
+]

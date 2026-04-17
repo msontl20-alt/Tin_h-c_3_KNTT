@@ -1,0 +1,2502 @@
+[
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "1. Thiết bị nào sau đây là thiết bị vào của máy tính?",
+    "A": "Màn hình",
+    "B": "Loa",
+    "C": "Bàn phím",
+    "D": "Máy in",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "2. Thiết bị nào dùng để hiển thị kết quả làm việc của máy tính?",
+    "A": "Chuột",
+    "B": "Màn hình",
+    "C": "Bàn phím",
+    "D": "Thân máy",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "3. Bộ phận nào của máy tính được ví như 'bộ não' điều khiển mọi hoạt động?",
+    "A": "Chuột",
+    "B": "Bàn phím",
+    "C": "Màn hình",
+    "D": "Thân máy (chứa CPU)",
+    "dap_an": "D",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "4. Thiết bị nào sau đây là thiết bị ra?",
+    "A": "Chuột",
+    "B": "Máy ảnh kĩ thuật số",
+    "C": "Loa",
+    "D": "Micro",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "5. Phần cứng máy tính bao gồm những gì?",
+    "A": "Các chương trình máy tính",
+    "B": "Các thiết bị vật lí như màn hình, chuột, bàn phím",
+    "C": "Các trò chơi trên máy tính",
+    "D": "Các tệp văn bản",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "6. Phần mềm máy tính là gì?",
+    "A": "Là các thiết bị em có thể cầm, nắm được",
+    "B": "Là vỏ của thân máy",
+    "C": "Là các chương trình điều khiển hoạt động của phần cứng",
+    "D": "Là dây cáp kết nối",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "7. Thiết bị nào giúp em nhập văn bản vào máy tính?",
+    "A": "Chuột",
+    "B": "Bàn phím",
+    "C": "Máy in",
+    "D": "Loa",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "8. Để chọn một đối tượng trên màn hình, em sử dụng thiết bị nào?",
+    "A": "Chuột",
+    "B": "Máy quét",
+    "C": "Máy in",
+    "D": "Loa",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "9. Đâu là ví dụ về phần mềm máy tính?",
+    "A": "Màn hình LCD",
+    "B": "Phần mềm luyện gõ phím",
+    "C": "Ổ cứng",
+    "D": "Cổng USB",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "10. Thiết bị vào dùng để làm gì?",
+    "A": "Đưa thông tin vào máy tính",
+    "B": "Lưu trữ thông tin vĩnh viễn",
+    "C": "Đưa thông tin từ máy tính ra ngoài",
+    "D": "Xử lí thông tin",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "11. Thiết bị ra dùng để làm gì?",
+    "A": "Nhập dữ liệu",
+    "B": "Xuất dữ liệu đã xử lí ra cho người dùng",
+    "C": "Điều khiển máy tính",
+    "D": "Cung cấp điện cho máy tính",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "12. Máy tính có thể giúp em làm gì trong học tập?",
+    "A": "Tìm kiếm tài liệu",
+    "B": "Luyện tập toán, tiếng Anh",
+    "C": "Xem video bài giảng",
+    "D": "Tất cả các đáp án trên",
+    "dap_an": "D",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "13. Khi tắt máy tính đúng cách, em nên làm gì?",
+    "A": "Rút phích cắm điện ngay lập tức",
+    "B": "Nhấn nút nguồn trên thân máy",
+    "C": "Sử dụng lệnh Shut down trong hệ điều hành",
+    "D": "Tắt màn hình là đủ",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "14. Đâu là thiết bị vào nhận dạng hình ảnh?",
+    "A": "Micro",
+    "B": "Máy quét (Scanner)",
+    "C": "Máy in",
+    "D": "Loa",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "15. Đâu là thiết bị vào nhận dạng âm thanh?",
+    "A": "Micro",
+    "B": "Bàn phím",
+    "C": "Chuột",
+    "D": "Màn hình",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "16. Thiết bị nào sau đây vừa có thể là thiết bị vào, vừa là thiết bị ra?",
+    "A": "Màn hình cảm ứng",
+    "B": "Chuột không dây",
+    "C": "Bàn phím cơ",
+    "D": "Máy in phun",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "17. Tại sao cần phải có phần mềm thì máy tính mới hoạt động được?",
+    "A": "Vì phần mềm làm máy tính đẹp hơn",
+    "B": "Vì phần mềm chỉ dẫn phần cứng thực hiện các nhiệm vụ",
+    "C": "Vì phần mềm cung cấp điện cho máy tính",
+    "D": "Vì phần mềm bảo vệ máy tính khỏi bụi bẩn",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "18. Mối quan hệ giữa phần cứng và phần mềm là gì?",
+    "A": "Phần cứng và phần mềm không liên quan đến nhau",
+    "B": "Phần cứng có thể hoạt động tốt mà không cần phần mềm",
+    "C": "Phần cứng là thể xác, phần mềm là linh hồn điều khiển máy tính",
+    "D": "Phần mềm có thể chạy mà không cần phần cứng",
+    "dap_an": "C",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "19. Nếu máy tính thiếu thiết bị ra (như màn hình), điều gì sẽ xảy ra?",
+    "A": "Máy tính vẫn hoạt động bình thường",
+    "B": "Em không thể nhập dữ liệu",
+    "C": "Em không thể nhìn thấy kết quả xử lí của máy tính",
+    "D": "Máy tính sẽ bị hỏng ngay lập tức",
+    "dap_an": "C",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "20. Khi em gõ phím 'A', thông tin được truyền từ đâu đến đâu?",
+    "A": "Từ màn hình đến bàn phím",
+    "B": "Từ bàn phím đến thân máy để xử lí",
+    "C": "Từ loa đến bàn phím",
+    "D": "Từ chuột đến màn hình",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "21. Việc nhấn nút nguồn để tắt máy đột ngột nhiều lần có hại gì?",
+    "A": "Làm máy tính sạch hơn",
+    "B": "Tiết kiệm điện tối đa",
+    "C": "Có thể gây hỏng phần cứng và mất dữ liệu phần mềm",
+    "D": "Làm tăng tốc độ máy tính",
+    "dap_an": "C",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "22. Tại sao chuột máy tính lại được gọi là thiết bị vào?",
+    "A": "Vì nó nằm bên trong máy tính",
+    "B": "Vì nó đưa lệnh điều khiển từ người dùng vào máy tính",
+    "C": "Vì nó lấy thông tin từ máy tính ra",
+    "D": "Vì nó có hình dáng giống con chuột",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "23. Loa và tai nghe có điểm gì chung?",
+    "A": "Đều là thiết bị vào",
+    "B": "Đều dùng để nhập văn bản",
+    "C": "Đều là thiết bị ra dùng để phát âm thanh",
+    "D": "Đều dùng để lưu trữ phim",
+    "dap_an": "C",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "24. Khi em vẽ một bức tranh trên máy tính, thiết bị nào đóng vai trò là thiết bị vào chính?",
+    "A": "Máy in",
+    "B": "Chuột hoặc bảng vẽ điện tử",
+    "C": "Loa",
+    "D": "Ổ điện",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "25. Hệ điều hành Windows là loại gì?",
+    "A": "Thiết bị cứng",
+    "B": "Phần mềm hệ thống",
+    "C": "Thiết bị vào",
+    "D": "Thiết bị ra",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "26. Tại sao em không nên để nước gần máy tính?",
+    "A": "Vì nước làm máy tính chạy chậm",
+    "B": "Vì nước có thể gây chập điện và hỏng các linh kiện phần cứng",
+    "C": "Vì nước làm mờ màn hình",
+    "D": "Vì nước làm tốn diện tích",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "27. Ý nghĩa của các biểu tượng (icon) trên màn hình nền là gì?",
+    "A": "Để trang trí cho đẹp",
+    "B": "Giúp người dùng truy cập nhanh vào các phần mềm hoặc tệp",
+    "C": "Để che đi các vết xước màn hình",
+    "D": "Để máy tính không bị trống",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "28. Khi máy tính đang xử lí một phép tính khó, bộ phận nào đang làm việc nhiều nhất?",
+    "A": "Bàn phím",
+    "B": "Chuột",
+    "C": "CPU (trong thân máy)",
+    "D": "Vỏ máy",
+    "dap_an": "C",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "29. Em đang xem một bộ phim hoạt hình trên máy tính. Hãy chỉ ra các thiết bị ra đang hoạt động.",
+    "A": "Chuột và bàn phím",
+    "B": "Màn hình và loa",
+    "C": "Micro và máy quét",
+    "D": "Thân máy và dây điện",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "30. Bạn Lan muốn hát karaoke trên máy tính. Lan cần thêm thiết bị vào nào để máy tính thu được tiếng hát?",
+    "A": "Loa",
+    "B": "Máy in",
+    "C": "Micro",
+    "D": "Màn hình",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "31. Để lưu lại một bức ảnh từ sách vào máy tính, em nên dùng thiết bị nào?",
+    "A": "Máy in",
+    "B": "Máy quét (Scanner) hoặc máy ảnh",
+    "C": "Bàn phím",
+    "D": "Chuột",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "32. Khi bàn phím bị hỏng một số phím, em có thể dùng thiết bị nào để thay thế tạm thời việc nhập liệu?",
+    "A": "Chuột (sử dụng bàn phím ảo trên màn hình)",
+    "B": "Loa",
+    "C": "Máy in",
+    "D": "Nút nguồn",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "33. Em muốn tặng bà một bức tranh em tự vẽ trên máy tính nhưng bà không biết dùng máy tính. Em nên làm gì?",
+    "A": "Chụp ảnh màn hình rồi gửi qua email",
+    "B": "Dùng máy in để in bức tranh ra giấy",
+    "C": "Tắt máy tính và đi vẽ lại bằng tay",
+    "D": "Mượn loa để phát âm thanh bức tranh",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "34. Nếu em muốn chơi một trò chơi đua xe và muốn cảm giác lái thật hơn, em nên trang bị thêm thiết bị vào nào?",
+    "A": "Bàn đạp và vô lăng chơi game",
+    "B": "Thêm một chiếc loa nữa",
+    "C": "Một chiếc máy in màu",
+    "D": "Một chiếc máy quét",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "35. Khi thấy máy tính bị treo (không phản ứng với chuột và bàn phím), bước đầu tiên em nên làm là gì?",
+    "A": "Dùng búa gõ nhẹ vào thân máy",
+    "B": "Kiểm tra lại các dây kết nối và chờ đợi một lát",
+    "C": "Đổ nước vào để làm mát máy",
+    "D": "Tháo rời các linh kiện ra xem",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "36. Em cần thực hiện thao tác nào để thay đổi hình nền máy tính cho sinh động hơn?",
+    "A": "Nháy chuột phải vào vùng trống trên màn hình nền và chọn Personalize",
+    "B": "Dùng bút màu vẽ trực tiếp lên màn hình",
+    "C": "Lắc mạnh màn hình",
+    "D": "Rút dây nguồn rồi cắm lại",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "37. Một máy tính có đầy đủ phần cứng nhưng không cài đặt bất kì phần mềm nào (kể cả hệ điều hành). Máy tính đó có sử dụng được không? Tại sao?",
+    "A": "Có, vì phần cứng là quan trọng nhất",
+    "B": "Không, vì không có phần mềm điều khiển phần cứng thực hiện nhiệm vụ",
+    "C": "Có, vì em vẫn có thể bật nút nguồn",
+    "D": "Có, vì màn hình vẫn sáng",
+    "dap_an": "B",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "38. Tình huống: Em đang soạn thảo văn bản thì mất điện đột ngột. Khi có điện lại, em mở máy tính thì không thấy đoạn văn bản vừa gõ. Nguyên nhân là gì?",
+    "A": "Do máy tính bị hỏng màn hình",
+    "B": "Do phần mềm soạn thảo bị xóa",
+    "C": "Do em chưa lưu văn bản vào bộ nhớ ngoài (ổ cứng) nên thông tin bị mất khi mất điện",
+    "D": "Do bàn phím bị kẹt",
+    "dap_an": "C",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "39. Theo em, thiết bị vào nào trong tương lai có thể thay thế bàn phím và chuột để con người giao tiếp với máy tính tự nhiên hơn?",
+    "A": "Máy in 3D",
+    "B": "Công nghệ nhận dạng giọng nói và cử chỉ",
+    "C": "Ổ đĩa mềm",
+    "D": "Dây cáp mạng",
+    "dap_an": "B",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "40. Tại sao việc hiểu rõ chức năng của các thiết bị vào - ra lại giúp em sử dụng máy tính hiệu quả hơn?",
+    "A": "Giúp em biết cách kết nối và sử dụng đúng thiết bị cho từng công việc",
+    "B": "Giúp em sửa được mọi lỗi máy tính",
+    "C": "Giúp máy tính không bao giờ bị hỏng",
+    "D": "Giúp em gõ phím nhanh hơn mà không cần nhìn",
+    "dap_an": "A",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "1. Mạng máy tính là gì?",
+    "A": "Là một chiếc máy tính hoạt động độc lập",
+    "B": "Là hai hoặc nhiều máy tính kết nối với nhau để chia sẻ dữ liệu và thiết bị",
+    "C": "Là một nhóm người đang sử dụng máy tính",
+    "D": "Là các dây điện nối các máy tính",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "2. Internet là gì?",
+    "A": "Là mạng máy tính của một gia đình",
+    "B": "Là mạng máy tính của một trường học",
+    "C": "Là mạng máy tính toàn cầu kết nối hàng triệu máy tính trên thế giới",
+    "D": "Là một trò chơi trên máy tính",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "3. Thiết bị nào giúp kết nối máy tính với mạng Internet?",
+    "A": "Máy in",
+    "B": "Bộ định tuyến (Router) hoặc Modem",
+    "C": "Loa",
+    "D": "Chuột",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "4. Trình duyệt web dùng để làm gì?",
+    "A": "Để soạn thảo văn bản",
+    "B": "Để vẽ tranh",
+    "C": "Để truy cập và xem các trang web trên Internet",
+    "D": "Để tắt máy tính",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "5. Đâu là tên của một trình duyệt web phổ biến?",
+    "A": "Microsoft Word",
+    "B": "Google Chrome",
+    "C": "Windows 10",
+    "D": "Photoshop",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "6. Địa chỉ trang web thường bắt đầu bằng cụm từ nào?",
+    "A": "www.",
+    "B": "abc.",
+    "C": "com.",
+    "D": "net.",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "7. Để tìm kiếm thông tin trên Internet, em thường sử dụng công cụ nào?",
+    "A": "Máy tính bỏ túi",
+    "B": "Máy in",
+    "C": "Máy tìm kiếm (như Google, Bing)",
+    "D": "Thùng rác (Recycle Bin)",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "8. Thông tin trên Internet có thể là gì?",
+    "A": "Văn bản, hình ảnh",
+    "B": "Âm thanh, video",
+    "C": "Các phần mềm",
+    "D": "Tất cả các đáp án trên",
+    "dap_an": "D",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "9. Khi kết nối mạng, các máy tính có thể chia sẻ thiết bị nào?",
+    "A": "Máy in",
+    "B": "Bàn phím",
+    "C": "Chuột",
+    "D": "Màn hình",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "10. Lợi ích của việc sử dụng Internet là gì?",
+    "A": "Học tập trực tuyến",
+    "B": "Giải trí (xem phim, nghe nhạc)",
+    "C": "Liên lạc với người thân ở xa",
+    "D": "Tất cả các đáp án trên",
+    "dap_an": "D",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "11. Để truy cập Internet không dây, máy tính cần kết nối với thiết bị nào?",
+    "A": "Máy quét",
+    "B": "Điểm truy cập Wi-Fi",
+    "C": "Loa Bluetooth",
+    "D": "Máy in màu",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "12. Siêu liên kết (Hyperlink) trên trang web thường có đặc điểm gì?",
+    "A": "Là chữ có màu khác hoặc gạch chân, khi đưa chuột vào con trỏ biến thành hình bàn tay",
+    "B": "Là một đoạn văn bản rất dài",
+    "C": "Là một bức ảnh đen trắng",
+    "D": "Là nút tắt máy tính",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "13. Trang chủ (Homepage) của một trang web là gì?",
+    "A": "Là trang cuối cùng của trang web",
+    "B": "Là trang web đầu tiên hiện ra khi em truy cập vào địa chỉ của trang web đó",
+    "C": "Là trang chứa thông tin cá nhân của em",
+    "D": "Là trang để quảng cáo",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "14. Đâu là một địa chỉ trang web hợp lệ?",
+    "A": "www.moet.gov.vn",
+    "B": "moet@gov.vn",
+    "C": "moet gov vn",
+    "D": "http://moet",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "15. Khi sử dụng Internet, em có thể gửi thư điện tử (Email) cho ai?",
+    "A": "Chỉ những người ở cùng thành phố",
+    "B": "Chỉ những người dùng cùng loại máy tính",
+    "C": "Bất kì ai có địa chỉ thư điện tử trên thế giới",
+    "D": "Chỉ những người trong gia đình",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "16. Nút 'Back' trên trình duyệt web dùng để làm gì?",
+    "A": "Quay lại trang web vừa xem trước đó",
+    "B": "Đóng trình duyệt",
+    "C": "Mở một trang web mới",
+    "D": "Tải lại trang web hiện tại",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "17. Tại sao nói Internet là một kho thông tin khổng lồ?",
+    "A": "Vì nó chứa rất nhiều sách giấy",
+    "B": "Vì hàng tỉ người trên thế giới cùng chia sẻ thông tin lên đó mỗi ngày",
+    "C": "Vì nó được làm bằng vàng",
+    "D": "Vì nó chỉ dành cho các nhà khoa học",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "18. Sự khác biệt giữa mạng máy tính và Internet là gì?",
+    "A": "Không có sự khác biệt",
+    "B": "Mạng máy tính là kết nối một nhóm máy tính, còn Internet là mạng của các mạng máy tính trên toàn cầu",
+    "C": "Internet thì chậm hơn mạng máy tính",
+    "D": "Mạng máy tính thì không cần dây, Internet thì cần dây",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "19. Tại sao em cần sử dụng từ khóa (Keyword) khi tìm kiếm thông tin?",
+    "A": "Để máy tính biết em là ai",
+    "B": "Để thu hẹp phạm vi tìm kiếm và tìm được thông tin chính xác hơn",
+    "C": "Để trang trí cho ô tìm kiếm",
+    "D": "Để máy tính không bị hỏng",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "20. Khi em nháy chuột vào một siêu liên kết, điều gì sẽ xảy ra?",
+    "A": "Máy tính sẽ bị tắt",
+    "B": "Trình duyệt sẽ chuyển đến một trang web hoặc một vị trí khác",
+    "C": "Một bài hát sẽ tự động phát",
+    "D": "Màn hình sẽ bị sọc",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "21. Tại sao thông tin trên Internet không phải lúc nào cũng đúng?",
+    "A": "Vì máy tính hay bị lỗi",
+    "B": "Vì bất kì ai cũng có thể đăng thông tin lên Internet mà không qua kiểm duyệt",
+    "C": "Vì Internet chỉ dành cho trẻ em",
+    "D": "Vì thông tin trên Internet luôn cũ",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "22. Việc chia sẻ máy in trong mạng nội bộ giúp ích gì?",
+    "A": "Làm máy in nhanh hơn",
+    "B": "Tiết kiệm chi phí vì nhiều máy tính có thể dùng chung một máy in",
+    "C": "Làm máy in đẹp hơn",
+    "D": "Không có lợi ích gì",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "23. Tại sao em cần có địa chỉ trang web để truy cập thông tin?",
+    "A": "Để máy tính biết đường dẫn đến máy chủ chứa trang web đó",
+    "B": "Để em khoe với bạn bè",
+    "C": "Để trang web không bị mất",
+    "D": "Để máy tính chạy nhanh hơn",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "24. Khi sử dụng Internet để học tập, em nên làm gì để hiệu quả?",
+    "A": "Vừa học vừa chơi game",
+    "B": "Chỉ truy cập vào các trang web tin cậy và có sự hướng dẫn của thầy cô, cha mẹ",
+    "C": "Mở thật nhiều trang web cùng lúc",
+    "D": "Tải tất cả những gì thấy trên mạng về máy",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "25. Nút 'Refresh' (hoặc F5) trên trình duyệt có tác dụng gì?",
+    "A": "Xóa trang web",
+    "B": "Tải lại nội dung trang web để cập nhật thông tin mới nhất",
+    "C": "Làm máy tính mát hơn",
+    "D": "Thay đổi màu sắc trang web",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "26. Tại sao em không nên nháy chuột vào các quảng cáo lạ trên Internet?",
+    "A": "Vì nó làm tốn thời gian",
+    "B": "Vì nó có thể chứa virus hoặc dẫn đến các trang web độc hại",
+    "C": "Vì nó làm máy tính bị nóng",
+    "D": "Vì nó làm màn hình bị bẩn",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "27. Ý nghĩa của biểu tượng hình cái khóa trên thanh địa chỉ trình duyệt là gì?",
+    "A": "Trang web bị khóa không cho xem",
+    "B": "Kết nối tới trang web được bảo mật an toàn",
+    "C": "Em cần phải có chìa khóa mới mở được",
+    "D": "Máy tính đang bị hỏng",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "28. Khi em tìm kiếm với từ khóa 'Lịch sử Việt Nam', kết quả trả về sẽ là gì?",
+    "A": "Một danh sách các trang web liên quan đến lịch sử Việt Nam",
+    "B": "Một cuốn sách in",
+    "C": "Một chiếc máy tính mới",
+    "D": "Một trò chơi điện tử",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "29. Bạn Minh muốn tìm thông tin về loài gấu Bắc Cực. Minh nên nhập từ khóa nào vào máy tìm kiếm để có kết quả tốt nhất?",
+    "A": "Gấu",
+    "B": "Con vật",
+    "C": "Gấu Bắc Cực",
+    "D": "Bắc Cực",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "30. Em đang xem một trang web về các loài hoa và muốn quay lại trang web về các loài chim mà em vừa xem trước đó. Em nhấn vào nút nào?",
+    "A": "Nút Close (X)",
+    "B": "Nút Back (<-)",
+    "C": "Nút Forward (->)",
+    "D": "Nút Home",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "31. Nếu máy tính của em không vào được Internet, bước đầu tiên em nên kiểm tra là gì?",
+    "A": "Kiểm tra xem máy tính đã bật chưa",
+    "B": "Kiểm tra dây cáp mạng hoặc kết nối Wi-Fi và đèn tín hiệu trên Modem/Router",
+    "C": "Mua máy tính mới",
+    "D": "Gõ mạnh vào bàn phím",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "32. Em muốn gửi một bức ảnh em vẽ cho bạn ở xa qua Internet. Em có thể sử dụng cách nào?",
+    "A": "Gửi qua thư điện tử (Email)",
+    "B": "Sử dụng các ứng dụng nhắn tin (như Zalo, Messenger) nếu được phép",
+    "C": "Đăng lên một trang web chia sẻ ảnh",
+    "D": "Tất cả các đáp án trên",
+    "dap_an": "D",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "33. Bạn An muốn tìm video hướng dẫn gấp giấy Origami. An nên sử dụng trang web nào sau đây là phù hợp nhất?",
+    "A": "Google.com",
+    "B": "Youtube.com",
+    "C": "Facebook.com",
+    "D": "Zalo.me",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "34. Khi tìm kiếm thông tin về 'Hà Nội' trên Google, em thấy có quá nhiều kết quả. Để tìm thông tin cụ thể về 'Hồ Hoàn Kiếm Hà Nội', em nên làm gì?",
+    "A": "Đọc hết tất cả các kết quả",
+    "B": "Thay đổi từ khóa tìm kiếm thành 'Hồ Hoàn Kiếm Hà Nội'",
+    "C": "Tắt máy tính đi ngủ",
+    "D": "Hỏi bạn bè",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "35. Em đang truy cập một trang web học tập nhưng chữ quá nhỏ khó đọc. Thao tác nào giúp em phóng to nội dung trang web?",
+    "A": "Dùng kính lúp soi vào màn hình",
+    "B": "Nhấn giữ phím Ctrl và lăn nút cuộn chuột lên trên (hoặc nhấn phím +)",
+    "C": "Lau màn hình cho sạch",
+    "D": "Đưa mắt sát vào màn hình",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "36. Để lưu địa chỉ một trang web hay mà em muốn xem lại sau này, em nên dùng tính năng nào của trình duyệt?",
+    "A": "Tính năng Bookmark (Đánh dấu trang/Yêu thích)",
+    "B": "Tính năng History (Lịch sử)",
+    "C": "Tính năng Clear Cache",
+    "D": "Tính năng Incognito (Ẩn danh)",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "37. Tình huống: Em tìm thấy hai trang web nói về cùng một sự kiện lịch sử nhưng thông tin lại khác nhau. Em nên làm thế nào để biết thông tin nào là chính xác?",
+    "A": "Chọn trang web có hình ảnh đẹp hơn",
+    "B": "Kiểm tra nguồn gốc trang web (có phải của cơ quan uy tín không) và so sánh với sách giáo khoa hoặc hỏi thầy cô",
+    "C": "Tin vào trang web hiện ra đầu tiên",
+    "D": "Không tin trang nào cả",
+    "dap_an": "B",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "38. Theo em, tại sao Internet lại giúp con người học tập suốt đời?",
+    "A": "Vì Internet không bao giờ ngủ",
+    "B": "Vì nó cung cấp nguồn học liệu vô tận, cập nhật liên tục và có thể học mọi lúc mọi nơi",
+    "C": "Vì Internet miễn phí hoàn toàn",
+    "D": "Vì Internet làm con người thông minh hơn một cách tự động",
+    "dap_an": "B",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "39. Nếu một ngày thế giới không còn Internet, cuộc sống của chúng ta sẽ thay đổi như thế nào?",
+    "A": "Không có gì thay đổi",
+    "B": "Việc liên lạc, tìm kiếm thông tin và giao dịch toàn cầu sẽ trở nên vô cùng khó khăn và chậm chạp",
+    "C": "Mọi người sẽ vui vẻ hơn",
+    "D": "Máy tính sẽ không hoạt động được nữa",
+    "dap_an": "B",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "40. Em hãy giải thích tại sao trình duyệt web lại được coi là 'cánh cửa' để bước vào thế giới Internet?",
+    "A": "Vì nó có hình cái cửa",
+    "B": "Vì nó là phần mềm trung gian giúp con người giao tiếp và khai thác thông tin từ các máy chủ trên Internet",
+    "C": "Vì nó bảo vệ máy tính khỏi trộm cắp",
+    "D": "Vì nó là phần mềm duy nhất trên máy tính",
+    "dap_an": "B",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "1. Tệp (File) trong máy tính là gì?",
+    "A": "Là một thiết bị phần cứng",
+    "B": "Là đơn vị cơ bản để lưu trữ thông tin trên bộ nhớ máy tính",
+    "C": "Là một chiếc bút chì",
+    "D": "Là tên của một loại máy tính",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "2. Thư mục (Folder) dùng để làm gì?",
+    "A": "Để chứa các tệp và các thư mục con, giúp tổ chức thông tin ngăn nắp",
+    "B": "Để làm máy tính chạy nhanh hơn",
+    "C": "Để vẽ tranh",
+    "D": "Để kết nối Internet",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "3. Biểu tượng của thư mục trong Windows thường có màu gì?",
+    "A": "Màu xanh dương",
+    "B": "Màu vàng (hình cái kẹp tài liệu)",
+    "C": "Màu đỏ",
+    "D": "Màu đen",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "4. Đâu là một ví dụ về tên tệp văn bản?",
+    "A": "BaiTap.docx",
+    "B": "HinhAnh.jpg",
+    "C": "Nhac.mp3",
+    "D": "Phim.mp4",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "5. Đâu là một ví dụ về tên tệp hình ảnh?",
+    "A": "VanBan.txt",
+    "B": "AnhLop.png",
+    "C": "AmThanh.wav",
+    "D": "TroChoi.exe",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "6. Để tạo một thư mục mới, em nháy chuột phải và chọn lệnh nào?",
+    "A": "New -> Folder",
+    "B": "Open",
+    "C": "Delete",
+    "D": "Rename",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "7. Lệnh 'Rename' dùng để làm gì?",
+    "A": "Xóa tệp",
+    "B": "Đổi tên tệp hoặc thư mục",
+    "C": "Sao chép tệp",
+    "D": "Di chuyển tệp",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "8. Lệnh 'Delete' dùng để làm gì?",
+    "A": "Mở tệp",
+    "B": "Xóa tệp hoặc thư mục",
+    "C": "Lưu tệp",
+    "D": "In tệp",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "9. Khi xóa một tệp, tệp đó thường được đưa vào đâu trước khi bị xóa vĩnh viễn?",
+    "A": "Thư mục My Documents",
+    "B": "Thùng rác (Recycle Bin)",
+    "C": "Ổ đĩa C",
+    "D": "Màn hình nền",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "10. Để sao chép một tệp, em sử dụng cặp lệnh nào?",
+    "A": "Cut và Paste",
+    "B": "Copy và Paste",
+    "C": "Delete và Undo",
+    "D": "Rename và Open",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "11. Để di chuyển một tệp sang vị trí khác, em sử dụng cặp lệnh nào?",
+    "A": "Copy và Paste",
+    "B": "Cut và Paste",
+    "C": "New và Folder",
+    "D": "Rename và Delete",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "12. Phần mở rộng của tệp (như .docx, .jpg) giúp máy tính biết điều gì?",
+    "A": "Kích thước của tệp",
+    "B": "Loại tệp và phần mềm nào có thể mở tệp đó",
+    "C": "Ngày tạo tệp",
+    "D": "Tên người tạo tệp",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "13. Thiết bị lưu trữ phổ biến nhất bên trong máy tính là gì?",
+    "A": "Thẻ nhớ",
+    "B": "Ổ đĩa cứng (HDD/SSD)",
+    "C": "USB",
+    "D": "Đĩa CD",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "14. Đâu là thiết bị lưu trữ di động nhỏ gọn?",
+    "A": "Thân máy",
+    "B": "USB Flash Drive",
+    "C": "Màn hình",
+    "D": "Bàn phím",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "15. Để tìm kiếm một tệp trong máy tính, em có thể nhập tên tệp vào đâu?",
+    "A": "Ô tìm kiếm (Search) trên thanh Taskbar hoặc trong File Explorer",
+    "B": "Phần mềm Paint",
+    "C": "Trình duyệt web",
+    "D": "Thùng rác",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "16. Cấu trúc cây thư mục là gì?",
+    "A": "Là cách sắp xếp thư mục theo hình cái cây, có gốc, cành (thư mục con) và lá (tệp)",
+    "B": "Là một loại cây trồng trong phòng máy tính",
+    "C": "Là danh sách các tệp xếp hàng ngang",
+    "D": "Là một phần mềm vẽ cây",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "17. Tại sao chúng ta nên đặt tên tệp và thư mục gợi nhớ?",
+    "A": "Để máy tính chạy nhanh hơn",
+    "B": "Để dễ dàng quản lý và tìm kiếm lại thông tin khi cần",
+    "C": "Để trang trí cho máy tính",
+    "D": "Vì máy tính yêu cầu như vậy",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "18. Sự khác biệt giữa 'Copy' và 'Cut' là gì?",
+    "A": "Không có sự khác biệt",
+    "B": "Copy tạo ra bản sao và giữ nguyên tệp gốc; Cut di chuyển tệp gốc sang vị trí mới",
+    "C": "Copy làm tệp to hơn, Cut làm tệp nhỏ đi",
+    "D": "Copy chỉ dùng cho tệp, Cut chỉ dùng cho thư mục",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "19. Tại sao không nên lưu tất cả các tệp ra màn hình nền (Desktop)?",
+    "A": "Vì làm màn hình bị tối",
+    "B": "Vì gây lộn xộn, khó tìm kiếm và có thể làm máy tính khởi động chậm hơn",
+    "C": "Vì màn hình sẽ bị hỏng",
+    "D": "Vì người khác sẽ nhìn thấy",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "20. Khi em đổi tên một tệp, nội dung bên trong tệp có bị thay đổi không?",
+    "A": "Có, nội dung sẽ bị xóa",
+    "B": "Không, chỉ có tên gọi của tệp thay đổi",
+    "C": "Có, nội dung sẽ bị mã hóa",
+    "D": "Tùy thuộc vào loại tệp",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "21. Thư mục con là gì?",
+    "A": "Là thư mục nằm bên trong một thư mục khác",
+    "B": "Là thư mục nhỏ hơn về kích thước",
+    "C": "Là thư mục chứa ít tệp hơn",
+    "D": "Là thư mục mới được tạo",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "22. Tại sao cần phải phân loại tệp vào các thư mục riêng (như Nhạc, Ảnh, Học tập)?",
+    "A": "Để máy tính không bị nóng",
+    "B": "Để tổ chức thông tin khoa học, giúp tìm kiếm nhanh chóng và chính xác",
+    "C": "Để tiết kiệm dung lượng ổ cứng",
+    "D": "Để phần mềm chạy nhanh hơn",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "23. Nếu em xóa nhầm một tệp quan trọng, em có thể lấy lại bằng cách nào?",
+    "A": "Mở Thùng rác (Recycle Bin), nháy chuột phải vào tệp đó và chọn Restore",
+    "B": "Mua máy tính mới",
+    "C": "Tắt máy rồi bật lại",
+    "D": "Gõ tên tệp vào ô tìm kiếm",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "24. Đường dẫn (Path) của một tệp cho em biết điều gì?",
+    "A": "Kích thước của tệp",
+    "B": "Vị trí chính xác của tệp đó nằm trong ổ đĩa và thư mục nào",
+    "C": "Tốc độ mở tệp",
+    "D": "Mật khẩu của tệp",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "25. Tại sao em nên sao lưu (Backup) dữ liệu quan trọng ra USB hoặc ổ cứng ngoài?",
+    "A": "Để làm dữ liệu mới hơn",
+    "B": "Để phòng trường hợp máy tính bị hỏng hoặc mất dữ liệu thì vẫn còn bản dự phòng",
+    "C": "Để dữ liệu không bị cũ",
+    "D": "Để máy tính nhẹ hơn",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "26. Khi tìm kiếm tệp, nếu em chỉ nhớ một phần tên tệp, em nên làm gì?",
+    "A": "Không tìm nữa",
+    "B": "Nhập phần tên em nhớ vào ô tìm kiếm, máy tính sẽ liệt kê các tệp có chứa phần đó",
+    "C": "Xóa hết các tệp khác để tìm cho dễ",
+    "D": "Cài lại máy tính",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "27. Thao tác 'Kéo và thả' (Drag and Drop) chuột thường dùng để làm gì?",
+    "A": "Để xóa tệp vĩnh viễn",
+    "B": "Để di chuyển hoặc sao chép tệp/thư mục một cách nhanh chóng",
+    "C": "Để tắt máy tính",
+    "D": "Để thay đổi độ sáng màn hình",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "28. Một thư mục có thể chứa bao nhiêu tệp và thư mục con?",
+    "A": "Chỉ 10 tệp",
+    "B": "Rất nhiều, tùy thuộc vào dung lượng lưu trữ của ổ đĩa",
+    "C": "Chỉ 1 thư mục con",
+    "D": "Không giới hạn và không tốn dung lượng",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "29. Bạn Bình có rất nhiều ảnh chụp kỉ niệm lớp 4. Bình nên tổ chức lưu trữ như thế nào cho khoa học?",
+    "A": "Để tất cả ảnh ở màn hình nền",
+    "B": "Tạo thư mục 'ANH LOP 4', bên trong tạo các thư mục con như 'DA NGOAI', 'SINH NHAT'",
+    "C": "Đổi tên tất cả ảnh thành số 1, 2, 3...",
+    "D": "Lưu mỗi ảnh vào một thư mục khác nhau",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "30. Em muốn chuyển một tệp bài tập từ máy tính ở trường về nhà để làm tiếp. Em nên dùng cách nào?",
+    "A": "Sao chép tệp vào USB mang về",
+    "B": "Gửi tệp qua thư điện tử (Email) cho chính mình",
+    "C": "Lưu tệp lên các dịch vụ lưu trữ đám mây (nếu được phép)",
+    "D": "Tất cả các đáp án trên",
+    "dap_an": "D",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "31. Tình huống: Em muốn tìm lại bài văn đã viết tuần trước nhưng quên mất tên tệp. Em biết tệp đó là tệp Word (.docx). Em nên làm gì?",
+    "A": "Tìm kiếm với từ khóa '.docx' và sắp xếp theo ngày tháng gần đây",
+    "B": "Mở từng tệp trong máy tính ra xem",
+    "C": "Viết lại bài văn mới",
+    "D": "Xóa bớt các tệp cũ",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "32. Em đang làm việc trong thư mục 'BAI TAP'. Em muốn tạo thêm một thư mục con tên là 'TOAN' bên trong đó. Em thực hiện thao tác nào?",
+    "A": "Mở thư mục 'BAI TAP', nháy chuột phải chọn New -> Folder, gõ tên 'TOAN'",
+    "B": "Tạo thư mục 'TOAN' ở màn hình nền rồi kéo vào",
+    "C": "Cả A và B đều đúng",
+    "D": "Không thể tạo thư mục bên trong thư mục",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "33. Để dọn dẹp máy tính cho gọn gàng, em nên thực hiện công việc nào định kì?",
+    "A": "Xóa các tệp rác, tệp không còn sử dụng",
+    "B": "Làm rỗng Thùng rác (Empty Recycle Bin)",
+    "C": "Sắp xếp các tệp vào đúng thư mục chuyên biệt",
+    "D": "Tất cả các đáp án trên",
+    "dap_an": "D",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "34. Em muốn đổi tên tệp 'Baitap1.docx' thành 'Bai_Tap_Toan_Tuan_1.docx'. Thao tác nào là đúng?",
+    "A": "Nháy chuột phải vào tệp, chọn Rename, gõ tên mới rồi nhấn Enter",
+    "B": "Chọn tệp, nhấn phím F2, gõ tên mới rồi nhấn Enter",
+    "C": "Cả A và B đều đúng",
+    "D": "Nháy đúp chuột vào tệp rồi gõ tên mới",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "35. Khi mượn USB của bạn để sao chép dữ liệu, em nên làm gì để bảo vệ máy tính của mình?",
+    "A": "Cắm vào dùng ngay",
+    "B": "Quét virus cho USB trước khi mở các tệp bên trong",
+    "C": "Rửa USB bằng nước",
+    "D": "Chỉ mở các tệp có tên đẹp",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "36. Em muốn tìm tất cả các tệp hình ảnh trong thư mục 'ANH KYN IEM'. Em nên quan sát phần nào của tên tệp?",
+    "A": "Phần tên chính",
+    "B": "Phần mở rộng (đuôi tệp như .jpg, .png)",
+    "C": "Kích thước tệp",
+    "D": "Ngày tạo",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "37. Tình huống: Máy tính báo ổ đĩa C đã đầy (Full). Em nên làm gì để có thêm không gian lưu trữ mà không làm hỏng máy?",
+    "A": "Xóa bớt các tệp dữ liệu cá nhân không cần thiết hoặc chuyển chúng sang ổ đĩa khác/USB",
+    "B": "Xóa các tệp trong thư mục Windows",
+    "C": "Gỡ bỏ tất cả các phần mềm có trong máy",
+    "D": "Mua thêm một chiếc màn hình mới",
+    "dap_an": "A",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "38. Theo em, tại sao việc tổ chức thông tin theo cấu trúc cây lại là cách tối ưu nhất hiện nay?",
+    "A": "Vì nó giống với cách con người suy nghĩ và phân loại sự vật trong tự nhiên",
+    "B": "Vì nó làm máy tính trông giống cái cây",
+    "C": "Vì nó không tốn điện",
+    "D": "Vì nó là cách duy nhất",
+    "dap_an": "A",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "39. Nếu em đặt tên tệp là 'Bài tập.docx' và lưu vào một thư mục cũng có tên là 'Bài tập', máy tính có cho phép không? Tại sao?",
+    "A": "Không, vì tên phải khác nhau",
+    "B": "Có, vì một cái là tệp, một cái là thư mục, chúng là hai đối tượng khác nhau",
+    "C": "Có, nhưng máy tính sẽ bị lỗi",
+    "D": "Không, vì sẽ gây nhầm lẫn cho máy tính",
+    "dap_an": "B",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "40. Em hãy giải thích tại sao việc 'Trao đổi thông tin' lại trở nên dễ dàng hơn nhờ vào việc 'Tổ chức lưu trữ' tốt?",
+    "A": "Vì khi thông tin được tổ chức tốt, em sẽ tìm thấy nhanh chóng để gửi đi, người nhận cũng dễ dàng hiểu và sử dụng",
+    "B": "Vì trao đổi thông tin không cần lưu trữ",
+    "C": "Vì lưu trữ tốt làm tăng tốc độ Internet",
+    "D": "Vì máy tính sẽ tự động gửi thông tin đi",
+    "dap_an": "A",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "41. Đâu là phần mở rộng của tệp trình chiếu PowerPoint?",
+    "A": ".pptx",
+    "B": ".xlsx",
+    "C": ".docx",
+    "D": ".mp3",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "42. Khi em tải một bài hát từ Internet về, tệp đó thường có phần mở rộng là gì?",
+    "A": ".jpg",
+    "B": ".mp3",
+    "C": ".txt",
+    "D": ".exe",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "43. Để quản lý hàng trăm bức ảnh chụp trong nhiều năm, cách làm nào sau đây là thông minh nhất?",
+    "A": "Để tất cả vào một thư mục duy nhất",
+    "B": "Tạo các thư mục theo năm, bên trong chia theo tháng hoặc sự kiện",
+    "C": "Đặt tên ảnh theo số thứ tự từ 1 đến 1000",
+    "D": "Xóa bớt ảnh để đỡ phải quản lý",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "44. Tệp có phần mở rộng .xlsx thường được mở bằng phần mềm nào?",
+    "A": "Microsoft Word",
+    "B": "Microsoft Excel",
+    "C": "Windows Media Player",
+    "D": "Notepad",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "45. Tại sao phần mở rộng của tệp thường bị ẩn đi trong Windows theo mặc định?",
+    "A": "Để tên tệp trông gọn gàng hơn và tránh người dùng đổi nhầm làm hỏng tệp",
+    "B": "Vì máy tính không cần đến chúng",
+    "C": "Vì chúng là thông tin bí mật",
+    "D": "Để tiết kiệm bộ nhớ",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "46. Tệp có phần mở rộng .mp4 thường chứa nội dung gì?",
+    "A": "Văn bản",
+    "B": "Âm thanh",
+    "C": "Video",
+    "D": "Hình ảnh",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "47. Để tìm lại một tệp em vừa làm hôm qua mà quên mất tên, em nên sử dụng cách sắp xếp nào?",
+    "A": "Sắp xếp theo tên (Name)",
+    "B": "Sắp xếp theo kích thước (Size)",
+    "C": "Sắp xếp theo ngày sửa đổi (Date modified)",
+    "D": "Sắp xếp theo loại tệp (Type)",
+    "dap_an": "C",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "48. Phần mở rộng .zip cho biết đây là loại tệp gì?",
+    "A": "Tệp nén",
+    "B": "Tệp hình ảnh",
+    "C": "Tệp âm thanh",
+    "D": "Tệp hệ thống",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "49. Khi muốn truy cập nhanh một tệp từ màn hình chính mà không muốn di chuyển tệp gốc, em nên tạo gì?",
+    "A": "Tạo bản sao (Copy)",
+    "B": "Tạo lối tắt (Shortcut)",
+    "C": "Tạo thư mục mới",
+    "D": "Tạo tệp văn bản mới",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",
+    "cau_hoi": "50. Tại sao chúng ta nên phân loại tệp tin vào các thư mục riêng biệt như 'Toán', 'Tiếng Việt'?",
+    "A": "Để máy tính trông đẹp hơn",
+    "B": "Để dễ dàng tìm kiếm và quản lý bài học",
+    "C": "Để máy tính không bị virus",
+    "D": "Để tiết kiệm điện",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "1. Thông tin cá nhân trên mạng bao gồm những gì?",
+    "A": "Họ tên, ngày sinh, địa chỉ nhà",
+    "B": "Số điện thoại, tên trường lớp",
+    "C": "Mật khẩu các tài khoản",
+    "D": "Tất cả các đáp án trên",
+    "dap_an": "D",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "2. Em nên làm gì để bảo vệ thông tin cá nhân của mình trên mạng?",
+    "A": "Chia sẻ cho bất kì ai hỏi",
+    "B": "Đăng công khai lên mạng xã hội",
+    "C": "Tuyệt đối không chia sẻ cho người lạ và giữ bí mật mật khẩu",
+    "D": "Viết mật khẩu lên bàn học",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "3. Khi sử dụng Internet, em nên có thái độ như thế nào với mọi người?",
+    "A": "Lịch sự, tôn trọng và tử tế",
+    "B": "Thô lỗ, dùng lời lẽ xúc phạm",
+    "C": "Im lặng, không bao giờ trả lời",
+    "D": "Trêu chọc, chế giễu người khác",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "4. Bản quyền (Copyright) là gì?",
+    "A": "Quyền của tác giả đối với tác phẩm do mình sáng tạo ra",
+    "B": "Quyền được sao chép thoải mái",
+    "C": "Quyền được xóa tên tác giả",
+    "D": "Quyền được bán tác phẩm của người khác",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "5. Khi sử dụng hình ảnh hoặc bài viết của người khác trên mạng, em cần làm gì?",
+    "A": "Cứ dùng không cần hỏi",
+    "B": "Xin phép tác giả và ghi rõ nguồn, tên tác giả",
+    "C": "Xóa tên tác giả đi và ghi tên mình",
+    "D": "Chỉnh sửa hình ảnh cho khác đi rồi dùng",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "6. Hành động nào sau đây là vi phạm đạo đức khi sử dụng mạng?",
+    "A": "Gửi lời chúc mừng sinh nhật bạn",
+    "B": "Nói xấu, lan truyền tin đồn sai sự thật về người khác",
+    "C": "Tìm kiếm tài liệu học tập",
+    "D": "Chia sẻ một bài hát hay",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "7. Mật khẩu máy tính nên đặt như thế nào để an toàn?",
+    "A": "123456",
+    "B": "Tên của em",
+    "C": "Kết hợp chữ cái, chữ số và kí tự đặc biệt, khó đoán",
+    "D": "Ngày sinh của em",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "8. Khi gặp một trang web có nội dung xấu hoặc khiến em thấy sợ hãi, em nên làm gì?",
+    "A": "Tiếp tục xem",
+    "B": "Tắt ngay trang web đó và báo cho cha mẹ hoặc thầy cô",
+    "C": "Gửi cho bạn bè cùng xem",
+    "D": "Lưu trang web đó lại",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "9. Bắt nạt qua mạng (Cyberbullying) là gì?",
+    "A": "Là việc sử dụng công nghệ để đe dọa, làm nhục hoặc quấy rối người khác",
+    "B": "Là việc chơi game quá nhiều",
+    "C": "Là việc học tập trên mạng",
+    "D": "Là việc kết bạn trên mạng",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "10. Em nên làm gì khi nhận được lời mời kết bạn từ một người lạ trên mạng?",
+    "A": "Đồng ý ngay",
+    "B": "Hỏi ý kiến cha mẹ và không nên đồng ý nếu không biết rõ họ là ai",
+    "C": "Gửi địa chỉ nhà cho họ",
+    "D": "Hẹn gặp mặt họ ngay",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "11. Việc tự ý đăng ảnh của người khác lên mạng khi chưa được họ đồng ý là hành động như thế nào?",
+    "A": "Là hành động tốt",
+    "B": "Là hành động bình thường",
+    "C": "Là hành động thiếu tôn trọng quyền riêng tư và có thể vi phạm pháp luật",
+    "D": "Là hành động giúp bạn nổi tiếng",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "12. Tại sao em không nên dành quá nhiều thời gian sử dụng máy tính và Internet?",
+    "A": "Vì tốn điện",
+    "B": "Vì ảnh hưởng đến sức khỏe (mắt, cột sống) và thời gian học tập, vận động",
+    "C": "Vì máy tính sẽ bị mòn",
+    "D": "Vì Internet sẽ hết dung lượng",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "13. Đâu là hành vi văn hóa khi tham gia các diễn đàn trực tuyến?",
+    "A": "Sử dụng ngôn ngữ teen khó hiểu",
+    "B": "Tranh cãi gay gắt bằng những lời lẽ thô tục",
+    "C": "Đóng góp ý kiến xây dựng, chia sẻ kiến thức hữu ích",
+    "D": "Spam thật nhiều tin nhắn quảng cáo",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "14. Khi tải một phần mềm trên mạng, em nên chọn nguồn nào?",
+    "A": "Bất kì trang web nào hiện ra",
+    "B": "Trang web chính thức của nhà sản xuất hoặc các kho ứng dụng uy tín",
+    "C": "Các trang web cho tải phần mềm lậu (crack)",
+    "D": "Link từ một người lạ gửi",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "15. Dấu vết kĩ thuật số (Digital Footprint) là gì?",
+    "A": "Là dấu chân của em trên máy tính",
+    "B": "Là những thông tin, hoạt động em để lại trên Internet",
+    "C": "Là một loại virus máy tính",
+    "D": "Là mật khẩu máy tính",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "16. Tại sao em cần phải thoát (Log out) tài khoản sau khi sử dụng máy tính công cộng?",
+    "A": "Để máy tính không bị nóng",
+    "B": "Để người sau không thể truy cập và đánh cắp thông tin cá nhân của em",
+    "C": "Để tiết kiệm pin",
+    "D": "Để màn hình không bị bẩn",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "17. Tại sao việc bảo vệ mật khẩu lại cực kì quan trọng?",
+    "A": "Vì mật khẩu là chìa khóa bảo vệ mọi dữ liệu và quyền riêng tư của em trên mạng",
+    "B": "Vì mật khẩu làm em trông chuyên nghiệp hơn",
+    "C": "Vì mật khẩu giúp máy tính chạy nhanh hơn",
+    "D": "Vì mật khẩu làm tăng dung lượng ổ cứng",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "18. Việc sao chép bài làm của bạn rồi nộp cho thầy cô là hành động gì?",
+    "A": "Là hành động thông minh",
+    "B": "Là hành động giúp đỡ bạn",
+    "C": "Là hành động vi phạm đạo đức học tập và không tôn trọng công sức của bạn",
+    "D": "Là hành động tiết kiệm thời gian",
+    "dap_an": "C",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "19. Tại sao em nên suy nghĩ kĩ trước khi đăng bất cứ điều gì lên mạng?",
+    "A": "Vì đăng lên rồi sẽ không bao giờ xóa được hoàn toàn",
+    "B": "Vì nó có thể ảnh hưởng đến danh dự của em và người khác trong tương lai",
+    "C": "Vì nó tạo ra dấu vết kĩ thuật số của em",
+    "D": "Tất cả các đáp án trên",
+    "dap_an": "D",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "20. Khi thấy một thông tin giật gân, gây sốc trên mạng, em nên làm gì?",
+    "A": "Chia sẻ ngay cho mọi người cùng biết",
+    "B": "Kiểm chứng thông tin từ các nguồn tin cậy trước khi tin hoặc chia sẻ",
+    "C": "Bình luận thật nhiều để tăng tương tác",
+    "D": "Tin vào thông tin đó ngay lập tức",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "21. Tại sao việc ghi rõ nguồn khi sử dụng tài liệu của người khác lại là hành động văn minh?",
+    "A": "Để bài làm dài hơn",
+    "B": "Để thể hiện sự tôn trọng đối với quyền tác giả và công sức lao động trí tuệ của họ",
+    "C": "Để máy tính không bị virus",
+    "D": "Để người khác không đọc được",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "22. Hành động 'Like' hoặc 'Share' một bài viết bắt nạt người khác trên mạng có tác hại gì?",
+    "A": "Không có hại gì vì mình không viết bài đó",
+    "B": "Làm tăng thêm sự đau lòng cho nạn nhân và tiếp tay cho hành vi xấu",
+    "C": "Làm mình nổi tiếng hơn",
+    "D": "Giúp người bị bắt nạt mạnh mẽ hơn",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "23. Tại sao em không nên gặp mặt trực tiếp người lạ quen qua mạng một mình?",
+    "A": "Vì tốn tiền đi lại",
+    "B": "Vì có thể gặp nguy hiểm (bị lừa đảo, bắt cóc) do không biết rõ họ là ai ngoài đời thực",
+    "C": "Vì người lạ sẽ thấy em xấu",
+    "D": "Vì Internet không cho phép",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "24. Việc sử dụng phần mềm không có bản quyền (phần mềm lậu) có tác hại gì?",
+    "A": "Làm máy tính chạy nhanh hơn",
+    "B": "Dễ bị lây nhiễm virus và vi phạm pháp luật về sở hữu trí tuệ",
+    "C": "Tiết kiệm tiền cho gia đình",
+    "D": "Làm phần mềm hoạt động tốt hơn",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "25. Khi tham gia một nhóm chat lớp, em nên tuân thủ quy tắc nào?",
+    "A": "Nói bất cứ điều gì mình thích",
+    "B": "Chỉ nói về các vấn đề liên quan đến học tập và trao đổi lành mạnh",
+    "C": "Dùng nhóm chat để nói xấu bạn khác",
+    "D": "Gửi thật nhiều sticker làm loãng nhóm",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "26. Tại sao em cần phải xin phép cha mẹ trước khi mua bất cứ thứ gì trên mạng?",
+    "A": "Để cha mẹ trả tiền",
+    "B": "Để tránh bị lừa đảo mất tiền và mua phải những thứ không phù hợp",
+    "C": "Để cha mẹ biết em giỏi máy tính",
+    "D": "Vì Internet yêu cầu như vậy",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "27. Ý nghĩa của việc đặt giới hạn thời gian sử dụng Internet hàng ngày là gì?",
+    "A": "Để máy tính không bị cháy",
+    "B": "Để cân bằng giữa cuộc sống ảo và cuộc sống thực, bảo vệ sức khỏe và các mối quan hệ xã hội",
+    "C": "Để tiết kiệm dung lượng mạng",
+    "D": "Để cha mẹ không mắng",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "28. Khi em thấy bạn mình bị bắt nạt trên mạng, hành động nào là đúng đắn nhất?",
+    "A": "Im lặng coi như không biết",
+    "B": "An ủi bạn và báo cáo hành vi bắt nạt cho người lớn hoặc quản trị viên trang web",
+    "C": "Cùng tham gia bắt nạt cho vui",
+    "D": "Nói với bạn là do bạn kém",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "29. Tình huống: Một người lạ trên mạng gửi cho em một đường link và bảo rằng em đã trúng thưởng một chiếc iPhone. Em nên làm gì?",
+    "A": "Nhấn vào link ngay để nhận thưởng",
+    "B": "Gửi link cho bạn bè cùng nhận",
+    "C": "Tuyệt đối không nhấn vào link và báo cho cha mẹ vì đây là dấu hiệu lừa đảo",
+    "D": "Hỏi họ xem khi nào thì nhận được máy",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "30. Em đang làm một bài thuyết trình về bảo vệ môi trường và tìm thấy một bức ảnh rất đẹp trên mạng. Em nên làm gì để sử dụng bức ảnh đó đúng luật?",
+    "A": "Tải về và dùng luôn",
+    "B": "Tải về, dùng trong bài và ghi rõ nguồn trang web em đã lấy ảnh",
+    "C": "Dùng phần mềm xóa chữ kí trên ảnh rồi dùng",
+    "D": "Vẽ lại y hệt rồi bảo mình tự chụp",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "31. Bạn của em cho em biết mật khẩu tài khoản game của bạn. Em nên làm gì?",
+    "A": "Dùng tài khoản đó để trêu chọc người khác",
+    "B": "Đổi mật khẩu để chiếm luôn tài khoản",
+    "C": "Khuyên bạn nên đổi mật khẩu khác và không nên cho ai biết, đồng thời em cũng giữ bí mật giúp bạn",
+    "D": "Nói cho cả lớp cùng biết",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "32. Em thấy một bài đăng trên Facebook có thông tin sai sự thật về trường học của mình. Em nên làm gì?",
+    "A": "Chia sẻ để mọi người cùng vào chửi bới",
+    "B": "Không chia sẻ và có thể sử dụng tính năng 'Báo cáo' (Report) của Facebook để báo tin giả",
+    "C": "Viết một bài đăng khác sai sự thật hơn để trả đũa",
+    "D": "Mặc kệ vì không liên quan đến mình",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "33. Để tạo một mật khẩu mạnh cho tài khoản học trực tuyến, em nên chọn phương án nào?",
+    "A": "12345678",
+    "B": "Hovaten2014",
+    "C": "T1nh0c@4_2024",
+    "D": "password",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "34. Em đang sử dụng máy tính ở thư viện và đã đăng nhập vào Email để gửi bài cho cô. Trước khi đứng dậy ra về, em cần làm gì?",
+    "A": "Tắt màn hình",
+    "B": "Đăng xuất tài khoản Email và đóng trình duyệt",
+    "C": "Cứ thế đi về",
+    "D": "Xóa trình duyệt web",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "35. Một bạn trong lớp thường xuyên gửi những tin nhắn trêu chọc quá đáng vào Zalo của em khiến em rất buồn. Em nên làm gì?",
+    "A": "Nhắn tin chửi lại bạn",
+    "B": "Chặn (Block) tài khoản của bạn và báo cho cô giáo hoặc cha mẹ biết",
+    "C": "Nghỉ học để không phải gặp bạn",
+    "D": "Xóa ứng dụng Zalo",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "36. Khi muốn đăng một bức ảnh chụp chung cả nhóm bạn lên mạng xã hội, em nên thực hiện bước nào trước?",
+    "A": "Chỉnh sửa cho mình đẹp nhất",
+    "B": "Hỏi ý kiến và được sự đồng ý của tất cả các bạn có mặt trong ảnh",
+    "C": "Đăng luôn rồi tag tên các bạn vào",
+    "D": "Đăng ở chế độ công khai cho mọi người cùng xem",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "37. Tình huống: Em vô tình đọc được nhật kí điện tử của chị gái trên máy tính dùng chung. Em nên làm gì để là một người cư xử có đạo đức?",
+    "A": "Đọc hết xem chị có bí mật gì không",
+    "B": "Đóng ngay lại và không nói cho ai biết nội dung mình đã thấy, tôn trọng quyền riêng tư của chị",
+    "C": "Kể cho cha mẹ nghe những gì chị viết",
+    "D": "Sao chép ra một tệp khác để dành",
+    "dap_an": "B",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "38. Theo em, tại sao 'Sự tử tế trên không gian mạng' lại quan trọng không kém gì ngoài đời thực?",
+    "A": "Vì trên mạng cũng là con người thật đang giao tiếp với nhau, lời nói có thể gây tổn thương thật",
+    "B": "Vì trên mạng có nhiều cảnh sát",
+    "C": "Vì tử tế giúp máy tính bền hơn",
+    "D": "Vì tử tế giúp Internet chạy nhanh hơn",
+    "dap_an": "A",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "39. Nếu em phát hiện một bạn trong lớp đang sử dụng phần mềm bẻ khóa (crack) để chơi game, em sẽ khuyên bạn như thế nào?",
+    "A": "Bảo bạn cho mình dùng với",
+    "B": "Giải thích cho bạn về nguy cơ nhiễm virus và việc không tôn trọng công sức của nhà sản xuất, khuyên bạn dùng bản miễn phí hoặc chính thức",
+    "C": "Báo cảnh sát ngay lập tức",
+    "D": "Mặc kệ bạn vì không liên quan đến mình",
+    "dap_an": "B",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "cau_hoi": "40. Em hãy giải thích tại sao việc xây dựng một 'Dấu vết kĩ thuật số' đẹp lại có lợi cho em trong tương lai?",
+    "A": "Giúp em dễ dàng nổi tiếng",
+    "B": "Giúp em tạo được uy tín và hình ảnh tốt đẹp trong mắt mọi người và các nhà tuyển dụng sau này",
+    "C": "Giúp em kiếm được nhiều tiền trên mạng",
+    "D": "Giúp em không bao giờ bị hỏng máy tính",
+    "dap_an": "B",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "1. Phần mềm nào sau đây dùng để soạn thảo văn bản?",
+    "A": "Microsoft Word",
+    "B": "Microsoft PowerPoint",
+    "C": "Windows Media Player",
+    "D": "Calculator",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "2. Để gõ được chữ tiếng Việt trên máy tính, em cần phần mềm hỗ trợ nào?",
+    "A": "Unikey hoặc VietKey",
+    "B": "Google Chrome",
+    "C": "Paint",
+    "D": "Windows Explorer",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "3. Trong phần mềm Word, phím 'Enter' dùng để làm gì?",
+    "A": "Xóa một kí tự",
+    "B": "Xuống dòng và bắt đầu một đoạn văn bản mới",
+    "C": "Viết hoa chữ cái",
+    "D": "Lưu văn bản",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "4. Phím 'Backspace' dùng để xóa kí tự ở vị trí nào so với con trỏ soạn thảo?",
+    "A": "Bên phải con trỏ",
+    "B": "Bên trái con trỏ",
+    "C": "Tại vị trí con trỏ",
+    "D": "Xóa toàn bộ văn bản",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "5. Để viết hoa một chữ cái, em nhấn giữ phím nào khi gõ?",
+    "A": "Phím Ctrl",
+    "B": "Phím Shift",
+    "C": "Phím Alt",
+    "D": "Phím Tab",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "6. Để lưu văn bản đang soạn thảo, em chọn lệnh nào?",
+    "A": "File -> Save",
+    "B": "File -> Open",
+    "C": "File -> New",
+    "D": "File -> Print",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "7. Lệnh 'Bold' (biểu tượng chữ B) dùng để làm gì?",
+    "A": "In nghiêng chữ",
+    "B": "Gạch chân chữ",
+    "C": "In đậm chữ",
+    "D": "Tô màu chữ",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "8. Lệnh 'Italic' (biểu tượng chữ I nghiêng) dùng để làm gì?",
+    "A": "In đậm chữ",
+    "B": "In nghiêng chữ",
+    "C": "Gạch chân chữ",
+    "D": "Căn giữa văn bản",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "9. Để căn văn bản ra giữa trang, em chọn biểu tượng nào?",
+    "A": "Align Left",
+    "B": "Center",
+    "C": "Align Right",
+    "D": "Justify",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "10. Phần mềm nào sau đây dùng để tạo các bài trình chiếu?",
+    "A": "Microsoft Word",
+    "B": "Microsoft PowerPoint",
+    "C": "Microsoft Excel",
+    "D": "Notepad",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "11. Trong PowerPoint, mỗi 'trang' trình chiếu được gọi là gì?",
+    "A": "Trang giấy",
+    "B": "Slide (Trang chiếu)",
+    "C": "Đoạn văn",
+    "D": "Tệp tin",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "12. Để bắt đầu trình chiếu từ trang đầu tiên, em nhấn phím nào trên bàn phím?",
+    "A": "F1",
+    "B": "F5",
+    "C": "Enter",
+    "D": "Esc",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "13. Để chèn hình ảnh vào văn bản Word hoặc trang chiếu PowerPoint, em vào thẻ (Tab) nào?",
+    "A": "Home",
+    "B": "Insert",
+    "C": "Design",
+    "D": "View",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "14. Lệnh 'Underline' (biểu tượng chữ U có gạch chân) dùng để làm gì?",
+    "A": "In đậm",
+    "B": "In nghiêng",
+    "C": "Gạch chân chữ",
+    "D": "Xóa chữ",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "15. Để thay đổi màu sắc của chữ, em sử dụng lệnh nào?",
+    "A": "Font Color",
+    "B": "Font Size",
+    "C": "Font Style",
+    "D": "Highlight Color",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "16. Để thoát khỏi chế độ trình chiếu trong PowerPoint, em nhấn phím nào?",
+    "A": "Enter",
+    "B": "Esc",
+    "C": "Shift",
+    "D": "Space",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "17. Tại sao khi soạn thảo văn bản, em nên thường xuyên nhấn Ctrl + S?",
+    "A": "Để máy tính chạy nhanh hơn",
+    "B": "Để lưu lại kết quả làm việc, tránh mất dữ liệu nếu máy tính gặp sự cố đột ngột",
+    "C": "Để văn bản đẹp hơn",
+    "D": "Để kết thúc việc soạn thảo",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "18. Sự khác biệt giữa lệnh 'Save' và 'Save As' là gì?",
+    "A": "Không có sự khác biệt",
+    "B": "Save lưu đè lên tệp cũ; Save As cho phép lưu thành một tệp mới với tên hoặc vị trí khác",
+    "C": "Save dùng cho Word, Save As dùng cho PowerPoint",
+    "D": "Save nhanh hơn Save As",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "19. Khi gõ tiếng Việt theo kiểu Telex, để có chữ 'â' em gõ như thế nào?",
+    "A": "aa",
+    "B": "aw",
+    "C": "ee",
+    "D": "oo",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "20. Khi gõ tiếng Việt theo kiểu Telex, để có dấu huyền em gõ phím nào?",
+    "A": "s",
+    "B": "f",
+    "C": "r",
+    "D": "x",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "21. Tại sao cần phải chọn (bôi đen) phần văn bản trước khi định dạng (đổi màu, cỡ chữ)?",
+    "A": "Để máy tính biết em muốn áp dụng thay đổi cho phần văn bản nào",
+    "B": "Để văn bản không bị lỗi",
+    "C": "Để xóa văn bản nhanh hơn",
+    "D": "Vì máy tính yêu cầu như vậy",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "22. Trong PowerPoint, hiệu ứng chuyển động của các đối tượng trên một trang chiếu được gọi là gì?",
+    "A": "Transitions",
+    "B": "Animations",
+    "C": "Design",
+    "D": "Slide Show",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "23. Trong PowerPoint, hiệu ứng xuất hiện khi chuyển từ trang chiếu này sang trang chiếu khác được gọi là gì?",
+    "A": "Transitions",
+    "B": "Animations",
+    "C": "Layout",
+    "D": "Themes",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "24. Mục đích chính của việc sử dụng các bài trình chiếu PowerPoint là gì?",
+    "A": "Để chơi game",
+    "B": "Để hỗ trợ việc thuyết trình, trình bày ý tưởng một cách sinh động và hấp dẫn",
+    "C": "Để thay thế cho việc viết văn bản",
+    "D": "Để tính toán các con số",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "25. Khi chèn hình ảnh vào văn bản, nếu hình ảnh quá to, em nên làm gì?",
+    "A": "Xóa hình ảnh đi",
+    "B": "Nháy chuột vào hình ảnh và kéo các nút tròn ở góc để thu nhỏ lại",
+    "C": "Để nguyên như vậy",
+    "D": "Cắt bớt các phần của hình ảnh",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "26. Tại sao không nên sử dụng quá nhiều màu sắc và hiệu ứng trong một bài trình chiếu?",
+    "A": "Vì tốn pin máy tính",
+    "B": "Vì gây rối mắt và làm người xem mất tập trung vào nội dung chính",
+    "C": "Vì máy tính sẽ bị chậm",
+    "D": "Vì PowerPoint không cho phép",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "27. Font chữ (Phông chữ) là gì?",
+    "A": "Kích thước của chữ",
+    "B": "Hình dáng và kiểu dáng của các chữ cái",
+    "C": "Màu sắc của chữ",
+    "D": "Vị trí của chữ trên trang",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "28. Để gõ được chữ 'đ' theo kiểu Telex, em gõ như thế nào?",
+    "A": "d",
+    "B": "dd",
+    "C": "dw",
+    "D": "dz",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "29. Em muốn tạo một danh sách các đồ dùng học tập trong Word có các dấu chấm đầu dòng. Em sử dụng lệnh nào?",
+    "A": "Bullets",
+    "B": "Numbering",
+    "C": "Sort",
+    "D": "Multilevel List",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "30. Em đang soạn thảo một bài thơ và muốn tiêu đề bài thơ nằm chính giữa trang giấy. Em thực hiện thao tác nào?",
+    "A": "Dùng phím Space để đẩy chữ ra giữa",
+    "B": "Chọn tiêu đề và nhấn biểu tượng Center",
+    "C": "Dùng phím Tab",
+    "D": "Căn lề phải cho tiêu đề",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "31. Tình huống: Em lỡ tay xóa mất một đoạn văn bản quan trọng. Em nên làm gì để lấy lại nhanh nhất?",
+    "A": "Gõ lại đoạn văn đó",
+    "B": "Nhấn tổ hợp phím Ctrl + Z (Undo) để hoàn tác",
+    "C": "Tắt máy tính đi và bật lại",
+    "D": "Nhấn Ctrl + S",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "32. Em muốn thay đổi toàn bộ phông chữ của bài văn sang phông 'Times New Roman'. Em thực hiện các bước nào?",
+    "A": "Nhấn Ctrl + A để chọn tất cả, sau đó chọn phông Times New Roman trong ô Font",
+    "B": "Chọn từng dòng một để đổi phông",
+    "C": "Xóa đi và gõ lại với phông mới",
+    "D": "Chỉ cần đổi phông ở dòng đầu tiên",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "33. Trong PowerPoint, em muốn chèn thêm một trang chiếu mới sau trang hiện tại. Em chọn lệnh nào?",
+    "A": "New Slide",
+    "B": "New File",
+    "C": "Insert Picture",
+    "D": "Design Slide",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "34. Em muốn bức ảnh trong trang chiếu của mình bay từ ngoài vào trong khi trình chiếu. Em sử dụng thẻ nào?",
+    "A": "Transitions",
+    "B": "Animations",
+    "C": "Insert",
+    "D": "Slide Show",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "35. Khi soạn thảo văn bản, em thấy dưới chân các chữ có những đường gợn sóng màu đỏ hoặc xanh (kiểm tra chính tả tiếng Anh). Để văn bản trông đẹp hơn, em nên làm gì?",
+    "A": "Kệ nó, khi in ra sẽ không thấy",
+    "B": "Tắt tính năng Check spelling (kiểm tra chính tả) trong phần Options",
+    "C": "Xóa các chữ đó đi",
+    "D": "Tô màu đỏ cho toàn bộ văn bản",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "36. Em muốn trình bày một bảng thời khóa biểu trong Word. Em sử dụng lệnh nào?",
+    "A": "Insert -> Table",
+    "B": "Insert -> Picture",
+    "C": "Insert -> Shape",
+    "D": "Insert -> Chart",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "37. Tình huống: Em đang thuyết trình bài PowerPoint, em muốn nhảy nhanh đến một trang chiếu bất kì mà không cần nhấn qua từng trang. Em có thể làm gì?",
+    "A": "Nhấn chuột phải khi đang trình chiếu, chọn 'See All Slides' và chọn trang cần đến",
+    "B": "Nhấn phím Esc rồi chọn trang",
+    "C": "Tắt PowerPoint đi rồi mở lại",
+    "D": "Không có cách nào cả",
+    "dap_an": "A",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "38. Theo em, tại sao việc kết hợp giữa văn bản, hình ảnh và âm thanh trong bài trình chiếu lại giúp bài thuyết trình hiệu quả hơn?",
+    "A": "Vì nó tác động đến nhiều giác quan của người xem, giúp họ dễ hiểu và ghi nhớ lâu hơn",
+    "B": "Vì nó làm bài trình chiếu nặng hơn",
+    "C": "Vì nó làm người xem thấy vui tai",
+    "D": "Vì nó là yêu cầu bắt buộc của phần mềm",
+    "dap_an": "A",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "39. Nếu em muốn in văn bản ra giấy nhưng máy in chỉ in được đen trắng, em nên lưu ý điều gì khi định dạng màu chữ và hình ảnh?",
+    "A": "Nên chọn các màu có độ tương phản tốt (như đen trên nền trắng) để khi in ra vẫn nhìn rõ",
+    "B": "Cứ chọn màu sắc sặc sỡ",
+    "C": "Không cần chèn hình ảnh",
+    "D": "Chỉ dùng chữ in đậm",
+    "dap_an": "A",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "40. Em hãy giải thích tại sao việc biết sử dụng thành thạo các ứng dụng tin học văn phòng lại là một lợi thế lớn cho học sinh?",
+    "A": "Giúp học sinh học tập hiệu quả hơn, trình bày bài làm chuyên nghiệp và chuẩn bị tốt cho tương lai",
+    "B": "Giúp học sinh có nhiều thời gian chơi game hơn",
+    "C": "Giúp học sinh không cần phải viết tay nữa",
+    "D": "Giúp máy tính không bao giờ bị hỏng",
+    "dap_an": "A",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "1. Thuật toán là gì?",
+    "A": "Là một trò chơi trên máy tính",
+    "B": "Là dãy các chỉ dẫn từng bước để giải quyết một công việc hoặc một vấn đề",
+    "C": "Là tên của một loại màn hình",
+    "D": "Là một bài hát về máy tính",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "2. Trong lập trình trực quan (như Scratch), các lệnh được thực hiện như thế nào?",
+    "A": "Thực hiện ngẫu nhiên",
+    "B": "Thực hiện tuần tự từ trên xuống dưới",
+    "C": "Thực hiện từ dưới lên trên",
+    "D": "Chỉ thực hiện lệnh đầu tiên",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "3. Để điều khiển nhân vật trong Scratch, em sử dụng các khối lệnh nằm ở đâu?",
+    "A": "Khu vực sân khấu",
+    "B": "Khu vực các nhóm lệnh (Code)",
+    "C": "Thanh bảng chọn",
+    "D": "Khu vực quản lý phông nền",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "4. Khối lệnh 'Khi bấm vào lá cờ xanh' trong Scratch có ý nghĩa gì?",
+    "A": "Để kết thúc chương trình",
+    "B": "Để bắt đầu thực hiện các lệnh bên dưới nó",
+    "C": "Để thay đổi màu sắc nhân vật",
+    "D": "Để xóa nhân vật",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "5. Nhóm lệnh 'Chuyển động' (Motion) trong Scratch thường có màu gì?",
+    "A": "Màu vàng",
+    "B": "Màu xanh dương",
+    "C": "Màu tím",
+    "D": "Màu cam",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "6. Để nhân vật nói một câu gì đó, em sử dụng nhóm lệnh nào?",
+    "A": "Chuyển động (Motion)",
+    "B": "Hiển thị (Looks)",
+    "C": "Âm thanh (Sound)",
+    "D": "Sự kiện (Events)",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "7. Lệnh 'Di chuyển 10 bước' giúp nhân vật làm gì?",
+    "A": "Nhảy lên",
+    "B": "Đi về phía trước theo hướng đang đứng",
+    "C": "Biến mất",
+    "D": "Xoay vòng tròn",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "8. Trong Scratch, khu vực hiển thị kết quả hoạt động của nhân vật được gọi là gì?",
+    "A": "Khu vực lệnh",
+    "B": "Sân khấu (Stage)",
+    "C": "Khu vực nhân vật",
+    "D": "Thanh công cụ",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "9. Để lặp lại một hành động nhiều lần, em sử dụng nhóm lệnh nào?",
+    "A": "Sự kiện (Events)",
+    "B": "Điều khiển (Control)",
+    "C": "Cảm biến (Sensing)",
+    "D": "Các phép toán (Operators)",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "10. Khối lệnh 'Đợi 1 giây' có tác dụng gì?",
+    "A": "Làm chương trình chạy nhanh hơn",
+    "B": "Tạm dừng việc thực hiện lệnh tiếp theo trong 1 giây",
+    "C": "Kết thúc chương trình",
+    "D": "Làm nhân vật biến mất",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "11. Nhân vật mặc định khi mở Scratch là con vật gì?",
+    "A": "Con chó",
+    "B": "Con mèo",
+    "C": "Con chim",
+    "D": "Con gấu",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "12. Để thay đổi phông nền cho sân khấu, em nháy chuột vào biểu tượng nào?",
+    "A": "Chọn một nhân vật",
+    "B": "Chọn một phông nền (Choose a Backdrop)",
+    "C": "Lá cờ xanh",
+    "D": "Nút dừng lại màu đỏ",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "13. Một bài toán phức tạp nên được giải quyết như thế nào?",
+    "A": "Để nguyên như vậy",
+    "B": "Chia nhỏ thành các bài toán đơn giản hơn để giải quyết từng bước",
+    "C": "Nhờ máy tính làm hộ tất cả",
+    "D": "Bỏ qua bài toán đó",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "14. Trong Scratch, để nhân vật xoay phải 15 độ, em dùng lệnh nào?",
+    "A": "Move 10 steps",
+    "B": "Turn right 15 degrees",
+    "C": "Go to random position",
+    "D": "Point in direction 90",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "15. Lệnh 'Nếu... thì...' (If... then...) dùng để làm gì?",
+    "A": "Để lặp lại lệnh",
+    "B": "Để kiểm tra một điều kiện, nếu đúng thì mới thực hiện lệnh bên trong",
+    "C": "Để bắt đầu chương trình",
+    "D": "Để xóa nhân vật",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "16. Để xóa một khối lệnh đã kéo ra khu vực soạn thảo, em làm gì?",
+    "A": "Kéo khối lệnh đó trả lại khu vực các nhóm lệnh",
+    "B": "Nháy đúp chuột vào khối lệnh",
+    "C": "Nhấn phím Enter",
+    "D": "Tắt máy tính",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "17. Tại sao chúng ta cần mô tả thuật toán trước khi viết chương trình?",
+    "A": "Để máy tính hiểu được tiếng người",
+    "B": "Để giúp chúng ta suy nghĩ logic và đảm bảo các bước giải quyết vấn đề là chính xác",
+    "C": "Để chương trình có nhiều màu sắc hơn",
+    "D": "Vì máy tính không thể chạy nếu không có mô tả",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "18. Sự khác biệt giữa cấu trúc tuần tự và cấu trúc lặp là gì?",
+    "A": "Không có sự khác biệt",
+    "B": "Tuần tự thực hiện từng bước một lần; Lặp thực hiện một hoặc nhiều bước nhiều lần",
+    "C": "Tuần tự nhanh hơn lặp",
+    "D": "Lặp chỉ dùng cho nhân vật mèo",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "19. Khi em ghép các khối lệnh lại với nhau trong Scratch, điều gì sẽ xảy ra?",
+    "A": "Chúng sẽ tạo thành một kịch bản (Script) để điều khiển nhân vật",
+    "B": "Chúng sẽ biến mất",
+    "C": "Chúng sẽ làm máy tính bị treo",
+    "D": "Chúng sẽ tự động đổi màu",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "20. Tại sao việc đặt tên nhân vật rõ ràng (như 'Qua_bong', 'Con_meo') lại quan trọng?",
+    "A": "Để nhân vật đẹp hơn",
+    "B": "Để dễ dàng quản lý và viết lệnh chính xác cho từng nhân vật trong chương trình",
+    "C": "Để máy tính chạy nhanh hơn",
+    "D": "Vì Scratch yêu cầu như vậy",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "21. Ý nghĩa của việc sử dụng các khối lệnh có hình dáng khác nhau (như hình răng cưa, hình vòm) trong Scratch là gì?",
+    "A": "Để trang trí",
+    "B": "Để giúp người dùng biết khối lệnh nào có thể lắp ghép được với nhau một cách logic",
+    "C": "Để phân biệt các nhóm lệnh",
+    "D": "Để tiết kiệm không gian màn hình",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "22. Khi nào em nên sử dụng vòng lặp 'Liên tục' (Forever)?",
+    "A": "Khi muốn hành động chỉ xảy ra 1 lần",
+    "B": "Khi muốn hành động lặp đi lặp lại mãi mãi cho đến khi dừng chương trình",
+    "C": "Khi muốn chương trình chạy nhanh hơn",
+    "D": "Khi muốn xóa nhân vật",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "23. Trong thuật toán 'Pha trà', bước 'Rót nước sôi vào ấm' phải thực hiện sau bước nào?",
+    "A": "Sau khi đã uống trà",
+    "B": "Sau khi đã cho trà vào ấm",
+    "C": "Sau khi đã rửa chén",
+    "D": "Sau khi đã cất ấm",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "24. Tại sao máy tính lại giúp con người giải quyết vấn đề nhanh hơn?",
+    "A": "Vì máy tính có thể thực hiện hàng triệu phép tính và chỉ dẫn trong một giây mà không biết mệt",
+    "B": "Vì máy tính thông minh hơn con người",
+    "C": "Vì máy tính không cần điện",
+    "D": "Vì máy tính tự biết làm mọi việc",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "25. Lệnh 'Nếu chạm vào cạnh thì bật lại' (If on edge, bounce) thường dùng cho loại chương trình nào?",
+    "A": "Chương trình vẽ tranh",
+    "B": "Chương trình điều khiển nhân vật di chuyển liên tục trên sân khấu",
+    "C": "Chương trình tính toán",
+    "D": "Chương trình nghe nhạc",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "26. Khi chương trình chạy không đúng ý muốn, em nên làm gì?",
+    "A": "Xóa hết đi làm lại",
+    "B": "Kiểm tra lại từng khối lệnh xem có sai sót hay nhầm lẫn ở bước nào không (gọi là gỡ lỗi)",
+    "C": "Đập máy tính",
+    "D": "Mặc kệ nó",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "27. Mục đích của việc sử dụng biến số (Variables) trong lập trình là gì?",
+    "A": "Để làm chương trình khó hiểu hơn",
+    "B": "Để lưu trữ các giá trị có thể thay đổi (như điểm số, thời gian) trong khi chương trình chạy",
+    "C": "Để trang trí sân khấu",
+    "D": "Để thay đổi màu sắc nhân vật",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "28. Trong Scratch, tọa độ (x, y) giúp em xác định điều gì?",
+    "A": "Màu sắc của nhân vật",
+    "B": "Vị trí chính xác của nhân vật trên sân khấu",
+    "C": "Kích thước của nhân vật",
+    "D": "Tên của nhân vật",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "29. Em muốn nhân vật Mèo đi hình vuông. Mỗi cạnh dài 100 bước. Em nên sử dụng kết hợp các lệnh nào?",
+    "A": "Lặp lại 4 lần (Di chuyển 100 bước, Xoay 90 độ)",
+    "B": "Di chuyển 400 bước",
+    "C": "Xoay 360 độ",
+    "D": "Lặp lại 100 lần (Di chuyển 4 bước)",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "30. Em muốn tạo một trò chơi hứng bóng. Khi bóng chạm vào thanh đỡ thì ghi được 1 điểm. Em sử dụng khối lệnh nào?",
+    "A": "Nếu <đang chạm vào thanh đỡ> thì <thay đổi điểm 1 lượng 1>",
+    "B": "Lặp lại liên tục <di chuyển 10 bước>",
+    "C": "Khi bấm vào lá cờ xanh",
+    "D": "Đợi 1 giây",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "31. Tình huống: Nhân vật của em di chuyển quá nhanh trên màn hình. Em nên thêm lệnh nào vào trong vòng lặp để nhân vật đi chậm lại?",
+    "A": "Di chuyển 100 bước",
+    "B": "Đợi 0.1 giây",
+    "C": "Xoay 15 độ",
+    "D": "Hiện nhân vật",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "32. Em muốn nhân vật biến mất khi trò chơi kết thúc. Em sử dụng lệnh nào trong nhóm 'Hiển thị'?",
+    "A": "Hiện (Show)",
+    "B": "Ẩn (Hide)",
+    "C": "Đổi trang phục",
+    "D": "Đổi kích thước",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "33. Để nhân vật luôn hướng về phía con trỏ chuột, em dùng lệnh nào?",
+    "A": "Go to mouse-pointer",
+    "B": "Point towards mouse-pointer",
+    "C": "Move 10 steps",
+    "D": "Turn 15 degrees",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "34. Em muốn nhân vật phát ra âm thanh 'Meow' mỗi khi em nhấn phím Space. Em sử dụng khối lệnh sự kiện nào?",
+    "A": "Khi bấm vào lá cờ xanh",
+    "B": "Khi bấm phím Space",
+    "C": "Khi bấm vào nhân vật này",
+    "D": "Khi phông nền chuyển thành...",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "35. Em hãy sắp xếp các bước sau để có thuật toán 'Rửa tay' đúng: (1) Xoa xà phòng, (2) Làm ướt tay, (3) Rửa sạch với nước, (4) Lau khô.",
+    "A": "(2) - (1) - (3) - (4)",
+    "B": "(1) - (2) - (3) - (4)",
+    "C": "(2) - (3) - (1) - (4)",
+    "D": "(4) - (3) - (2) - (1)",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "36. Em muốn nhân vật thay đổi màu sắc liên tục. Em nên đặt lệnh 'Thay đổi hiệu ứng màu' vào trong khối lệnh nào?",
+    "A": "Lặp lại liên tục (Forever)",
+    "B": "Nếu... thì...",
+    "C": "Đợi 1 giây",
+    "D": "Di chuyển 10 bước",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "37. Tình huống: Em muốn nhân vật Mèo hỏi tên người chơi và sau đó chào bằng cái tên đó. Em sử dụng cặp lệnh nào trong nhóm 'Cảm biến' và 'Hiển thị'?",
+    "A": "Hỏi (Ask) và Nói (Say) kết hợp với khối 'Trả lời' (Answer)",
+    "B": "Di chuyển và Xoay",
+    "C": "Ẩn và Hiện",
+    "D": "Đợi và Lặp lại",
+    "dap_an": "A",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "38. Theo em, tại sao việc học lập trình lại giúp em phát triển tư duy sáng tạo?",
+    "A": "Vì em có thể tự tạo ra những câu chuyện, trò chơi và ứng dụng theo ý tưởng riêng của mình",
+    "B": "Vì lập trình làm em giỏi toán hơn",
+    "C": "Vì lập trình giúp em sử dụng chuột nhanh hơn",
+    "D": "Vì lập trình là một môn học bắt buộc",
+    "dap_an": "A",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "39. Nếu một thuật toán có các bước bị đảo lộn thứ tự, kết quả sẽ như thế nào?",
+    "A": "Vẫn đúng như cũ",
+    "B": "Sẽ bị sai hoặc không thể thực hiện được công việc",
+    "C": "Sẽ nhanh hơn",
+    "D": "Máy tính sẽ tự sửa lại cho đúng",
+    "dap_an": "B",
+    "muc_do": "Van dung cao"
+  },
+  {
+    "chu_de": "Chủ đề 6: Giải quyết vấn đề với sự trợ giúp của máy tính",
+    "cau_hoi": "40. Em hãy giải thích tại sao máy tính không thể tự giải quyết vấn đề nếu con người không đưa ra thuật toán?",
+    "A": "Vì máy tính chỉ là một cỗ máy, nó chỉ thực hiện chính xác những gì con người chỉ dẫn thông qua các câu lệnh",
+    "B": "Vì máy tính chưa được cắm điện",
+    "C": "Vì máy tính không có mắt",
+    "D": "Vì máy tính sợ con người",
+    "dap_an": "A",
+    "muc_do": "Van dung cao"
+  }
+]
