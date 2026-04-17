@@ -1,5 +1,6 @@
 {
-  "name": "Tin Học Tiểu Học: Chinh Phục Công Nghệ",
+  "name": "Tinhoc.Tieuhoc",
   "description": "Trò chơi học tập môn Tin học dành cho học sinh lớp 3, 4 và 5 với các thử thách thú vị và bổ ích.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": []
 }
