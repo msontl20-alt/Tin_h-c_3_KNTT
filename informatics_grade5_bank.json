@@ -3252,7 +3252,7 @@
     "options": [
       "A. MS Paint",
       "B. MS Word",
-      "C. MS Excel",
+      "C. Google Chrome",
       "D. MS PowerPoint"
     ],
     "answer": "A",
@@ -4843,5 +4843,90 @@
     "explanation": "Chúc mừng em đã hoàn thành ngân hàng câu hỏi! Tin học là chìa khóa mở ra tương lai.",
     "level": "Vận dụng",
     "audio": "Chúc mừng em đã hoàn thành ba trăm câu hỏi Tin học lớp năm! Em cảm thấy thế nào về việc học Tin học?"
+  },
+  {
+    "id": 301,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: An toàn và văn hóa mạng",
+    "type": "single_choice",
+    "question": "Khi tham gia một trang web học tập mới, em nên làm gì để bảo vệ thông tin cá nhân của mình?",
+    "options": [
+      "A. Điền đầy đủ địa chỉ nhà và số điện thoại",
+      "B. Chỉ cung cấp những thông tin bắt buộc và sử dụng biệt danh nếu được phép",
+      "C. Chia sẻ mật khẩu với các bạn cùng lớp",
+      "D. Đăng ảnh chụp thẻ học sinh lên trang cá nhân"
+    ],
+    "answer": "B",
+    "explanation": "Hạn chế chia sẻ thông tin cá nhân giúp em tránh được các rủi ro trên mạng.",
+    "level": "Thông hiểu",
+    "audio": "Khi tham gia một trang web học tập mới, em nên làm gì để bảo vệ thông tin cá nhân của mình?"
+  },
+  {
+    "id": 302,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: An toàn và văn hóa mạng",
+    "type": "single_choice",
+    "question": "Em nhận được một thông báo 'Máy tính của bạn đang bị nhiễm virus, hãy nhấn vào đây để sửa ngay'. Hành động an toàn nhất là gì?",
+    "options": [
+      "A. Nhấn vào đó ngay lập tức để cứu máy tính",
+      "B. Tắt thông báo đó và nhờ người lớn hoặc thầy cô kiểm tra",
+      "C. Tải phần mềm đó về và cài đặt",
+      "D. Gửi liên kết đó cho bạn bè để cảnh báo"
+    ],
+    "answer": "B",
+    "explanation": "Cảnh giác với các thông báo lạ giúp máy tính tránh bị nhiễm mã độc.",
+    "level": "Thông hiểu",
+    "audio": "Em nhận được một thông báo máy tính bị nhiễm virus, hành động an toàn nhất là gì?"
+  },
+  {
+    "id": 303,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: An toàn và văn hóa mạng",
+    "type": "single_choice",
+    "question": "Nếu em thấy một bạn trong lớp bị một nhóm người lạ trên mạng liên tục gửi tin nhắn xúc phạm, em nên làm gì để giúp bạn?",
+    "options": [
+      "A. Tham gia cùng nhóm đó để không bị bắt nạt",
+      "B. Khuyên bạn nên im lặng và xóa tài khoản",
+      "C. Động viên bạn và cùng bạn báo cáo sự việc cho thầy cô hoặc bố mẹ",
+      "D. Tìm cách nhắn tin mắng lại nhóm người lạ đó"
+    ],
+    "answer": "C",
+    "explanation": "Báo cáo sự việc cho người lớn là cách hiệu quả để ngăn chặn bắt nạt qua mạng.",
+    "level": "Vận dụng",
+    "audio": "Nếu em thấy một bạn bị người lạ trên mạng xúc phạm, em nên làm gì?"
+  },
+  {
+    "id": 304,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: An toàn và văn hóa mạng",
+    "type": "single_choice",
+    "question": "'Dấu chân số' (Digital Footprint) có thể ảnh hưởng đến em như thế nào trong tương lai?",
+    "options": [
+      "A. Nó sẽ tự biến mất sau 1 năm",
+      "B. Nó là bộ sưu tập các bức ảnh đẹp của em",
+      "C. Những gì em đăng lên mạng hôm nay có thể được mọi người và nhà tuyển dụng sau này nhìn thấy",
+      "D. Nó giúp máy tính của em chạy nhanh hơn"
+    ],
+    "answer": "C",
+    "explanation": "Dấu chân số là những vết tích em để lại trên mạng, cần cẩn trọng với những gì mình chia sẻ.",
+    "level": "Thông hiểu",
+    "audio": "Dấu chân số có thể ảnh hưởng đến em như thế nào trong tương lai?"
+  },
+  {
+    "id": 305,
+    "topic": "Chủ đề 4: Đạo đức, pháp luật và văn hoá trong môi trường số",
+    "lesson": "Bài 7: An toàn và văn hóa mạng",
+    "type": "single_choice",
+    "question": "Khi muốn chia sẻ một bức ảnh chụp chung với các bạn lên mạng xã hội, hành động nào thể hiện sự tôn trọng và văn minh?",
+    "options": [
+      "A. Cứ thế đăng lên vì mình cũng có mặt trong ảnh",
+      "B. Hỏi ý kiến và được sự đồng ý của tất cả những người có mặt trong ảnh",
+      "C. Chỉ cần hỏi ý kiến bạn thân nhất",
+      "D. Đăng ảnh rồi gắn thẻ (tag) tất cả mọi người mà không cần hỏi"
+    ],
+    "answer": "B",
+    "explanation": "Tôn trọng quyền riêng tư về hình ảnh của người khác là biểu hiện của người có văn hóa số.",
+    "level": "Nhận biết",
+    "audio": "Khi muốn chia sẻ ảnh chụp chung lên mạng, hành động nào thể hiện sự tôn trọng?"
   }
 ]

@@ -62,18 +62,6 @@ import confetti from 'canvas-confetti';
 import { GRADES } from './constants';
 import { Grade, Level, Question, Difficulty } from './types';
 
-function hapticFeedback(type: 'success' | 'error' | 'medium') {
-  if (typeof window !== 'undefined' && window.navigator && window.navigator.vibrate) {
-    if (type === 'error') {
-      window.navigator.vibrate([50, 50, 50]);
-    } else if (type === 'success') {
-      window.navigator.vibrate(50);
-    } else {
-      window.navigator.vibrate(20);
-    }
-  }
-}
-
 function handleAppError(error: unknown, context: string) {
   const errMessage = error instanceof Error ? error.message : String(error);
   console.error(`App Error (${context}): `, errMessage);
@@ -360,7 +348,6 @@ const TreeNavigation = ({
   completedLevels: number[]
 }) => {
   const [expandedGrades, setExpandedGrades] = useState<number[]>(selectedGradeId ? [selectedGradeId] : []);
-  const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (selectedGradeId && !expandedGrades.includes(selectedGradeId)) {
@@ -374,28 +361,8 @@ const TreeNavigation = ({
     );
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!navRef.current) return;
-    const items = Array.from(navRef.current.querySelectorAll('.tree-nav-item')) as HTMLElement[];
-    const currentIndex = items.indexOf(document.activeElement as HTMLElement);
-
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      const nextIndex = (currentIndex + 1) % items.length;
-      items[nextIndex]?.focus();
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      const prevIndex = (currentIndex - 1 + items.length) % items.length;
-      items[prevIndex]?.focus();
-    }
-  };
-
   return (
-    <div 
-      ref={navRef}
-      onKeyDown={handleKeyDown}
-      className="bg-white/80 backdrop-blur-sm rounded-3xl border-2 border-slate-100 p-6 shadow-xl h-fit sticky top-8"
-    >
+    <div className="bg-white/80 backdrop-blur-sm rounded-3xl border-2 border-slate-100 p-6 shadow-xl h-fit sticky top-8">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-display font-bold text-slate-800 flex items-center gap-2">
           <GitBranch className="w-5 h-5 text-sky-500" />
@@ -403,22 +370,19 @@ const TreeNavigation = ({
         </h3>
       </div>
 
-      <div className="space-y-2" role="tree">
+      <div className="space-y-2">
         {grades.map(grade => {
           const isExpanded = expandedGrades.includes(grade.id);
           const isSelected = selectedGradeId === grade.id;
           
           return (
-            <div key={grade.id} className="space-y-1" role="none">
+            <div key={grade.id} className="space-y-1">
               <button 
                 onClick={() => {
                   toggleGrade(grade.id);
                   onSelectGrade(grade);
                 }}
-                aria-expanded={isExpanded}
-                aria-controls={`grade-levels-${grade.id}`}
-                role="treeitem"
-                className={`tree-nav-item w-full flex items-center gap-2 p-2 rounded-xl transition-all text-left group outline-none focus-visible:ring-2 focus-visible:ring-sky-500 ${
+                className={`w-full flex items-center gap-2 p-2 rounded-xl transition-all text-left group ${
                   isSelected ? 'bg-sky-50 text-sky-700 font-bold' : 'hover:bg-slate-50 text-slate-600'
                 }`}
               >
@@ -432,8 +396,6 @@ const TreeNavigation = ({
               <AnimatePresence initial={false}>
                 {isExpanded && (
                   <motion.div 
-                    id={`grade-levels-${grade.id}`}
-                    role="group"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -444,12 +406,11 @@ const TreeNavigation = ({
                       const isLevelSelected = selectedLevelId === level.id;
                       const isCompleted = completedLevels.includes(level.id);
                       return (
-                        <div key={level.id} className="group flex items-center gap-1 pr-1" role="none">
+                        <div key={level.id} className="group flex items-center gap-1 pr-1">
                           <button
                             onClick={() => onSelectLevel(level)}
-                            role="treeitem"
-                            className={`tree-nav-item flex-1 flex items-center gap-2 p-2 rounded-lg transition-all text-left text-sm outline-none focus-visible:ring-2 focus-visible:ring-sky-400 ${
-                              isLevelSelected ? 'bg-sky-100 text-sky-700 font-bold' : 'hover:bg-slate-100/50 text-slate-500'
+                            className={`flex-1 flex items-center gap-2 p-2 rounded-lg transition-all text-left text-sm ${
+                              isLevelSelected ? 'bg-sky-100 text-sky-700 font-bold' : 'hover:bg-slate-50 text-slate-500'
                             }`}
                           >
                             <FileText className={`w-4 h-4 ${isCompleted ? 'text-green-500' : isLevelSelected ? 'text-sky-500' : 'text-slate-400'}`} />
@@ -554,23 +515,12 @@ const getScratchColor = (text: string) => {
 
 const TOPIC_CATEGORIES = [
   { id: 'all', label: 'Tất cả', icon: Monitor },
-  { id: 'strand-a', label: 'Máy tính và em', keywords: ['máy tính', 'bộ phận', 'thiết bị', 'em'] },
-  { id: 'strand-b', label: 'Mạng và Internet', keywords: ['mạng', 'internet', 'thông tin'] },
-  { id: 'strand-c', label: 'Thông tin và tìm kiếm', keywords: ['thư mục', 'tệp', 'tìm kiếm', 'tổ chức'] },
+  { id: 'strand-a', label: 'Máy tính & Em', keywords: ['máy tính', 'bộ phận', 'thiết bị', 'em'] },
+  { id: 'strand-b', label: 'Mạng & Internet', keywords: ['mạng', 'internet', 'thông tin'] },
+  { id: 'strand-c', label: 'Thông tin & Tìm kiếm', keywords: ['thư mục', 'tệp', 'tìm kiếm', 'tổ chức'] },
   { id: 'strand-d', label: 'Đạo đức số', keywords: ['đạo đức', 'văn hóa', 'an toàn', 'bản quyền'] },
   { id: 'strand-e', label: 'Ứng dụng tin học', keywords: ['văn bản', 'trình chiếu', 'soạn thảo', 'vẽ'] },
-  { id: 'strand-f', label: 'Lập trình và Scratch', keywords: ['scratch', 'lập trình', 'thuật toán', 'robot'] },
-];
-
-const POSITIVE_REMINDERS = [
-  "Không sao đâu, lần sau em sẽ làm được!",
-  "Thất bại là mẹ thành công, cố lên em nhé!",
-  "Tiếc quá, thử lại câu khác nhé!",
-  "Em gần đúng rồi, hãy xem giải thích để hiểu hơn nhé!",
-  "Hãy đọc kỹ giải thích để làm tốt hơn ở câu sau nhé!",
-  "Cố gắng một chút nữa là được rồi em ơi!",
-  "Vấp ngã một chút thôi, đứng dậy đi tiếp nào!",
-  "Cứ bình tĩnh, câu sau em sẽ làm đúng thôi!"
+  { id: 'strand-f', label: 'Lập trình & Scratch', keywords: ['scratch', 'lập trình', 'thuật toán', 'robot'] },
 ];
 
 export default function App() {
@@ -579,7 +529,6 @@ export default function App() {
   const [tempName, setTempName] = useState('');
   const [nameError, setNameError] = useState('');
   const [leaderboardData, setLeaderboardData] = useState<LeaderboardEntry[]>([]);
-  const [leaderboardSearch, setLeaderboardSearch] = useState('');
   const [isLoadingLeaderboard, setIsLoadingLeaderboard] = useState(false);
   const [leaderboardFilter, setLeaderboardFilter] = useState<Difficulty | 'All'>(() => {
     return (localStorage.getItem('quiz_leaderboard_filter') as Difficulty) || 'All';
@@ -992,23 +941,14 @@ export default function App() {
     
     const currentQ = filteredQuestions[currentQuestionIndex];
     setSkippedQuestions(prev => [...prev, currentQ]);
-    
-    // Move to end of current session
-    setFilteredQuestions(prev => {
-      const newQuestions = [...prev];
-      const [skipped] = newQuestions.splice(currentQuestionIndex, 1);
-      return [...newQuestions, skipped];
-    });
-    
     setCurrentStreak(0);
     playSound('skip');
     
-    // Reset selection for the next (now current) question
-    setSelectedOptions([]);
-    setWasSkipped(false);
-    setShowFeedback(false);
-    setTimeLeft(15);
-    setTimerActive(true);
+    // Show feedback instead of moving immediately
+    setWasSkipped(true);
+    setIsCorrect(false);
+    setShowFeedback(true);
+    setTimerActive(false);
   };
 
   const handleReviewSkipped = () => {
@@ -1108,16 +1048,14 @@ export default function App() {
         }
         playSound('correct');
         confetti({
-          particleCount: 50,
+          particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          shapes: ['circle', 'square', 'star'],
-          colors: ['#38bdf8', '#818cf8', '#fbbf24', '#fcd34d']
+          colors: ['#38bdf8', '#818cf8', '#fbbf24']
         });
       } else {
         setCurrentStreak(0);
         playSound('incorrect');
-        hapticFeedback('error');
         setIncorrectQuestions(prev => {
           if (prev.some(q => q.id === currentQ.id)) return prev;
           return [...prev, currentQ];
@@ -1154,22 +1092,15 @@ export default function App() {
         setScore(prev => prev + 1);
         const newStreak = currentStreak + 1;
         setCurrentStreak(newStreak);
-        if (newStreak >= 5) {
-          unlockAchievement('STREAK_MASTER');
-        }
         playSound('correct');
         confetti({
-          particleCount: 80,
-          spread: 80,
-          origin: { y: 0.65 },
-          shapes: ['star'],
-          colors: ['#38bdf8', '#fbbf24', '#fcd34d', '#facc15'],
-          scalar: 1.2
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
         });
       } else {
         setCurrentStreak(0);
         playSound('incorrect');
-        hapticFeedback('error');
         setIncorrectQuestions(prev => {
           if (prev.some(q => q.id === currentQ.id)) return prev;
           return [...prev, currentQ];
@@ -1210,16 +1141,14 @@ export default function App() {
         }
         playSound('correct');
         confetti({
-          particleCount: 50,
+          particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          shapes: ['circle', 'square', 'star'],
-          colors: ['#38bdf8', '#818cf8', '#fbbf24', '#fcd34d']
+          colors: ['#38bdf8', '#818cf8', '#fbbf24']
         });
       } else {
         setCurrentStreak(0);
         playSound('incorrect');
-        hapticFeedback('error');
         setIncorrectQuestions(prev => {
           if (prev.some(q => q.id === currentQ.id)) return prev;
           return [...prev, currentQ];
@@ -1271,16 +1200,14 @@ export default function App() {
         }
         playSound('correct');
         confetti({
-          particleCount: 50,
+          particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          shapes: ['circle', 'square', 'star'],
-          colors: ['#38bdf8', '#818cf8', '#fbbf24', '#fcd34d']
+          colors: ['#38bdf8', '#818cf8', '#fbbf24']
         });
       } else {
         setCurrentStreak(0);
         playSound('incorrect');
-        hapticFeedback('error');
         setIncorrectQuestions(prev => {
           if (prev.some(q => q.id === currentQ.id)) return prev;
           return [...prev, currentQ];
@@ -1327,16 +1254,14 @@ export default function App() {
         }
         playSound('correct');
         confetti({
-          particleCount: 50,
+          particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          shapes: ['circle', 'square', 'star'],
-          colors: ['#38bdf8', '#818cf8', '#fbbf24', '#fcd34d']
+          colors: ['#38bdf8', '#818cf8', '#fbbf24']
         });
       } else {
         setCurrentStreak(0);
         playSound('incorrect');
-        hapticFeedback('error');
         setIncorrectQuestions(prev => {
           if (prev.some(q => q.id === currentQ.id)) return prev;
           return [...prev, currentQ];
@@ -2535,7 +2460,6 @@ export default function App() {
                            })
                            .map(level => {
                              const isCompleted = completedLevels.includes(level.id);
-                             
                              const Icon = ICON_MAP[level.icon] || FileText;
                              return (
                                <motion.button
@@ -2546,7 +2470,7 @@ export default function App() {
                                  className="flex flex-col items-center gap-3 group relative"
                                >
                                  <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-2xl border-2 border-slate-100 shadow-sm flex items-center justify-center group-hover:border-sky-200 group-hover:shadow-md transition-all relative overflow-hidden">
-                                    <Icon className={`w-10 h-10 md:w-12 md:h-12 ${isCompleted ? 'text-emerald-500' :  'text-sky-500 opacity-60'}`} />
+                                    <Icon className={`w-10 h-10 md:w-12 md:h-12 ${isCompleted ? 'text-emerald-500' : isWatched ? 'text-amber-500' : 'text-sky-500 opacity-60'}`} />
                                     <div className="absolute top-0 right-0 w-8 h-8 bg-sky-500/5 rounded-bl-full" />
                                     {/* Status Indicators */}
                                     <div className="absolute bottom-1 right-1 flex flex-col gap-1 items-end">
@@ -2555,16 +2479,26 @@ export default function App() {
                                           <Check className="w-3 h-3 text-white" />
                                         </div>
                                       )}
+                                      {isWatched && !isCompleted && (
+                                        <div className="bg-amber-500 rounded-full p-0.5 shadow-md border border-white">
+                                          <Eye className="w-2.5 h-2.5 text-white" />
+                                        </div>
+                                      )}
                                     </div>
+
+                                    {isWatched && (
+                                      <div className="absolute top-1 left-1">
+                                         <div className="w-1.5 h-1.5 bg-sky-400 rounded-full animate-pulse" />
+                                      </div>
+                                    )}
                                  </div>
                                  <div className="text-center">
-                                    <p className={`text-xs font-bold group-hover:text-sky-600 transition-colors line-clamp-2 w-24 h-8 overflow-hidden ${isCompleted ? 'text-emerald-600' : 'text-slate-700'}`}>{level.title}</p>
-                                    <p className="text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-1">Sổ tay IT</p>
-                                  </div>
-                                </motion.button>
-                              );
-                            })}
-                         <div className="hidden"> {/* Placeholder for structure */}</div>
+                                   <p className={`text-xs font-bold group-hover:text-sky-600 transition-colors line-clamp-2 w-24 h-8 overflow-hidden ${isCompleted ? 'text-emerald-600' : 'text-slate-700'}`}>{level.title}</p>
+                                   <p className="text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-1">Sổ tay IT</p>
+                                 </div>
+                               </motion.button>
+                             );
+                           })}
                          {explorerGrade.levels.filter(l => {
                            const matchesSearch = l.title.toLowerCase().includes(explorerSearch.toLowerCase());
                            let matchesCategory = explorerCategory === 'all';
@@ -2605,20 +2539,16 @@ export default function App() {
                                 transition={{ delay: idx * 0.03 }}
                                 className="p-4 bg-white border-2 border-slate-100 rounded-2xl hover:border-sky-300 transition-all group flex flex-col h-full"
                               >
-                               <div className="flex-1">
-                                  <div className="flex items-center justify-between mb-3">
-                                     <div className="flex items-center gap-2">
-                                        <div className="flex items-center gap-1 bg-sky-100 text-sky-600 px-2 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-widest shadow-sm">
-                                          <Eye className="w-2.5 h-2.5" />
-                                          Xem trước
-                                        </div>
-                                        <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider text-white shadow-sm ${
-                                          q.difficulty === 'Easy' ? 'bg-emerald-500' : q.difficulty === 'Medium' ? 'bg-amber-500' : 'bg-rose-500'
-                                        }`}>
-                                          {difficultyConfig[q.difficulty].label}
-                                        </span>
-                                        <div className="flex items-center gap-1.5 overflow-hidden">
-                                          <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tighter truncate max-w-[100px]">{q.topicTitle}</span>
+                                <div className="flex-1">
+                                   <div className="flex items-center justify-between mb-3">
+                                      <div className="flex items-center gap-2">
+                                         <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider text-white shadow-sm ${
+                                           q.difficulty === 'Easy' ? 'bg-emerald-500' : q.difficulty === 'Medium' ? 'bg-amber-500' : 'bg-rose-500'
+                                         }`}>
+                                           {q.difficulty}
+                                         </span>
+                                         <div className="flex items-center gap-1.5 overflow-hidden">
+                                           <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tighter truncate max-w-[100px]">{q.topicTitle}</span>
                                            {completedLevels.includes(q.topicId) ? (
                                              <CheckCircle2 className="w-3 h-3 text-emerald-500 shrink-0" />
                                            ) : null}
@@ -2835,35 +2765,19 @@ export default function App() {
                           animate={{ rotate: [0, -10, 10, -10, 0], scale: [1, 1.2, 1] }}
                           transition={{ duration: 0.5, repeat: 1, type: "tween" }}
                         >
-                          <CheckCircle2 className="w-12 h-12 md:w-16 md:h-16 text-white" />
+                          <CheckCircle2 className="w-12 h-12 md:w-16 md:h-16" />
                         </motion.div>
                         <span className="text-xl md:text-3xl font-display font-bold uppercase tracking-wider">Chính xác!</span>
-                        <motion.p 
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 0.3 }}
-                          className="text-xs md:text-sm font-medium text-green-100"
-                        >
-                          Giỏi quá, tiếp tục phát huy em nhé!
-                        </motion.p>
                       </>
                     ) : (
                       <>
                         <motion.div
-                          animate={{ x: [-10, 10, -10, 10, 0] }}
-                          transition={{ duration: 0.5 }}
+                          animate={{ x: [-5, 5, -5, 5, 0] }}
+                          transition={{ duration: 0.4, type: "tween" }}
                         >
-                          <XCircle className="w-12 h-12 md:w-16 md:h-16 text-white" />
+                          <XCircle className="w-12 h-12 md:w-16 md:h-16" />
                         </motion.div>
-                        <span className="text-xl md:text-3xl font-display font-bold uppercase tracking-wider">{timeLeft === 0 ? 'Hết giờ!' : 'Chưa đúng rồi!'}</span>
-                        <motion.p 
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 0.3 }}
-                          className="text-xs md:text-sm font-medium text-red-100 text-center"
-                        >
-                          {POSITIVE_REMINDERS[Math.floor(Math.random() * POSITIVE_REMINDERS.length)]}
-                        </motion.p>
+                        <span className="text-xl md:text-3xl font-display font-bold uppercase tracking-wider">{timeLeft === 0 ? 'Hết giờ!' : 'Chưa đúng!'}</span>
                       </>
                     )}
                   </motion.div>
@@ -2885,10 +2799,10 @@ export default function App() {
               <AnimatePresence mode="wait">
                 <motion.div 
                   key={`question-container-${currentQuestionIndex}`}
-                  initial={{ opacity: 0, x: 30, scale: 0.98 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: -30, scale: 0.98 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
                   {filteredQuestions[currentQuestionIndex].image && (
                     <div className="mb-4 md:mb-6 rounded-2xl overflow-hidden border-4 border-white shadow-md">
@@ -3018,8 +2932,8 @@ export default function App() {
 
                     if (isChecking && isSelected) {
                       statusClass = isCorrect 
-                        ? "bg-green-100 border-green-500 text-green-800 ring-4 ring-green-200 shadow-[0_0_20px_rgba(34,197,94,0.4)]"
-                        : "bg-red-100 border-red-500 text-red-800 ring-4 ring-red-200 shadow-[0_0_15px_rgba(239,68,68,0.3)]";
+                        ? "bg-green-100 border-green-500 text-green-800 ring-4 ring-green-200 shadow-md"
+                        : "bg-red-100 border-red-500 text-red-800 ring-4 ring-red-200 shadow-md";
                       animateProps = isCorrect 
                         ? { scale: [1, 1.05, 1], transition: { repeat: Infinity, duration: 0.4, ease: "easeInOut" } }
                         : { x: [-3, 3, -3, 3, 0], transition: { duration: 0.2, ease: "linear" } };
@@ -3049,7 +2963,7 @@ export default function App() {
                         };
                       }
                     } else if (isSelected) {
-                      statusClass = "border-sky-500 bg-sky-50 text-sky-700 ring-4 ring-sky-100 shadow-[0_0_15px_rgba(14,165,233,0.3)]";
+                      statusClass = "border-sky-500 bg-sky-50 text-sky-700 ring-4 ring-sky-100";
                     }
 
                     return (
@@ -3808,34 +3722,21 @@ export default function App() {
                 <h3 className="text-lg md:text-xl font-bold">Top 10 Nhà Thông Thái</h3>
               </div>
 
-              {/* Difficulty & Search Filter */}
-              <div className="p-4 bg-slate-50 border-b border-slate-100 space-y-4">
-                <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-                  {(['All', 'Easy', 'Medium', 'Hard', 'Mixed'] as (Difficulty | 'All')[]).map((filter) => (
-                    <button
-                      key={filter}
-                      onClick={() => fetchLeaderboard(filter)}
-                      className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap ${
-                        leaderboardFilter === filter
-                          ? 'bg-sky-500 text-white shadow-md scale-105'
-                          : 'bg-white text-slate-500 hover:bg-sky-50 border border-slate-200'
-                      }`}
-                    >
-                      {filter === 'All' ? 'Tất cả' : difficultyConfig[filter as Difficulty].label}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                  <input 
-                    type="text"
-                    placeholder="Tìm theo chủ đề hoặc tên người chơi..."
-                    value={leaderboardSearch}
-                    onChange={(e) => setLeaderboardSearch(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-bold outline-none focus:border-sky-300 transition-all shadow-sm"
-                  />
-                </div>
+              {/* Difficulty Filter */}
+              <div className="flex items-center justify-center gap-2 p-4 bg-slate-50 border-b border-slate-100 overflow-x-auto">
+                {(['All', 'Easy', 'Medium', 'Hard', 'Mixed'] as (Difficulty | 'All')[]).map((filter) => (
+                  <button
+                    key={filter}
+                    onClick={() => fetchLeaderboard(filter)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap ${
+                      leaderboardFilter === filter
+                        ? 'bg-sky-500 text-white shadow-md scale-105'
+                        : 'bg-white text-slate-500 hover:bg-sky-50 border border-slate-200'
+                    }`}
+                  >
+                    {filter === 'All' ? 'Tất cả' : difficultyConfig[filter as Difficulty].label}
+                  </button>
+                ))}
               </div>
 
               <div className="p-4">
@@ -3864,21 +3765,13 @@ export default function App() {
                       Đang tải dữ liệu...
                     </motion.p>
                   </motion.div>
-                ) : leaderboardData.filter(d => 
-                    d.levelTitle.toLowerCase().includes(leaderboardSearch.toLowerCase()) || 
-                    d.userName.toLowerCase().includes(leaderboardSearch.toLowerCase())
-                  ).length === 0 ? (
+                ) : leaderboardData.length === 0 ? (
                   <div className="py-12 text-center text-slate-400">
-                    Không tìm thấy dữ liệu. Hãy thử từ khóa khác!
+                    Chưa có kỷ lục nào. Hãy là người đầu tiên!
                   </div>
                 ) : (
                   <div className="space-y-3">
-                    {leaderboardData
-                      .filter(d => 
-                        d.levelTitle.toLowerCase().includes(leaderboardSearch.toLowerCase()) || 
-                        d.userName.toLowerCase().includes(leaderboardSearch.toLowerCase())
-                      )
-                      .map((entry, index) => (
+                    {leaderboardData.map((entry, index) => (
                       <div 
                         key={entry.id}
                         className={`flex items-center gap-4 p-4 rounded-2xl border-2 transition-all ${

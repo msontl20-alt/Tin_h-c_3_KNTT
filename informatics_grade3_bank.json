@@ -1,0 +1,502 @@
+[
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "1. Thiết bị nào giúp em đưa thông tin hình ảnh từ bên ngoài vào máy tính?",
+    "A": "Máy in",
+    "B": "Loa",
+    "C": "Máy ảnh kĩ thuật số",
+    "D": "Màn hình",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "2. Máy tính xách tay có các bộ phận nào được tích hợp sẵn thành một khối?",
+    "A": "Màn hình, thân máy, bàn phím và vùng cảm ứng chuột",
+    "B": "Màn hình và máy in",
+    "C": "Bàn phím và loa phóng thanh",
+    "D": "Chuột rời và màn hình",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "3. Đâu là ví dụ về phần mềm máy tính?",
+    "A": "Bàn phím",
+    "B": "Trình duyệt web Google Chrome",
+    "C": "Chuột máy tính",
+    "D": "Dây nguồn",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "4. Tại sao em không nên chạm vào các dây điện phía sau thân máy tính?",
+    "A": "Vì sợ dây bị đứt",
+    "B": "Vì dây điện rất bẩn",
+    "C": "Để tránh bị điện giật gây nguy hiểm",
+    "D": "Vì làm dây bị rối",
+    "dap_an": "C",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "5. Khi gõ phím, hai bàn tay em nên đặt ở hàng phím nào để thuận tiện nhất?",
+    "A": "Hàng phím trên",
+    "B": "Hàng phím cơ sở",
+    "C": "Hàng phím dưới",
+    "D": "Hàng phím số",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "6. Những bộ phận của máy tính mà em có thể nhìn thấy và chạm vào được (như chuột, bàn phím, màn hình) gọi là gì?",
+    "A": "Phần mềm",
+    "B": "Phần cứng",
+    "C": "Trò chơi",
+    "D": "Internet",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "7. Thiết bị nào giúp máy tính phát ra âm thanh (như tiếng nhạc, tiếng nói) để em nghe được?",
+    "A": "Bàn phím",
+    "B": "Chuột",
+    "C": "Loa",
+    "D": "Máy quét",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "8. Để bảo vệ mắt khi sử dụng máy tính, em nên giữ khoảng cách từ mắt đến màn hình khoảng bao nhiêu?",
+    "A": "Sát vào màn hình",
+    "B": "Khoảng 5cm",
+    "C": "Từ 50cm đến 80cm",
+    "D": "Càng xa càng tốt",
+    "dap_an": "C",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "9. Thiết bị nào dùng để điều khiển con trỏ trên màn hình máy tính?",
+    "A": "Thân máy",
+    "B": "Màn hình",
+    "C": "Chuột máy tính",
+    "D": "Loa",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "10. Bộ phận nào của máy tính chứa bộ não (CPU) giúp máy tính xử lý mọi thông tin?",
+    "A": "Màn hình",
+    "B": "Thân máy",
+    "C": "Bàn phím",
+    "D": "Chuột",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "11. Thiết bị nào giúp em đưa hình ảnh hoặc văn bản từ máy tính ra giấy?",
+    "A": "Bàn phím",
+    "B": "Máy in",
+    "C": "Chuột",
+    "D": "Máy quét",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "12. Các chương trình giúp em học tập, vẽ tranh hay giải trí trên máy tính (như MS Paint, Scratch) được gọi là gì?",
+    "A": "Phần cứng",
+    "B": "Phần mềm",
+    "C": "Thân máy",
+    "D": "Dây kết nối",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "13. Để gõ tên của mình vào máy tính, em sẽ sử dụng thiết bị nào?",
+    "A": "Chuột",
+    "B": "Loa",
+    "C": "Bàn phím",
+    "D": "Màn hình",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "14. Trước khi lau chùi hoặc vệ sinh máy tính, em nên làm gì để đảm bảo an toàn?",
+    "A": "Bật máy tính lên",
+    "B": "Tắt nguồn và rút điện máy tính",
+    "C": "Vừa lau vừa gõ phím",
+    "D": "Để máy tính ở nơi ẩm ướt",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "15. Bộ phận nào của máy tính hiển thị cho em thấy kết quả làm việc, giống như một chiếc ti vi?",
+    "A": "Màn hình",
+    "B": "Thân máy",
+    "C": "Chuột",
+    "D": "Bàn phím",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "16. Thiết bị nào giúp em đưa hình ảnh khuôn mặt của mình vào máy tính để gọi điện video cho bạn bè?",
+    "A": "Bàn phím",
+    "B": "Webcam",
+    "C": "Loa",
+    "D": "Máy in",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "17. Theo em, chuột máy tính là phần cứng hay phần mềm?",
+    "A": "Phần cứng",
+    "B": "Phần mềm",
+    "C": "Cả hai đều đúng",
+    "D": "Cả hai đều sai",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "18. Tại sao em không nên vừa ăn uống vừa sử dụng máy tính?",
+    "A": "Vì sợ máy tính bị đói",
+    "B": "Để tránh thức ăn, nước uống rơi vào làm hỏng các bộ phận máy tính",
+    "C": "Vì máy tính sẽ ăn mất đồ ăn của em",
+    "D": "Vì đồ ăn sẽ làm máy tính chạy nhanh hơn",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "19. Khi em muốn nghe nhạc một mình mà không làm phiền người xung quanh, em nên sử dụng thiết bị nào?",
+    "A": "Loa",
+    "B": "Tai nghe",
+    "C": "Bàn phím",
+    "D": "Màn hình",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "20. Tư thế ngồi đúng khi sử dụng máy tính giúp em tránh được điều gì?",
+    "A": "Tránh bị đau lưng và vẹo cột sống",
+    "B": "Giúp em cao nhanh hơn",
+    "C": "Giúp máy tính không bị hỏng",
+    "D": "Giúp bàn phím không bị mờ chữ",
+    "dap_an": "A",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "21. Thiết bị nào sau đây vừa có thể là thiết bị vào, vừa có thể là thiết bị ra?",
+    "A": "Chuột máy tính",
+    "B": "Bàn phím",
+    "C": "Màn hình cảm ứng",
+    "D": "Loa",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "22. Khi bật máy tính, thùng máy có đèn sáng và quạt quay nhưng màn hình vẫn tối đen. Em nên kiểm tra bộ phận nào đầu tiên?",
+    "A": "Bàn phím",
+    "B": "Chuột",
+    "C": "Dây cáp nối màn hình với thân máy",
+    "D": "Loa",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "23. Phím nào trên bàn phím thường được dùng để thoát khỏi một chương trình hoặc hủy bỏ một lệnh đang thực hiện?",
+    "A": "Enter",
+    "B": "Space",
+    "C": "Esc",
+    "D": "Shift",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 1: Máy tính và em",
+    "cau_hoi": "24. Nếu tháo bỏ thành phần này bên trong thân máy, máy tính sẽ không thể khởi động được hệ điều hành. Đó là gì?",
+    "A": "Ổ cứng",
+    "B": "Loa",
+    "C": "Chuột",
+    "D": "Máy in",
+    "dap_an": "A",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "25. Trong một địa chỉ trang web như 'www.google.com.vn', phần đuôi '.vn' thường cho biết điều gì?",
+    "A": "Trang web này rất vui",
+    "B": "Trang web thuộc về Việt Nam",
+    "C": "Trang web có video",
+    "D": "Trang web chỉ có chữ",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "26. Để tìm kiếm về 'Hổ' nhưng muốn loại bỏ các kết quả về 'Hổ báo', em nên gõ từ khóa vào Google như thế nào?",
+    "A": "Hổ cộng báo",
+    "B": "Hổ trừ báo (Hổ -báo)",
+    "C": "Hổ và báo",
+    "D": "Hổ hoặc báo",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "27. Tại sao việc sử dụng Wifi công cộng không có mật khẩu (Free Wifi) có thể không an toàn?",
+    "A": "Làm tốn pin máy tính",
+    "B": "Máy tính sẽ bị chậm",
+    "C": "Người lạ có thể theo dõi và lấy trộm thông tin của em",
+    "D": "Làm hỏng màn hình",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "28. Biểu tượng hình ngôi sao (Bookmark) trên trình duyệt có tác dụng chính là gì?",
+    "A": "Để trang trí",
+    "B": "Để lưu lại địa chỉ các trang web yêu thích để mở lại nhanh",
+    "C": "Để tắt máy tính",
+    "D": "Để tăng tốc độ mạng",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "29. Trình duyệt web (ví dụ như Chrome, Edge) dùng để làm gì?",
+    "A": "Để vẽ tranh",
+    "B": "Để xem phim",
+    "C": "Để truy cập và xem nội dung các trang web",
+    "D": "Để gõ văn bản",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "30. Khi muốn tìm kiếm thông tin về một loài động vật trên mạng, em nên sử dụng công cụ nào?",
+    "A": "Thùng rác",
+    "B": "Máy tính bỏ túi",
+    "C": "Công cụ tìm kiếm (như Google)",
+    "D": "Phần mềm vẽ Paint",
+    "dap_an": "C",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "31. Tại sao em cần giữ bí mật mật khẩu của mình?",
+    "A": "Để mật khẩu không bị cũ",
+    "B": "Để bảo vệ tài khoản của em không bị người khác sử dụng trái phép",
+    "C": "Để máy tính không bị nóng",
+    "D": "Để mạng Internet chạy nhanh hơn",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "32. Nếu em thấy một trang web yêu cầu cung cấp số điện thoại hoặc địa chỉ nhà, em nên làm gì?",
+    "A": "Điền ngay thông tin",
+    "B": "Hỏi ý kiến và xin phép bố mẹ trước khi điền",
+    "C": "Nhờ bạn điền hộ",
+    "D": "Tự nghĩ ra một địa chỉ giả",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "33. Thư điện tử (Email) giúp em trao đổi thông tin với bạn bè ở xa thông qua điều kiện gì?",
+    "A": "Phải có tem thư",
+    "B": "Phải có mạng Internet",
+    "C": "Phải có máy in",
+    "D": "Phải có tivi",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "34. Làm thế nào để biết máy tính hoặc điện thoại đã được kết nối Internet?",
+    "A": "Nhìn thấy biểu tượng cột sóng Wifi hoặc biểu tượng mạng",
+    "B": "Nhìn thấy bàn phím sáng đèn",
+    "C": "Nhìn thấy loa đang bật",
+    "D": "Nhìn thấy chuột đang di chuyển",
+    "dap_an": "A",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "35. Trình duyệt web giống như cái gì giúp em đi tham quan các trang web trên Internet?",
+    "A": "Cái chổi",
+    "B": "Một con tàu hoặc chiếc xe",
+    "C": "Một cái bút",
+    "D": "Một cục tẩy",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "36. Thiết bị nào trong nhà thường có 'râu' và phát ra sóng Wifi?",
+    "A": "Tủ lạnh",
+    "B": "Cục phát Wifi (Router)",
+    "C": "Máy giặt",
+    "D": "Nồi cơm điện",
+    "dap_an": "B",
+    "muc_do": "Nhan biet"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "37. Tại sao em không nên tự ý bấm vào các biểu tượng lạ, nhấp nháy trên trang web?",
+    "A": "Vì nó sẽ làm hỏng bàn phím",
+    "B": "Vì nó có thể chứa virus hoặc dẫn đến trang web xấu",
+    "C": "Vì nó làm máy tính hết pin nhanh",
+    "D": "Vì nó làm loa bị hỏng",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm thông tin",
+    "cau_hoi": "38. Nếu em đổi phần mở rộng của một tệp văn bản từ '.docx' sang '.jpg', tệp đó sẽ như thế nào?",
+    "A": "Biến thành một bức ảnh",
+    "B": "Trở thành tệp nhạc",
+    "C": "Không thể mở được vì nội dung vẫn là văn bản",
+    "D": "Máy tính sẽ bị hỏng",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm thông tin",
+    "cau_hoi": "39. Ưu điểm lớn nhất của lưu trữ dữ liệu trên 'đám mây' (như Google Drive) là gì?",
+    "A": "Nhiều ảnh đẹp hơn",
+    "B": "Có thể truy cập ở bất kỳ máy tính nào có mạng",
+    "C": "Không cần màn hình",
+    "D": "Làm tệp nhẹ hơn",
+    "dap_an": "B",
+    "muc_do": "Thong hieu"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm thông tin",
+    "cau_hoi": "40. Khi em xóa một 'Thư mục mẹ', điều gì sẽ xảy ra với các tệp tin bên trong nó?",
+    "A": "Các tệp tin vẫn còn nguyên",
+    "B": "Tệp tin sẽ tự chuyển sang chỗ khác",
+    "C": "Tất cả tệp tin bên trong đều bị xóa theo",
+    "D": "Thư mục mẹ sẽ to ra",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá số",
+    "cau_hoi": "41. Khi lấy một bức ảnh từ Internet để làm bài thuyết trình, hành động nào là đúng đắn nhất?",
+    "A": "Tự nhận là mình vẽ",
+    "B": "Ghi rõ nguồn hoặc tên trang web nơi mình lấy ảnh",
+    "C": "Xóa tên tác giả trên ảnh",
+    "D": "Cố tình làm mờ ảnh",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá số",
+    "cau_hoi": "42. Mật khẩu nào dưới đây được coi là an toàn và khó bị đoán ra nhất?",
+    "A": "123456",
+    "B": "tên của em",
+    "C": "Mật mã có cả chữ hoa, chữ thường, số và ký tự đặc biệt",
+    "D": "Ngày sinh của em",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "43. Trong phần mềm Paint, để vẽ được một ngôi sao 5 cánh cân đối, em cần nhấn giữ phím nào?",
+    "A": "Ctrl",
+    "B": "Alt",
+    "C": "Shift",
+    "D": "Backspace",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "44. Để chọn nhanh toàn bộ văn bản trong Microsoft Word, em sử dụng tổ hợp phím nào?",
+    "A": "Ctrl + C",
+    "B": "Ctrl + V",
+    "C": "Ctrl + A",
+    "D": "Ctrl + S",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "45. Trong Word, để một hình ảnh nằm bên dưới các dòng chữ, em chọn tính năng Wrap Text nào?",
+    "A": "In line with text",
+    "B": "Square",
+    "C": "Behind text",
+    "D": "In front of text",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 3: Tổ chức lưu trữ, tìm kiếm thông tin",
+    "cau_hoi": "46. Để tìm các tệp tin đã tạo từ một năm trước trên máy tính, em nên dùng cách sắp xếp nào?",
+    "A": "Sắp xếp theo Tên",
+    "B": "Sắp xếp theo Ngày (Date modified)",
+    "C": "Sắp xếp theo Kích thước",
+    "D": "Sắp xếp theo Loại",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá số",
+    "cau_hoi": "47. Nếu có người lạ yêu cầu em gửi mật khẩu tài khoản để 'tặng quà' cho em, em nên làm gì?",
+    "A": "Gửi ngay để nhận quà",
+    "B": "Gửi mật khẩu giả",
+    "C": "Tuyệt đối không gửi và báo ngay cho bố mẹ hoặc thầy cô",
+    "D": "Hỏi bạn xem có nên gửi không",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 4: Đạo đức, pháp luật và văn hoá số",
+    "cau_hoi": "48. Hành động liên tục gửi tin nhắn xúc phạm hoặc chia sẻ tin đồn xấu về bạn trên nhóm lớp được gọi là gì?",
+    "A": "Giao lưu trực tuyến",
+    "B": "Bắt nạt qua mạng (Cyberbullying)",
+    "C": "Học nhóm",
+    "D": "Trao đổi thông tin",
+    "dap_an": "B",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 5: Ứng dụng tin học",
+    "cau_hoi": "49. Khi gõ tiếng Việt kiểu Telex, để có chữ 'ư', em gõ chữ 'u' và phím chữ nào?",
+    "A": "s",
+    "B": "f",
+    "C": "w",
+    "D": "r",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  },
+  {
+    "chu_de": "Chủ đề 2: Mạng máy tính và Internet",
+    "cau_hoi": "50. Khi thấy một tin nhắn đe dọa hoặc làm em sợ hãi trên mạng, em nên làm gì?",
+    "A": "Sợ hãi và khóc một mình",
+    "B": "Nhắn tin cãi nhau với họ",
+    "C": "Chụp ảnh màn hình làm bằng chứng và báo ngay cho người lớn",
+    "D": "Xóa máy tính",
+    "dap_an": "C",
+    "muc_do": "Van dung"
+  }
+]
