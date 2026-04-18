@@ -3823,7 +3823,7 @@ export default function App() {
                         onClick={() => setShowReviewIncorrectModal(true)}
                         className="px-4 py-2 bg-white text-red-600 border border-red-200 rounded-xl text-xs font-bold shadow-sm flex items-center justify-center gap-1"
                       >
-                        <Eye className="w-4 h-4" /> Xem đáp án
+                        <Eye className="w-4 h-4" /> Giải thích
                       </motion.button>
                       <motion.button
                         whileHover={{ scale: 1.05 }}
@@ -3831,7 +3831,7 @@ export default function App() {
                         onClick={handleReviewIncorrect}
                         className="px-4 py-2 bg-red-500 text-white rounded-xl text-xs font-bold shadow-sm shadow-red-200 flex items-center justify-center gap-1"
                       >
-                        <RotateCcw className="w-4 h-4" /> Ôn luyện lại
+                        <RotateCcw className="w-4 h-4" /> Làm lại câu sai
                       </motion.button>
                     </div>
                   </motion.div>
@@ -3839,13 +3839,23 @@ export default function App() {
               </motion.div>
 
               <div className="grid gap-3">
+                {incorrectQuestions.length > 0 && (
+                  <motion.button 
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={handleReviewIncorrect}
+                    className="btn-playful bg-rose-500 text-white flex items-center justify-center gap-2"
+                  >
+                    <RotateCcw className="w-5 h-5" /> Ôn lại câu sai ({incorrectQuestions.length})
+                  </motion.button>
+                )}
                 <motion.button 
                   whileHover={{ scale: 1.05, y: -5 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => startQuiz()}
                   className="btn-playful bg-sky-500 text-white flex items-center justify-center gap-2"
                 >
-                  <RotateCcw className="w-5 h-5" /> Thử lại
+                  <RotateCcw className="w-5 h-5" /> Thử lại từ đầu
                 </motion.button>
                 <motion.button 
                   whileHover={{ scale: 1.05, y: -5 }}
