@@ -476,14 +476,22 @@ const SelectionLayout = ({
   onSelectLevel, 
   selectedGradeId, 
   selectedLevelId,
-  completedLevels
+  completedLevels,
+  title,
+  searchQuery,
+  onSearchChange,
+  showSearch = false
 }: { 
   children: React.ReactNode,
   onSelectGrade: (g: Grade) => void,
   onSelectLevel: (l: Level) => void,
   selectedGradeId?: number,
   selectedLevelId?: number,
-  completedLevels: number[]
+  completedLevels: number[],
+  title?: React.ReactNode,
+  searchQuery?: string,
+  onSearchChange?: (val: string) => void,
+  showSearch?: boolean
 }) => {
   return (
     <div className="flex flex-col lg:flex-row gap-8 w-full max-w-7xl px-4 items-start">
@@ -497,14 +505,37 @@ const SelectionLayout = ({
           completedLevels={completedLevels}
         />
       </div>
-      <div className="lg:w-3/4 w-full flex justify-center">
-        {children}
+      <div className="lg:w-3/4 w-full flex flex-col">
+        {(title || showSearch) && (
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 md:mb-8 bg-white/40 backdrop-blur-md p-4 rounded-3xl border border-white/50 shadow-sm">
+            {title && (
+              <div className="flex items-center gap-3">
+                {title}
+              </div>
+            )}
+            {showSearch && (
+              <div className="relative w-full md:w-64 group">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-sky-500 transition-colors" />
+                <input 
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => onSearchChange?.(e.target.value)}
+                  placeholder="Tìm chủ đề học tập..."
+                  className="w-full pl-10 pr-4 py-2.5 rounded-2xl border-2 border-slate-100 bg-white focus:border-sky-500 outline-none transition-all text-sm font-medium shadow-sm"
+                />
+              </div>
+            )}
+          </div>
+        )}
+        <div className="w-full">
+          {children}
+        </div>
       </div>
     </div>
   );
 };
 
-type GameState = 'HOME' | 'NAME_INPUT' | 'GRADE_SELECT' | 'LEVEL_SELECT' | 'DIFFICULTY_SELECT' | 'PLAYING' | 'SUMMARY' | 'LEADERBOARD' | 'ACHIEVEMENTS' | 'ABOUT' | 'EXPLORER';
+type GameState = 'INTRO' | 'HOME' | 'NAME_INPUT' | 'GRADE_SELECT' | 'LEVEL_SELECT' | 'DIFFICULTY_SELECT' | 'PLAYING' | 'SUMMARY' | 'LEADERBOARD' | 'ACHIEVEMENTS' | 'ABOUT' | 'EXPLORER';
 
 interface Achievement {
   id: string;
@@ -574,7 +605,7 @@ const POSITIVE_REMINDERS = [
 ];
 
 export default function App() {
-  const [gameState, setGameState] = useState<GameState>('HOME');
+  const [gameState, setGameState] = useState<GameState>('INTRO');
   const [userName, setUserName] = useState<string>(localStorage.getItem('quiz_user_name') || '');
   const [tempName, setTempName] = useState('');
   const [nameError, setNameError] = useState('');
@@ -1659,6 +1690,74 @@ export default function App() {
       </AnimatePresence>
       
       <AnimatePresence mode="wait">
+        {gameState === 'INTRO' && (
+          <motion.div 
+            key="intro"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+            className="text-center z-10 max-w-2xl px-6 py-12 bg-white/40 backdrop-blur-xl rounded-[3rem] border-4 border-white/50 shadow-2xl relative overflow-hidden"
+          >
+            <div className="relative z-10">
+              <motion.div 
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2, type: "spring" }}
+                className="mb-8"
+              >
+                <div className="w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-sky-400 to-sky-600 rounded-[2.5rem] flex items-center justify-center mx-auto shadow-2xl shadow-sky-200 border-4 border-white transform rotate-6 hover:rotate-0 transition-transform duration-500">
+                  <Monitor className="w-16 h-16 md:w-20 md:h-20 text-white" />
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4 }}
+              >
+                <h1 className="text-4xl md:text-6xl font-display font-black text-slate-800 mb-6 tracking-tight leading-tight">
+                  <span className="text-sky-500">Nhà Thông Thái Nhỏ</span> <br/>
+                  <span className="text-slate-700">- Học Tin Học</span>
+                </h1>
+                <p className="text-lg md:text-xl text-slate-500 font-medium mb-12 max-w-md mx-auto leading-relaxed">
+                  Trò chơi học tập môn Tin học dành cho học sinh lớp 3, 4 và 5 với các thử thách thú vị và bổ ích.
+                </p>
+              </motion.div>
+
+              <motion.button 
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  playSound('select');
+                  setGameState('GRADE_SELECT');
+                }}
+                className="group relative px-12 py-5 bg-sky-500 text-white rounded-[2rem] text-2xl font-black shadow-xl shadow-sky-200 hover:bg-sky-600 transition-all overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <div className="flex items-center gap-3">
+                  <Play className="w-8 h-8 fill-current" />
+                  <span>Bắt đầu</span>
+                </div>
+              </motion.button>
+              
+              <div className="mt-12 flex items-center justify-center gap-6">
+                <div className="flex -space-x-3">
+                  {[1,2,3].map(i => (
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center overflow-hidden shadow-sm">
+                      <img src={`https://picsum.photos/seed/${i+10}/40/40`} alt="avatar" />
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Hơn 1000+ bạn nhỏ đang học</p>
+              </div>
+            </div>
+            
+            {/* Background Decorations */}
+            <div className="absolute -top-12 -right-12 w-40 h-40 bg-sky-100 rounded-full blur-3xl opacity-50" />
+            <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-purple-100 rounded-full blur-3xl opacity-50" />
+          </motion.div>
+        )}
+
         {gameState === 'HOME' && (
           <motion.div 
             key="home"
@@ -1916,6 +2015,22 @@ export default function App() {
             onSelectLevel={selectLevel}
             selectedGradeId={selectedGrade.id}
             completedLevels={completedLevels}
+            showSearch={true}
+            searchQuery={topicSearchQuery}
+            onSearchChange={setTopicSearchQuery}
+            title={
+              <div className="flex items-center gap-3">
+                <motion.button 
+                  whileHover={{ scale: 1.2, rotate: -10 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setGameState('GRADE_SELECT')}
+                  className="p-1.5 md:p-2 hover:bg-white rounded-full transition-colors"
+                >
+                  <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-slate-400" />
+                </motion.button>
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-slate-800">Chủ đề: {selectedGrade.title}</h2>
+              </div>
+            }
           >
             <motion.div 
               key="levels"
@@ -1925,30 +2040,6 @@ export default function App() {
               transition={{ type: "spring", damping: 25, stiffness: 120 }}
               className="z-10 w-full"
             >
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 md:mb-8">
-                <div className="flex items-center gap-3 md:gap-4">
-                  <motion.button 
-                    whileHover={{ scale: 1.2, rotate: -10 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setGameState('GRADE_SELECT')}
-                    className="p-1.5 md:p-2 hover:bg-white rounded-full transition-colors"
-                  >
-                    <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-slate-400" />
-                  </motion.button>
-                  <h2 className="text-2xl md:text-3xl font-display font-bold text-slate-800">Chủ đề: {selectedGrade.title}</h2>
-                </div>
-                
-                <div className="relative w-full md:w-64 group">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-sky-500 transition-colors" />
-                  <input 
-                    type="text"
-                    value={topicSearchQuery}
-                    onChange={(e) => setTopicSearchQuery(e.target.value)}
-                    placeholder="Tìm chủ đề..."
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border-2 border-slate-100 bg-white/50 backdrop-blur-sm focus:border-sky-500 outline-none transition-all text-sm font-medium"
-                  />
-                </div>
-              </div>
 
               {/* View Mode & Filter Pills */}
               <div className="flex flex-col md:flex-row md:items-center gap-4 mb-8">
