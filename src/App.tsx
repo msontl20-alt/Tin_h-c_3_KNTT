@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { Component, useState, useEffect, useRef } from 'react';
+import React, { Component, useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Trophy, 
@@ -638,6 +638,49 @@ export default function App() {
 
   const [topicSearchQuery, setTopicSearchQuery] = useState('');
   const [selectedTopicCategory, setSelectedTopicCategory] = useState<string>('all');
+
+  const explorerSearchResults = useMemo(() => {
+    if (!explorerSearch.trim() || explorerSearch.length < 2) return null;
+    const query = explorerSearch.toLowerCase().trim();
+    
+    const results = {
+      topics: [] as any[],
+      questions: [] as any[]
+    };
+
+    GRADES.forEach(grade => {
+      grade.levels.forEach(level => {
+        const topicMatches = level.title.toLowerCase().includes(query) || 
+                           level.description.toLowerCase().includes(query);
+        if (topicMatches) {
+          results.topics.push({ ...level, gradeId: grade.id, gradeTitle: grade.title });
+        }
+
+        level.questions.forEach(q => {
+          if (q.text.toLowerCase().includes(query) || q.explanation.toLowerCase().includes(query)) {
+            results.questions.push({ ...q, topicTitle: level.title, topicId: level.id, gradeId: grade.id, gradeTitle: grade.title });
+          }
+        });
+      });
+    });
+
+    return results;
+  }, [explorerSearch]);
+
+  const highlightText = (text: string, query: string) => {
+    if (!query || query.length < 2) return text;
+    const parts = text.split(new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'));
+    return (
+      <>
+        {parts.map((part, i) => 
+          part.toLowerCase() === query.toLowerCase() 
+            ? <span key={i} className="bg-yellow-200 text-slate-900 rounded-sm px-0.5 font-bold shadow-sm">{part}</span> 
+            : part
+        )}
+      </>
+    );
+  };
+
   const [completedLevels, setCompletedLevels] = useState<number[]>(() => {
     const saved = localStorage.getItem('quiz_completed_levels');
     try {
@@ -665,6 +708,11 @@ export default function App() {
       if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'h') {
         e.preventDefault();
         setIsStealthMode(prev => !prev);
+      }
+      if (e.shiftKey && e.key === 'F' && gameState === 'EXPLORER') {
+        e.preventDefault();
+        const searchInput = document.getElementById('explorer-search-input');
+        if (searchInput) searchInput.focus();
       }
     };
 
@@ -2388,13 +2436,22 @@ export default function App() {
                         <Search className="w-4 h-4 text-slate-400 group-focus-within:text-sky-500 transition-colors" />
                       </div>
                       <input 
+                        id="explorer-search-input"
                         type="text"
                         value={explorerSearch}
                         onChange={(e) => setExplorerSearch(e.target.value)}
                         placeholder="Mã hóa tìm kiếm thông tin..."
-                        className="w-full pl-11 pr-4 py-3 rounded-2xl border-2 border-slate-200 bg-white focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 outline-none transition-all text-[11px] font-bold font-mono placeholder:font-sans placeholder:italic"
+                        className="w-full pl-11 pr-10 py-3 rounded-2xl border-2 border-slate-200 bg-white focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 outline-none transition-all text-[11px] font-bold font-mono placeholder:font-sans placeholder:italic"
                       />
-                      <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-1">
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                         {explorerSearch && (
+                           <button 
+                             onClick={() => setExplorerSearch('')}
+                             className="p-1 text-slate-300 hover:text-slate-500 transition-colors"
+                           >
+                             <XCircle className="w-4 h-4" />
+                           </button>
+                         )}
                          <span className="text-[10px] font-mono text-slate-300 border border-slate-200 px-1 rounded uppercase bg-slate-50">Shift+F</span>
                       </div>
                     </div>
@@ -2478,7 +2535,124 @@ export default function App() {
 
                   {/* Explorer Content */}
                   <div className="flex-1 p-6 md:p-8 overflow-y-auto max-h-[1000px] scrollbar-none bg-[#fdfdfd]">
-                     {!explorerGrade ? (
+                     {explorerSearchResults ? (
+                       <div className="space-y-12">
+                         {/* Topics results */}
+                         {explorerSearchResults.topics.length > 0 && (
+                           <section>
+                              <div className="flex items-center gap-3 mb-6">
+                                <div className="p-2 bg-amber-100 text-amber-600 rounded-lg">
+                                  <Folder className="w-5 h-5" />
+                                </div>
+                                <h3 className="text-lg font-display font-black text-slate-800 uppercase tracking-tight">Chủ đề trùng khớp ({explorerSearchResults.topics.length})</h3>
+                              </div>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {explorerSearchResults.topics.map((topic, idx) => {
+                                  const Icon = ICON_MAP[topic.icon] || FileText;
+                                  return (
+                                    <motion.button
+                                      key={`search-topic-${topic.id}-${idx}`}
+                                      initial={{ opacity: 0, scale: 0.95 }}
+                                      animate={{ opacity: 1, scale: 1 }}
+                                      transition={{ delay: idx * 0.05 }}
+                                      onClick={() => {
+                                        setExplorerGrade(GRADES.find(g => g.id === topic.gradeId) || null);
+                                        selectLevel(topic);
+                                        setExplorerSearch('');
+                                      }}
+                                      className="flex items-start gap-4 p-4 bg-white border-2 border-slate-100 rounded-2xl hover:border-sky-300 hover:shadow-md transition-all group text-left"
+                                    >
+                                      <div className="w-14 h-14 bg-sky-50 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-sky-100 transition-colors">
+                                        <Icon className="w-7 h-7 text-sky-500" />
+                                      </div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="flex items-center gap-2 mb-1">
+                                          <span className="text-[10px] font-black py-0.5 px-2 bg-slate-100 text-slate-500 rounded-full uppercase tracking-widest">{topic.gradeTitle}</span>
+                                        </div>
+                                        <p className="text-sm font-bold text-slate-800 line-clamp-1 mb-1">{highlightText(topic.title, explorerSearch)}</p>
+                                        <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">{highlightText(topic.description, explorerSearch)}</p>
+                                      </div>
+                                    </motion.button>
+                                  );
+                                })}
+                              </div>
+                           </section>
+                         )}
+
+                         {/* Questions results */}
+                         {explorerSearchResults.questions.length > 0 && (
+                           <section>
+                              <div className="flex items-center gap-3 mb-6">
+                                <div className="p-2 bg-sky-100 text-sky-600 rounded-lg">
+                                  <ListOrdered className="w-5 h-5" />
+                                </div>
+                                <h3 className="text-lg font-display font-black text-slate-800 uppercase tracking-tight">Câu hỏi trùng khớp ({explorerSearchResults.questions.length})</h3>
+                              </div>
+                              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {explorerSearchResults.questions.map((q, idx) => (
+                                  <motion.div
+                                    key={`search-q-${q.topicId}-${q.id}-${idx}`}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: idx * 0.03 }}
+                                    className="p-4 bg-white border-2 border-slate-100 rounded-2xl hover:border-sky-300 transition-all group flex flex-col h-full"
+                                  >
+                                    <div className="flex-1">
+                                       <div className="flex items-center justify-between mb-3">
+                                          <div className="flex flex-wrap items-center gap-2">
+                                             <span className="text-[9px] font-black py-0.5 px-2 bg-slate-100 text-slate-500 rounded-full uppercase tracking-widest">{q.gradeTitle}</span>
+                                             <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider text-white shadow-sm ${
+                                               q.difficulty === 'Easy' ? 'bg-emerald-500' : q.difficulty === 'Medium' ? 'bg-amber-500' : 'bg-rose-500'
+                                             }`}>
+                                               {difficultyConfig[q.difficulty].label}
+                                             </span>
+                                             <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tighter truncate max-w-[80px]">{q.topicTitle}</span>
+                                          </div>
+                                          <button
+                                             onClick={() => {
+                                               playSound('select');
+                                               const grade = GRADES.find(g => g.id === q.gradeId);
+                                               const level = grade?.levels.find(l => l.id === q.topicId);
+                                               if (level) {
+                                                  setExplorerGrade(grade || null);
+                                                  selectLevel(level);
+                                                  setExplorerSearch('');
+                                               }
+                                             }}
+                                             className="p-1.5 bg-sky-50 text-sky-500 rounded-lg hover:bg-sky-500 hover:text-white transition-all shadow-sm shrink-0"
+                                           >
+                                             <Play className="w-3.5 h-3.5 fill-current" />
+                                           </button>
+                                       </div>
+                                       <p className="text-sm font-bold text-slate-700 leading-relaxed mb-4 line-clamp-3">{highlightText(q.text, explorerSearch)}</p>
+                                    </div>
+                                    <div className="p-3 bg-slate-50/50 rounded-xl border border-slate-100 group-hover:bg-sky-50/50 group-hover:border-sky-100 transition-colors">
+                                       <div className="flex items-center gap-2 mb-1.5 text-sky-700 opacity-70">
+                                         <Lightbulb className="w-3 h-3" />
+                                         <span className="text-[9px] font-bold uppercase tracking-[0.2em]">Kiến thức gợi ý</span>
+                                       </div>
+                                       <p className="text-[11px] text-slate-500 leading-relaxed italic line-clamp-2">{highlightText(q.explanation, explorerSearch)}</p>
+                                    </div>
+                                  </motion.div>
+                                ))}
+                              </div>
+                           </section>
+                         )}
+
+                         {explorerSearchResults.topics.length === 0 && explorerSearchResults.questions.length === 0 && (
+                           <div className="py-24 text-center">
+                              <div className="relative inline-block mb-6">
+                                <Search className="w-20 h-20 text-slate-200" />
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                  <XCircle className="w-8 h-8 text-rose-400 mt-8 ml-8" />
+                                </div>
+                              </div>
+                              <h3 className="text-xl font-display font-black text-slate-400 uppercase tracking-tight mb-2">Không tìm thấy nội dung</h3>
+                              <p className="text-slate-400 text-sm italic">Hãy thử từ khóa khác như " Scratch", "Internet" hoặc "Tệp tin"</p>
+                           </div>
+                         )}
+                       </div>
+                     ) : !explorerGrade ? (
                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
                          {GRADES.filter(g => g.title.toLowerCase().includes(explorerSearch.toLowerCase())).map(grade => (
                            <motion.button
